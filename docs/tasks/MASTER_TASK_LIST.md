@@ -13,7 +13,7 @@ This table operationalizes the executable tasks in [Phase 3](../migration/PHASE_
 | [M1.4](phases/M1.4.md) | Router skeleton, error handling, migration markers | Completed | Codex | M1.3 | Not opened | Approved |
 | [M2.1](phases/M2.1.md) | Navigation model and route map | Completed | Codex | M1.4 | Not opened | Approved |
 | [M2.2](phases/M2.2.md) | Shell chrome and visual-QA harness | Completed | Codex | M2.1 | Not opened | Approved |
-| [M2.3](phases/M2.3.md) | Top-bar actions | Review | Codex | M2.2 | Not opened | Required |
+| [M2.3](phases/M2.3.md) | Top-bar actions | Completed | Codex | M2.2 | Not opened | Approved |
 | [M3.1](phases/M3.1.md) | Section/Report template, RecordFilter, export | Pending | Not assigned | M2.3 | TBD | Required |
 | [M3.2](phases/M3.2.md) | Appraisal | Pending | Not assigned | M3.1 | TBD | Required |
 | [M3.3](phases/M3.3.md) | HR (Overtime) | Pending | Not assigned | M3.2 | TBD | Required |
