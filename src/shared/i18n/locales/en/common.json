@@ -1,0 +1,24 @@
+{
+  "calendar": {
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "weekdaysShort": ["S", "M", "T", "W", "T", "F", "S"]
+  },
+  "duration": {
+    "minuteShort": "m",
+    "hourShort": "h",
+    "dayShort": "d"
+  }
+}

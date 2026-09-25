@@ -7,6 +7,7 @@ const forbiddenStrings = [
   '__deactivate_edit_mode',
   '__ihubShowErr',
   '?ihubPreview',
+  'ihub-dev-lng-switch',
 ];
 
 if (!existsSync(join(outputDirectory, 'index.html'))) {

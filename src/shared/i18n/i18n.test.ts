@@ -1,0 +1,117 @@
+import { renderHook } from '@testing-library/react';
+import { beforeAll, describe, expect, it } from 'vitest';
+
+import arCommon from '@/shared/i18n/locales/ar/common.json';
+import arValidation from '@/shared/i18n/locales/ar/validation.json';
+import enCommon from '@/shared/i18n/locales/en/common.json';
+import enValidation from '@/shared/i18n/locales/en/validation.json';
+import { getCalendarLabels } from '@/shared/i18n/calendar';
+import {
+  formatDate,
+  formatDuration,
+  formatKwd,
+  formatProfileClock,
+} from '@/shared/i18n/format';
+import { i18n, initializeI18n } from '@/shared/i18n/i18n';
+import { getLocalizedText, useLocalizedText } from '@/shared/i18n/localized';
+import { directionForLocale, useDirection } from '@/shared/i18n/useDirection';
+
+function leafKeys(value: unknown, prefix = ''): string[] {
+  if (Array.isArray(value)) {
+    return value.flatMap((item, index) =>
+      leafKeys(item, `${prefix}.${String(index)}`),
+    );
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.entries(value).flatMap(([key, child]) =>
+      leafKeys(child, prefix ? `${prefix}.${key}` : key),
+    );
+  }
+
+  return [prefix];
+}
+
+beforeAll(async () => {
+  await initializeI18n('en');
+});
+
+describe('i18n resources', () => {
+  it.each([
+    ['common', enCommon, arCommon],
+    ['validation', enValidation, arValidation],
+  ])('keeps en/ar %s keys in parity', (_namespace, english, arabic) => {
+    expect(leafKeys(arabic).sort()).toEqual(leafKeys(english).sort());
+  });
+
+  it('retains the prototype calendar labels explicitly', () => {
+    expect(getCalendarLabels('ar')).toEqual({
+      months: [
+        'يناير',
+        'فبراير',
+        'مارس',
+        'أبريل',
+        'مايو',
+        'يونيو',
+        'يوليو',
+        'أغسطس',
+        'سبتمبر',
+        'أكتوبر',
+        'نوفمبر',
+        'ديسمبر',
+      ],
+      weekdaysShort: ['أح', 'إن', 'ذل', 'رب', 'خم', 'جم', 'سب'],
+    });
+  });
+});
+
+describe('formatters', () => {
+  it('formats KWD with exactly three decimal places', () => {
+    expect(formatKwd(1234.5)).toBe('1,234.500 KWD');
+  });
+
+  it('uses Latin digits for Arabic output', () => {
+    const formatted = `${formatKwd(1234.5, 'ar')} ${formatDate(
+      Date.UTC(2026, 8, 25),
+      'ar',
+    )}`;
+
+    expect(formatted).toMatch(/[0-9]/);
+    expect(formatted).not.toMatch(/[٠-٩]/);
+  });
+
+  it('formats the profile clock in Asia/Bahrain', () => {
+    expect(formatProfileClock(Date.UTC(2026, 0, 1, 21, 5, 6), 'en')).toBe(
+      '00:05:06',
+    );
+  });
+
+  it('formats the specified short durations', () => {
+    expect(formatDuration(45, 'en')).toBe('45m');
+    expect(formatDuration(90, 'en')).toBe('1.5h');
+    expect(formatDuration(2_880, 'en')).toBe('2d');
+  });
+});
+
+describe('localized content and direction', () => {
+  const content = { ar: 'مرحبا', en: 'Hello' } as const;
+
+  it('keeps bilingual domain content as data', () => {
+    expect(getLocalizedText(content, 'ar')).toBe('مرحبا');
+    expect(directionForLocale('ar')).toBe('rtl');
+    expect(directionForLocale('en')).toBe('ltr');
+  });
+
+  it('updates localized hooks with the active i18next language', async () => {
+    await i18n.changeLanguage('ar');
+    const localized = renderHook(() => useLocalizedText());
+    const direction = renderHook(() => useDirection());
+
+    expect(localized.result.current(content)).toBe('مرحبا');
+    expect(direction.result.current).toBe('rtl');
+
+    localized.unmount();
+    direction.unmount();
+    await i18n.changeLanguage('en');
+  });
+});

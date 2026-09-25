@@ -60,4 +60,6 @@ npm run check:bundle
 
 `M1.2 — Design Tokens, Fonts, Base CSS & Tailwind: COMPLETED`
 
-M1.3 has not started.
+`M1.3 — i18n, Preferences & Direction: COMPLETED`
+
+M1.4 has not started.

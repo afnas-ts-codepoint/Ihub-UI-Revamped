@@ -9,7 +9,7 @@ This table operationalizes the executable tasks in [Phase 3](../migration/PHASE_
 | [M0.3](phases/M0.3.md) | Planning documents in the new repository | Completed | Not assigned | M0.1 | TBD | Approved |
 | [M1.1](phases/M1.1.md) | Scaffold and quality gates | Completed | Codex | M0.* | Not opened | Approved |
 | [M1.2](phases/M1.2.md) | Design tokens, fonts, base CSS, Tailwind | Completed | Codex | M1.1 | Not opened | Approved |
-| [M1.3](phases/M1.3.md) | i18n, preferences, direction | Pending | Not assigned | M1.2 | TBD | Required |
+| [M1.3](phases/M1.3.md) | i18n, preferences, direction | Completed | Codex | M1.2 | Not opened | Approved |
 | [M1.4](phases/M1.4.md) | Router skeleton, error handling, migration markers | Pending | Not assigned | M1.3 | TBD | Required |
 | [M2.1](phases/M2.1.md) | Navigation model and route map | Pending | Not assigned | M1.4 | TBD | Required |
 | [M2.2](phases/M2.2.md) | Shell chrome and visual-QA harness | Pending | Not assigned | M2.1 | TBD | Required |
