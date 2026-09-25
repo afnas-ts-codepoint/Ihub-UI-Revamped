@@ -75,6 +75,7 @@ export async function openMobileDrawer(page: Page) {
     .evaluate((element: HTMLButtonElement) => {
       element.click();
     });
+  await page.waitForTimeout(600);
 }
 
 export async function captureSideBySide(

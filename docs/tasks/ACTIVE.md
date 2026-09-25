@@ -1,5 +1,3 @@
 # Active Migration Tasks
 
-| ID | Task | Started | Owner | Notes |
-|---|---|---|---|---|
-| [M2.2](phases/M2.2.md) | Shell chrome and visual-QA harness | 2026-09-25 | Codex | Delta intake passed; implementation and QA in progress. |
+No migration task is active. M2.2 is in Review and awaits human shell/icon-map approval; M2.3 has not started.

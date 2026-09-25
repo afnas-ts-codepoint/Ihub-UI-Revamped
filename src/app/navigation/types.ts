@@ -14,6 +14,7 @@ export type NavNode = Readonly<{
     | 'star'
     | 'users';
   megaMenu?: boolean;
+  badge?: string;
   topbar?: boolean;
   firstLeafRoute?: boolean;
   hideInTopNav?: boolean;

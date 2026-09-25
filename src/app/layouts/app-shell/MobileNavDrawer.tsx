@@ -68,6 +68,7 @@ export function MobileNavDrawer({
             <NavTreeList
               activeTrail={activeTrail}
               items={NAV_TREE}
+              key={activeTrail.map((node) => node.id).join('/')}
               onNavigate={(node) => {
                 onNavigate(node);
                 if (!node.children?.length) onOpenChange(false);

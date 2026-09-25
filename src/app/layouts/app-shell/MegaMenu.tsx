@@ -18,11 +18,7 @@ type PanelRect = Readonly<{
   width: number;
 }>;
 
-export function MegaMenu({
-  activeTrail,
-  item,
-  onNavigate,
-}: MegaMenuProps) {
+export function MegaMenu({ activeTrail, item, onNavigate }: MegaMenuProps) {
   const { t } = useTranslation('nav');
   const trigger = useRef<HTMLButtonElement>(null);
   const wasOpen = useRef(false);
@@ -99,7 +95,7 @@ export function MegaMenu({
       <button
         aria-current={isActive ? 'page' : undefined}
         aria-expanded={open}
-        className="flex items-center gap-2 rounded-lg px-3 py-2 text-md font-medium whitespace-nowrap data-[active=true]:bg-inset data-[active=true]:text-fg data-[active=false]:text-fg-3"
+        className="flex items-center gap-2 rounded-lg px-3 py-2 text-md font-medium whitespace-nowrap data-[active=false]:text-fg-3 data-[active=true]:bg-inset data-[active=true]:text-fg"
         data-active={isActive || open}
         data-testid="masters-trigger"
         onClick={toggle}
@@ -136,14 +132,14 @@ export function MegaMenu({
                   width: rect.width,
                 }}
               >
-                <div className="grid grid-cols-[186px_minmax(0,1fr)] items-start gap-4.5 max-tablet:grid-cols-1">
-                  <div className="flex flex-col gap-0.5 border-e border-line pe-4 max-tablet:border-e-0 max-tablet:border-b max-tablet:pb-3">
+                <div className="grid grid-cols-[186px_minmax(0,1fr)] items-start gap-4.5">
+                  <div className="flex flex-col gap-0.5 border-e border-line pe-4">
                     {groups.map((group, index) => {
                       const active = index === category;
                       return (
                         <button
                           aria-pressed={active}
-                          className="flex items-center justify-between gap-2 rounded-lg px-2.5 py-2 text-start text-base font-medium data-[active=true]:bg-accent-dim data-[active=true]:font-semibold data-[active=true]:text-accent data-[active=false]:text-fg-2 hover:bg-canvas"
+                          className="flex items-center justify-between gap-2 rounded-lg px-2.5 py-2 text-start text-base font-medium hover:bg-canvas data-[active=false]:text-fg-2 data-[active=true]:bg-accent-dim data-[active=true]:font-semibold data-[active=true]:text-accent"
                           data-active={active}
                           key={group.id}
                           onClick={() => {
@@ -161,13 +157,13 @@ export function MegaMenu({
                       );
                     })}
                   </div>
-                  <div className="grid grid-cols-3 gap-x-4 max-tablet:grid-cols-2 max-phone:grid-cols-1">
+                  <div className="grid grid-cols-3 gap-x-4">
                     {activeGroup.children?.map((node) => {
                       const active = activeIds.has(node.id);
                       return (
                         <button
                           aria-current={active ? 'page' : undefined}
-                          className="flex min-w-0 items-center gap-1.5 rounded-compact px-2 py-1.5 text-start text-sm-plus data-[active=true]:font-semibold data-[active=true]:text-accent data-[active=false]:text-fg-2 hover:bg-canvas"
+                          className="flex min-w-0 items-center gap-1.5 rounded-compact px-2 py-1.5 text-start text-sm-plus hover:bg-canvas data-[active=false]:text-fg-2 data-[active=true]:font-semibold data-[active=true]:text-accent"
                           data-active={active}
                           key={node.id}
                           onClick={() => {

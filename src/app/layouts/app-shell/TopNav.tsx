@@ -7,6 +7,7 @@ import { MobileNavDrawer } from '@/app/layouts/app-shell/MobileNavDrawer';
 import { navFirstLeaf } from '@/app/navigation/model';
 import { NAV_TREE } from '@/app/navigation/nav.config';
 import type { NavNode } from '@/app/navigation/types';
+import { Chip } from '@/shared/ui/chip/Chip';
 import { Icon } from '@/shared/ui/icon/Icon';
 
 type TopNavProps = Readonly<{
@@ -39,35 +40,34 @@ export function TopNav({ activeTrail, onNavigate }: TopNavProps) {
           aria-label={t('shell.primaryNavigation')}
           className="flex min-w-0 flex-1 gap-0.5 overflow-x-auto max-desktop:hidden"
         >
-          {topNavItems.filter(
-            (node) => !node.topbar && !node.hideInTopNav,
-          ).map((node) =>
-            node.megaMenu ? (
-              <MegaMenu
-                activeTrail={activeTrail}
-                item={node}
-                key={node.id}
-                onNavigate={onNavigate}
-              />
-            ) : (
-              <button
-                aria-current={activeIds.has(node.id) ? 'page' : undefined}
-                className="flex items-center gap-2 rounded-lg px-3 py-2 text-md font-medium whitespace-nowrap data-[active=true]:bg-inset data-[active=true]:text-fg data-[active=false]:text-fg-3"
-                data-active={activeIds.has(node.id)}
-                data-nav-id={node.id}
-                key={node.id}
-                onClick={() => {
-                  onNavigate(
-                    node.firstLeafRoute ? navFirstLeaf(node) : node,
-                  );
-                }}
-                type="button"
-              >
-                {node.icon ? <Icon name={node.icon} size={15} /> : null}
-                {t(node.labelKey, { defaultValue: node.id })}
-              </button>
-            ),
-          )}
+          {topNavItems
+            .filter((node) => !node.topbar && !node.hideInTopNav)
+            .map((node) =>
+              node.megaMenu ? (
+                <MegaMenu
+                  activeTrail={activeTrail}
+                  item={node}
+                  key={node.id}
+                  onNavigate={onNavigate}
+                />
+              ) : (
+                <button
+                  aria-current={activeIds.has(node.id) ? 'page' : undefined}
+                  className="flex items-center gap-2 rounded-lg px-3 py-2 text-md font-medium whitespace-nowrap data-[active=false]:text-fg-3 data-[active=true]:bg-inset data-[active=true]:text-fg"
+                  data-active={activeIds.has(node.id)}
+                  data-nav-id={node.id}
+                  key={node.id}
+                  onClick={() => {
+                    onNavigate(node.firstLeafRoute ? navFirstLeaf(node) : node);
+                  }}
+                  type="button"
+                >
+                  {node.icon ? <Icon name={node.icon} size={15} /> : null}
+                  {t(node.labelKey, { defaultValue: node.id })}
+                  {node.badge ? <Chip tone="accent">{node.badge}</Chip> : null}
+                </button>
+              ),
+            )}
         </nav>
       </div>
     </header>

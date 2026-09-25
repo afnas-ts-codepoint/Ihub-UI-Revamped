@@ -46,11 +46,15 @@ export function UnderlineTabs({ activeId, items, onSelect }: TabsProps) {
           }}
           type="button"
         >
-          <Icon className="rtl:-scale-x-100" name="chevron-right" size={14} />
+          <Icon
+            className="rotate-180 rtl:rotate-0"
+            name="chevron-right"
+            size={14}
+          />
         </button>
       ) : null}
       <div
-        className="scrollbar-none flex min-w-0 flex-1 gap-1 overflow-x-auto"
+        className="flex min-w-0 flex-1 scrollbar-none gap-1 overflow-x-auto"
         ref={strip}
       >
         {items.map((item) => {
@@ -58,7 +62,7 @@ export function UnderlineTabs({ activeId, items, onSelect }: TabsProps) {
           return (
             <button
               aria-current={active ? 'page' : undefined}
-              className="-mb-px shrink-0 border-b-2 px-3 py-3 text-md font-medium whitespace-nowrap data-[active=true]:border-accent data-[active=true]:font-semibold data-[active=true]:text-fg data-[active=false]:border-transparent data-[active=false]:text-fg-3"
+              className="-mb-px shrink-0 border-b-2 px-3 py-3 text-md font-medium whitespace-nowrap data-[active=false]:border-transparent data-[active=false]:text-fg-3 data-[active=true]:border-accent data-[active=true]:font-semibold data-[active=true]:text-fg"
               data-active={active}
               key={item.id}
               onClick={() => {
@@ -80,7 +84,7 @@ export function UnderlineTabs({ activeId, items, onSelect }: TabsProps) {
           }}
           type="button"
         >
-          <Icon className="rtl:-scale-x-100" name="chevron-right" size={14} />
+          <Icon className="rtl:rotate-180" name="chevron-right" size={14} />
         </button>
       ) : null}
     </div>
