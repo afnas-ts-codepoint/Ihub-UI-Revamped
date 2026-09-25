@@ -2,8 +2,10 @@ import { renderHook } from '@testing-library/react';
 import { beforeAll, describe, expect, it } from 'vitest';
 
 import arCommon from '@/shared/i18n/locales/ar/common.json';
+import arNav from '@/shared/i18n/locales/ar/nav.json';
 import arValidation from '@/shared/i18n/locales/ar/validation.json';
 import enCommon from '@/shared/i18n/locales/en/common.json';
+import enNav from '@/shared/i18n/locales/en/nav.json';
 import enValidation from '@/shared/i18n/locales/en/validation.json';
 import { getCalendarLabels } from '@/shared/i18n/calendar';
 import {
@@ -39,6 +41,7 @@ beforeAll(async () => {
 describe('i18n resources', () => {
   it.each([
     ['common', enCommon, arCommon],
+    ['nav', enNav, arNav],
     ['validation', enValidation, arValidation],
   ])('keeps en/ar %s keys in parity', (_namespace, english, arabic) => {
     expect(leafKeys(arabic).sort()).toEqual(leafKeys(english).sort());

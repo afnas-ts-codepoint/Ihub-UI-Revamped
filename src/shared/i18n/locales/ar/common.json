@@ -43,5 +43,9 @@
       "title": "لم يتم ترحيل {{area}} بعد",
       "description": "ستتم إزالة هذه العلامة المؤقتة عند ترحيل القسم."
     }
+  },
+  "placeholder": {
+    "description": "Module landing — connect your data to see live content.",
+    "scaffold": "مخطط الشاشة"
   }
 }

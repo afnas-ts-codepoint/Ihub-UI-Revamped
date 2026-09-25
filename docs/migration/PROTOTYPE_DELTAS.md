@@ -8,6 +8,7 @@ Track prototype changes made after the approved migration baseline.
 
 | Date | Affected feature | Prototype change | Adopt or defer | Approved by | Migration phase |
 | --- | --- | --- | --- | --- | --- |
+| 2026-09-25 | M2.1 Masters catalogue - Admin (`index.html` lines 2423-2433, 2456-2459, 2592-2613, 4241-4266, 22511-22525) | Relevant source is unchanged between baseline `273abc8` and current prototype HEAD `3c391b4`. The approved catalogue correction is 27 Admin + 22 General + 16 HR + 15 Operation = 80; the older 78-item planning references are stale. | Adopt the approved 80-entry catalogue baseline in four controlled M2.1 checkpoints; Admin only in checkpoint 1. | Human instruction, 2026-09-25 | M2.1 |
 | 2026-09-25 | M1.1 tooling (no prototype source range) | `index.html` is unchanged between baseline `273abc8` and current prototype HEAD `3c391b4`; only migration-planning files differ. | No source delta to adopt or defer. | N/A | M1.1 |
 | 2026-09-25 | M1.2 styles and fonts (`index.html` lines 6–41, 134–612, 22380–22388) | Relevant `index.html` ranges are unchanged between baseline `273abc8` and current prototype HEAD `3c391b4`; only migration-planning files differ. | No source delta to adopt or defer. | N/A | M1.2 |
 | 2026-09-25 | M1.3 i18n, preferences, and direction (`index.html` lines 1526–1529, 2614, 15001, 22379–22388) | `index.html` is unchanged between baseline `273abc8` and current prototype HEAD `3c391b4`, including every M1.3 source range. | No source delta to adopt or defer. | N/A | M1.3 |

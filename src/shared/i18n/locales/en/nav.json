@@ -1,0 +1,38 @@
+{
+  "masters": {
+    "title": "Masters",
+    "listTitle": "Masters (List)",
+    "categories": {
+      "admin": "Admin"
+    },
+    "items": {
+      "project-category-master": "Project Category Master",
+      "action-sheet-approval-workflow": "Action Sheet Approval Workflow",
+      "brand": "Brand",
+      "budget-approval-workflow": "Budget Approval Workflow",
+      "budgeting-entry-template": "Budgeting Entry Template",
+      "case-category": "Case Category",
+      "checklist-comments": "Checklist Comments",
+      "common-verify-approve-workflow": "Common Verify/Approve Workflow",
+      "configuration": "Configuration",
+      "cron-job-settings": "Cron Job Settings",
+      "holiday-master": "Holiday Master",
+      "loan-approval-workflow": "Loan Approval Workflow",
+      "observations": "Observations",
+      "payment-method": "Payment Method",
+      "payment-mode": "Payment Mode",
+      "pc-request-workflow": "PC Request Workflow",
+      "petty-cash-stage": "Petty Cash Stage",
+      "petty-cash-stage-workflow": "Petty Cash Stage Workflow",
+      "projected-revenue-modify": "Projected Revenue Modify",
+      "projecting-budget-modify": "Projecting Budget Modify",
+      "quality-assurance-fill-workflow": "Quality Assurance Fill Workflow",
+      "question-category": "Question Category",
+      "ride-category": "Ride Category",
+      "role-privileges": "Role Privileges",
+      "user-privileges": "User Privileges",
+      "users": "Users",
+      "view-permitted-users": "View Permitted Users"
+    }
+  }
+}
