@@ -1,17 +1,33 @@
 import type { NavNode } from '@/app/navigation/types';
-import { ADMIN_MASTER_CATALOG } from '@/features/masters';
+import {
+  ADMIN_MASTER_CATALOG,
+  GENERAL_MASTER_CATALOG,
+  HR_MASTER_CATALOG,
+  OPERATION_MASTER_CATALOG,
+} from '@/features/masters';
 import { paths } from '@/shared/config/paths';
 
-function adminCategory(listVariant: boolean): NavNode {
+const catalogues = {
+  admin: ADMIN_MASTER_CATALOG,
+  general: GENERAL_MASTER_CATALOG,
+  hr: HR_MASTER_CATALOG,
+  operation: OPERATION_MASTER_CATALOG,
+} as const;
+
+function masterCategory(
+  category: keyof typeof catalogues,
+  listVariant: boolean,
+): NavNode {
   const idRoot = listVariant ? 'masters-list' : 'masters';
+  const catalogue = catalogues[category];
 
   return {
-    id: `${idRoot}/admin`,
-    labelKey: 'masters.categories.admin',
+    id: `${idRoot}/${category}`,
+    labelKey: `masters.categories.${category}`,
     path: listVariant
-      ? paths.mastersList.category('admin')
-      : paths.masters.category('admin'),
-    children: ADMIN_MASTER_CATALOG.map((entry) => ({
+      ? paths.mastersList.category(category)
+      : paths.masters.category(category),
+    children: catalogue.map((entry) => ({
       id: listVariant ? entry.prototypeListId : entry.prototypeId,
       labelKey: entry.labelKey,
       path: listVariant ? entry.listPath : entry.path,
@@ -19,15 +35,20 @@ function adminCategory(listVariant: boolean): NavNode {
   };
 }
 
-/** Admin-only M2.1 checkpoint. Later approved batches append sibling categories. */
-export const ADMIN_MASTERS_NAV = [
+/** Complete 80-entry Masters catalogue subtree for both D10 variants. */
+export const MASTERS_NAV = [
   {
     id: 'masters',
     labelKey: 'masters.title',
     path: paths.masters.root,
     icon: 'layers',
     megaMenu: true,
-    children: [adminCategory(false)],
+    children: [
+      masterCategory('admin', false),
+      masterCategory('general', false),
+      masterCategory('hr', false),
+      masterCategory('operation', false),
+    ],
   },
   {
     id: 'masters-list',
@@ -36,6 +57,11 @@ export const ADMIN_MASTERS_NAV = [
     icon: 'grid',
     firstLeafRoute: true,
     hideInTopNav: true,
-    children: [adminCategory(true)],
+    children: [
+      masterCategory('admin', true),
+      masterCategory('general', true),
+      masterCategory('hr', true),
+      masterCategory('operation', true),
+    ],
   },
 ] as const satisfies readonly NavNode[];

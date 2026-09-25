@@ -1,4 +1,8 @@
 export {
   ADMIN_MASTER_CATALOG,
-  findAdminMaster,
+  findMaster,
+  GENERAL_MASTER_CATALOG,
+  HR_MASTER_CATALOG,
+  MASTER_CATALOG,
+  OPERATION_MASTER_CATALOG,
 } from './catalogue/masterCatalogue';

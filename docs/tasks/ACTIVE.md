@@ -1,5 +1,5 @@
 # Active Migration Tasks
 
-M2.1 is active at Masters catalogue checkpoint 1 of 4.
+M2.1 remains active. All four Masters catalogue checkpoints are complete.
 
-Admin (27) is implemented and awaiting human approval. General, HR, and Operation have not started. M2.1 remains incomplete until all four catalogue checkpoints and the remaining navigation/route-map scope pass the complete gates.
+Admin (27), General (22), HR (16), and Operation (15) are implemented and verified as exactly 80 prototype entries. M2.1 remains incomplete until the other navigation/route-map scope, complete application G6 parity, Phase 2 Section 11 URL-map parity, and the final M2.1 phase report are complete.

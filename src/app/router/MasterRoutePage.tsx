@@ -3,16 +3,20 @@ import { Navigate, useParams } from 'react-router';
 
 import { NotFoundPage } from '@/app/router/NotFoundPage';
 import { PlaceholderPage } from '@/app/router/PlaceholderPage';
-import { ADMIN_MASTER_CATALOG, findAdminMaster } from '@/features/masters';
+import {
+  ADMIN_MASTER_CATALOG,
+  findMaster,
+  MASTER_CATALOG,
+} from '@/features/masters';
 import { MigrationPending } from '@/shared/ui/feedback/MigrationPending';
 
 type MasterRouteMode = 'masters' | 'masters-list';
 
 export function MasterCategoryRedirect({ mode }: { mode: MasterRouteMode }) {
   const { category } = useParams();
-  const first = ADMIN_MASTER_CATALOG[0];
+  const first = MASTER_CATALOG.find((entry) => entry.category === category);
 
-  if (category !== 'admin' || !first) return <NotFoundPage />;
+  if (!first) return <NotFoundPage />;
 
   return (
     <Navigate replace to={mode === 'masters' ? first.path : first.listPath} />
@@ -31,7 +35,7 @@ export function MastersRootRedirect({ mode }: { mode: MasterRouteMode }) {
 export function MasterRoutePage() {
   const { category, item } = useParams();
   const { t } = useTranslation('nav');
-  const entry = findAdminMaster(category, item);
+  const entry = findMaster(category, item);
 
   if (!entry) return <NotFoundPage />;
 
