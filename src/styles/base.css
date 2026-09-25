@@ -136,6 +136,15 @@ h2 em {
   font-style: normal;
 }
 
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 @utility chip-tone-ok {
   border-color: color-mix(in srgb, var(--ok) 32%, transparent);
   background: color-mix(in srgb, var(--ok) 14%, transparent);

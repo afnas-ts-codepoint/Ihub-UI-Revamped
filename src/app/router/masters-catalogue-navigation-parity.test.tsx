@@ -86,9 +86,9 @@ describe('M2.1 complete Masters catalogue route parity', () => {
           'Module landing — connect your data to see live content.',
         ),
       ).toBeInTheDocument();
-      expect(container.querySelectorAll('[aria-hidden="true"]')).toHaveLength(
-        6,
-      );
+      expect(
+        container.querySelectorAll('main [aria-hidden="true"]'),
+      ).toHaveLength(6);
       router.dispose();
     },
   );

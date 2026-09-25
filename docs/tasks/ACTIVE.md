@@ -1,3 +1,5 @@
 # Active Migration Tasks
 
-No migration task is active. M2.1 is completed; M2.2 has not started.
+| ID | Task | Started | Owner | Notes |
+|---|---|---|---|---|
+| [M2.2](phases/M2.2.md) | Shell chrome and visual-QA harness | 2026-09-25 | Codex | Delta intake passed; implementation and QA in progress. |

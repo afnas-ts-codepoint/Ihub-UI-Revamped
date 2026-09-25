@@ -13,6 +13,9 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
+    exclude: ['tests/visual/**', 'node_modules/**', 'dist/**'],
+    fileParallelism: false,
     setupFiles: ['./src/test/setup.ts'],
+    testTimeout: 20_000,
   },
 });

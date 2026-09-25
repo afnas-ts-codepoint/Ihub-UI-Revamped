@@ -1,4 +1,13 @@
 {
+  "shell": {
+    "menu": "Menu",
+    "close": "Close",
+    "closeMegaMenu": "Close Masters menu",
+    "primaryNavigation": "Primary navigation",
+    "secondaryNavigation": "Secondary navigation",
+    "scrollBack": "Scroll back",
+    "scrollForward": "Scroll forward"
+  },
   "routes": {
     "budgets": "Budgets",
     "purchasing": "Purchasing",

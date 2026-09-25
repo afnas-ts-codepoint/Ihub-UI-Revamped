@@ -2,11 +2,11 @@ import {
   createBrowserRouter,
   createHashRouter,
   Navigate,
-  Outlet,
   ScrollRestoration,
   type RouteObject,
 } from 'react-router';
 
+import { AppShell } from '@/app/layouts/app-shell/AppShell';
 import {
   NavRoutePage,
   PendingRoutePage,
@@ -40,7 +40,7 @@ const paymentModules = ['action-sheet', 'petty-cash', 'add-supplier'] as const;
 function RootRoute() {
   return (
     <>
-      <Outlet />
+      <AppShell />
       <ScrollRestoration />
     </>
   );

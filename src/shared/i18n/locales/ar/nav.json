@@ -1,4 +1,13 @@
 {
+  "shell": {
+    "menu": "القائمة",
+    "close": "إغلاق",
+    "closeMegaMenu": "إغلاق قائمة البيانات الأساسية",
+    "primaryNavigation": "التنقل الرئيسي",
+    "secondaryNavigation": "التنقل الثانوي",
+    "scrollBack": "التمرير للخلف",
+    "scrollForward": "التمرير للأمام"
+  },
   "routes": {
     "budgets": "الميزانيات",
     "purchasing": "المشتريات",
