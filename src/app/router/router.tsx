@@ -7,6 +7,7 @@ import {
 } from 'react-router';
 
 import { AppShell } from '@/app/layouts/app-shell/AppShell';
+import { SectionLayout } from '@/app/layouts/section/SectionLayout';
 import {
   NavRoutePage,
   PendingRoutePage,
@@ -175,16 +176,104 @@ export const appRoutes: RouteObject[] = [
         path: 'tasks/:taskId/edit',
         element: <PendingRoutePage titleKey="routes.taskEdit" />,
       },
-      { path: 'finance/*', element: <NavRoutePage /> },
-      { path: 'hr/*', element: <NavRoutePage /> },
-      { path: 'appraisal', element: <NavRoutePage /> },
-      { path: 'quality/*', element: <NavRoutePage /> },
-      { path: 'settings/*', element: <NavRoutePage /> },
-      { path: 'history/*', element: <NavRoutePage /> },
-      { path: 'workflows', element: <NavRoutePage /> },
+      {
+        path: 'finance',
+        element: <SectionLayout />,
+        children: [
+          {
+            index: true,
+            element: <NavRoutePage />,
+            handle: { reportKey: 'budgeting' },
+          },
+          {
+            path: '*',
+            element: <NavRoutePage />,
+            handle: { reportKey: 'budgeting' },
+          },
+        ],
+      },
+      {
+        path: 'hr',
+        element: <SectionLayout />,
+        children: [
+          {
+            index: true,
+            element: <NavRoutePage />,
+            handle: { reportKey: 'overtime' },
+          },
+          { path: '*', element: <NavRoutePage /> },
+        ],
+      },
+      {
+        path: 'appraisal',
+        element: <SectionLayout />,
+        children: [
+          {
+            index: true,
+            element: <NavRoutePage />,
+            handle: { reportKey: 'appraisal' },
+          },
+        ],
+      },
+      {
+        path: 'quality',
+        element: <SectionLayout />,
+        children: [
+          {
+            index: true,
+            element: <NavRoutePage />,
+            handle: { reportKey: 'checklist' },
+          },
+          {
+            path: 'sla',
+            element: <PendingRoutePage titleKey="navigation.sla" />,
+            handle: { reportKey: 'sla' },
+          },
+          { path: '*', element: <NavRoutePage /> },
+        ],
+      },
+      {
+        path: 'history',
+        element: <SectionLayout />,
+        handle: { reportKey: 'history' },
+        children: [
+          { index: true, element: <NavRoutePage /> },
+          { path: '*', element: <NavRoutePage /> },
+        ],
+      },
+      {
+        path: 'workflows',
+        element: <SectionLayout />,
+        children: [
+          {
+            index: true,
+            element: <NavRoutePage />,
+            handle: { reportKey: 'workflows' },
+          },
+        ],
+      },
       {
         path: 'notifications',
-        element: <PendingRoutePage titleKey="routes.notifications" />,
+        element: <SectionLayout />,
+        children: [
+          {
+            index: true,
+            element: <PendingRoutePage titleKey="routes.notifications" />,
+            handle: {
+              reportKey: 'notifications',
+              reportTitleKey: 'routes.notifications',
+            },
+          },
+        ],
+      },
+      {
+        path: 'settings/configuration',
+        element: <PendingRoutePage titleKey="navigation.settings-configuration_configuration" />,
+      },
+      {
+        path: 'settings',
+        element: <SectionLayout />,
+        children: [{ path: '*', element: <NavRoutePage /> }],
       },
       { path: 'reports/*', element: <NavRoutePage /> },
       mastersRoute('masters'),

@@ -3,9 +3,13 @@ import { beforeAll, describe, expect, it } from 'vitest';
 
 import arCommon from '@/shared/i18n/locales/ar/common.json';
 import arNav from '@/shared/i18n/locales/ar/nav.json';
+import arOrganization from '@/shared/i18n/locales/ar/organization.json';
+import arReports from '@/shared/i18n/locales/ar/reports.json';
 import arValidation from '@/shared/i18n/locales/ar/validation.json';
 import enCommon from '@/shared/i18n/locales/en/common.json';
 import enNav from '@/shared/i18n/locales/en/nav.json';
+import enOrganization from '@/shared/i18n/locales/en/organization.json';
+import enReports from '@/shared/i18n/locales/en/reports.json';
 import enValidation from '@/shared/i18n/locales/en/validation.json';
 import { getCalendarLabels } from '@/shared/i18n/calendar';
 import {
@@ -42,6 +46,8 @@ describe('i18n resources', () => {
   it.each([
     ['common', enCommon, arCommon],
     ['nav', enNav, arNav],
+    ['organization', enOrganization, arOrganization],
+    ['reports', enReports, arReports],
     ['validation', enValidation, arValidation],
   ])('keeps en/ar %s keys in parity', (_namespace, english, arabic) => {
     expect(leafKeys(arabic).sort()).toEqual(leafKeys(english).sort());

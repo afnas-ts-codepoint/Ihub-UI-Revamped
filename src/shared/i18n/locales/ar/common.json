@@ -81,5 +81,32 @@
   "placeholder": {
     "description": "Module landing — connect your data to see live content.",
     "scaffold": "مخطط الشاشة"
+  },
+  "section": {
+    "section": "القسم",
+    "report": "تقرير",
+    "fallbackTitle": "القسم"
+  },
+  "form": {
+    "any": "الكل",
+    "select": { "placeholder": "اختر…", "noMatches": "لا نتائج" },
+    "multiSelect": {
+      "search": "البحث في الخيارات",
+      "clear": "مسح التحديد",
+      "remove": "إزالة {{value}}"
+    },
+    "date": {
+      "any": "أي تاريخ",
+      "clearDate": "مسح التاريخ",
+      "previousMonth": "الشهر السابق",
+      "nextMonth": "الشهر التالي",
+      "today": "اليوم",
+      "clear": "مسح",
+      "from": "من",
+      "to": "إلى"
+    }
+  },
+  "feedback": {
+    "close": "إغلاق الإشعار"
   }
 }

@@ -1,0 +1,39 @@
+{
+  "bar": { "applied": "مُطبّق", "filters": "المرشّحات", "subjectSuffix": "  أو اكتب الموضوع" },
+  "actions": {
+    "apply": "تطبيق", "cancel": "إلغاء", "clearAll": "مسح الكل",
+    "clearAllFilters": "مسح كل المرشّحات", "close": "إغلاق", "remove": "إزالة المرشّح"
+  },
+  "dialog": {
+    "title": "تصفية السجلات", "description": "حدّد النطاق ثم طبّق.",
+    "selected": "{{count}} محدّد", "nothingSelected": "لا شيء محدّد"
+  },
+  "groups": {
+    "quick": "مؤشرات سريعة", "quickHint": "اختر ما يناسب", "record": "السجل",
+    "recordHint": "المرجع أو الموضوع", "where": "الموقع", "whereHint": "الموقع والزون والنشاط",
+    "classification": "التصنيف", "dateRange": "النطاق الزمني"
+  },
+  "fields": {
+    "action": "الإجراء", "activity": "النشاط", "any": "الكل", "anyPriority": "أي أولوية",
+    "assignee": "المسند إليه", "category": "الفئة", "flag": "مؤشر", "from": "من",
+    "location": "الموقع", "locations": "المواقع", "matrix": "مصفوفي", "matrixPartner": "الشريك المصفوفي",
+    "origin": "الإدارة المنشئة", "owner": "مالك العملية", "priority": "الأولوية", "risk": "المخاطرة",
+    "riskType": "نوع المخاطرة", "search": "بحث", "severity": "الخطورة", "scope": "النطاق",
+    "stage": "المرحلة", "status": "الحالة", "subcategory": "الفئة الفرعية",
+    "subjectNumber": "الموضوع / {{number}}", "to": "إلى", "user": "المستخدم", "zone": "الزون", "zones": "الزونات"
+  },
+  "flags": {
+    "showstopper": "المعوقات فقط", "dependencies": "له ارتباطات", "overdue": "مهام متأخرة",
+    "ownerExceeded": "تجاوز تاريخ المالك المتوقع", "ownerEmpty": "تاريخ المالك المتوقع فارغ"
+  },
+  "kinds": {
+    "incident": { "number": "رقم الحادث" }, "task": { "number": "رقم المهمة" },
+    "sheet": { "number": "رقم ورقة الإجراء" }, "observation": { "number": "رقم الملاحظة" },
+    "enquiry": { "number": "رقم الاستفسار" }, "budget": { "number": "رقم الميزانية" },
+    "history": { "number": "الرقم المرجعي" }, "request": { "number": "رقم الطلب" }
+  },
+  "export": {
+    "action": "تصدير", "excel": "جدول إكسل", "csv": "ملف CSV", "pdf": "مستند PDF",
+    "print": "طباعة", "openingPrint": "فتح معاينة الطباعة…", "exported": "تم التصدير: {{filename}}"
+  }
+}

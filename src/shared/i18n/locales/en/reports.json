@@ -1,0 +1,9 @@
+{
+  "eyebrow": "Report", "title": "{{section}} — Report",
+  "description": "Filter the section, preview the result, then export for circulation.",
+  "fields": { "format": "Report format", "group": "Group by", "period": "Period" },
+  "formats": { "detailed": "Detailed listing", "summary": "Summary", "trend": "Trend / comparison" },
+  "none": "None", "lastThirtyDays": "Last 30 days", "exportAs": "Export as",
+  "email": "Email report", "emailSuccess": "Report emailed to your inbox", "preview": "Preview",
+  "rowCount": "{{count}} rows", "empty": "Run search to generate this report."
+}

@@ -1,0 +1,39 @@
+{
+  "bar": { "applied": "Applied", "filters": "Filters", "subjectSuffix": "  or type a subject" },
+  "actions": {
+    "apply": "Apply filters", "cancel": "Cancel", "clearAll": "Clear all",
+    "clearAllFilters": "Clear all filters", "close": "Close", "remove": "Remove filter"
+  },
+  "dialog": {
+    "title": "Filter records", "description": "Narrow the list, then apply.",
+    "selected": "{{count}} selected", "nothingSelected": "Nothing selected"
+  },
+  "groups": {
+    "quick": "Quick flags", "quickHint": "Pick any that apply", "record": "Record",
+    "recordHint": "Reference or subject", "where": "Where", "whereHint": "Site, zone and activity",
+    "classification": "Classification", "dateRange": "Date range"
+  },
+  "fields": {
+    "action": "Action", "activity": "Activity", "any": "Any", "anyPriority": "Any priority",
+    "assignee": "Assignee", "category": "Category", "flag": "Flag", "from": "From",
+    "location": "Location", "locations": "Locations", "matrix": "Matrix", "matrixPartner": "Matrix partner",
+    "origin": "Origin department", "owner": "Process owner", "priority": "Priority", "risk": "Risk",
+    "riskType": "Risk type", "search": "Search", "severity": "Severity", "scope": "Scope",
+    "stage": "Stage", "status": "Status", "subcategory": "Sub category",
+    "subjectNumber": "Subject / {{number}}", "to": "To", "user": "User", "zone": "Zone", "zones": "Zones"
+  },
+  "flags": {
+    "showstopper": "Showstoppers only", "dependencies": "Has dependencies", "overdue": "Overdue tasks",
+    "ownerExceeded": "Owner expected due date exceeded", "ownerEmpty": "Owner expected due date empty"
+  },
+  "kinds": {
+    "incident": { "number": "Incident number" }, "task": { "number": "Task number" },
+    "sheet": { "number": "Action sheet number" }, "observation": { "number": "Observation number" },
+    "enquiry": { "number": "Enquiry number" }, "budget": { "number": "Budget number" },
+    "history": { "number": "Reference number" }, "request": { "number": "Request number" }
+  },
+  "export": {
+    "action": "Export", "excel": "Excel spreadsheet", "csv": "CSV file", "pdf": "PDF document",
+    "print": "Print", "openingPrint": "Opening print view…", "exported": "Exported {{filename}}"
+  }
+}

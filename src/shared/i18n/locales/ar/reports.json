@@ -1,0 +1,9 @@
+{
+  "eyebrow": "تقرير", "title": "{{section}} — تقرير",
+  "description": "صفِّ القسم، عاين النتيجة، ثم صدّر التقرير للتوزيع.",
+  "fields": { "format": "شكل التقرير", "group": "التجميع حسب", "period": "الفترة" },
+  "formats": { "detailed": "قائمة تفصيلية", "summary": "ملخص", "trend": "اتجاه ومقارنة" },
+  "none": "بدون", "lastThirtyDays": "آخر 30 يوماً", "exportAs": "تصدير بصيغة",
+  "email": "إرسال بالبريد", "emailSuccess": "تم إرسال التقرير إلى بريدك", "preview": "معاينة",
+  "rowCount": "{{count}} صف", "empty": "شغّل البحث لإنشاء التقرير."
+}

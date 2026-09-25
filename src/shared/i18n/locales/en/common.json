@@ -81,5 +81,32 @@
   "placeholder": {
     "description": "Module landing — connect your data to see live content.",
     "scaffold": "Screen scaffold — deep view not built in this prototype."
+  },
+  "section": {
+    "section": "Section",
+    "report": "Report",
+    "fallbackTitle": "Section"
+  },
+  "form": {
+    "any": "Any",
+    "select": { "placeholder": "Select…", "noMatches": "No matches" },
+    "multiSelect": {
+      "search": "Search options",
+      "clear": "Clear selection",
+      "remove": "Remove {{value}}"
+    },
+    "date": {
+      "any": "Any date",
+      "clearDate": "Clear date",
+      "previousMonth": "Previous month",
+      "nextMonth": "Next month",
+      "today": "Today",
+      "clear": "Clear",
+      "from": "From",
+      "to": "To"
+    }
+  },
+  "feedback": {
+    "close": "Close notification"
   }
 }
