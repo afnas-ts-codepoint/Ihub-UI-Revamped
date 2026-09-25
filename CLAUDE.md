@@ -7,3 +7,4 @@ Claude's primary role is architecture, migration, prototype-fidelity, and shared
 - Do not edit implementation unless explicitly requested.
 - Classify review findings as Critical, Important, or Optional.
 - Distinguish confirmed findings from assumptions.
+- For migration review, read the relevant Phase 3 scope and `docs/tasks/phases/<TASK-ID>.md`, review the implementation, and record Critical, Important, and Optional findings in the task file. Do not mark the task Completed; final completion approval belongs to the human reviewer.

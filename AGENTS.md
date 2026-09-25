@@ -27,3 +27,7 @@
 Run all Phase 3 gates for each implementation phase; once available, this includes typecheck, lint, tests, and build.
 
 After a requested phase, report changed files, packages added, quality-gate results, and deviations/no-ops/pending items. Stop and wait for approval.
+
+## Migration task tracking
+
+Before implementing a migration task, read Phase 3 and the corresponding `docs/tasks/phases/<TASK-ID>.md`, verify its dependencies, and set it to Active only when work begins. After implementation, run and record the required quality gates, set the task to Review, and stop for human/reviewer approval. Only a human-approved task may be marked Completed; never begin the next task automatically.

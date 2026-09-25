@@ -25,6 +25,10 @@ Planning is complete: Phase 1 analysis, Phase 1.5 scope finalization, Phase 2 ta
 
 Prototype → analyse current phase → implement one migration phase → typecheck/lint/test/build → compare with prototype → human review → PR → approval → next phase.
 
+## Migration Task Tracking
+
+[Phase 3](docs/migration/PHASE_3_MIGRATION_PLAN.md) defines the authoritative migration plan. [`docs/tasks/`](docs/tasks/README.md) tracks operational execution, [`MASTER_TASK_LIST.md`](docs/tasks/MASTER_TASK_LIST.md) shows overall progress, and individual files under [`docs/tasks/phases/`](docs/tasks/phases/) contain task-level execution information.
+
 ## Development rule
 
 Do not start a migration phase without following [AGENTS.md](AGENTS.md) and the Phase 3 plan.
