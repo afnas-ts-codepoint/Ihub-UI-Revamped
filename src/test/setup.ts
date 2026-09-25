@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom/vitest';
 
 window.scrollTo = () => undefined;
+Element.prototype.scrollIntoView = () => undefined;
 
 Object.defineProperty(window, 'matchMedia', {
   configurable: true,

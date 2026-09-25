@@ -1,0 +1,616 @@
+{
+  "baseline": "273abc8",
+  "cases": [
+    {
+      "locale": "en",
+      "query": "Home",
+      "resultKeys": [
+        "dashboard",
+        "dashboard/overview",
+        "dashboard/approvals",
+        "dashboard/assigned",
+        "dashboard/incidents",
+        "dashboard/tasks",
+        "dashboard/live-feed",
+        "dashboard/company",
+        "reports",
+        "reports/hr",
+        "reports/workforce",
+        "reports/performance"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "dash",
+      "resultKeys": [
+        "budgeting/dashboard",
+        "overtime/dashboard",
+        "checklist/dashboard"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Appraisal",
+      "resultKeys": [
+        "appraisal",
+        "history/appraisal",
+        "masters/hr/appraisal-deduction",
+        "masters/hr/appraisal-frequency",
+        "masters/hr/appraisal-section-name",
+        "reports/performance/appraisal-summary"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Finance",
+      "resultKeys": [
+        "budgeting",
+        "settings-configuration/finance-budgets",
+        "history/finance-budgets",
+        "reports/finance-budgets",
+        "budgeting/dashboard",
+        "budgeting/budgeting",
+        "history/finance-budgets/new-budget",
+        "history/finance-budgets/additional-budget",
+        "history/finance-budgets/transfer-fund",
+        "history/finance-budgets/payment-settlement",
+        "history/finance-budgets/petty-cash",
+        "reports/finance-budgets/budget-vs-actual"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Budget",
+      "resultKeys": [
+        "budgeting/budgeting",
+        "masters/admin/budget-approval-workflow",
+        "masters/admin/budgeting-entry-template",
+        "masters/general/budget-activities",
+        "reports/finance-budgets/budget-vs-actual",
+        "reports/finance-budgets/budget-utilisation",
+        "budgeting",
+        "settings-configuration/finance-budgets",
+        "history/finance-budgets",
+        "overtime/overtime/above-no-budget",
+        "history/finance-budgets/new-budget",
+        "history/finance-budgets/additional-budget"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Overtime",
+      "resultKeys": [
+        "overtime/overtime",
+        "history/hr/overtime",
+        "masters/hr/overtime-calculation",
+        "reports/workforce/overtime-summary",
+        "reports/workforce/overtime-detailed",
+        "overtime/overtime/to-do",
+        "overtime/overtime/verify",
+        "overtime/overtime/edit",
+        "overtime/overtime/correction",
+        "overtime/overtime/above-no-budget",
+        "overtime/overtime/justification",
+        "overtime/overtime/record-listing"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Verify",
+      "resultKeys": [
+        "overtime/overtime/verify",
+        "masters/admin/common-verify-approve-workflow"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Quality",
+      "resultKeys": [
+        "checklist",
+        "settings-configuration/quality-compliance",
+        "checklist/quality-assurance-checklists",
+        "history/quality-compliance",
+        "history/quality-compliance/quality-assurance-checklists",
+        "masters/admin/quality-assurance-fill-workflow",
+        "masters/hr/quality-assurance-type",
+        "reports/quality-compliance",
+        "checklist/dashboard",
+        "sla",
+        "checklist/observations",
+        "checklist/quality-assurance-checklists/risk-levels"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "check",
+      "resultKeys": [
+        "history/work-centre/checklists",
+        "masters/admin/checklist-comments",
+        "reports/quality-compliance/checklist-compliance",
+        "history/sop-checklist",
+        "checklist/quality-assurance-checklists",
+        "checklist/quality-assurance-checklists/create-checklist",
+        "checklist/quality-assurance-checklists/fill-checklist",
+        "checklist/quality-assurance-checklists/edit-filled-checklist",
+        "history/quality-compliance/quality-assurance-checklists",
+        "checklist/quality-assurance-checklists/risk-levels",
+        "checklist/quality-assurance-checklists/standard-parameters",
+        "checklist/quality-assurance-checklists/zone-accountability"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "SLA",
+      "resultKeys": [
+        "sla"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Observations",
+      "resultKeys": [
+        "checklist/observations",
+        "history/work-centre/observations",
+        "history/quality-compliance/observations",
+        "masters/admin/observations",
+        "reports/work-centre/observations-register"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Settings",
+      "resultKeys": [
+        "settings-configuration",
+        "masters/admin/cron-job-settings",
+        "masters/operation/area-settings",
+        "settings-configuration/configuration",
+        "settings-configuration/work-centre",
+        "settings-configuration/finance-budgets",
+        "settings-configuration/workforce",
+        "settings-configuration/quality-compliance"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Configuration",
+      "resultKeys": [
+        "settings-configuration/configuration",
+        "masters/admin/configuration",
+        "settings-configuration",
+        "settings-configuration/work-centre",
+        "settings-configuration/finance-budgets",
+        "settings-configuration/workforce",
+        "settings-configuration/quality-compliance"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "History",
+      "resultKeys": [
+        "history",
+        "history/appraisal",
+        "history/purchasing",
+        "history/sop-checklist",
+        "history/work-centre",
+        "history/finance-budgets",
+        "history/hr",
+        "history/quality-compliance",
+        "history/work-centre/tasks",
+        "history/work-centre/enquiry",
+        "history/work-centre/observations",
+        "history/work-centre/incidents"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Work Centre",
+      "resultKeys": [
+        "settings-configuration/work-centre",
+        "history/work-centre",
+        "reports/work-centre",
+        "history/work-centre/tasks",
+        "history/work-centre/enquiry",
+        "history/work-centre/observations",
+        "history/work-centre/incidents",
+        "history/work-centre/checklists",
+        "history/work-centre/price-change",
+        "history/work-centre/promotions",
+        "reports/work-centre/job-orders",
+        "reports/work-centre/violations-register"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Incidents",
+      "resultKeys": [
+        "dashboard/incidents",
+        "history/work-centre/incidents"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Reports",
+      "resultKeys": [
+        "reports",
+        "reports/hr",
+        "reports/workforce",
+        "reports/performance",
+        "reports/finance-budgets",
+        "reports/work-centre",
+        "reports/quality-compliance",
+        "reports/system",
+        "reports/hr/attendance-summary",
+        "reports/hr/attendance-detailed",
+        "reports/hr/leave-balance",
+        "reports/workforce/overtime-summary"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Audit",
+      "resultKeys": [
+        "reports/system/audit-trail"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Masters",
+      "resultKeys": [
+        "masters",
+        "masters-list",
+        "masters/admin",
+        "masters/general",
+        "masters/hr",
+        "masters/operation",
+        "masters/admin/project-category-master",
+        "masters/admin/action-sheet-approval-workflow",
+        "masters/admin/brand",
+        "masters/admin/budget-approval-workflow",
+        "masters/admin/budgeting-entry-template",
+        "masters/admin/case-category"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Project",
+      "resultKeys": [
+        "masters/admin/project-category-master",
+        "masters/admin/projected-revenue-modify",
+        "masters/admin/projecting-budget-modify",
+        "masters/general/project-category",
+        "masters/general/project-master"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Machine",
+      "resultKeys": [
+        "masters/general/machine-master"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Employees",
+      "resultKeys": [
+        "masters/hr/employees",
+        "masters/hr/employees-category-type",
+        "masters/hr/employees-jobs",
+        "masters/hr/employees-ops-category",
+        "masters/hr/employees-overall-category"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "Assignment",
+      "resultKeys": [
+        "masters/operation/assignment-areas"
+      ]
+    },
+    {
+      "locale": "en",
+      "query": "zzz-no-match",
+      "resultKeys": []
+    },
+    {
+      "locale": "ar",
+      "query": "الرئيسية",
+      "resultKeys": [
+        "dashboard",
+        "dashboard/overview",
+        "dashboard/approvals",
+        "dashboard/assigned",
+        "dashboard/incidents",
+        "dashboard/tasks",
+        "dashboard/live-feed",
+        "dashboard/company",
+        "reports",
+        "reports/hr",
+        "reports/workforce",
+        "reports/performance"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "لوحة",
+      "resultKeys": [
+        "budgeting/dashboard",
+        "overtime/dashboard",
+        "checklist/dashboard"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "التقييم",
+      "resultKeys": [
+        "appraisal",
+        "history/appraisal",
+        "reports/performance/appraisal-summary"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "المالية",
+      "resultKeys": [
+        "budgeting",
+        "settings-configuration/finance-budgets",
+        "history/finance-budgets",
+        "reports/finance-budgets",
+        "budgeting/dashboard",
+        "budgeting/budgeting",
+        "history/finance-budgets/new-budget",
+        "history/finance-budgets/additional-budget",
+        "history/finance-budgets/transfer-fund",
+        "history/finance-budgets/payment-settlement",
+        "history/finance-budgets/petty-cash",
+        "reports/finance-budgets/budget-vs-actual"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "الميزانية",
+      "resultKeys": [
+        "reports/finance-budgets/budget-vs-actual",
+        "budgeting/budgeting",
+        "overtime/overtime/above-no-budget",
+        "reports/finance-budgets/budget-utilisation"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "العمل الإضافي",
+      "resultKeys": [
+        "overtime/overtime",
+        "history/hr/overtime",
+        "reports/workforce/overtime-summary",
+        "reports/workforce/overtime-detailed",
+        "overtime/overtime/to-do",
+        "overtime/overtime/verify",
+        "overtime/overtime/edit",
+        "overtime/overtime/correction",
+        "overtime/overtime/above-no-budget",
+        "overtime/overtime/justification",
+        "overtime/overtime/record-listing"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "التحقق",
+      "resultKeys": [
+        "overtime/overtime/verify"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "الجودة",
+      "resultKeys": [
+        "checklist",
+        "settings-configuration/quality-compliance",
+        "history/quality-compliance",
+        "reports/quality-compliance",
+        "checklist/quality-assurance-checklists",
+        "history/quality-compliance/quality-assurance-checklists",
+        "checklist/dashboard",
+        "sla",
+        "checklist/observations",
+        "checklist/quality-assurance-checklists/risk-levels",
+        "checklist/quality-assurance-checklists/standard-parameters",
+        "checklist/quality-assurance-checklists/zone-accountability"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "قوائم",
+      "resultKeys": [
+        "checklist/quality-assurance-checklists",
+        "history/work-centre/checklists",
+        "history/quality-compliance/quality-assurance-checklists",
+        "reports/quality-compliance/checklist-compliance",
+        "overtime/overtime/record-listing",
+        "checklist/quality-assurance-checklists/risk-levels",
+        "checklist/quality-assurance-checklists/standard-parameters",
+        "checklist/quality-assurance-checklists/zone-accountability",
+        "checklist/quality-assurance-checklists/standards",
+        "checklist/quality-assurance-checklists/create-checklist",
+        "checklist/quality-assurance-checklists/fill-checklist",
+        "checklist/quality-assurance-checklists/edit-filled-checklist"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "اتفاقية",
+      "resultKeys": [
+        "sla"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "الملاحظات",
+      "resultKeys": [
+        "checklist/observations",
+        "history/work-centre/observations",
+        "history/quality-compliance/observations",
+        "reports/work-centre/observations-register"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "الإعدادات",
+      "resultKeys": [
+        "settings-configuration",
+        "settings-configuration/configuration",
+        "settings-configuration/work-centre",
+        "settings-configuration/finance-budgets",
+        "settings-configuration/workforce",
+        "settings-configuration/quality-compliance"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "التهيئة",
+      "resultKeys": [
+        "settings-configuration/configuration",
+        "settings-configuration",
+        "settings-configuration/work-centre",
+        "settings-configuration/finance-budgets",
+        "settings-configuration/workforce",
+        "settings-configuration/quality-compliance"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "السجل",
+      "resultKeys": [
+        "history",
+        "history/appraisal",
+        "history/purchasing",
+        "history/sop-checklist",
+        "history/work-centre",
+        "history/finance-budgets",
+        "history/hr",
+        "history/quality-compliance",
+        "history/work-centre/tasks",
+        "history/work-centre/enquiry",
+        "history/work-centre/observations",
+        "history/work-centre/incidents"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "مركز العمل",
+      "resultKeys": [
+        "settings-configuration/work-centre",
+        "history/work-centre",
+        "reports/work-centre",
+        "history/work-centre/tasks",
+        "history/work-centre/enquiry",
+        "history/work-centre/observations",
+        "history/work-centre/incidents",
+        "history/work-centre/checklists",
+        "history/work-centre/price-change",
+        "history/work-centre/promotions",
+        "reports/work-centre/job-orders",
+        "reports/work-centre/violations-register"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "الحوادث",
+      "resultKeys": [
+        "dashboard/incidents",
+        "history/work-centre/incidents",
+        "reports/work-centre/incident-log"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "التقارير",
+      "resultKeys": [
+        "reports",
+        "reports/hr",
+        "reports/workforce",
+        "reports/performance",
+        "reports/finance-budgets",
+        "reports/work-centre",
+        "reports/quality-compliance",
+        "reports/system",
+        "reports/hr/attendance-summary",
+        "reports/hr/attendance-detailed",
+        "reports/hr/leave-balance",
+        "reports/workforce/overtime-summary"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "التدقيق",
+      "resultKeys": [
+        "reports/system/audit-trail"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "الرئيسيات",
+      "resultKeys": [
+        "masters",
+        "masters-list",
+        "masters/admin",
+        "masters/general",
+        "masters/hr",
+        "masters/operation",
+        "masters/admin/project-category-master",
+        "masters/admin/action-sheet-approval-workflow",
+        "masters/admin/brand",
+        "masters/admin/budget-approval-workflow",
+        "masters/admin/budgeting-entry-template",
+        "masters/admin/case-category"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "الموارد",
+      "resultKeys": [
+        "overtime",
+        "history/hr",
+        "masters/hr",
+        "reports/hr",
+        "overtime/dashboard",
+        "overtime/workforce-statistics",
+        "overtime/investigations",
+        "overtime/violations",
+        "overtime/loan",
+        "overtime/end-of-probation",
+        "overtime/exit-interview",
+        "overtime/overtime"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "القوى",
+      "resultKeys": [
+        "settings-configuration/workforce",
+        "reports/workforce",
+        "overtime/workforce-statistics",
+        "reports/workforce/overtime-summary",
+        "reports/workforce/overtime-detailed"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "الموافقات",
+      "resultKeys": [
+        "dashboard/approvals"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "المشتريات",
+      "resultKeys": [
+        "history/purchasing"
+      ]
+    },
+    {
+      "locale": "ar",
+      "query": "لا-نتيجة",
+      "resultKeys": []
+    }
+  ]
+}

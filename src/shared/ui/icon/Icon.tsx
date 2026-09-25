@@ -1,5 +1,7 @@
 import {
   Activity,
+  ArrowRight,
+  Bell,
   ChevronDown,
   ChevronRight,
   Clock3,
@@ -8,9 +10,12 @@ import {
   Layers3,
   LayoutDashboard,
   Menu,
+  Moon,
+  Search,
   Settings,
   Shield,
   Star,
+  Sun,
   Users,
   X,
   type LucideIcon,
@@ -19,6 +24,8 @@ import {
 
 const icons = {
   activity: Activity,
+  'arrow-right': ArrowRight,
+  bell: Bell,
   'chevron-down': ChevronDown,
   'chevron-right': ChevronRight,
   clock: Clock3,
@@ -28,9 +35,12 @@ const icons = {
   grid: Grid2X2,
   layers: Layers3,
   menu: Menu,
+  moon: Moon,
+  search: Search,
   settings: Settings,
   shield: Shield,
   star: Star,
+  sun: Sun,
   users: Users,
 } satisfies Record<string, LucideIcon>;
 

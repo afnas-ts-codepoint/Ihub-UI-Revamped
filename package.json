@@ -10,10 +10,12 @@
     "test": "vitest run",
     "build": "tsc --noEmit && vite build",
     "check:bundle": "node scripts/check-bundle.mjs",
+    "golden:nav-search": "node scripts/golden/generate-nav-search.mjs",
     "extract:strings": "node scripts/extract-strings.mjs",
     "report:pending": "node scripts/report-pending.mjs",
     "prototype:serve": "node scripts/prototype-serve.mjs",
-    "visual:capture": "playwright test m2.2.spec.ts"
+    "visual:capture": "playwright test m2.2.spec.ts",
+    "visual:capture:m2.3": "playwright test m2.3.spec.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

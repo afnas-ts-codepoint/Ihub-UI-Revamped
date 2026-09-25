@@ -21,6 +21,40 @@
     "hourShort": "h",
     "dayShort": "d"
   },
+  "topBar": {
+    "search": {
+      "title": "Search",
+      "placeholder": "Search menu",
+      "shortcut": "⌘K",
+      "menus": "Menus",
+      "noMatches": "No menus match “{{query}}”",
+      "navigateHint": "↑↓ Navigate",
+      "openHint": "↵ Open",
+      "closeHint": "Esc Close"
+    },
+    "theme": {
+      "light": "Light mode",
+      "dark": "Dark mode"
+    },
+    "language": {
+      "ar": "AR",
+      "en": "EN",
+      "switchToArabic": "Switch to Arabic",
+      "switchToEnglish": "Switch to English"
+    },
+    "settings": "Settings & Configuration",
+    "notifications": {
+      "title": "Notifications",
+      "close": "Close notifications",
+      "tabs": {
+        "all": "All",
+        "allCount": "All, {{count}} notifications",
+        "unread": "Unread",
+        "unreadCount": "Unread, {{count}} notifications"
+      },
+      "viewAll": "View all notifications"
+    }
+  },
   "errors": {
     "reload": "Reload page",
     "application": {

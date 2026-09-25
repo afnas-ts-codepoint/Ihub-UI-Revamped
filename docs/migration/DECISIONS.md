@@ -23,3 +23,5 @@ Track approved architecture and product decisions from Phases 2 and 3. Unresolve
 | D18: Omit the missing Myriad Pro and GE SS Light Italic `@font-face` declarations. | Approved for M1.2; no substitute assets were invented. |
 | D5: Persist both theme and locale under `ihub.v2.preferences`. | Approved default applied for M1.3. |
 | D20: Use Western/Latin digits for Arabic locale formatting. | Approved default applied for M1.3. |
+| D8: Add the production EN/AR language switch to the top bar next to `ThemeToggle`. | Approved intentional production difference implemented in M2.3. |
+| D19: Use the local prototype current user, Ahmad Al Osaimi. | Approved default implemented in M2.3; no live-site identity was substituted. |

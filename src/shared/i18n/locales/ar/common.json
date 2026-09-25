@@ -21,6 +21,40 @@
     "hourShort": "س",
     "dayShort": "ي"
   },
+  "topBar": {
+    "search": {
+      "title": "بحث",
+      "placeholder": "ابحث في القائمة",
+      "shortcut": "⌘K",
+      "menus": "القوائم",
+      "noMatches": "لا توجد قوائم مطابقة «{{query}}»",
+      "navigateHint": "↑↓ تنقل",
+      "openHint": "↵ فتح",
+      "closeHint": "Esc إغلاق"
+    },
+    "theme": {
+      "light": "الوضع الفاتح",
+      "dark": "الوضع الداكن"
+    },
+    "language": {
+      "ar": "AR",
+      "en": "EN",
+      "switchToArabic": "التبديل إلى العربية",
+      "switchToEnglish": "التبديل إلى الإنجليزية"
+    },
+    "settings": "الإعدادات والتهيئة",
+    "notifications": {
+      "title": "الإشعارات",
+      "close": "إغلاق الإشعارات",
+      "tabs": {
+        "all": "الكل",
+        "allCount": "الكل، {{count}} إشعارات",
+        "unread": "غير المقروءة",
+        "unreadCount": "غير المقروءة، {{count}} إشعارات"
+      },
+      "viewAll": "عرض كل الإشعارات"
+    }
+  },
   "errors": {
     "reload": "إعادة تحميل الصفحة",
     "application": {

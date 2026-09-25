@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Logo } from '@/app/layouts/app-shell/Logo';
 import { MegaMenu } from '@/app/layouts/app-shell/MegaMenu';
 import { MobileNavDrawer } from '@/app/layouts/app-shell/MobileNavDrawer';
+import { TopBarActions } from '@/app/layouts/app-shell/TopBarActions';
 import { navFirstLeaf } from '@/app/navigation/model';
 import { NAV_TREE } from '@/app/navigation/nav.config';
 import type { NavNode } from '@/app/navigation/types';
@@ -69,6 +70,7 @@ export function TopNav({ activeTrail, onNavigate }: TopNavProps) {
               ),
             )}
         </nav>
+        <TopBarActions />
       </div>
     </header>
   );
