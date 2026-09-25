@@ -13,7 +13,7 @@ Do not place prototype source code in this repository.
 
 ## Current status
 
-Planning is complete: Phase 1 analysis, Phase 1.5 scope finalization, Phase 2 target architecture, and the Phase 3 controlled migration plan. Implementation has not started.
+Planning is complete, and M1.1 scaffold and quality-gate implementation is approved and completed.
 
 ## Documentation
 
@@ -56,6 +56,6 @@ npm run check:bundle
 
 ## Implementation status
 
-`M1.1 — Scaffold & Quality Gates: REVIEW`
+`M1.1 — Scaffold & Quality Gates: COMPLETED`
 
 M1.2 has not started.

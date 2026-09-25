@@ -7,7 +7,7 @@ This table operationalizes the executable tasks in [Phase 3](../migration/PHASE_
 | [M0.1](phases/M0.1.md) | New repository | Blocked | Not assigned | None | TBD | Required |
 | [M0.2](phases/M0.2.md) | Prototype reference checkout | Blocked | Not assigned | None | TBD | Required |
 | [M0.3](phases/M0.3.md) | Planning documents in the new repository | Completed | Not assigned | M0.1 | TBD | Approved |
-| [M1.1](phases/M1.1.md) | Scaffold and quality gates | Review | Codex | M0.* | Not opened | Required |
+| [M1.1](phases/M1.1.md) | Scaffold and quality gates | Completed | Codex | M0.* | Not opened | Approved |
 | [M1.2](phases/M1.2.md) | Design tokens, fonts, base CSS, Tailwind | Pending | Not assigned | M1.1 | TBD | Required |
 | [M1.3](phases/M1.3.md) | i18n, preferences, direction | Pending | Not assigned | M1.2 | TBD | Required |
 | [M1.4](phases/M1.4.md) | Router skeleton, error handling, migration markers | Pending | Not assigned | M1.3 | TBD | Required |
