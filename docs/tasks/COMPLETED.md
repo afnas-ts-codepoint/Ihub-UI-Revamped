@@ -2,6 +2,10 @@
 
 Only human-approved work belongs here.
 
+| Task | Completed | Approval |
+|---|---|---|
+| [M2.2 — Shell chrome and visual-QA harness](phases/M2.2.md) | 2026-09-25 | User-approved |
+
 | Task ID | Task | Approval evidence | Completion notes |
 |---|---|---|---|
 | [M0.3](phases/M0.3.md) | Planning documents in the new repository | Phase 3 records Phase 2 as approved, and the repository README records planning as complete. | Required architecture, migration-plan, analysis, and register documents are present. |
