@@ -62,4 +62,6 @@ npm run check:bundle
 
 `M1.3 — i18n, Preferences & Direction: COMPLETED`
 
-M1.4 has not started.
+`M1.4 — Router Skeleton, Error Handling & Migration Markers: COMPLETED`
+
+M2.1 has not started.

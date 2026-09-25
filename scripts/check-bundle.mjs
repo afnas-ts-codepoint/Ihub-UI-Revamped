@@ -6,8 +6,10 @@ const forbiddenStrings = [
   '__activate_edit_mode',
   '__deactivate_edit_mode',
   '__ihubShowErr',
-  '?ihubPreview',
+  'ihubPreview',
   'ihub-dev-lng-switch',
+  '__ihubToggleTheme',
+  'Tweaks',
 ];
 
 if (!existsSync(join(outputDirectory, 'index.html'))) {

@@ -20,5 +20,28 @@
     "minuteShort": "m",
     "hourShort": "h",
     "dayShort": "d"
+  },
+  "errors": {
+    "reload": "Reload page",
+    "application": {
+      "title": "The application could not continue",
+      "description": "Reload the page to try again."
+    },
+    "route": {
+      "title": "This page could not be displayed",
+      "description": "Reload the page to try again."
+    },
+    "notFound": {
+      "code": "404",
+      "title": "Page not found",
+      "description": "The requested page does not exist."
+    }
+  },
+  "migration": {
+    "pending": {
+      "label": "Migration pending",
+      "title": "{{area}} is not migrated yet",
+      "description": "This temporary marker will be removed when the area is migrated."
+    }
   }
 }
