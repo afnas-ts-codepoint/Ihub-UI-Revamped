@@ -58,6 +58,6 @@ npm run check:bundle
 
 `M1.1 — Scaffold & Quality Gates: COMPLETED`
 
-`M1.2 — Design Tokens, Fonts, Base CSS & Tailwind: REVIEW`
+`M1.2 — Design Tokens, Fonts, Base CSS & Tailwind: COMPLETED`
 
 M1.3 has not started.
