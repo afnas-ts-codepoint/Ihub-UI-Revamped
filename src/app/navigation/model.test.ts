@@ -1,7 +1,12 @@
 import { describe, expect, it } from 'vitest';
 
-import { navFirstLeaf, navIsAncestor, navPath } from '@/app/navigation/model';
-import { MASTERS_NAV } from '@/app/navigation/nav.config';
+import {
+  navFirstLeaf,
+  navIsAncestor,
+  navPath,
+  navTrailForPath,
+} from '@/app/navigation/model';
+import { MASTERS_NAV, NAV_TREE } from '@/app/navigation/nav.config';
 import { MASTER_CATALOG } from '@/features/masters';
 
 describe('complete Masters catalogue navigation', () => {
@@ -55,5 +60,21 @@ describe('complete Masters catalogue navigation', () => {
     expect(navIsAncestor(masters, 'masters/hr/employees')).toBe(true);
     expect(navIsAncestor(masters, 'masters/operation/item-unit')).toBe(true);
     expect(navIsAncestor(masters, 'masters-list/admin/users')).toBe(false);
+  });
+});
+
+describe('application navigation model', () => {
+  it('derives the deepest trail from a URL', () => {
+    expect(
+      navTrailForPath(NAV_TREE, '/reports/work-centre/incident-log').map(
+        (node) => node.id,
+      ),
+    ).toEqual([
+      'dashboard',
+      'reports',
+      'reports/work-centre',
+      'reports/work-centre/incident-log',
+    ]);
+    expect(navTrailForPath(NAV_TREE, '/not-in-navigation')).toEqual([]);
   });
 });

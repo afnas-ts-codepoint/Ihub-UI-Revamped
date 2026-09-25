@@ -76,7 +76,7 @@ describe('M2.1 complete Masters catalogue route parity', () => {
   ])(
     'routes the screenless entry at %s to PlaceholderPage',
     async (path, title) => {
-      const { router } = renderRoute(path);
+      const { container, router } = renderRoute(path);
 
       expect(
         await screen.findByRole('heading', { name: title }),
@@ -86,6 +86,9 @@ describe('M2.1 complete Masters catalogue route parity', () => {
           'Module landing — connect your data to see live content.',
         ),
       ).toBeInTheDocument();
+      expect(container.querySelectorAll('[aria-hidden="true"]')).toHaveLength(
+        6,
+      );
       router.dispose();
     },
   );

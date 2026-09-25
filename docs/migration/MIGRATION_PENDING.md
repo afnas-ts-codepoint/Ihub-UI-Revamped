@@ -5,6 +5,19 @@ Track prototype functionality that has not yet been migrated.
 | Feature | Route/screen | Migration phase | Status | Notes |
 | --- | --- | --- | --- | --- |
 | Migration infrastructure | Not routed | M1.4 | Available; active markers tracked below | `MigrationPending` and `report:pending` are introduced for later route migrations. Each marker is removed by its owning migration phase; the count must be zero before release. |
+| Home shell and views | `/home/overview`; `/home/approvals`; `/home/assigned/*`; `/home/incidents/live`; `/home/tasks`; `/home/company`; `/home/reports` | M5.1, M10.1-M10.4 | Active; shared route marker | M2.1 establishes the approved URLs and `homeTab` handles; later Home phases replace the marker with the prototype screens. |
+| Home finance hubs | `/home/budgets/*`; `/home/purchasing/*`; `/home/payment-settlement/*` | M6.2-M6.8 | Active; shared route marker | M2.1 validates the Phase 2 URL families and allowed payment-settlement modules. |
+| Home operational hubs | `/home/work-centre/*`; `/home/incidents/reports`; `/home/sop-checklist`; `/home/sla` | M3.5, M3.8, M7.1-M8.3 | Active; shared route marker | M2.1 validates allowed Work Centre sections; each owning feature phase replaces its route marker. |
+| Task detail and edit | `/tasks/:taskId`; `/tasks/:taskId/edit` | M8.4-M8.6 | Active; shared route marker | M2.1 reserves the real task URLs; task lookup and screens arrive in Stage 8. |
+| Appraisal | `/appraisal` | M3.2 | Active; shared nav-route marker | The prototype has a real screen; M2.1 routes it to `MigrationPending`. |
+| HR (Overtime) | `/hr` | M3.3 | Active; shared nav-route marker | The root is a real prototype screen; screenless HR child leaves remain final placeholders. |
+| Notifications | `/notifications` | M3.4 | Active; shared route marker | The prototype has a real screen; M2.1 reserves its production URL. |
+| Quality & Compliance | `/quality`; `/quality/sla` | M3.5, M3.8 | Active; shared nav-route marker | The prototype has real Checklist and SLA screens; other Quality leaves remain final placeholders. |
+| History | `/history/*` for every prototype History node | M3.6 | Active; shared nav-route marker | The prototype handles the whole History prefix with a real screen. |
+| Workflows | `/workflows` | M3.7 | Active; shared nav-route marker | The prototype has a real screen; M2.1 routes it to `MigrationPending`. |
+| Reports library | `/reports` | M3.9 | Active; shared nav-route marker | The root is a real prototype screen; report descendant nav leaves remain final placeholders until their owning work. |
+| Finance & Budgets | `/finance`; `/finance/dashboard`; `/finance/budgeting` | M6.1 | Active; shared nav-route marker | The prototype handles the Budgeting root and both section routes with a real screen. |
+| Settings configuration | `/settings/configuration` | M11.1 | Active; shared nav-route marker | The prototype has a real user-configuration screen; other Settings leaves remain final placeholders. |
 | Project Category Master | `/masters/admin/project-category-master`; `/masters-list/admin/project-category-master` | M4.1 | Active; shared source marker, 2 route variants | The prototype has a real listing screen. M2.1 routes it to the shared `MigrationPending` marker until the Masters listing phase. |
 | Machine Master | `/masters/general/machine-master`; `/masters-list/general/machine-master` | M4.1 | Active; shared source marker, 2 route variants | The prototype has a real listing screen. M2.1 routes it to the shared `MigrationPending` marker until the Masters listing phase. |
 | Assignment Areas | `/masters/operation/assignment-areas`; `/masters-list/operation/assignment-areas` | M4.1 | Active; shared source marker, 2 route variants | The prototype has a real listing screen. M2.1 routes it to the shared `MigrationPending` marker until the Masters listing phase. |

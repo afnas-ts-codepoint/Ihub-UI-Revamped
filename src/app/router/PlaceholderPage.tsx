@@ -23,10 +23,13 @@ export function PlaceholderPage({ title }: PlaceholderPageProps) {
             className="rounded-14 min-h-40 border border-line bg-surface p-6"
             key={index}
           >
-            <div className="h-2.5 rounded bg-line" />
-            <div className="mt-4 h-6 w-3/5 rounded bg-line" />
-            <div className="mt-3 h-2 rounded bg-line" />
-            <div className="mt-2 h-2 w-4/5 rounded bg-line" />
+            <div className="mb-3.5 flex items-center gap-2.5">
+              <div className="h-2 w-2 rounded-[2px] bg-line-strong" />
+              <div className="h-2.5 flex-1 rounded bg-line" />
+            </div>
+            <div className="rounded-md mb-2.5 h-6 w-3/5 bg-line" />
+            <div className="mb-1.5 h-2 rounded bg-line" />
+            <div className="h-2 w-4/5 rounded bg-line" />
           </div>
         ))}
       </div>

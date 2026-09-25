@@ -2,9 +2,21 @@ export type NavNode = Readonly<{
   id: string;
   labelKey: string;
   path: string;
-  icon?: 'grid' | 'layers';
+  icon?:
+    | 'activity'
+    | 'clock'
+    | 'coins'
+    | 'dashboard'
+    | 'grid'
+    | 'layers'
+    | 'settings'
+    | 'shield'
+    | 'star'
+    | 'users';
   megaMenu?: boolean;
+  topbar?: boolean;
   firstLeafRoute?: boolean;
   hideInTopNav?: boolean;
+  routeBehavior?: 'migration-pending' | 'placeholder';
   children?: readonly NavNode[];
 }>;
