@@ -19,3 +19,5 @@ Track approved architecture and product decisions from Phases 2 and 3. Unresolve
 | One migration phase is executed at a time. | Approved |
 | Every phase stops for human approval. | Approved |
 | One canonical task-form architecture is preferred; legacy usages are analysed in M9.1 before final unification. | Approved |
+| Q5: Existing brand-font assets may be copied from the prototype into the production repository. | Approved for M1.2; the files already ship in the prototype repository. |
+| D18: Omit the missing Myriad Pro and GE SS Light Italic `@font-face` declarations. | Approved for M1.2; no substitute assets were invented. |

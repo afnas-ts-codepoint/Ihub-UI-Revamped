@@ -31,6 +31,10 @@ if (!bundleFiles.some((file) => extname(file) === '.js')) {
 for (const file of bundleFiles) {
   const contents = readFileSync(file, 'utf8');
 
+  if (contents.includes('data:font')) {
+    throw new Error(`Base64 font found in ${file}`);
+  }
+
   for (const forbiddenString of forbiddenStrings) {
     if (contents.includes(forbiddenString)) {
       throw new Error(

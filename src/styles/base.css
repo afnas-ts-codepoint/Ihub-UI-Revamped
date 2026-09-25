@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme='ink'] {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root[dir='rtl'] body {
+  font-family: var(--font-arabic);
+  line-height: 1.58;
+}
+
+.brand-logo,
+.brand-logo-color {
+  display: block;
+}
+
+.brand-logo-white,
+.brand-ihub-white {
+  display: none;
+}
+
+:root[data-theme='ink'] .brand-logo-color,
+:root[data-theme='ink'] .brand-ihub-color {
+  display: none;
+}
+
+:root[data-theme='ink'] .brand-logo-white,
+:root[data-theme='ink'] .brand-ihub-white {
+  display: block;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--bg);
+  border-radius: 8px;
+  background: var(--line-2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-4);
+}
+
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:where(button, a, [tabindex]):focus-visible {
+  border-radius: 6px;
+  outline: 3px solid var(--accent-dim);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.num {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.tnum,
+.display .num,
+.kpi-value,
+[data-num] {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+em,
+.accent-em,
+.display em {
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+.display em,
+h1 em,
+h2 em {
+  font-size: 1.06em;
+  line-height: 1;
+}
+
+:root[dir='rtl'] .display,
+:root[dir='rtl'] em,
+:root[dir='rtl'] .accent-em {
+  font-family: var(--font-arabic);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@utility chip-tone-ok {
+  border-color: color-mix(in srgb, var(--ok) 32%, transparent);
+  background: color-mix(in srgb, var(--ok) 14%, transparent);
+  color: var(--ok);
+}
+
+@utility chip-tone-warn {
+  border-color: color-mix(in srgb, var(--warn) 32%, transparent);
+  background: color-mix(in srgb, var(--warn) 14%, transparent);
+  color: var(--warn);
+}
+
+@utility chip-tone-bad {
+  border-color: color-mix(in srgb, var(--bad) 32%, transparent);
+  background: color-mix(in srgb, var(--bad) 14%, transparent);
+  color: var(--bad);
+}
+
+@utility chip-tone-info {
+  border-color: color-mix(in srgb, var(--info) 32%, transparent);
+  background: color-mix(in srgb, var(--info) 14%, transparent);
+  color: var(--info);
+}
+
+@utility chip-tone-accent {
+  border-color: color-mix(in srgb, var(--accent) 32%, transparent);
+  background: var(--accent-dim);
+  color: var(--accent);
+}

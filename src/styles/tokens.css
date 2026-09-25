@@ -1,0 +1,59 @@
+:root {
+  --bg: #ECECF0;
+  --bg-2: #F6F6F8;
+  --bg-3: #E3E3E9;
+  --paper: #FFFFFF;
+  --paper-2: #ECECF0;
+  --line: #E4E4EA;
+  --line-2: #D3D3DC;
+  --text: #1A1A1F;
+  --text-2: #44444C;
+  --text-3: #757575;
+  --text-4: #9A9AA3;
+
+  --ok: #1E9E63;
+  --warn: #B5791F;
+  --bad: #D32414;
+  --info: #5B53A8;
+
+  --accent: #93358D;
+  --accent-dim: #93358D24;
+  --accent-ink: #FFFFFF;
+
+  --brand-purple: #93358D;
+  --brand-indigo: #3B2D59;
+  --brand-red: #EE3124;
+  --brand-orange: #E57828;
+  --brand-yellow: #EFAC37;
+  --brand-lilac: #B282BA;
+  --brand-pink: #DEB0D2;
+  --brand-periwinkle: #7670B3;
+  --brand-mint: #73C69C;
+
+  --blue-dark: #1E2A4D;
+  --blue-med: #4F6FB8;
+  --blue-light: #B0BDF5;
+  --blue-soft: #EAEEFB;
+}
+
+:root[data-theme='ink'] {
+  --bg: oklch(0.18 0.008 240);
+  --bg-2: oklch(0.21 0.008 240);
+  --bg-3: oklch(0.26 0.009 240);
+  --paper: oklch(0.235 0.009 240);
+  --paper-2: oklch(0.27 0.01 240);
+  --line: oklch(0.32 0.01 240);
+  --line-2: oklch(0.40 0.012 240);
+  --text: oklch(0.97 0.005 240);
+  --text-2: oklch(0.78 0.01 240);
+  --text-3: oklch(0.58 0.01 240);
+  --text-4: oklch(0.45 0.008 240);
+
+  --ok: oklch(0.80 0.15 155);
+  --warn: oklch(0.82 0.14 75);
+  --bad: oklch(0.72 0.16 22);
+  --info: oklch(0.78 0.12 235);
+
+  --blue-med: #8AA4E6;
+  --blue-soft: color-mix(in srgb, #4F6FB8 26%, transparent);
+}

@@ -1,0 +1,108 @@
+@import 'tailwindcss' source('../');
+@import './fonts.css';
+@import './tokens.css';
+@import './base.css';
+
+@source not '../**/*.test.ts';
+@source not '../**/*.test.tsx';
+@source not '../**/*.fixture.ts';
+
+@theme static {
+  --radius-*: initial;
+  --radius-sm: 6px;
+  --radius-compact: 7px;
+  --radius: 8px;
+  --radius-menu: 9px;
+  --radius-lg: 10px;
+  --radius-dialog: 12px;
+  --radius-xl: 14px;
+  --radius-full: 999px;
+
+  --font-*: initial;
+  --font-sans:
+    'NumCalibri', 'Zarid Sans', 'Myriad Pro', 'Calibri', system-ui, sans-serif;
+  --font-serif: 'NumCalibri', 'Cormorant', 'Times New Roman', serif;
+  --font-display: var(--font-sans);
+  --font-ui: var(--font-sans);
+  --font-arabic:
+    'NumCalibri', 'GE SS', 'GE SS Two', 'GE SS Text', 'BCN Arabic', sans-serif;
+  --font-mono: var(--font-sans);
+  --font-num: 'Calibri', 'Carlito', 'Segoe UI', system-ui, sans-serif;
+
+  --text-*: initial;
+  --text-3xs: 9px;
+  --text-3xs-plus: 9.5px;
+  --text-2xs: 10px;
+  --text-2xs-plus: 10.5px;
+  --text-xs: 11px;
+  --text-xs-plus: 11.5px;
+  --text-sm: 12px;
+  --text-sm-plus: 12.5px;
+  --text-base: 13px;
+  --text-base-plus: 13.5px;
+  --text-md: 14px;
+  --text-md-plus: 14.5px;
+  --text-lg: 15px;
+  --text-lg-plus: 15.5px;
+  --text-xl: 16px;
+  --text-xl-plus: 17px;
+  --text-2xl: 18px;
+  --text-2xl-plus: 19px;
+  --text-3xl: 20px;
+  --text-3xl-plus: 21px;
+  --text-4xl: 22px;
+  --text-5xl: 24px;
+  --text-6xl: 26px;
+  --text-7xl: 28px;
+  --text-8xl: 30px;
+  --text-9xl: 32px;
+  --text-10xl: 34px;
+  --text-11xl: 38px;
+  --text-12xl: 48px;
+
+  --shadow-*: initial;
+  --shadow-popover: 0 16px 44px rgba(20, 20, 30, 0.22);
+  --shadow-menu: 0 12px 32px rgba(20, 20, 30, 0.14);
+  --shadow-segment: 0 1px 2px rgba(20, 20, 30, 0.1);
+  --shadow-drawer: 0 24px 80px rgba(26, 26, 31, 0.4);
+
+  --breakpoint-*: initial;
+  --breakpoint-desktop: 1041px;
+  --breakpoint-tablet: 761px;
+  --breakpoint-phone: 481px;
+}
+
+@theme inline static {
+  --color-*: initial;
+  --color-canvas: var(--bg);
+  --color-raised: var(--bg-2);
+  --color-pressed: var(--bg-3);
+  --color-surface: var(--paper);
+  --color-inset: var(--paper-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-2);
+  --color-fg: var(--text);
+  --color-fg-2: var(--text-2);
+  --color-fg-3: var(--text-3);
+  --color-fg-4: var(--text-4);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+  --color-info: var(--info);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-ink: var(--accent-ink);
+  --color-interactive: var(--blue-med);
+  --color-interactive-strong: var(--blue-dark);
+  --color-interactive-light: var(--blue-light);
+  --color-interactive-soft: var(--blue-soft);
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-indigo: var(--brand-indigo);
+  --color-brand-red: var(--brand-red);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-lilac: var(--brand-lilac);
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-periwinkle: var(--brand-periwinkle);
+  --color-brand-mint: var(--brand-mint);
+}

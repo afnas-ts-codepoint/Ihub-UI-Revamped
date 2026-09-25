@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'Zarid Sans';
+  src: url('../assets/fonts/ZaridSans-ExtraLight.otf') format('opentype');
+  font-weight: 200 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zarid Sans';
+  src: url('../assets/fonts/ZaridSans-Regular.otf') format('opentype');
+  font-weight: 360 550;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zarid Sans';
+  src: url('../assets/fonts/ZaridSans-Bold.otf') format('opentype');
+  font-weight: 560 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BCN Arabic';
+  src: url('../assets/fonts/BCNArabicRounded-Medium.otf') format('opentype');
+  font-weight: 300 550;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BCN Arabic';
+  src: url('../assets/fonts/BCNArabicRounded-Bold.otf') format('opentype');
+  font-weight: 560 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GE SS';
+  src: url('../assets/fonts/GESS-Light.otf') format('opentype');
+  font-weight: 200 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GE SS';
+  src: url('../assets/fonts/GESS-Medium.otf') format('opentype');
+  font-weight: 360 550;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GE SS';
+  src: url('../assets/fonts/GESS-Bold.otf') format('opentype');
+  font-weight: 560 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant';
+  src: url('../assets/fonts/Cormorant-Italic400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant';
+  src: url('../assets/fonts/Cormorant-Italic500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NumCalibri';
+  src: local('Calibri'), local('Carlito'), local('Segoe UI');
+  font-display: swap;
+  unicode-range:
+    U+0030-0039, U+002C, U+002E, U+003A, U+0025, U+002B, U+002D, U+0660-0669,
+    U+066B, U+066C, U+0025;
+}
