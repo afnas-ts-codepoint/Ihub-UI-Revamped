@@ -2,5 +2,5 @@
 
 No migration implementation task is currently active.
 
-M1.1 has not been authorized or started.
+M1.1 is in Review and awaiting human approval.
 

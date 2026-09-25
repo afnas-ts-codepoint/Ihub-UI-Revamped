@@ -37,8 +37,25 @@ Do not start a migration phase without following [AGENTS.md](AGENTS.md) and the 
 
 GitHub is the source of truth for code. Claude and Codex support architecture, review, and implementation. Work through branches and pull requests; do not push migration work directly to `main`.
 
+## Local development
+
+```sh
+npm ci
+npm run dev
+```
+
+## Quality gates
+
+```sh
+npm run typecheck
+npm run lint
+npm run test
+npm run build
+npm run check:bundle
+```
+
 ## Implementation status
 
-`M1.1 — Scaffold & Quality Gates: NOT STARTED`
+`M1.1 — Scaffold & Quality Gates: REVIEW`
 
-No setup commands are listed because the React application has not been scaffolded.
+M1.2 has not started.
