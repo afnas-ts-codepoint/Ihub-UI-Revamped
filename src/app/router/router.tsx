@@ -13,6 +13,7 @@ import { ChecklistPage } from '@/features/checklists';
 import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
 import { OvertimePage } from '@/features/hr';
 import { NotificationsPage } from '@/features/notifications';
+import { WorkflowsPage } from '@/features/workflows';
 import {
   NavRoutePage,
   PendingRoutePage,
@@ -256,7 +257,7 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <NavRoutePage />,
+            element: <WorkflowsPage />,
             handle: { reportKey: 'workflows' },
           },
         ],

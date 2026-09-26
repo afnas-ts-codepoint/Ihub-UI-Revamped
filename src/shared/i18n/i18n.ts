@@ -75,6 +75,7 @@ export async function initializeI18n(locale: Locale) {
       'notifications',
       'organization',
       'reports',
+      'workflows',
     ],
     preload: supportedLocales,
     react: { useSuspense: false },

@@ -10,6 +10,7 @@ import type notifications from '@/shared/i18n/locales/en/notifications.json';
 import type organization from '@/shared/i18n/locales/en/organization.json';
 import type reports from '@/shared/i18n/locales/en/reports.json';
 import type validation from '@/shared/i18n/locales/en/validation.json';
+import type workflows from '@/shared/i18n/locales/en/workflows.json';
 
 declare module 'i18next' {
   interface CustomTypeOptions {
@@ -25,6 +26,7 @@ declare module 'i18next' {
       organization: typeof organization;
       reports: typeof reports;
       validation: typeof validation;
+      workflows: typeof workflows;
     };
   }
 }

@@ -1,0 +1,56 @@
+{
+  "scope": {
+    "department": "Department",
+    "division": "Division",
+    "version": "Published workflow · v3.2"
+  },
+  "actions": {
+    "discard": "Discard",
+    "saveDraft": "Save Draft",
+    "publish": "Publish",
+    "newRule": "New Rule",
+    "editRule": "Edit {{type}}",
+    "editStep": "Edit {{action}}"
+  },
+  "tabs": {
+    "rules": "Routing Rules",
+    "flow": "Operational Flow",
+    "auto": "Auto-Routing · TX",
+    "sla": "SLA & Escalation"
+  },
+  "rules": {
+    "description": "Rules resolve top-to-bottom. The first rule whose task type, trigger label and condition all match decides the destination and SLA.",
+    "columns": {
+      "taskType": "Task Type",
+      "triggerLabel": "Trigger Label",
+      "condition": "Condition",
+      "routesTo": "Routes To",
+      "sla": "SLA",
+      "active": "Active"
+    },
+    "any": "Any",
+    "expansionTitle": "Operational flow — each step of this task",
+    "noFlow": "No operational flow defined for this task type yet."
+  },
+  "flow": {
+    "steps": "Steps",
+    "target": "Target end-to-end",
+    "owners": "Owners"
+  },
+  "auto": {
+    "description": "Total Experience categories are auto-classified on intake and routed before department rules run. Trigger labels override the default owner.",
+    "sla": "SLA",
+    "slaLine": "SLA · {{value}}"
+  },
+  "sla": {
+    "columns": {
+      "step": "Step",
+      "owner": "Owner",
+      "targetTime": "Target Time",
+      "share": "Share of total",
+      "escalateTo": "On breach → escalate to"
+    },
+    "nextOwner": "Step {{step}} owner",
+    "departmentHead": "Department Head"
+  }
+}

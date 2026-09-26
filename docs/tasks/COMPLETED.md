@@ -4,6 +4,7 @@ Only human-approved work belongs here.
 
 | Task | Completed | Approval |
 |---|---|---|
+| [M3.7 — Workflows](phases/M3.7.md) | 2026-09-26 | User-approved |
 | [M3.6 — History](phases/M3.6.md) | 2026-09-26 | User-approved |
 | [M3.5 — Quality & Compliance: Checklist](phases/M3.5.md) | 2026-09-26 | User-approved |
 | [M3.4 — Notifications page](phases/M3.4.md) | 2026-09-26 | User-approved |
@@ -28,4 +29,5 @@ Only human-approved work belongs here.
 | [M3.4](phases/M3.4.md) | Notifications page | User approved review completion on 2026-09-26. | Notifications route (All/Unread tabs, email/subject/status/type/date rows, reused `RecordFilter kind="history"`), plan/prototype reconciliation on `FilterForm` and the absent stat row (both ADOPT current-prototype decisions), `PROTOTYPE-NOOP(D2)` literal Unread count, top-bar View all integration verified with no code change, 10-cell reduced visual QA, and M3.4 quality gates completed; no commit or push was performed by Codex. |
 | [M3.5](phases/M3.5.md) | Quality & Compliance: Checklist | User approved review completion on 2026-09-26. | Checklist route, exact two prototype tabs/counts/rows/status tones, sheet RecordFilter, shared TabbedTable/EmptyState/inert pagination, D14 child-placeholder verification, 25-cell reduced visual QA, and M3.5 quality gates completed; no commit or push was performed by Codex. |
 | [M3.6](phases/M3.6.md) | History | User approved review completion on 2026-09-26. | All 28 History navigation nodes migrated through one route-derived History screen; 23 terminal leaves verified against the prototype; exact refs/actions/users/dates/tones and per-leaf RecordFilter kinds covered by exhaustive domain, route, UI, RTL, responsive, Section/Report, and 25-cell visual QA; M3.6 quality gates completed; no commit or push was performed by Codex. |
+| [M3.7](phases/M3.7.md) | Workflows | User approved review completion on 2026-09-26. | Workflows route, exact four tabs, department/division/task/rule fixtures, expandable rules, decorative Switch, KPI strip, timeline, SLA/escalation with Department Head derivation, inert authoring controls, version badge, EN/AR, RTL/responsive/Section-Report QA, 26-check visual evidence, and M3.7 quality gates completed; no commit or push was performed by Codex. |
 

@@ -11,6 +11,7 @@ import arNotifications from '@/shared/i18n/locales/ar/notifications.json';
 import arOrganization from '@/shared/i18n/locales/ar/organization.json';
 import arReports from '@/shared/i18n/locales/ar/reports.json';
 import arValidation from '@/shared/i18n/locales/ar/validation.json';
+import arWorkflows from '@/shared/i18n/locales/ar/workflows.json';
 import enAppraisal from '@/shared/i18n/locales/en/appraisal.json';
 import enChecklists from '@/shared/i18n/locales/en/checklists.json';
 import enCommon from '@/shared/i18n/locales/en/common.json';
@@ -21,6 +22,7 @@ import enNotifications from '@/shared/i18n/locales/en/notifications.json';
 import enOrganization from '@/shared/i18n/locales/en/organization.json';
 import enReports from '@/shared/i18n/locales/en/reports.json';
 import enValidation from '@/shared/i18n/locales/en/validation.json';
+import enWorkflows from '@/shared/i18n/locales/en/workflows.json';
 import { getCalendarLabels } from '@/shared/i18n/calendar';
 import {
   formatDate,
@@ -64,6 +66,7 @@ describe('i18n resources', () => {
     ['organization', enOrganization, arOrganization],
     ['reports', enReports, arReports],
     ['validation', enValidation, arValidation],
+    ['workflows', enWorkflows, arWorkflows],
   ])('keeps en/ar %s keys in parity', (_namespace, english, arabic) => {
     expect(leafKeys(arabic).sort()).toEqual(leafKeys(english).sort());
   });

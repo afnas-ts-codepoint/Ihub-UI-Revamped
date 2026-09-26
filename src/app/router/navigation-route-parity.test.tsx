@@ -113,6 +113,9 @@ describe('G6 complete navigation and route parity', () => {
             'data-migration-pending',
             title,
           );
+        } else if (current?.id === 'workflows') {
+          expect(await screen.findByRole('tablist')).toBeInTheDocument();
+          expect(screen.queryByRole('status')).not.toBeInTheDocument();
         } else {
           const heading =
             HEADING_OVERRIDES[current?.id ?? '']?.[locale] ?? String(title);

@@ -6,6 +6,14 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M3.7 intake
+
+- Date: 2026-09-26.
+- Scope: Workflows (`WorkflowsScreen` lines 21190-21528 and its directly used `DEPTS`, `DATA`, `TX_CATEGORIES`, `TABS`, `durMins`, `fmtTotal`, `Toggle`, `Field`, `Select`, Section/Report, navigation, and route-switch dependencies).
+- Result: `index.html` is unchanged between baseline `273abc8` and current prototype HEAD `3c391b4`.
+- Consistency: the prototype confirms four ordered tabs, an initially expanded first routing-rule row, decorative switches, the three-value KPI strip, operational step timeline, SLA/escalation table, derived next-step owner/Department Head output, published `v3.2` badge, and inert authoring controls.
+- Decision: no source delta or material plan/prototype conflict exists; no adopt/defer decision is required.
+
 ## M3.6 intake
 
 - Date: 2026-09-26.

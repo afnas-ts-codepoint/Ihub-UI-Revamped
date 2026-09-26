@@ -329,7 +329,6 @@ export const NAV_TREE = [
   settings,
   history,
   node('workflows', paths.workflows, undefined, {
-    ...pending,
     icon: 'activity',
   }),
   ...MASTERS_NAV,
