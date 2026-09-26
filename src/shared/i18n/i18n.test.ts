@@ -1,11 +1,13 @@
 import { renderHook } from '@testing-library/react';
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import arAppraisal from '@/shared/i18n/locales/ar/appraisal.json';
 import arCommon from '@/shared/i18n/locales/ar/common.json';
 import arNav from '@/shared/i18n/locales/ar/nav.json';
 import arOrganization from '@/shared/i18n/locales/ar/organization.json';
 import arReports from '@/shared/i18n/locales/ar/reports.json';
 import arValidation from '@/shared/i18n/locales/ar/validation.json';
+import enAppraisal from '@/shared/i18n/locales/en/appraisal.json';
 import enCommon from '@/shared/i18n/locales/en/common.json';
 import enNav from '@/shared/i18n/locales/en/nav.json';
 import enOrganization from '@/shared/i18n/locales/en/organization.json';
@@ -44,6 +46,7 @@ beforeAll(async () => {
 
 describe('i18n resources', () => {
   it.each([
+    ['appraisal', enAppraisal, arAppraisal],
     ['common', enCommon, arCommon],
     ['nav', enNav, arNav],
     ['organization', enOrganization, arOrganization],

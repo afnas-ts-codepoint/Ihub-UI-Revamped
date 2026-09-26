@@ -8,6 +8,7 @@ import {
 
 import { AppShell } from '@/app/layouts/app-shell/AppShell';
 import { SectionLayout } from '@/app/layouts/section/SectionLayout';
+import { AppraisalPage } from '@/features/appraisal';
 import {
   NavRoutePage,
   PendingRoutePage,
@@ -210,7 +211,7 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <NavRoutePage />,
+            element: <AppraisalPage />,
             handle: { reportKey: 'appraisal' },
           },
         ],
@@ -268,7 +269,9 @@ export const appRoutes: RouteObject[] = [
       },
       {
         path: 'settings/configuration',
-        element: <PendingRoutePage titleKey="navigation.settings-configuration_configuration" />,
+        element: (
+          <PendingRoutePage titleKey="navigation.settings-configuration_configuration" />
+        ),
       },
       {
         path: 'settings',

@@ -333,7 +333,7 @@ export const NAV_TREE = [
   home,
   finance,
   hr,
-  node('appraisal', paths.appraisal, undefined, { ...pending, icon: 'star' }),
+  node('appraisal', paths.appraisal, undefined, { icon: 'star' }),
   quality,
   settings,
   history,

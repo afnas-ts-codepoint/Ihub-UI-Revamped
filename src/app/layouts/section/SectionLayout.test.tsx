@@ -66,8 +66,26 @@ describe('SectionLayout', () => {
     expect(
       await screen.findByRole('heading', { name: 'Dashboard — Report' }),
     ).toBeInTheDocument();
-    expect(screen.getByText('Run search to generate this report.')).toBeVisible();
+    expect(
+      screen.getByText('Run search to generate this report.'),
+    ).toBeVisible();
     fallback.dispose();
+  });
+
+  it('renders the migrated Appraisal section and keeps its report view', async () => {
+    const section = renderRoute(['/appraisal']);
+    expect(
+      await screen.findByRole('heading', { name: 'Appraisal' }),
+    ).toBeVisible();
+    expect(screen.getByRole('tab', { name: 'All Appraisals 5' })).toBeVisible();
+    expect(screen.queryByText('Migration pending')).toBeNull();
+    section.dispose();
+
+    const report = renderRoute(['/appraisal?view=report']);
+    expect(
+      await screen.findByRole('heading', { name: /Appraisal.+Report/ }),
+    ).toBeVisible();
+    report.dispose();
   });
 
   it.each([
@@ -81,7 +99,9 @@ describe('SectionLayout', () => {
     '/settings/work-centre',
   ])('wraps %s', async (path) => {
     const router = renderRoute([path]);
-    expect(await screen.findByRole('button', { name: 'Section' })).toBeVisible();
+    expect(
+      await screen.findByRole('button', { name: 'Section' }),
+    ).toBeVisible();
     expect(screen.getByRole('button', { name: 'Report' })).toBeVisible();
     router.dispose();
   });

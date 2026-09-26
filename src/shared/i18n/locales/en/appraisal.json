@@ -1,0 +1,24 @@
+{
+  "title": "Appraisal",
+  "tabs": { "all": "All Appraisals" },
+  "columns": {
+    "id": "Appraisal #",
+    "employee": "Employee",
+    "department": "Department",
+    "period": "Period",
+    "score": "Score",
+    "rating": "Rating",
+    "reviewer": "Reviewer"
+  },
+  "ratings": { "Exceeds": "Exceeds", "Meets": "Meets", "Improve": "Improve" },
+  "pagination": {
+    "summary": "Showing {{shown}} of {{total}} records",
+    "previous": "Previous page",
+    "next": "Next page",
+    "page": "Page"
+  },
+  "empty": {
+    "title": "No appraisals",
+    "description": "No appraisals match this filter."
+  }
+}

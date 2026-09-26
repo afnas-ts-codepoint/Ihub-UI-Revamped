@@ -1,0 +1,24 @@
+{
+  "title": "التقييم",
+  "tabs": { "all": "All Appraisals" },
+  "columns": {
+    "id": "Appraisal #",
+    "employee": "Employee",
+    "department": "Department",
+    "period": "Period",
+    "score": "Score",
+    "rating": "Rating",
+    "reviewer": "Reviewer"
+  },
+  "ratings": { "Exceeds": "Exceeds", "Meets": "Meets", "Improve": "Improve" },
+  "pagination": {
+    "summary": "Showing {{shown}} of {{total}} records",
+    "previous": "الصفحة السابقة",
+    "next": "الصفحة التالية",
+    "page": "صفحة"
+  },
+  "empty": {
+    "title": "لا توجد تقييمات",
+    "description": "لا توجد تقييمات مطابقة لهذا المرشح."
+  }
+}

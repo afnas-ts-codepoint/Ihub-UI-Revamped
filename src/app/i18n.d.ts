@@ -1,5 +1,6 @@
 import 'i18next';
 
+import type appraisal from '@/shared/i18n/locales/en/appraisal.json';
 import type common from '@/shared/i18n/locales/en/common.json';
 import type nav from '@/shared/i18n/locales/en/nav.json';
 import type organization from '@/shared/i18n/locales/en/organization.json';
@@ -10,6 +11,7 @@ declare module 'i18next' {
   interface CustomTypeOptions {
     defaultNS: 'common';
     resources: {
+      appraisal: typeof appraisal;
       common: typeof common;
       nav: typeof nav;
       organization: typeof organization;
