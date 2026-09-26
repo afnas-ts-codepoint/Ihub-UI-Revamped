@@ -1,6 +1,7 @@
 import 'i18next';
 
 import type appraisal from '@/shared/i18n/locales/en/appraisal.json';
+import type checklists from '@/shared/i18n/locales/en/checklists.json';
 import type common from '@/shared/i18n/locales/en/common.json';
 import type hr from '@/shared/i18n/locales/en/hr.json';
 import type nav from '@/shared/i18n/locales/en/nav.json';
@@ -14,6 +15,7 @@ declare module 'i18next' {
     defaultNS: 'common';
     resources: {
       appraisal: typeof appraisal;
+      checklists: typeof checklists;
       common: typeof common;
       hr: typeof hr;
       nav: typeof nav;

@@ -67,6 +67,7 @@ export async function initializeI18n(locale: Locale) {
     lng: locale,
     ns: [
       'appraisal',
+      'checklists',
       'common',
       'hr',
       'nav',

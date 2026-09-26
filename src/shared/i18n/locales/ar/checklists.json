@@ -1,0 +1,32 @@
+{
+  "title": "قائمة إجراءات التشغيل",
+  "titleStart": "قائمة إجراءات",
+  "titleEmphasis": "التشغيل",
+  "tabs": {
+    "unapproved": "Unapproved Checklist",
+    "other": "Other Checklist"
+  },
+  "columns": {
+    "id": "Checklist #",
+    "title": "Title",
+    "site": "Site",
+    "submitted": "Submitted",
+    "by": "Submitted by",
+    "progress": "Progress",
+    "status": "Status"
+  },
+  "status": {
+    "awaiting": "Awaiting",
+    "approved": "Approved"
+  },
+  "pagination": {
+    "summary": "Showing {{shown}} of {{total}} records",
+    "previous": "الصفحة السابقة",
+    "next": "الصفحة التالية",
+    "page": "صفحة"
+  },
+  "empty": {
+    "title": "لا توجد قوائم مراجعة",
+    "description": "لا توجد قوائم مراجعة مطابقة لهذا المرشح."
+  }
+}

@@ -6,6 +6,14 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M3.5 intake
+
+- Date: 2026-09-26.
+- Scope: Quality & Compliance Checklist (`ChecklistScreen` lines 8570-8664 and its directly used `RecordFilter`, `TabbedTable`, `STATUS_PILL`, `PageHeader`, navigation, and route-switch dependencies).
+- Result: `index.html` is unchanged between baseline `273abc8` and current prototype HEAD `3c391b4`.
+- Consistency: the prototype confirms Checklist as the `checklist`/`/quality` root, exactly two tabs, `RecordFilter kind="sheet"`, and `StubScreen` fallback for screenless Quality children.
+- Decision: no source delta or material plan/prototype conflict exists; no adopt/defer decision is required.
+
 | Date       | Affected feature                                                                                                | Prototype change                                                                                                                                                                                                                       | Adopt or defer                                                                                                       | Approved by                   | Migration phase |
 | ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------- | --------------- |
 | 2026-09-26 | M3.4 Notifications (`index.html` lines 12032-12129 `NotificationsScreen`, 7947-8069 `FilterForm`) | `index.html` is unchanged between baseline `273abc8` and current prototype HEAD `3c391b4` for both ranges. However, the M3.4 phase card's own wording did not match current-prototype behavior: (1) `NotificationsScreen` renders the shared `RecordFilter` with `kind="history"`, not `FilterForm` — `FilterForm` is used only by the out-of-scope `ReportsScreen`/Reports Library (M3.9); (2) `NotificationsScreen` has no `StatRow` call anywhere in its body, unlike the phase card's stat-row requirement. | ADOPT current prototype behavior for both: reuse `RecordFilter kind="history"` (no unused local `FilterForm`); render no stat row. Human decision recorded 2026-09-26 (see `DECISIONS.md`). | Human approval, 2026-09-26 | M3.4 |

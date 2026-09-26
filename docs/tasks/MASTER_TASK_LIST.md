@@ -18,7 +18,7 @@ This table operationalizes the executable tasks in [Phase 3](../migration/PHASE_
 | [M3.2](phases/M3.2.md) | Appraisal | Completed | Codex | M3.1 | Not opened | Approved |
 | [M3.3](phases/M3.3.md) | HR (Overtime) | Completed | Codex | M3.2 | Not opened | Approved |
 | [M3.4](phases/M3.4.md) | Notifications page | Completed | Codex | M3.2 | Not opened | Approved |
-| [M3.5](phases/M3.5.md) | Quality & Compliance: Checklist | Pending | Not assigned | M3.2 | TBD | Required |
+| [M3.5](phases/M3.5.md) | Quality & Compliance: Checklist | Completed | Codex | M3.2 | Approved | Required |
 | [M3.6](phases/M3.6.md) | History | Pending | Not assigned | M3.2 | TBD | Required |
 | [M3.7](phases/M3.7.md) | Workflows | Pending | Not assigned | M3.1 | TBD | Required |
 | [M3.8](phases/M3.8.md) | SLA & Compliance | Pending | Not assigned | M3.1 | TBD | Required |

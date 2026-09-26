@@ -122,10 +122,29 @@ describe('SectionLayout', () => {
     report.dispose();
   });
 
+  it('renders the migrated Checklist section and keeps its report view', async () => {
+    const section = renderRoute(['/quality']);
+    expect(
+      await screen.findByRole('heading', { name: 'SOP Checklist' }),
+    ).toBeVisible();
+    expect(
+      screen.getByRole('tab', { name: 'Unapproved Checklist 4' }),
+    ).toBeVisible();
+    expect(screen.queryByText('Migration pending')).toBeNull();
+    section.dispose();
+
+    const report = renderRoute(['/quality?view=report']);
+    expect(
+      await screen.findByRole('heading', { name: /SOP Checklists.+Report/ }),
+    ).toBeVisible();
+    report.dispose();
+  });
+
   it.each([
     '/finance',
     '/hr/dashboard',
     '/appraisal',
+    '/quality',
     '/quality/sla',
     '/history/hr/overtime',
     '/workflows',

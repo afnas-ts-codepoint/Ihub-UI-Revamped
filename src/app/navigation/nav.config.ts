@@ -180,7 +180,7 @@ const quality = node(
     node('checklist/observations', paths.quality.item('observations')),
     qualityChecklists,
   ],
-  { ...pending, icon: 'shield' },
+  { icon: 'shield' },
 );
 
 const settings = node(

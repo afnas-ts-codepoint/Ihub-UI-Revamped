@@ -4,6 +4,7 @@ Only human-approved work belongs here.
 
 | Task | Completed | Approval |
 |---|---|---|
+| [M3.5 — Quality & Compliance: Checklist](phases/M3.5.md) | 2026-09-26 | User-approved |
 | [M3.4 — Notifications page](phases/M3.4.md) | 2026-09-26 | User-approved |
 | [M3.3 — HR (Overtime)](phases/M3.3.md) | 2026-09-26 | User-approved |
 | [M3.2 — Appraisal](phases/M3.2.md) | 2026-09-26 | User-approved |
@@ -24,4 +25,5 @@ Only human-approved work belongs here.
 | [M3.2](phases/M3.2.md) | Appraisal | User approved review completion on 2026-09-26. | Appraisal route, exact prototype rows/tabs/pills, score-band rule, inert pagination, shared table primitives, 10-cell reduced visual QA, and M3.2 quality gates completed; no commit or push was performed by Codex. |
 | [M3.3](phases/M3.3.md) | HR (Overtime) | User approved review completion on 2026-09-26. | Overtime route, exact prototype stat cards/tabs/rows/statuses, `StatTile`, literal tab counts (`PROTOTYPE-NOOP(D2)`), reused shared table/RecordFilter, D14 child-leaf placeholder verification, 10-cell reduced visual QA, and M3.3 quality gates completed; no commit or push was performed by Codex. |
 | [M3.4](phases/M3.4.md) | Notifications page | User approved review completion on 2026-09-26. | Notifications route (All/Unread tabs, email/subject/status/type/date rows, reused `RecordFilter kind="history"`), plan/prototype reconciliation on `FilterForm` and the absent stat row (both ADOPT current-prototype decisions), `PROTOTYPE-NOOP(D2)` literal Unread count, top-bar View all integration verified with no code change, 10-cell reduced visual QA, and M3.4 quality gates completed; no commit or push was performed by Codex. |
+| [M3.5](phases/M3.5.md) | Quality & Compliance: Checklist | User approved review completion on 2026-09-26. | Checklist route, exact two prototype tabs/counts/rows/status tones, sheet RecordFilter, shared TabbedTable/EmptyState/inert pagination, D14 child-placeholder verification, 25-cell reduced visual QA, and M3.5 quality gates completed; no commit or push was performed by Codex. |
 
