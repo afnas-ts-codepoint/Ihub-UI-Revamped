@@ -19,10 +19,14 @@ const labels = {
   flag: { en: 'Showstoppers only', ar: 'المعوقات فقط' },
   from: { en: 'From', ar: 'من' },
   report: { en: 'Report', ar: 'تقرير' },
+  to: { en: 'To', ar: 'إلى' },
 } as const;
 
 type ReportState = Readonly<{
+  applicationPath?: string;
   name: string;
+  openReport?: boolean;
+  prototypeRoute?: string;
   setup?: (
     prototype: Page,
     application: Page,
@@ -66,7 +70,49 @@ async function openFromCalendar(
   await page.waitForTimeout(100);
 }
 
+async function openProcessOwnerSelect(prototype: Page, application: Page) {
+  await Promise.all([
+    prototype.getByRole('dialog').locator('input[type="text"]').nth(1).click(),
+    application.getByRole('dialog').getByRole('combobox').first().click(),
+  ]);
+}
+
+async function setDateRangeConstraint(
+  prototype: Page,
+  application: Page,
+  locale: QaLocale,
+) {
+  await Promise.all([
+    openFromCalendar(prototype, locale, true),
+    openFromCalendar(application, locale, false),
+  ]);
+  await Promise.all([
+    prototype.getByRole('button', { name: '20', exact: true }).click(),
+    application.getByRole('button', { name: '2026-09-20' }).click(),
+  ]);
+
+  const prototypeDialog = prototype.getByRole('dialog');
+  await Promise.all([
+    prototypeDialog
+      .locator('label')
+      .filter({ hasText: labels.to[locale] })
+      .last()
+      .getByRole('button')
+      .click(),
+    application
+      .getByRole('dialog')
+      .getByRole('button', { name: labels.to[locale], exact: true })
+      .click(),
+  ]);
+}
+
 const states: readonly ReportState[] = [
+  {
+    applicationPath: '/hr/dashboard',
+    name: 'section-default',
+    openReport: false,
+    prototypeRoute: 'overtime/dashboard',
+  },
   { name: 'report-default' },
   {
     name: 'record-filter-dialog',
@@ -74,6 +120,38 @@ const states: readonly ReportState[] = [
       await Promise.all([
         openFilter(prototype, locale),
         openFilter(application, locale),
+      ]);
+    },
+  },
+  {
+    name: 'select-open',
+    setup: async (prototype, application, locale) => {
+      await Promise.all([
+        openFilter(prototype, locale),
+        openFilter(application, locale),
+      ]);
+      await openProcessOwnerSelect(prototype, application);
+    },
+  },
+  {
+    name: 'select-no-results',
+    setup: async (prototype, application, locale) => {
+      await Promise.all([
+        openFilter(prototype, locale),
+        openFilter(application, locale),
+      ]);
+      await openProcessOwnerSelect(prototype, application);
+      await Promise.all([
+        prototype
+          .getByRole('dialog')
+          .locator('input[type="text"]')
+          .nth(1)
+          .fill('zz-no-match'),
+        application
+          .getByRole('dialog')
+          .getByRole('combobox')
+          .first()
+          .fill('zz-no-match'),
       ]);
     },
   },
@@ -88,6 +166,16 @@ const states: readonly ReportState[] = [
         openFromCalendar(prototype, locale, true),
         openFromCalendar(application, locale, false),
       ]);
+    },
+  },
+  {
+    name: 'date-range-constraints',
+    setup: async (prototype, application, locale) => {
+      await Promise.all([
+        openFilter(prototype, locale),
+        openFilter(application, locale),
+      ]);
+      await setDateRangeConstraint(prototype, application, locale);
     },
   },
   {
@@ -132,6 +220,12 @@ const states: readonly ReportState[] = [
       ]);
     },
   },
+  {
+    applicationPath: '/settings/work-centre',
+    name: 'wrapped-placeholder',
+    openReport: false,
+    prototypeRoute: 'settings-configuration/work-centre',
+  },
 ];
 
 const widths = [1440, 1040, 760, 390] as const;
@@ -153,12 +247,24 @@ for (const state of states) {
           const application = await context.newPage();
           const comparison = await context.newPage();
 
-          await preparePrototype(prototype, 'overtime', theme, locale);
-          await prepareApplication(application, '/hr', theme, locale);
-          await Promise.all([
-            openReport(prototype, locale),
-            openReport(application, locale),
-          ]);
+          await preparePrototype(
+            prototype,
+            state.prototypeRoute ?? 'overtime',
+            theme,
+            locale,
+          );
+          await prepareApplication(
+            application,
+            state.applicationPath ?? '/hr',
+            theme,
+            locale,
+          );
+          if (state.openReport !== false) {
+            await Promise.all([
+              openReport(prototype, locale),
+              openReport(application, locale),
+            ]);
+          }
           await state.setup?.(prototype, application, locale);
 
           const directory = resolve(evidenceRoot, state.name);
