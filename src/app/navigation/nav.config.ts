@@ -38,35 +38,30 @@ function reportGroup(id: string, children: readonly string[]): NavNode {
   );
 }
 
-const reports = node(
-  'reports',
-  paths.reports.root,
-  [
-    reportGroup('hr', [
-      'attendance-summary',
-      'attendance-detailed',
-      'leave-balance',
-    ]),
-    reportGroup('workforce', ['overtime-summary', 'overtime-detailed']),
-    reportGroup('performance', ['appraisal-summary']),
-    reportGroup('finance-budgets', [
-      'budget-vs-actual',
-      'budget-utilisation',
-      'purchasing-pending',
-      'petty-cash-movement',
-    ]),
-    reportGroup('work-centre', [
-      'job-orders',
-      'violations-register',
-      'incident-log',
-      'enquiries-register',
-      'observations-register',
-    ]),
-    reportGroup('quality-compliance', ['checklist-compliance']),
-    reportGroup('system', ['audit-trail']),
-  ],
-  pending,
-);
+const reports = node('reports', paths.reports.root, [
+  reportGroup('hr', [
+    'attendance-summary',
+    'attendance-detailed',
+    'leave-balance',
+  ]),
+  reportGroup('workforce', ['overtime-summary', 'overtime-detailed']),
+  reportGroup('performance', ['appraisal-summary']),
+  reportGroup('finance-budgets', [
+    'budget-vs-actual',
+    'budget-utilisation',
+    'purchasing-pending',
+    'petty-cash-movement',
+  ]),
+  reportGroup('work-centre', [
+    'job-orders',
+    'violations-register',
+    'incident-log',
+    'enquiries-register',
+    'observations-register',
+  ]),
+  reportGroup('quality-compliance', ['checklist-compliance']),
+  reportGroup('system', ['audit-trail']),
+]);
 
 const home = node(
   'dashboard',
@@ -211,10 +206,7 @@ function historyGroup(id: string, children: readonly string[]): NavNode {
     groupId,
     paths.history.item(id),
     children.map((child) =>
-      node(
-        `${groupId}/${child}`,
-        paths.history.item(`${id}/${child}`),
-      ),
+      node(`${groupId}/${child}`, paths.history.item(`${id}/${child}`)),
     ),
   );
 }
@@ -247,22 +239,13 @@ const history = node(
       'end-of-probation',
       'exit-interview',
     ]),
-    node(
-      'history/appraisal',
-      paths.history.item('appraisal'),
-    ),
+    node('history/appraisal', paths.history.item('appraisal')),
     historyGroup('quality-compliance', [
       'observations',
       'quality-assurance-checklists',
     ]),
-    node(
-      'history/purchasing',
-      paths.history.item('purchasing'),
-    ),
-    node(
-      'history/sop-checklist',
-      paths.history.item('sop-checklist'),
-    ),
+    node('history/purchasing', paths.history.item('purchasing')),
+    node('history/sop-checklist', paths.history.item('sop-checklist')),
   ],
   { icon: 'clock' },
 );

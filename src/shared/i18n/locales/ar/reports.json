@@ -1,9 +1,44 @@
 {
-  "eyebrow": "تقرير", "title": "{{section}} — تقرير",
+  "eyebrow": "تقرير",
+  "title": "{{section}} — تقرير",
   "description": "صفِّ القسم، عاين النتيجة، ثم صدّر التقرير للتوزيع.",
-  "fields": { "format": "شكل التقرير", "group": "التجميع حسب", "period": "الفترة" },
-  "formats": { "detailed": "قائمة تفصيلية", "summary": "ملخص", "trend": "اتجاه ومقارنة" },
-  "none": "بدون", "lastThirtyDays": "آخر 30 يوماً", "exportAs": "تصدير بصيغة",
-  "email": "إرسال بالبريد", "emailSuccess": "تم إرسال التقرير إلى بريدك", "preview": "معاينة",
-  "rowCount": "{{count}} صف", "empty": "شغّل البحث لإنشاء التقرير."
+  "fields": {
+    "format": "شكل التقرير",
+    "group": "التجميع حسب",
+    "period": "الفترة"
+  },
+  "formats": {
+    "detailed": "قائمة تفصيلية",
+    "summary": "ملخص",
+    "trend": "اتجاه ومقارنة"
+  },
+  "none": "بدون",
+  "lastThirtyDays": "آخر 30 يوماً",
+  "exportAs": "تصدير بصيغة",
+  "email": "إرسال بالبريد",
+  "emailSuccess": "تم إرسال التقرير إلى بريدك",
+  "preview": "معاينة",
+  "rowCount": "{{count}} صف",
+  "empty": "شغّل البحث لإنشاء التقرير.",
+  "library": {
+    "title": "التحليلات والتقارير",
+    "titleStart": "Analytics &",
+    "titleEmphasis": "Reports",
+    "subtitle": "١٧ تقريراً معيارياً عبر الموارد البشرية والمالية والعمليات والجودة والنظام.",
+    "groupNavigation": "Report groups",
+    "filterFormLabel": "Report filters",
+    "filters": {
+      "from": { "label": "From", "placeholder": "Pick date" },
+      "to": { "label": "To", "placeholder": "Pick date" },
+      "department": {
+        "label": "Department",
+        "placeholder": "Choose department…"
+      },
+      "site": { "label": "Site", "placeholder": "Choose site…" },
+      "type": { "label": "Type", "summary": "Summary", "detailed": "Detailed" },
+      "cancel": "Cancel",
+      "search": "Search"
+    },
+    "previewPlaceholder": "Run search to generate report. Result table will render here."
+  }
 }

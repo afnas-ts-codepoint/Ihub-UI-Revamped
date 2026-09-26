@@ -13,6 +13,7 @@ import { ChecklistPage } from '@/features/checklists';
 import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
 import { OvertimePage } from '@/features/hr';
 import { NotificationsPage } from '@/features/notifications';
+import { ReportsLibraryPage } from '@/features/reports';
 import { SlaPage } from '@/features/sla';
 import { WorkflowsPage } from '@/features/workflows';
 import {
@@ -288,6 +289,7 @@ export const appRoutes: RouteObject[] = [
         element: <SectionLayout />,
         children: [{ path: '*', element: <NavRoutePage /> }],
       },
+      { path: 'reports', element: <ReportsLibraryPage /> },
       { path: 'reports/*', element: <NavRoutePage /> },
       mastersRoute('masters'),
       mastersRoute('masters-list'),

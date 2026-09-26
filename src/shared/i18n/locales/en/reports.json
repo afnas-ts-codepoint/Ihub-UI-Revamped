@@ -1,9 +1,44 @@
 {
-  "eyebrow": "Report", "title": "{{section}} — Report",
+  "eyebrow": "Report",
+  "title": "{{section}} — Report",
   "description": "Filter the section, preview the result, then export for circulation.",
-  "fields": { "format": "Report format", "group": "Group by", "period": "Period" },
-  "formats": { "detailed": "Detailed listing", "summary": "Summary", "trend": "Trend / comparison" },
-  "none": "None", "lastThirtyDays": "Last 30 days", "exportAs": "Export as",
-  "email": "Email report", "emailSuccess": "Report emailed to your inbox", "preview": "Preview",
-  "rowCount": "{{count}} rows", "empty": "Run search to generate this report."
+  "fields": {
+    "format": "Report format",
+    "group": "Group by",
+    "period": "Period"
+  },
+  "formats": {
+    "detailed": "Detailed listing",
+    "summary": "Summary",
+    "trend": "Trend / comparison"
+  },
+  "none": "None",
+  "lastThirtyDays": "Last 30 days",
+  "exportAs": "Export as",
+  "email": "Email report",
+  "emailSuccess": "Report emailed to your inbox",
+  "preview": "Preview",
+  "rowCount": "{{count}} rows",
+  "empty": "Run search to generate this report.",
+  "library": {
+    "title": "Analytics & Reports",
+    "titleStart": "Analytics &",
+    "titleEmphasis": "Reports",
+    "subtitle": "17 standard reports across HR, Workforce, Finance, Operations, Quality and System.",
+    "groupNavigation": "Report groups",
+    "filterFormLabel": "Report filters",
+    "filters": {
+      "from": { "label": "From", "placeholder": "Pick date" },
+      "to": { "label": "To", "placeholder": "Pick date" },
+      "department": {
+        "label": "Department",
+        "placeholder": "Choose department…"
+      },
+      "site": { "label": "Site", "placeholder": "Choose site…" },
+      "type": { "label": "Type", "summary": "Summary", "detailed": "Detailed" },
+      "cancel": "Cancel",
+      "search": "Search"
+    },
+    "previewPlaceholder": "Run search to generate report. Result table will render here."
+  }
 }

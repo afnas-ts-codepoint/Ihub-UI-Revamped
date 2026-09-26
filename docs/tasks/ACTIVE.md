@@ -1,5 +1,5 @@
 # Active Migration Tasks
 
-No migration task is active. M3.8 is completed and user-approved.
-
-**M3.9 has not started.**
+| Task | Started | Status |
+|---|---|---|
+No active migration task. M3.9 was approved and completed on 2026-09-26. M4.1 has not started.
