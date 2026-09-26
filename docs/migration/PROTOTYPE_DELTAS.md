@@ -6,6 +6,14 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M3.8 intake
+
+- Date: 2026-09-26.
+- Scope: SLA & Compliance (`SLAScreen` lines 21660-22070, including `saveEdit`, SLA fixtures, department/item drill-ins, progress calculations, Work-area mapping, navigation, Section/Report, theme, and locale dependencies).
+- Result: `index.html` is unchanged between baseline `273abc8` and current prototype HEAD `3c391b4`.
+- Consistency: the current prototype defines `clockCard` at line 21806 but never inserts it into the rendered Overview tree at lines 22058-22063. The rendered Overview contains monthly compliance, department performance/drill-ins, and the priority framework only.
+- Decision: ADOPT current rendered prototype behavior. Omit the clock-rules card and do not migrate dead UI absent from the prototype render tree. Human decision recorded 2026-09-26 (see `DECISIONS.md`).
+
 ## M3.7 intake
 
 - Date: 2026-09-26.

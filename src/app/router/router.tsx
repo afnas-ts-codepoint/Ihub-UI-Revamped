@@ -13,6 +13,7 @@ import { ChecklistPage } from '@/features/checklists';
 import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
 import { OvertimePage } from '@/features/hr';
 import { NotificationsPage } from '@/features/notifications';
+import { SlaPage } from '@/features/sla';
 import { WorkflowsPage } from '@/features/workflows';
 import {
   NavRoutePage,
@@ -232,7 +233,7 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'sla',
-            element: <PendingRoutePage titleKey="navigation.sla" />,
+            element: <SlaPage />,
             handle: { reportKey: 'sla' },
           },
           { path: '*', element: <NavRoutePage /> },

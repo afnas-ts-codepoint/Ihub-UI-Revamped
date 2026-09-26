@@ -55,12 +55,13 @@ describe('Quality & Compliance child leaves stay PlaceholderPage (D14)', () => {
     router.dispose();
   });
 
-  it('keeps SLA pending and distinct from D14 placeholders', async () => {
+  it('renders the migrated SLA screen and keeps it distinct from D14 placeholders', async () => {
     const { router } = renderRoute('/quality/sla');
 
-    expect(await screen.findByRole('status')).toHaveAttribute(
-      'data-migration-pending',
-    );
+    expect(
+      await screen.findByRole('heading', { name: 'SLA & Compliance' }),
+    ).toBeVisible();
+    expect(screen.queryByRole('status')).toBeNull();
     expect(
       screen.queryByText(
         'Module landing — connect your data to see live content.',

@@ -9,6 +9,7 @@ import type nav from '@/shared/i18n/locales/en/nav.json';
 import type notifications from '@/shared/i18n/locales/en/notifications.json';
 import type organization from '@/shared/i18n/locales/en/organization.json';
 import type reports from '@/shared/i18n/locales/en/reports.json';
+import type sla from '@/shared/i18n/locales/en/sla.json';
 import type validation from '@/shared/i18n/locales/en/validation.json';
 import type workflows from '@/shared/i18n/locales/en/workflows.json';
 
@@ -25,6 +26,7 @@ declare module 'i18next' {
       notifications: typeof notifications;
       organization: typeof organization;
       reports: typeof reports;
+      sla: typeof sla;
       validation: typeof validation;
       workflows: typeof workflows;
     };

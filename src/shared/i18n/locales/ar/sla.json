@@ -1,0 +1,161 @@
+{
+  "titleStart": "اتفاقية",
+  "titleEmphasis": "مستوى الخدمة",
+  "description": "أهداف الاستجابة والحل حسب الأولوية، وأداء كل إدارة، والقواعد المرتبطة بكل نقطة.",
+  "tabs": { "overview": "نظرة عامة", "mapping": "مناطق العمل" },
+  "priorities": {
+    "all": "الكل",
+    "P1": "حرِج",
+    "P2": "عالٍ",
+    "P3": "متوسط",
+    "P4": "منخفض"
+  },
+  "overview": {
+    "monthTitle": "هذا الشهر",
+    "monthDescription": "نسبة الإغلاق ضمن الوقت مقابل الهدف الشهري لكل أولوية.",
+    "scope": "أوامر العمل المشمولة",
+    "thisMonth": "هذا الشهر",
+    "closed": "أُغلقت ضمن الاتفاقية",
+    "overall": "{{value}}% إجمالاً",
+    "targetsMet": "الأهداف المحققة",
+    "byPriority": "حسب الأولوية",
+    "atRisk": "معرّضة للخطر",
+    "belowTarget": "دون الهدف",
+    "targetMet": "تحقق الهدف",
+    "targetAtLeast": "الهدف لا يقل عن {{value}}%",
+    "priorityProgress": "أداء {{priority}} ضمن الوقت",
+    "closedCount": "{{onTime}} من {{total}} أمر عمل أُغلق ضمن الاتفاقية"
+  },
+  "departments": {
+    "title": "الإدارات",
+    "description": "أداء كل إدارة مقابل الأوقات المتفق عليها الآن.",
+    "performance": "أداء الإدارات",
+    "summary": "{{open}} مهمة قيد التنفيذ · {{dueSoon}} تستحق قريباً · {{breached}} تجاوزت الوقت",
+    "average": "متوسط الالتزام {{value}}%",
+    "openDetail": "عرض تفاصيل الإدارة",
+    "points": "نقطة",
+    "legend": "قيد التنفيذ هي المهام المفتوحة. تستحق قريباً يعني تبقّى أقل من ربع المدة. متأخرة تعني أن الوقت المتفق عليه قد مضى.",
+    "columns": {
+      "department": "الإدارة",
+      "running": "قيد التنفيذ",
+      "dueSoon": "تستحق قريباً",
+      "late": "متأخرة",
+      "onTime": "في الوقت",
+      "avgResponse": "متوسط الاستجابة",
+      "avgResolution": "متوسط الحل",
+      "change": "التغير"
+    },
+    "ledBy": "بقيادة {{lead}} · {{count}} موظفاً",
+    "firstAttendance": "الوقت حتى أول حضور",
+    "timeToClose": "الوقت حتى إغلاق المهمة",
+    "byPriority": "حسب الأولوية",
+    "noneThisMonth": "لا يوجد هذا الشهر",
+    "open": "مفتوحة",
+    "items": "المهام وأوراق العمل",
+    "mostRecent": "الأحدث {{shown}} من {{total}}"
+  },
+  "framework": {
+    "title": "إطار الأولويات",
+    "description": "ما تعنيه كل أولوية وأهداف الاستجابة والحل والتغطية.",
+    "response": "الاستجابة",
+    "resolution": "الحل",
+    "monthlyTarget": "الهدف الشهري",
+    "atLeast": "لا يقل عن {{value}}%",
+    "coverage": "التغطية"
+  },
+  "mapping": {
+    "description": "أضف قاعدة أو انقر على أي صف لتعديل الأولوية والأهداف الزمنية.",
+    "search": "ابحث عن نقطة…",
+    "noMatches": "لا توجد نتائج.",
+    "editRule": "تعديل هذه القاعدة",
+    "columns": {
+      "area": "المنطقة",
+      "priority": "الأولوية",
+      "response": "الاستجابة",
+      "resolution": "الحل",
+      "conditional": "محفزات مشروطة"
+    }
+  },
+  "filters": {
+    "states": {
+      "all": "الكل",
+      "running": "قيد التنفيذ",
+      "due": "تستحق قريباً",
+      "late": "متأخرة",
+      "closed": "مغلقة"
+    },
+    "types": {
+      "all": "كل الأنواع",
+      "Task": "المهام",
+      "Actionsheet": "أوراق العمل",
+      "Purchaserequest": "الطلبات"
+    },
+    "typeCount": "{{type}} · {{count}}",
+    "noItems": "لا يوجد ما يطابق الفلاتر."
+  },
+  "states": {
+    "running": "قيد التنفيذ",
+    "due": "تستحق قريباً",
+    "late": "متأخرة",
+    "closed": "أُغلقت في الوقت"
+  },
+  "item": {
+    "dialogDescription": "معاينة سجل الاتفاقية للقراءة فقط",
+    "departmentAssignee": "{{department}} · {{assignee}}",
+    "closedAfter": "أُغلقت بعد {{value}}",
+    "overBy": "تجاوزت بـ {{value}} ساعة",
+    "usedOf": "{{used}} مستخدمة من {{agreed}}",
+    "closedOf": "أُغلقت بعد {{used}} من {{agreed}}",
+    "overAgreed": "تجاوزت الوقت المتفق {{agreed}}",
+    "status": "الحالة",
+    "statusValues": {
+      "closed": "مكتملة",
+      "late": "قيد التنفيذ — متأخرة",
+      "due": "قيد المراجعة",
+      "running": "قيد التنفيذ"
+    },
+    "sla": "الاتفاقية",
+    "progressLabel": "وقت الاتفاقية المستخدم",
+    "readOnly": "معاينة للقراءة فقط لهذا السجل.",
+    "reference": "المرجع",
+    "department": "الإدارة",
+    "raisedBy": "بواسطة",
+    "priority": "الأولوية",
+    "agreedResponse": "الاستجابة المتفق عليها",
+    "agreedResolution": "الحل المتفق عليه",
+    "timeUsed": "الوقت المستخدم",
+    "coverage": "التغطية",
+    "state": "الحالة",
+    "updates": {
+      "title": "التحديثات",
+      "overdue": "تجاوزت الوقت بـ {{value}} ساعة — مطلوب تصعيد",
+      "closed": "أُغلقت ضمن الوقت المتفق عليه — {{used}} من {{agreed}}",
+      "current": "{{used}} من الوقت المتفق عليه {{agreed}} مستخدمة",
+      "waiting": "بانتظار قطع أو طرف ثالث — سيتم التحديث عند الوصول.",
+      "progressing": "العمل جارٍ حسب الخطة.",
+      "created": "مُسندة إلى {{assignee}} · الأولوية {{priority}} · الحل المتفق عليه {{agreed}}"
+    }
+  },
+  "form": {
+    "kicker": "قاعدة منطقة عمل",
+    "addTitle": "إضافة نقطة",
+    "editTitle": "تعديل نقطة",
+    "area": "المنطقة",
+    "areaPlaceholder": "مثال: إنارة الطوارئ",
+    "priority": "الأولوية",
+    "priorityHint": "اختر أكثر من أولوية إذا كانت تعتمد على الحالة — ووضّح ذلك أدناه.",
+    "response": "وقت الاستجابة",
+    "responsePlaceholder": "مثال: خلال 30 دقيقة",
+    "resolution": "وقت الحل",
+    "resolutionPlaceholder": "مثال: خلال 24 ساعة",
+    "conditional": "محفزات مشروطة",
+    "conditionalPlaceholder": "مثال: تُرفع إلى حرجة في أوقات الذروة"
+  },
+  "actions": {
+    "add": "إضافة نقطة",
+    "save": "حفظ التغييرات",
+    "remove": "حذف",
+    "cancel": "إلغاء",
+    "close": "إغلاق"
+  }
+}

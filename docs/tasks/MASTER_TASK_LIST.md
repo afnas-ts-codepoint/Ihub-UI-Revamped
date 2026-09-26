@@ -21,7 +21,7 @@ This table operationalizes the executable tasks in [Phase 3](../migration/PHASE_
 | [M3.5](phases/M3.5.md) | Quality & Compliance: Checklist | Completed | Codex | M3.2 | Approved | Required |
 | [M3.6](phases/M3.6.md) | History | Completed | Codex | M3.2 | Not opened | Approved |
 | [M3.7](phases/M3.7.md) | Workflows | Completed | Codex | M3.1 | Not opened | Approved |
-| [M3.8](phases/M3.8.md) | SLA & Compliance | Pending | Not assigned | M3.1 | TBD | Required |
+| [M3.8](phases/M3.8.md) | SLA & Compliance | Completed | Codex | M3.1 | Not opened | Approved |
 | [M3.9](phases/M3.9.md) | Reports library | Pending | Not assigned | M3.4 | TBD | Required |
 | [M4.1](phases/M4.1.md) | Master listing | Pending | Not assigned | M3.2 | TBD | Required |
 | [M4.2](phases/M4.2.md) | Master record forms | Pending | Not assigned | M4.1, M3.8 | TBD | Required |

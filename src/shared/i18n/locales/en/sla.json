@@ -1,0 +1,164 @@
+{
+  "titleStart": "SLA &",
+  "titleEmphasis": "Compliance",
+  "description": "Response and resolution targets by priority, how each department is tracking, and the rules mapped to every facility touch point.",
+  "tabs": {
+    "overview": "SOP & Compliance Overview",
+    "mapping": "Work-area mapping"
+  },
+  "priorities": {
+    "all": "All",
+    "P1": "Critical",
+    "P2": "High",
+    "P3": "Medium",
+    "P4": "Low"
+  },
+  "overview": {
+    "monthTitle": "This month",
+    "monthDescription": "On-time closure against the monthly compliance target for each priority.",
+    "scope": "Work orders in scope",
+    "thisMonth": "This month",
+    "closed": "Closed within SLA",
+    "overall": "{{value}}% overall",
+    "targetsMet": "Targets met",
+    "byPriority": "By priority",
+    "atRisk": "At risk",
+    "belowTarget": "Below target",
+    "targetMet": "Target met",
+    "targetAtLeast": "target at least {{value}}%",
+    "priorityProgress": "{{priority}} on-time performance",
+    "closedCount": "{{onTime}} of {{total}} work orders closed within SLA"
+  },
+  "departments": {
+    "title": "Departments",
+    "description": "How each department is running against its agreed times right now.",
+    "performance": "Department performance",
+    "summary": "{{open}} tasks running · {{dueSoon}} due soon · {{breached}} past their time",
+    "average": "Average on time {{value}}%",
+    "openDetail": "Open department detail",
+    "points": "pts",
+    "legend": "Running counts tasks still open. Due soon means less than a quarter of the agreed time is left. Late means the agreed time has passed. Average response is time to first attendance; average resolution is time to close. Change is the movement in on-time percentage points since last month.",
+    "columns": {
+      "department": "Department",
+      "running": "Running",
+      "dueSoon": "Due soon",
+      "late": "Late",
+      "onTime": "On time",
+      "avgResponse": "Avg response",
+      "avgResolution": "Avg resolution",
+      "change": "Change"
+    },
+    "ledBy": "Led by {{lead}} · {{count}} people",
+    "firstAttendance": "time to first attendance",
+    "timeToClose": "time to close the task",
+    "byPriority": "By priority",
+    "noneThisMonth": "None this month",
+    "open": "open",
+    "items": "Tasks & action sheets",
+    "mostRecent": "Most recent {{shown}} of {{total}}"
+  },
+  "framework": {
+    "title": "Priority framework",
+    "description": "What each priority means, and the response, resolution and coverage it commits to.",
+    "response": "Response",
+    "resolution": "Resolution",
+    "monthlyTarget": "Monthly target",
+    "atLeast": "At least {{value}}%",
+    "coverage": "Coverage"
+  },
+  "mapping": {
+    "description": "Add a rule, or click any row to edit its priority and time targets.",
+    "search": "Search a touch point…",
+    "noMatches": "No touch points match.",
+    "editRule": "Edit this rule",
+    "columns": {
+      "area": "Sub-area / touch point",
+      "priority": "Priority",
+      "response": "Response",
+      "resolution": "Resolution",
+      "conditional": "Conditional triggers"
+    }
+  },
+  "filters": {
+    "states": {
+      "all": "All",
+      "running": "Running",
+      "due": "Due soon",
+      "late": "Late",
+      "closed": "Closed"
+    },
+    "types": {
+      "all": "All types",
+      "Task": "Tasks",
+      "Actionsheet": "Action sheets",
+      "Purchaserequest": "Requests"
+    },
+    "typeCount": "{{type}} · {{count}}",
+    "noItems": "Nothing matches these filters."
+  },
+  "states": {
+    "running": "Running",
+    "due": "Due soon",
+    "late": "Late",
+    "closed": "Closed on time"
+  },
+  "item": {
+    "dialogDescription": "Read-only SLA record preview",
+    "departmentAssignee": "{{department}} · {{assignee}}",
+    "closedAfter": "closed after {{value}}",
+    "overBy": "over by {{value}} hrs",
+    "usedOf": "{{used}} used of {{agreed}}",
+    "closedOf": "closed after {{used}} of {{agreed}}",
+    "overAgreed": "over the agreed {{agreed}}",
+    "status": "Status",
+    "statusValues": {
+      "closed": "Completed",
+      "late": "In Progress — overdue",
+      "due": "In Review",
+      "running": "In Progress"
+    },
+    "sla": "SLA",
+    "progressLabel": "SLA time used",
+    "readOnly": "Read-only preview of this record.",
+    "reference": "Reference",
+    "department": "Department",
+    "raisedBy": "Raised by",
+    "priority": "Priority",
+    "agreedResponse": "Agreed response",
+    "agreedResolution": "Agreed resolution",
+    "timeUsed": "Time used",
+    "coverage": "Coverage",
+    "state": "State",
+    "updates": {
+      "title": "Updates",
+      "overdue": "Past the agreed time by {{value}} hrs — escalation required",
+      "closed": "Closed within the agreed time — {{used}} of {{agreed}}",
+      "current": "{{used}} of the agreed {{agreed}} used",
+      "waiting": "Waiting on parts / third party — will update once on site.",
+      "progressing": "Work in hand, progressing as planned.",
+      "created": "Assigned to {{assignee}} · priority {{priority}} · agreed resolution {{agreed}}"
+    }
+  },
+  "form": {
+    "kicker": "Work-area rule",
+    "addTitle": "Add a touch point",
+    "editTitle": "Edit touch point",
+    "area": "Sub-area / touch point",
+    "areaPlaceholder": "e.g. Emergency & Exit Lighting",
+    "priority": "Priority",
+    "priorityHint": "Pick more than one when the priority depends on the situation — explain the switch below.",
+    "response": "Response time",
+    "responsePlaceholder": "e.g. Within 30 minutes",
+    "resolution": "Resolution time",
+    "resolutionPlaceholder": "e.g. Within 24 hours",
+    "conditional": "Conditional triggers",
+    "conditionalPlaceholder": "e.g. Raised to Critical during peak occupancy"
+  },
+  "actions": {
+    "add": "Add touch point",
+    "save": "Save changes",
+    "remove": "Remove",
+    "cancel": "Cancel",
+    "close": "Close"
+  }
+}

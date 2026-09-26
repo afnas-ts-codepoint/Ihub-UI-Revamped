@@ -2,6 +2,8 @@ import { createInstance } from 'i18next';
 import type { BackendModule, ReadCallback } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+import { configureYupLocale } from '@/shared/form/schema/yupLocale';
+
 export const supportedLocales = ['en', 'ar'] as const;
 export type Locale = (typeof supportedLocales)[number];
 
@@ -57,6 +59,7 @@ export function normalizeLocale(value: string | undefined): Locale {
 export async function initializeI18n(locale: Locale) {
   if (i18n.isInitialized) {
     await i18n.changeLanguage(locale);
+    configureYupLocale((key) => i18n.getFixedT(locale, 'validation')(key));
     return i18n;
   }
 
@@ -75,12 +78,15 @@ export async function initializeI18n(locale: Locale) {
       'notifications',
       'organization',
       'reports',
+      'sla',
       'workflows',
     ],
     preload: supportedLocales,
     react: { useSuspense: false },
     supportedLngs: supportedLocales,
   });
+
+  configureYupLocale((key) => i18n.getFixedT(locale, 'validation')(key));
 
   return i18n;
 }

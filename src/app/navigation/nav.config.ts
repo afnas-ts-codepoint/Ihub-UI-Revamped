@@ -176,7 +176,7 @@ const quality = node(
   paths.quality.root,
   [
     node('checklist/dashboard', paths.quality.item('dashboard')),
-    node('sla', paths.quality.item('sla'), undefined, pending),
+    node('sla', paths.quality.item('sla')),
     node('checklist/observations', paths.quality.item('observations')),
     qualityChecklists,
   ],
