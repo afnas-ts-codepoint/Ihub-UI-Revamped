@@ -65,7 +65,7 @@ export async function initializeI18n(locale: Locale) {
     fallbackLng: 'en',
     interpolation: { escapeValue: false },
     lng: locale,
-    ns: ['appraisal', 'common', 'nav', 'organization', 'reports'],
+    ns: ['appraisal', 'common', 'hr', 'nav', 'organization', 'reports'],
     preload: supportedLocales,
     react: { useSuspense: false },
     supportedLngs: supportedLocales,

@@ -42,7 +42,9 @@ describe('SectionLayout', () => {
     await waitFor(() => {
       expect(router.state.location.search).toBe('');
     });
-    expect(await screen.findByText('Migration pending')).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { name: 'Workforce' }),
+    ).toBeInTheDocument();
 
     await router.navigate(-1);
     expect(
@@ -70,6 +72,22 @@ describe('SectionLayout', () => {
       screen.getByText('Run search to generate this report.'),
     ).toBeVisible();
     fallback.dispose();
+  });
+
+  it('renders the migrated Overtime section and keeps its report view', async () => {
+    const section = renderRoute(['/hr']);
+    expect(
+      await screen.findByRole('heading', { name: 'Workforce' }),
+    ).toBeVisible();
+    expect(screen.getByRole('tab', { name: 'To Do 14' })).toBeVisible();
+    expect(screen.queryByText('Migration pending')).toBeNull();
+    section.dispose();
+
+    const report = renderRoute(['/hr?view=report']);
+    expect(
+      await screen.findByRole('heading', { name: /Overtime.+Report/ }),
+    ).toBeVisible();
+    report.dispose();
   });
 
   it('renders the migrated Appraisal section and keeps its report view', async () => {

@@ -57,6 +57,26 @@ describe('TabbedTable', () => {
     expect(screen.getByText('Nothing matches.')).toBeVisible();
   });
 
+  it('supports a render-only column keyed by a non-field string (e.g. row actions)', () => {
+    const actionColumns: readonly TableColumn<Row>[] = [
+      { key: 'name', label: 'Name' },
+      { key: 'actions', label: '', render: () => 'Edit' },
+    ];
+    render(
+      <TabbedTable
+        columns={actionColumns}
+        emptyDescription="Nothing matches."
+        emptyTitle="Nothing here"
+        paginationLabels={labels}
+        rows={[{ name: 'Prototype row' }]}
+        tabs={[{ id: 'all', label: 'All', count: 1 }]}
+      />,
+    );
+
+    expect(screen.getByText('Prototype row')).toBeVisible();
+    expect(screen.getByText('Edit')).toBeVisible();
+  });
+
   it('keeps prototype pagination intentionally inert', async () => {
     const user = userEvent.setup();
     render(

@@ -2,6 +2,7 @@ import 'i18next';
 
 import type appraisal from '@/shared/i18n/locales/en/appraisal.json';
 import type common from '@/shared/i18n/locales/en/common.json';
+import type hr from '@/shared/i18n/locales/en/hr.json';
 import type nav from '@/shared/i18n/locales/en/nav.json';
 import type organization from '@/shared/i18n/locales/en/organization.json';
 import type reports from '@/shared/i18n/locales/en/reports.json';
@@ -13,6 +14,7 @@ declare module 'i18next' {
     resources: {
       appraisal: typeof appraisal;
       common: typeof common;
+      hr: typeof hr;
       nav: typeof nav;
       organization: typeof organization;
       reports: typeof reports;

@@ -1,0 +1,55 @@
+{
+  "title": "القوى العاملة",
+  "tabs": {
+    "todo": "To Do",
+    "verify": "Verify",
+    "edit": "Edit",
+    "correct": "Correction",
+    "above": "Above/No Budget",
+    "just": "Justification",
+    "records": "Record Listing"
+  },
+  "columns": {
+    "id": "OT #",
+    "employee": "Employee",
+    "department": "Department",
+    "date": "Date",
+    "hours": "Hours",
+    "amount": "Amount (KWD)",
+    "status": "Status"
+  },
+  "status": {
+    "pending": "Pending",
+    "approved": "Approved",
+    "aboveBudget": "Above budget",
+    "verified": "Verified"
+  },
+  "stats": {
+    "budgeted": {
+      "label": "Budgeted (Apr)",
+      "value": "KWD 18,500",
+      "sub": "Allocation across all malls"
+    },
+    "actual": {
+      "label": "Actual MTD",
+      "value": "KWD 14,820",
+      "sub": "80% utilised"
+    },
+    "variance": {
+      "label": "Budget Variance",
+      "value": "+KWD 1,240",
+      "sub": "4 records above budget"
+    }
+  },
+  "actions": { "view": "عرض", "edit": "تعديل" },
+  "pagination": {
+    "summary": "Showing {{shown}} of {{total}} records",
+    "previous": "الصفحة السابقة",
+    "next": "الصفحة التالية",
+    "page": "صفحة"
+  },
+  "empty": {
+    "title": "لا توجد سجلات عمل إضافي",
+    "description": "لا توجد سجلات عمل إضافي مطابقة لهذا المرشح."
+  }
+}

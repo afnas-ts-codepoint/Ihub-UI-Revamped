@@ -7,7 +7,8 @@ import { EmptyState } from '@/shared/ui/feedback/EmptyState';
 
 export type TableColumn<Row extends object> = Readonly<{
   align?: 'end' | 'start';
-  key: keyof Row;
+  /** A `keyof Row` for a field column, or any unique string for a `render`-only column (e.g. row actions). */
+  key: keyof Row | (string & {});
   label: string;
   muted?: boolean;
   render?: (row: Row) => ReactNode;
@@ -101,7 +102,12 @@ export function TabbedTable<Row extends object>({
                       className={`px-4 py-[13px] ${column.align === 'end' ? 'text-end' : 'text-start'} ${column.muted ? 'text-fg-3' : 'text-fg-2'} ${column.wrap ? 'whitespace-normal' : 'whitespace-nowrap'}`}
                       key={String(column.key)}
                     >
-                      {column.render?.(row) ?? String(row[column.key])}
+                      {column.render?.(row) ??
+                        String(
+                          (row as Record<string, unknown>)[
+                            column.key as string
+                          ],
+                        )}
                     </Td>
                   ))}
                 </Tr>

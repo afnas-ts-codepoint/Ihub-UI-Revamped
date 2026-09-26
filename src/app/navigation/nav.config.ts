@@ -148,7 +148,7 @@ const hr = node(
       'exit-interview',
     ].map((item) => node(`overtime/${item}`, paths.hr.item(item))),
   ],
-  { ...pending, icon: 'users' },
+  { icon: 'users' },
 );
 
 const qualityChecklists = node(

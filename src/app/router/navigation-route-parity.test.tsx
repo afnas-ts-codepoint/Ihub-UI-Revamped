@@ -5,7 +5,9 @@ import { createMemoryRouter, matchRoutes, RouterProvider } from 'react-router';
 import { navNodes, navTrailForPath } from '@/app/navigation/model';
 import { NAV_TREE } from '@/app/navigation/nav.config';
 import { appRoutes } from '@/app/router/router';
+import arHr from '@/shared/i18n/locales/ar/hr.json';
 import arNav from '@/shared/i18n/locales/ar/nav.json';
+import enHr from '@/shared/i18n/locales/en/hr.json';
 import enNav from '@/shared/i18n/locales/en/nav.json';
 import { i18n, initializeI18n } from '@/shared/i18n/i18n';
 import { paths } from '@/shared/config/paths';
@@ -31,6 +33,19 @@ function renderRoute(path: string) {
   const view = render(<RouterProvider router={router} />);
   return { ...view, router };
 }
+
+/**
+ * A migrated screen's own heading is not always the sidebar nav label: the
+ * prototype's HR sidebar entry reads "HR" (`index.html:2507`) while the
+ * migrated Overtime screen's own title is "Workforce" (`index.html:8438`).
+ * Both are prototype-faithful; this override lets the generic parity check
+ * below assert the real rendered heading instead of the nav label text.
+ */
+const HEADING_OVERRIDES: Readonly<
+  Record<string, Readonly<Record<'ar' | 'en', string>>>
+> = {
+  overtime: { ar: arHr.title, en: enHr.title },
+};
 
 describe('G6 complete navigation and route parity', () => {
   const nodes = navNodes(NAV_TREE);
@@ -96,8 +111,10 @@ describe('G6 complete navigation and route parity', () => {
             title,
           );
         } else {
+          const heading =
+            HEADING_OVERRIDES[current?.id ?? '']?.[locale] ?? String(title);
           expect(
-            await screen.findByRole('heading', { name: String(title) }),
+            await screen.findByRole('heading', { name: heading }),
           ).toBeInTheDocument();
         }
         unmount();

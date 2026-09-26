@@ -25,3 +25,4 @@ Track approved architecture and product decisions from Phases 2 and 3. Unresolve
 | D20: Use Western/Latin digits for Arabic locale formatting. | Approved default applied for M1.3. |
 | D8: Add the production EN/AR language switch to the top bar next to `ThemeToggle`. | Approved intentional production difference implemented in M2.3. |
 | D19: Use the local prototype current user, Ahmad Al Osaimi. | Approved default implemented in M2.3; no live-site identity was substituted. |
+| D14: Screenless HR nav leaves stay faithful prototype placeholders. | Re-confirmed for M3.3; `/hr/dashboard`, `/hr/workforce-statistics`, the seven `/hr/overtime/*` tab leaves, `/hr/investigations`, `/hr/violations`, `/hr/loan`, `/hr/end-of-probation`, and `/hr/exit-interview` remain `PlaceholderPage` and were not migrated. |

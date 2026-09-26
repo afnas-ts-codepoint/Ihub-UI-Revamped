@@ -9,6 +9,7 @@ import {
 import { AppShell } from '@/app/layouts/app-shell/AppShell';
 import { SectionLayout } from '@/app/layouts/section/SectionLayout';
 import { AppraisalPage } from '@/features/appraisal';
+import { OvertimePage } from '@/features/hr';
 import {
   NavRoutePage,
   PendingRoutePage,
@@ -199,7 +200,7 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <NavRoutePage />,
+            element: <OvertimePage />,
             handle: { reportKey: 'overtime' },
           },
           { path: '*', element: <NavRoutePage /> },

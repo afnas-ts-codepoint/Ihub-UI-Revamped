@@ -4,6 +4,7 @@ Only human-approved work belongs here.
 
 | Task | Completed | Approval |
 |---|---|---|
+| [M3.3 — HR (Overtime)](phases/M3.3.md) | 2026-09-26 | User-approved |
 | [M3.2 — Appraisal](phases/M3.2.md) | 2026-09-26 | User-approved |
 | [M3.1 — Section/Report template, RecordFilter, export](phases/M3.1.md) | 2026-09-26 | User-approved |
 | [M2.3 — Top-bar actions](phases/M2.3.md) | 2026-09-25 | User-approved |
@@ -20,4 +21,5 @@ Only human-approved work belongs here.
 | [M2.3](phases/M2.3.md) | Top-bar actions | User approved review completion on 2026-09-25. | Top-bar actions, golden parity, responsive/RTL QA, and M2.3 quality gates completed; no commit or push was performed by Codex. |
 | [M3.1](phases/M3.1.md) | Section/Report template, RecordFilter, export | User approved review completion on 2026-09-26. | Section/Report layout, reports, RecordFilter, shared controls, exports, 160-cell visual QA, and M3.1 quality gates completed; no commit or push was performed by Codex. |
 | [M3.2](phases/M3.2.md) | Appraisal | User approved review completion on 2026-09-26. | Appraisal route, exact prototype rows/tabs/pills, score-band rule, inert pagination, shared table primitives, 10-cell reduced visual QA, and M3.2 quality gates completed; no commit or push was performed by Codex. |
+| [M3.3](phases/M3.3.md) | HR (Overtime) | User approved review completion on 2026-09-26. | Overtime route, exact prototype stat cards/tabs/rows/statuses, `StatTile`, literal tab counts (`PROTOTYPE-NOOP(D2)`), reused shared table/RecordFilter, D14 child-leaf placeholder verification, 10-cell reduced visual QA, and M3.3 quality gates completed; no commit or push was performed by Codex. |
 
