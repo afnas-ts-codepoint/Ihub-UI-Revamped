@@ -1,0 +1,59 @@
+{
+  "scopes": {
+    "history": "السجل",
+    "workCentre": "مركز العمل",
+    "tasks": "أوامر العمل",
+    "enquiry": "الاستفسارات",
+    "observations": "الملاحظات",
+    "incidents": "الحوادث",
+    "checklists": "قوائم المراجعة",
+    "priceChange": "تغيير السعر",
+    "promotions": "العروض",
+    "financeBudgets": "المالية والميزانيات",
+    "newBudget": "ميزانية جديدة",
+    "additionalBudget": "ميزانية إضافية",
+    "transferFund": "تحويل الأموال",
+    "paymentSettlement": "تسوية المدفوعات",
+    "pettyCash": "النثرية",
+    "hr": "الموارد البشرية",
+    "overtime": "العمل الإضافي",
+    "investigations": "التحقيقات",
+    "violations": "المخالفات",
+    "loan": "السلفة",
+    "endOfProbation": "نهاية فترة التجربة",
+    "exitInterview": "مقابلة إنهاء الخدمة",
+    "appraisal": "التقييم",
+    "qualityCompliance": "الجودة والامتثال",
+    "qualityAssuranceChecklists": "قوائم الجودة",
+    "purchasing": "المشتريات",
+    "sopChecklist": "قائمة إجراءات التشغيل"
+  },
+  "tabs": { "all": "كل السجلات" },
+  "columns": {
+    "date": "التاريخ",
+    "reference": "المرجع",
+    "action": "الإجراء",
+    "by": "بواسطة",
+    "note": "ملاحظة"
+  },
+  "actions": {
+    "created": "أُنشئ",
+    "submitted": "أُرسل",
+    "approved": "اعتُمد",
+    "verified": "تم التحقق",
+    "returned": "أُعيد",
+    "rejected": "رُفض",
+    "edited": "عُدّل",
+    "closed": "أُغلق"
+  },
+  "pagination": {
+    "summary": "عرض {{shown}} من أصل {{total}} سجلات",
+    "previous": "الصفحة السابقة",
+    "next": "الصفحة التالية",
+    "page": "صفحة"
+  },
+  "empty": {
+    "title": "لا توجد سجلات تاريخ",
+    "description": "لا توجد سجلات تاريخ مطابقة لهذا المرشح."
+  }
+}

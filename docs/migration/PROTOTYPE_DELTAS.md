@@ -6,6 +6,14 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M3.6 intake
+
+- Date: 2026-09-26.
+- Scope: History (`HistoryScreen` lines 9729-9780 and its directly used navigation, `RecordFilter`, `TabbedTable`, `STATUS_PILL`, `PageHeader`, and route-switch dependencies).
+- Result: `index.html` is unchanged between baseline `273abc8` and current prototype HEAD `3c391b4`.
+- Consistency: the prototype confirms one `/history/*` screen, route-derived module/category labels, deterministic label-length-based row generation, exactly 10 rows, route/scope-derived `RecordFilter` kinds, and scope-varying refs/actions/users/dates/tones.
+- Decision: no source delta or material plan/prototype conflict exists; no adopt/defer decision is required.
+
 ## M3.5 intake
 
 - Date: 2026-09-26.

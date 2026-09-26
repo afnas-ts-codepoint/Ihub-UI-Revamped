@@ -214,11 +214,8 @@ function historyGroup(id: string, children: readonly string[]): NavNode {
       node(
         `${groupId}/${child}`,
         paths.history.item(`${id}/${child}`),
-        undefined,
-        pending,
       ),
     ),
-    pending,
   );
 }
 
@@ -253,8 +250,6 @@ const history = node(
     node(
       'history/appraisal',
       paths.history.item('appraisal'),
-      undefined,
-      pending,
     ),
     historyGroup('quality-compliance', [
       'observations',
@@ -263,17 +258,13 @@ const history = node(
     node(
       'history/purchasing',
       paths.history.item('purchasing'),
-      undefined,
-      pending,
     ),
     node(
       'history/sop-checklist',
       paths.history.item('sop-checklist'),
-      undefined,
-      pending,
     ),
   ],
-  { ...pending, icon: 'clock' },
+  { icon: 'clock' },
 );
 
 function masterCategory(

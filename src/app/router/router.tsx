@@ -10,6 +10,7 @@ import { AppShell } from '@/app/layouts/app-shell/AppShell';
 import { SectionLayout } from '@/app/layouts/section/SectionLayout';
 import { AppraisalPage } from '@/features/appraisal';
 import { ChecklistPage } from '@/features/checklists';
+import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
 import { OvertimePage } from '@/features/hr';
 import { NotificationsPage } from '@/features/notifications';
 import {
@@ -241,8 +242,12 @@ export const appRoutes: RouteObject[] = [
         element: <SectionLayout />,
         handle: { reportKey: 'history' },
         children: [
-          { index: true, element: <NavRoutePage /> },
-          { path: '*', element: <NavRoutePage /> },
+          { index: true, element: <HistoryPage /> },
+          ...HISTORY_ROUTE_PATHS.slice(1).map((path) => ({
+            path: path.slice('/history/'.length),
+            element: <HistoryPage />,
+          })),
+          { path: '*', element: <NotFoundPage /> },
         ],
       },
       {

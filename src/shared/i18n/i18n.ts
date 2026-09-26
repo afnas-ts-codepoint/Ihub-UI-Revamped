@@ -70,6 +70,7 @@ export async function initializeI18n(locale: Locale) {
       'checklists',
       'common',
       'hr',
+      'history',
       'nav',
       'notifications',
       'organization',
