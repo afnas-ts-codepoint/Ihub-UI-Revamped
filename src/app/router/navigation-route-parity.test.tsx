@@ -185,7 +185,6 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.paymentSettlement('add-supplier'),
     paths.tasks.view('T-100'),
     paths.tasks.edit('T-100'),
-    paths.notifications,
   ])('routes the pending prototype screen at %s', async (path) => {
     const { router } = renderRoute(path);
     expect(await screen.findByRole('status')).toHaveAttribute(

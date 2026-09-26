@@ -1,0 +1,29 @@
+{
+  "title": "الإشعارات",
+  "tabs": {
+    "all": "All",
+    "unread": "Unread"
+  },
+  "columns": {
+    "email": "Email",
+    "subject": "Subject",
+    "status": "Email Status",
+    "type": "Type",
+    "date": "Date"
+  },
+  "status": {
+    "delivered": "Delivered",
+    "read": "Read",
+    "bounced": "Bounced"
+  },
+  "pagination": {
+    "summary": "Showing {{shown}} of {{total}} records",
+    "previous": "الصفحة السابقة",
+    "next": "الصفحة التالية",
+    "page": "صفحة"
+  },
+  "empty": {
+    "title": "لا توجد إشعارات",
+    "description": "لا توجد إشعارات مطابقة لهذا المرشح."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "title": "Notifications",
+  "tabs": {
+    "all": "All",
+    "unread": "Unread"
+  },
+  "columns": {
+    "email": "Email",
+    "subject": "Subject",
+    "status": "Email Status",
+    "type": "Type",
+    "date": "Date"
+  },
+  "status": {
+    "delivered": "Delivered",
+    "read": "Read",
+    "bounced": "Bounced"
+  },
+  "pagination": {
+    "summary": "Showing {{shown}} of {{total}} records",
+    "previous": "Previous page",
+    "next": "Next page",
+    "page": "Page"
+  },
+  "empty": {
+    "title": "No notifications",
+    "description": "No notifications match this filter."
+  }
+}

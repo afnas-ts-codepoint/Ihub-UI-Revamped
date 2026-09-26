@@ -18,7 +18,8 @@
     "visual:capture:m2.3": "playwright test m2.3.spec.ts",
     "visual:capture:m3.1": "playwright test m3.1.spec.ts",
     "visual:capture:m3.2": "playwright test m3.2.spec.ts",
-    "visual:capture:m3.3": "playwright test m3.3.spec.ts"
+    "visual:capture:m3.3": "playwright test m3.3.spec.ts",
+    "visual:capture:m3.4": "playwright test m3.4.spec.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

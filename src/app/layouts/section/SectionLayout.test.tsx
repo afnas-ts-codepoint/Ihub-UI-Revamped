@@ -106,6 +106,22 @@ describe('SectionLayout', () => {
     report.dispose();
   });
 
+  it('renders the migrated Notifications section and keeps its report view', async () => {
+    const section = renderRoute(['/notifications']);
+    expect(
+      await screen.findByRole('heading', { name: 'Notifications' }),
+    ).toBeVisible();
+    expect(screen.getByRole('tab', { name: 'All 5' })).toBeVisible();
+    expect(screen.queryByText('Migration pending')).toBeNull();
+    section.dispose();
+
+    const report = renderRoute(['/notifications?view=report']);
+    expect(
+      await screen.findByRole('heading', { name: 'Notifications — Report' }),
+    ).toBeVisible();
+    report.dispose();
+  });
+
   it.each([
     '/finance',
     '/hr/dashboard',
