@@ -72,6 +72,7 @@ export async function initializeI18n(locale: Locale) {
       'appraisal',
       'checklists',
       'common',
+      'home',
       'hr',
       'history',
       'masters',

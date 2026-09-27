@@ -4,6 +4,7 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import arAppraisal from '@/shared/i18n/locales/ar/appraisal.json';
 import arChecklists from '@/shared/i18n/locales/ar/checklists.json';
 import arCommon from '@/shared/i18n/locales/ar/common.json';
+import arHome from '@/shared/i18n/locales/ar/home.json';
 import arHr from '@/shared/i18n/locales/ar/hr.json';
 import arHistory from '@/shared/i18n/locales/ar/history.json';
 import arMasters from '@/shared/i18n/locales/ar/masters.json';
@@ -17,6 +18,7 @@ import arWorkflows from '@/shared/i18n/locales/ar/workflows.json';
 import enAppraisal from '@/shared/i18n/locales/en/appraisal.json';
 import enChecklists from '@/shared/i18n/locales/en/checklists.json';
 import enCommon from '@/shared/i18n/locales/en/common.json';
+import enHome from '@/shared/i18n/locales/en/home.json';
 import enHr from '@/shared/i18n/locales/en/hr.json';
 import enHistory from '@/shared/i18n/locales/en/history.json';
 import enMasters from '@/shared/i18n/locales/en/masters.json';
@@ -63,6 +65,7 @@ describe('i18n resources', () => {
     ['appraisal', enAppraisal, arAppraisal],
     ['checklists', enChecklists, arChecklists],
     ['common', enCommon, arCommon],
+    ['home', enHome, arHome],
     ['hr', enHr, arHr],
     ['history', enHistory, arHistory],
     ['masters', enMasters, arMasters],
@@ -115,6 +118,9 @@ describe('formatters', () => {
 
   it('formats the profile clock in Asia/Bahrain', () => {
     expect(formatProfileClock(Date.UTC(2026, 0, 1, 21, 5, 6), 'en')).toBe(
+      '00:05:06',
+    );
+    expect(formatProfileClock(Date.UTC(2026, 0, 1, 21, 5, 6), 'ar')).toBe(
       '00:05:06',
     );
   });

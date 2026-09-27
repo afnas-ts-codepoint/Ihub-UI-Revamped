@@ -5,6 +5,11 @@ const localeTags: Record<Locale, string> = {
   ar: 'ar-KW-u-nu-latn',
 };
 
+const profileClockLocaleTags: Record<Locale, string> = {
+  en: 'en-US-u-nu-latn',
+  ar: 'en-US-u-nu-latn',
+};
+
 function localeTag(locale: Locale) {
   return localeTags[locale];
 }
@@ -48,12 +53,14 @@ export function formatTime(
 }
 
 export function formatProfileClock(value: Date | number, locale: Locale) {
-  return formatTime(value, locale, {
+  return new Intl.DateTimeFormat(profileClockLocaleTags[locale], {
     hour: '2-digit',
+    hour12: false,
     minute: '2-digit',
+    numberingSystem: 'latn',
     second: '2-digit',
     timeZone: 'Asia/Bahrain',
-  });
+  }).format(value);
 }
 
 export function formatDuration(totalMinutes: number, locale: Locale) {

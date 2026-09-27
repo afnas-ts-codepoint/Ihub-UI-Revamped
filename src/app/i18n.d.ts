@@ -3,6 +3,7 @@ import 'i18next';
 import type appraisal from '@/shared/i18n/locales/en/appraisal.json';
 import type checklists from '@/shared/i18n/locales/en/checklists.json';
 import type common from '@/shared/i18n/locales/en/common.json';
+import type home from '@/shared/i18n/locales/en/home.json';
 import type hr from '@/shared/i18n/locales/en/hr.json';
 import type history from '@/shared/i18n/locales/en/history.json';
 import type masters from '@/shared/i18n/locales/en/masters.json';
@@ -21,6 +22,7 @@ declare module 'i18next' {
       appraisal: typeof appraisal;
       checklists: typeof checklists;
       common: typeof common;
+      home: typeof home;
       hr: typeof hr;
       history: typeof history;
       masters: typeof masters;

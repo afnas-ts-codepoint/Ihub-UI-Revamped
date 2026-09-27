@@ -1,0 +1,76 @@
+{
+  "actions": {
+    "aiSubscription": "اشتراك الذكاء الاصطناعي",
+    "askIhub": "اسأل ihub",
+    "clockIn": "تسجيل الحضور",
+    "openInbox": "افتح البريد"
+  },
+  "carousel": {
+    "approvalsInQueue": "موافقات في قائمة الانتظار",
+    "dueToday": "مستحق اليوم",
+    "incidents": "الحوادث",
+    "later": "لاحقاً",
+    "moreDueToday": "مستحقة اليوم أيضاً",
+    "mostOverdue": "الأكثر تأخراً",
+    "next": "الشريحة التالية",
+    "nothingOverdue": "لا شيء متأخر",
+    "onTrack": "في المسار · غير متأخر",
+    "openApprovals": "موافقات مفتوحة",
+    "openIncidents": "حوادث مفتوحة",
+    "overdue": "متأخر",
+    "slide": "الشريحة",
+    "statusDistribution": "توزيع الحالات",
+    "thisWeek": "هذا الأسبوع"
+  },
+  "greeting": {
+    "afternoon": "مساء الخير",
+    "evening": "مساء الخير",
+    "headOffice": "المكتب الرئيسي",
+    "morning": "صباح الخير",
+    "quote": "الطريقة للبدء هي التوقف عن الكلام والبدء بالعمل.",
+    "quoteBy": "والت ديزني"
+  },
+  "incidents": {
+    "live": "الحوادث الحالية",
+    "reports": "تقارير الحوادث"
+  },
+  "pending": {
+    "approvals": "الموافقات",
+    "assigned": "المُسند",
+    "budgets": "الميزانيات",
+    "company": "الشركة",
+    "overview": "نظرة عامة",
+    "paymentSettlement": "تسوية المدفوعات",
+    "purchasing": "المشتريات",
+    "reports": "التحليلات والتقارير",
+    "tasks": "أوامر العمل",
+    "workCentre": "مركز العمل"
+  },
+  "profile": {
+    "delegatedUsers": "المستخدمون المفوَّضون",
+    "label": "الملف الشخصي",
+    "till": "حتى:",
+    "timeZone": "آسيا/البحرين"
+  },
+  "pulse": {
+    "actionsWaiting": "إجراءات منتظرة",
+    "averageDecision": "زمن القرار",
+    "label": "النبض التشغيلي",
+    "newTasks": "أوامر عمل جديدة",
+    "openIncidents": "حوادث مفتوحة",
+    "overdue": "متأخرة"
+  },
+  "tabs": {
+    "assigned": "المُسند",
+    "budgets": "الميزانيات",
+    "incidents": "الحوادث",
+    "label": "أقسام الصفحة الرئيسية",
+    "overview": "نظرة عامة",
+    "paymentSettlement": "تسوية المدفوعات",
+    "purchasing": "المشتريات",
+    "reports": "التحليلات والتقارير",
+    "sla": "اتفاقية مستوى الخدمة",
+    "sopChecklist": "قائمة إجراءات التشغيل",
+    "workCentre": "مركز العمل"
+  }
+}

@@ -84,10 +84,11 @@ export async function captureSideBySide(
   comparison: Page,
   outputPath: string,
   width: number,
+  options: Readonly<{ fullPage?: boolean }> = {},
 ) {
   const [prototypePng, applicationPng] = await Promise.all([
-    prototype.screenshot(),
-    application.screenshot(),
+    prototype.screenshot({ fullPage: options.fullPage }),
+    application.screenshot({ fullPage: options.fullPage }),
   ]);
   const prototypeData = `data:image/png;base64,${prototypePng.toString('base64')}`;
   const applicationData = `data:image/png;base64,${applicationPng.toString('base64')}`;

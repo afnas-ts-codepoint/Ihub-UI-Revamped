@@ -12,6 +12,12 @@ import { AppraisalPage } from '@/features/appraisal';
 import { ChecklistPage } from '@/features/checklists';
 import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
 import { OvertimePage } from '@/features/hr';
+import {
+  HomeBannerLayout,
+  HomeIncidentsPendingPage,
+  HomeLayout,
+  HomePendingPage,
+} from '@/features/home';
 import { NotificationsPage } from '@/features/notifications';
 import { ReportsLibraryPage } from '@/features/reports';
 import { SlaPage } from '@/features/sla';
@@ -78,6 +84,7 @@ export const appRoutes: RouteObject[] = [
       { index: true, element: <Navigate replace to={paths.home.root} /> },
       {
         path: 'home',
+        element: <HomeLayout />,
         children: [
           {
             index: true,
@@ -85,22 +92,22 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'overview',
-            element: <NavRoutePage />,
+            element: <HomePendingPage area="overview" />,
             handle: { homeTab: 'overview' },
           },
           {
             path: 'approvals',
-            element: <NavRoutePage />,
+            element: <HomePendingPage area="approvals" />,
             handle: { homeTab: 'approvals' },
           },
           {
             path: 'tasks',
-            element: <NavRoutePage />,
+            element: <HomePendingPage area="tasks" />,
             handle: { homeTab: 'tasks' },
           },
           {
             path: 'company',
-            element: <NavRoutePage />,
+            element: <HomePendingPage area="company" />,
             handle: { homeTab: 'company' },
           },
           {
@@ -115,40 +122,47 @@ export const appRoutes: RouteObject[] = [
             handle: { homeTab: 'assigned' },
           },
           {
-            path: 'incidents/:sub',
-            element: (
-              <ValidatedPendingRoute
-                allowed={incidentViews}
-                parameter="sub"
-                titleKey="navigation.dashboard_incidents"
-                titleKeys={{ live: 'navigation.dashboard_live-feed' }}
-              />
-            ),
-            handle: { homeTab: 'incidents' },
+            path: 'incidents',
+            children: [
+              {
+                index: true,
+                element: <Navigate replace to={paths.home.incidents('reports')} />,
+              },
+              {
+                path: incidentViews[0],
+                element: <HomeIncidentsPendingPage activeTab="reports" />,
+                handle: { homeTab: 'incidents' },
+              },
+              {
+                path: incidentViews[1],
+                element: <HomeIncidentsPendingPage activeTab="live" />,
+                handle: { homeTab: 'incidents' },
+              },
+            ],
           },
           {
             path: 'budgets/:section?',
-            element: <PendingRoutePage titleKey="routes.budgets" />,
+            element: <HomePendingPage area="budgets" />,
             handle: { homeTab: 'budgets' },
           },
           {
             path: 'purchasing/:section?',
-            element: <PendingRoutePage titleKey="routes.purchasing" />,
+            element: <HomePendingPage area="purchasing" />,
             handle: { homeTab: 'purchasing' },
           },
           {
             path: 'sop-checklist',
-            element: <PendingRoutePage titleKey="routes.sopChecklist" />,
+            element: <ChecklistPage />,
             handle: { homeTab: 'sop-checklist' },
           },
           {
             path: 'sla',
-            element: <PendingRoutePage titleKey="navigation.sla" />,
+            element: <SlaPage />,
             handle: { homeTab: 'sla' },
           },
           {
             path: 'reports',
-            element: <PendingRoutePage titleKey="navigation.reports" />,
+            element: <HomePendingPage area="reports" />,
             handle: { homeTab: 'reports' },
           },
           {
@@ -177,12 +191,17 @@ export const appRoutes: RouteObject[] = [
         ],
       },
       {
-        path: 'tasks/:taskId',
-        element: <PendingRoutePage titleKey="routes.taskDetails" />,
-      },
-      {
-        path: 'tasks/:taskId/edit',
-        element: <PendingRoutePage titleKey="routes.taskEdit" />,
+        element: <HomeBannerLayout />,
+        children: [
+          {
+            path: 'tasks/:taskId',
+            element: <PendingRoutePage titleKey="routes.taskDetails" />,
+          },
+          {
+            path: 'tasks/:taskId/edit',
+            element: <PendingRoutePage titleKey="routes.taskEdit" />,
+          },
+        ],
       },
       {
         path: 'finance',

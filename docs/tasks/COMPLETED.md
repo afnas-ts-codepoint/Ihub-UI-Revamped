@@ -4,6 +4,7 @@ Only human-approved work belongs here.
 
 | Task | Completed | Approval |
 |---|---|---|
+| [M5.1 — Home layout and banner](phases/M5.1.md) | 2026-09-27 | User-approved |
 | [M4.3 — Bulk import (Project Category, Sub Area)](phases/M4.3.md) | 2026-09-27 | User-approved |
 | [M4.2 — Master record forms](phases/M4.2.md) | 2026-09-27 | User-approved |
 | [M4.1 — Master listing](phases/M4.1.md) | 2026-09-27 | User-approved |
@@ -21,6 +22,7 @@ Only human-approved work belongs here.
 
 | Task ID | Task | Approval evidence | Completion notes |
 |---|---|---|---|
+| [M5.1](phases/M5.1.md) | Home layout and banner | User approved review completion on 2026-09-27. | Home frame, four-slide carousel, fixed Bahrain profile clock, AI menu, pulse strip, ten-tab navigation, incidents Reports/Live switch, live Checklist/SLA reuse, task banner wrapper, EN/AR/RTL/responsive behavior, 105 visual captures, 77 files/577 tests, and G1–G10 gates completed; no commit or push was performed by Codex. |
 | [M0.3](phases/M0.3.md) | Planning documents in the new repository | Phase 3 records Phase 2 as approved, and the repository README records planning as complete. | Required architecture, migration-plan, analysis, and register documents are present. |
 | [M1.1](phases/M1.1.md) | Scaffold and quality gates | User confirmed review completion on 2026-09-25. | React 19 TypeScript scaffold and M1.1 quality gates completed; no commit or push was performed by Codex. |
 | [M1.2](phases/M1.2.md) | Design tokens, fonts, base CSS, Tailwind | User confirmed review approval on 2026-09-25. | M1.2 token, font, base CSS, Tailwind, and quality-gate work approved; no commit or push was performed by Codex. |

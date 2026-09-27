@@ -6,10 +6,12 @@ import { navNodes, navTrailForPath } from '@/app/navigation/model';
 import { NAV_TREE } from '@/app/navigation/nav.config';
 import { appRoutes } from '@/app/router/router';
 import arChecklists from '@/shared/i18n/locales/ar/checklists.json';
+import arHome from '@/shared/i18n/locales/ar/home.json';
 import arHr from '@/shared/i18n/locales/ar/hr.json';
 import arNav from '@/shared/i18n/locales/ar/nav.json';
 import enHr from '@/shared/i18n/locales/en/hr.json';
 import enChecklists from '@/shared/i18n/locales/en/checklists.json';
+import enHome from '@/shared/i18n/locales/en/home.json';
 import enNav from '@/shared/i18n/locales/en/nav.json';
 import { i18n, initializeI18n } from '@/shared/i18n/i18n';
 import { paths } from '@/shared/config/paths';
@@ -48,6 +50,19 @@ const HEADING_OVERRIDES: Readonly<
 > = {
   checklist: { ar: arChecklists.title, en: enChecklists.title },
   overtime: { ar: arHr.title, en: enHr.title },
+};
+
+const PENDING_TITLE_OVERRIDES: Readonly<
+  Record<string, Readonly<Record<'ar' | 'en', string>>>
+> = {
+  [paths.home.incidents('live')]: {
+    ar: arHome.incidents.live,
+    en: enHome.incidents.live,
+  },
+  [paths.home.incidents('reports')]: {
+    ar: arHome.incidents.reports,
+    en: enHome.incidents.reports,
+  },
 };
 
 describe('G6 complete navigation and route parity', () => {
@@ -109,9 +124,11 @@ describe('G6 complete navigation and route parity', () => {
 
         const { router, unmount } = renderRoute(path);
         if (current?.routeBehavior === 'migration-pending') {
+          const pendingTitle =
+            PENDING_TITLE_OVERRIDES[path]?.[locale] ?? String(title);
           expect(await screen.findByRole('status')).toHaveAttribute(
             'data-migration-pending',
-            title,
+            pendingTitle,
           );
         } else if (current?.id === 'workflows') {
           expect(await screen.findByRole('tablist')).toBeInTheDocument();
@@ -174,8 +191,6 @@ describe('Phase 2 section 11 URL map', () => {
     `${paths.home.view('budgets')}/department`,
     paths.home.view('purchasing'),
     `${paths.home.view('purchasing')}/orders`,
-    paths.home.view('sop-checklist'),
-    paths.home.view('sla'),
     paths.home.view('reports'),
     paths.home.workCentre('create-task'),
     paths.home.workCentre('tasks', 'open'),
@@ -196,6 +211,17 @@ describe('Phase 2 section 11 URL map', () => {
     expect(await screen.findByRole('status')).toHaveAttribute(
       'data-migration-pending',
     );
+    router.dispose();
+  });
+
+  it.each([
+    [paths.home.view('sop-checklist'), 'SOP Checklist'],
+    [paths.home.view('sla'), 'SLA & Compliance'],
+  ])('routes the migrated Home screen at %s', async (path, heading) => {
+    const { router } = renderRoute(path);
+    expect(await screen.findByTestId('home-top-banner')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: heading })).toBeInTheDocument();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });
 

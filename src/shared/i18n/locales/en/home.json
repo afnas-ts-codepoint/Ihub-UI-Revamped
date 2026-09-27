@@ -1,0 +1,76 @@
+{
+  "actions": {
+    "aiSubscription": "AI Subscription",
+    "askIhub": "Ask ihub",
+    "clockIn": "Clock in",
+    "openInbox": "Open inbox"
+  },
+  "carousel": {
+    "approvalsInQueue": "Approvals in queue",
+    "dueToday": "Due today",
+    "incidents": "Incidents",
+    "later": "Later",
+    "moreDueToday": "More due today",
+    "mostOverdue": "Most overdue",
+    "next": "Next slide",
+    "nothingOverdue": "Nothing overdue",
+    "onTrack": "On track · not overdue",
+    "openApprovals": "open approvals",
+    "openIncidents": "open incidents",
+    "overdue": "Overdue",
+    "slide": "Slide",
+    "statusDistribution": "Status distribution",
+    "thisWeek": "This week"
+  },
+  "greeting": {
+    "afternoon": "Good afternoon",
+    "evening": "Good evening",
+    "headOffice": "Head Office",
+    "morning": "Good morning",
+    "quote": "The way to get started is to quit talking and begin doing.",
+    "quoteBy": "Walt Disney"
+  },
+  "incidents": {
+    "live": "Live Incidents",
+    "reports": "Incident Reports"
+  },
+  "pending": {
+    "approvals": "Approvals",
+    "assigned": "Assigned",
+    "budgets": "Budgets",
+    "company": "Company",
+    "overview": "Overview",
+    "paymentSettlement": "Payment Settlement",
+    "purchasing": "Purchasing",
+    "reports": "Analytics & Reports",
+    "tasks": "Tasks",
+    "workCentre": "Work Centre"
+  },
+  "profile": {
+    "delegatedUsers": "Delegated Users",
+    "label": "Profile",
+    "till": "Till:",
+    "timeZone": "Asia/Bahrain"
+  },
+  "pulse": {
+    "actionsWaiting": "Actions waiting",
+    "averageDecision": "Avg. decision time",
+    "label": "Operational pulse",
+    "newTasks": "New tasks",
+    "openIncidents": "Open incidents",
+    "overdue": "Overdue"
+  },
+  "tabs": {
+    "assigned": "Assigned",
+    "budgets": "Budgets",
+    "incidents": "Incidents",
+    "label": "Home sections",
+    "overview": "Overview",
+    "paymentSettlement": "Payment settlement",
+    "purchasing": "Purchasing",
+    "reports": "Analytics & Reports",
+    "sla": "SLA & Compliance",
+    "sopChecklist": "SOP Checklist",
+    "workCentre": "Work Centre"
+  }
+}
