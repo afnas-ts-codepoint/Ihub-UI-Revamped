@@ -143,6 +143,14 @@
     "uploadRecords": "Upload records",
     "uploadExcel": "Upload Excel",
     "uploadHint": "Upload an Excel file (.xlsx) with one sub area per row in the first column to add many at once.",
+    "bulk": {
+      "recordsAdded": "{{count}} records added from {{fileName}}",
+      "subAreasAdded": "{{count}} sub areas added from {{fileName}}",
+      "noRecords": "No records found in that file.",
+      "noSubAreas": "No sub areas found in that file.",
+      "readerLoadFailed": "The spreadsheet reader did not load — refresh the page and try again.",
+      "fileReadFailed": "That file could not be read."
+    },
     "readyOne": "{{count}} record ready",
     "readyOther": "{{count}} records ready",
     "subAreasReady": "{{count}} sub areas ready",

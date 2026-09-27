@@ -1,5 +1,5 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { extname, join } from 'node:path';
+import { basename, extname, join } from 'node:path';
 
 const outputDirectory = 'dist';
 const forbiddenStrings = [
@@ -12,7 +12,9 @@ const forbiddenStrings = [
   'Tweaks',
 ];
 
-if (!existsSync(join(outputDirectory, 'index.html'))) {
+const indexPath = join(outputDirectory, 'index.html');
+
+if (!existsSync(indexPath)) {
   throw new Error('Build output is missing dist/index.html');
 }
 
@@ -47,4 +49,26 @@ for (const file of bundleFiles) {
   }
 }
 
-console.log(`Bundle check passed (${bundleFiles.length} files inspected).`);
+const xlsxChunks = bundleFiles.filter(
+  (file) => extname(file) === '.js' && basename(file).startsWith('xlsx-'),
+);
+
+if (xlsxChunks.length !== 1) {
+  throw new Error(`Expected one lazy SheetJS chunk, found ${xlsxChunks.length}`);
+}
+
+const indexHtml = readFileSync(indexPath, 'utf8');
+const initialScripts = [...indexHtml.matchAll(/<script[^>]+src="([^"]+\.js)"/g)]
+  .map((match) => match[1])
+  .filter(Boolean);
+
+if (initialScripts.some((source) => source?.includes('/xlsx-'))) {
+  throw new Error('SheetJS is eagerly referenced by dist/index.html');
+}
+
+const xlsxContents = readFileSync(xlsxChunks[0], 'utf8');
+if (!xlsxContents.includes('SheetJS')) {
+  throw new Error('The lazy xlsx chunk does not contain the expected SheetJS code');
+}
+
+console.log(`Bundle check passed (${bundleFiles.length} files inspected; SheetJS isolated in ${basename(xlsxChunks[0])}).`);

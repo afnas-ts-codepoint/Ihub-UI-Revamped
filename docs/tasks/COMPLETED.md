@@ -4,6 +4,7 @@ Only human-approved work belongs here.
 
 | Task | Completed | Approval |
 |---|---|---|
+| [M4.3 — Bulk import (Project Category, Sub Area)](phases/M4.3.md) | 2026-09-27 | User-approved |
 | [M4.2 — Master record forms](phases/M4.2.md) | 2026-09-27 | User-approved |
 | [M4.1 — Master listing](phases/M4.1.md) | 2026-09-27 | User-approved |
 | [M3.9 — Reports Library](phases/M3.9.md) | 2026-09-26 | User-approved |
@@ -38,4 +39,5 @@ Only human-approved work belongs here.
 | [M3.9](phases/M3.9.md) | Reports Library | User approved review completion on 2026-09-26. | Standalone `/reports` library with all 18 prototype reports, exact title-only heading parity, feature-local inert FilterForm, permanent placeholder preview, D12-preserved `/home/reports`, EN/AR/RTL/responsive visual QA, 51-check visual evidence, and M3.9 quality gates completed; no commit or push was performed by Codex. |
 | [M4.1](phases/M4.1.md) | Master listing | User approved on 2026-09-27. | Definition-driven `MasterPage` for the five `MASTERS_WITH_PAGE` items (PC/generic/AA/TM/SA modes) on the new `@tanstack/react-table` engine, with `DataTableView`, functional `TablePaginationBar`, `TableToolbar`, `ColumnSettingsDialog`, `RowActions`, and `ConfirmDialog`; four human-approved ADOPT decisions for rendered-prototype behavior beyond the phase card (full entries picker, full bulk selection, inert Add button, inert row View/Edit); `MasterPendingPage` replacing the interim `PlaceholderPage` for the other 75 catalogue items; 15-capture visual QA (two real fidelity bugs found and fixed via the capture); 463 tests (61 files) and M4.1 quality gates completed; no commit or push was performed by Codex it is done by claude. |
 | [M4.2](phases/M4.2.md) | Master record forms | User approved on 2026-09-27. | M4.2 Master Add/View/Edit dialogs completed for all five modes, including four specialized Add dialogs and generic multi-row Add; exact required-field/Yup rules, edit flattening, location→zone cascade, Task Mapping chips/severity/priority, EN/AR/RTL/responsive behavior, prototype Add no-persistence D2 behavior, 10-scenario/11-image visual QA, 517 tests (67 files), and G1–G10 gates completed; no commit or push was performed by Codex. |
+| [M4.3](phases/M4.3.md) | Bulk import (Project Category, Sub Area) | User approved review completion on 2026-09-27. | Prototype-faithful local CSV/XLSX/XLS/XLSM/XLSB import limited to Project Category and Sub Area; exact header/trim/dedupe/merge rules, sample CSV, reader errors, lazy SheetJS 0.20.3, 9-capture visual QA, 70 files/558 tests and G1–G10 gates completed; no commit or push was performed by Codex. |
 

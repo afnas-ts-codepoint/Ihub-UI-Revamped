@@ -1,4 +1,9 @@
-export function downloadText(text: string, filename: string, mimeType: string) {
+export function downloadText(
+  text: string,
+  filename: string,
+  mimeType: string,
+  revokeAfterMs = 4_000,
+) {
   const url = URL.createObjectURL(new Blob([text], { type: mimeType }));
   const anchor = document.createElement('a');
   anchor.href = url;
@@ -6,5 +11,5 @@ export function downloadText(text: string, filename: string, mimeType: string) {
   document.body.append(anchor);
   anchor.click();
   anchor.remove();
-  window.setTimeout(() => { URL.revokeObjectURL(url); }, 4_000);
+  window.setTimeout(() => { URL.revokeObjectURL(url); }, revokeAfterMs);
 }

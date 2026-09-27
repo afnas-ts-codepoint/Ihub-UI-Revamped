@@ -25,7 +25,7 @@ This table operationalizes the executable tasks in [Phase 3](../migration/PHASE_
 | [M3.9](phases/M3.9.md) | Reports library | Pending | Not assigned | M3.4 | TBD | Required |
 | [M4.1](phases/M4.1.md) | Master listing | Completed | Codex | M3.2 | Not opened | Approved |
 | [M4.2](phases/M4.2.md) | Master record forms | Pending | Not assigned | M4.1, M3.8 | TBD | Required |
-| [M4.3](phases/M4.3.md) | Bulk import (Project Category, Sub Area) | Pending | Not assigned | M4.2 | TBD | Required |
+| [M4.3](phases/M4.3.md) | Bulk import (Project Category, Sub Area) | Completed | Codex | M4.2 | Not opened | Approved |
 | [M5.1](phases/M5.1.md) | Home layout and banner | Pending | Not assigned | M3.5, M3.8 | TBD | Required |
 | [M6.1](phases/M6.1.md) | Budgeting (section variant) | Pending | Not assigned | M3.2 | TBD | Required |
 | [M6.2](phases/M6.2.md) | Budgeting (home variant) and sub-views | Pending | Not assigned | M6.1, M5.1 | TBD | Required |

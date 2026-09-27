@@ -204,7 +204,7 @@ describe('MasterPage — Project Category Master (pc mode)', () => {
     expect(screen.queryByText(/records selected/)).not.toBeInTheDocument();
   });
 
-  it('opens Add, gates Save, closes valid Add without persisting, and keeps Export inert', async () => {
+  it('closes a bulk-imported Add without persisting and keeps Export inert', async () => {
     const user = userEvent.setup();
     renderPc();
 
@@ -218,7 +218,10 @@ describe('MasterPage — Project Category Master (pc mode)', () => {
     const addDialog = screen.getByTestId('master-add-dialog');
     const save = within(addDialog).getByRole('button', { name: 'Save' });
     expect(save).toBeDisabled();
-    await user.type(within(addDialog).getByRole('textbox', { name: 'Name' }), 'New category');
+    const fileInput = addDialog.querySelector<HTMLInputElement>('input[type="file"]');
+    if (!fileInput) throw new Error('Expected Project Category upload input');
+    await user.upload(fileInput, new File(['Name\r\nNew category\r\n'], 'new-category.csv'));
+    expect(await within(addDialog).findByText('1 records added from new-category.csv')).toBeVisible();
     expect(save).toBeEnabled();
     await user.click(save);
     await waitFor(() => { expect(screen.queryByTestId('master-add-dialog')).not.toBeInTheDocument(); });

@@ -26,7 +26,8 @@
     "visual:capture:m3.8": "playwright test m3.8.spec.ts",
     "visual:capture:m3.9": "playwright test m3.9.spec.ts",
     "visual:capture:m4.1": "playwright test m4.1.spec.ts",
-    "visual:capture:m4.2": "playwright test m4.2.spec.ts"
+    "visual:capture:m4.2": "playwright test m4.2.spec.ts",
+    "visual:capture:m4.3": "playwright test m4.3.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
@@ -42,6 +43,7 @@
     "react-router": "^7.18.4",
     "tailwind-merge": "^3.7.0",
     "vaul": "^1.1.2",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
     "yup": "^1.7.1",
     "zustand": "^5.0.15"
   },

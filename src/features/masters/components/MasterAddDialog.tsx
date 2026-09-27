@@ -1,16 +1,38 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Download, Upload, X } from 'lucide-react';
-import { useState, type ReactNode } from 'react';
+import { Download, Plus, Trash2, Upload, X } from 'lucide-react';
+import {
+  useRef,
+  useState,
+  type ChangeEvent,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+} from 'react';
 import { useForm, useWatch, type FieldPath, type FieldPathValue } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import type { MasterFormValues } from '../domain/formValues';
 import { EMPTY_MASTER_FORM } from '../domain/formValues';
+import {
+  cleanBulkNames,
+  mergeBulkNames,
+  namesFromDelimitedText,
+  namesFromSpreadsheet,
+  type BulkNameKind,
+} from '../domain/bulkNames';
 import { masterFormMissing } from '../domain/requiredFields';
 import type { MasterDefinition } from '../domain/types';
 import { retainCompatibleZones, zonesForLocations } from '../domain/zonesForLocation';
 import { createMasterRecordSchema } from '../schemas/masterRecord.schema';
 import { AA_AREA_NAMES, AA_LOCATIONS, AA_ZONES, MASTER_ADD_OPTIONS, TM_OPTIONS, TM_PRIORITIES, TM_SEVERITIES, aaZonesFor } from '../data/seedRows';
+import {
+  PROJECT_CATEGORY_ACCEPT,
+  PROJECT_CATEGORY_SAMPLE,
+  SUB_AREA_ACCEPT,
+} from '../constants/bulkImport';
+import { downloadText } from '@/shared/file/download';
+import { readFile } from '@/shared/file/readFile';
+import { SpreadsheetReaderLoadError } from '@/shared/file/xlsx';
 import { Checkbox } from '@/shared/form/controls/Checkbox';
 import { MultiSelectChips } from '@/shared/form/controls/MultiSelectChips';
 import { SegmentedRadio } from '@/shared/form/controls/SegmentedRadio';
@@ -21,6 +43,7 @@ import { Field } from '@/shared/form/field/Field';
 import { FormActions } from '@/shared/form/layout/FormActions';
 import { FormGrid } from '@/shared/form/layout/FormGrid';
 import { RepeatableRows } from '@/shared/form/layout/RepeatableRows';
+import { Chip } from '@/shared/ui/chip/Chip';
 import { DialogBody, DialogContent, DialogDescription, DialogHeader, DialogRoot, DialogTitle } from '@/shared/ui/overlay/Dialog';
 
 const opts = (values: readonly string[]): SelectOption[] => values.map((value) => ({ label: value, value }));
@@ -48,32 +71,119 @@ function AddFrame({ children, message, missing, onClose, onSubmit, title }: Fram
   </DialogRoot>;
 }
 
-function FutureBulkButtons({ subArea = false }: Readonly<{ subArea?: boolean }>) {
+function useBulkImport(
+  kind: BulkNameKind,
+  setRows: Dispatch<SetStateAction<string[]>>,
+) {
   const { t } = useTranslation('masters');
+  const fileRef = useRef<HTMLInputElement>(null);
+  const [note, setNote] = useState('');
+
+  const importSelectedFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.currentTarget.files?.[0];
+    event.currentTarget.value = '';
+    if (!file) return;
+
+    setNote('');
+
+    try {
+      const result = await readFile(file);
+      const rawNames = result.kind === 'spreadsheet'
+        ? namesFromSpreadsheet(result.rows)
+        : namesFromDelimitedText(result.text);
+      const names = cleanBulkNames(rawNames, kind);
+
+      if (!names.length) {
+        setNote(t(kind === 'projectCategory' ? 'form.bulk.noRecords' : 'form.bulk.noSubAreas'));
+        return;
+      }
+
+      setRows((current) => {
+        const merged = mergeBulkNames(current, names);
+        return merged.length ? merged : [''];
+      });
+      setNote(t(
+        kind === 'projectCategory' ? 'form.bulk.recordsAdded' : 'form.bulk.subAreasAdded',
+        { count: names.length, fileName: file.name },
+      ));
+    } catch (error) {
+      setNote(t(
+        error instanceof SpreadsheetReaderLoadError
+          ? 'form.bulk.readerLoadFailed'
+          : 'form.bulk.fileReadFailed',
+      ));
+    }
+  };
+
+  return { fileRef, importSelectedFile, note };
+}
+
+type BulkButtonsProps = Readonly<{
+  fileRef: ReturnType<typeof useBulkImport>['fileRef'];
+  kind: BulkNameKind;
+  onFileChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}>;
+
+function BulkButtons({ fileRef, kind, onFileChange }: BulkButtonsProps) {
+  const { t } = useTranslation('masters');
+  const subArea = kind === 'subArea';
+
   return <div className="ms-auto flex flex-wrap gap-2">
-    {!subArea ? <button className="inline-flex items-center gap-1.5 text-xs-plus font-semibold text-[var(--blue-med)] underline" data-prototype-noop="m4.3-bulk-import" type="button"><Download aria-hidden="true" size={13} />{t('form.sampleCsv')}</button> : null}
-    <button className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold text-fg-2 hover:bg-inset" data-prototype-noop="m4.3-bulk-import" type="button"><Upload aria-hidden="true" size={13} />{t(subArea ? 'form.uploadExcel' : 'form.uploadRecords')}</button>
+    {!subArea ? <button className="inline-flex items-center gap-1.5 text-xs-plus font-semibold text-[var(--blue-med)] underline" onClick={() => { downloadText(PROJECT_CATEGORY_SAMPLE.content, PROJECT_CATEGORY_SAMPLE.filename, PROJECT_CATEGORY_SAMPLE.mimeType, 1_000); }} type="button"><Download aria-hidden="true" size={13} />{t('form.sampleCsv')}</button> : null}
+    <button className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold text-fg-2 hover:bg-inset" onClick={() => { fileRef.current?.click(); }} type="button"><Upload aria-hidden="true" size={13} />{t(subArea ? 'form.uploadExcel' : 'form.uploadRecords')}</button>
+    <input
+      accept={subArea ? SUB_AREA_ACCEPT : PROJECT_CATEGORY_ACCEPT}
+      className="hidden"
+      onChange={onFileChange}
+      ref={fileRef}
+      type="file"
+    />
   </div>;
+}
+
+type BulkNameRowsProps = Readonly<{
+  addLabel: string;
+  fieldLabel: string;
+  note?: ReactNode;
+  placeholder: string;
+  removeLabel: string;
+  rows: readonly string[];
+  setRows: Dispatch<SetStateAction<string[]>>;
+}>;
+
+function BulkNameRows({ addLabel, fieldLabel, note, placeholder, removeLabel, rows, setRows }: BulkNameRowsProps) {
+  return <>
+    <FormGrid>
+      {rows.map((row, index) => <div className="flex items-center gap-2.5" key={index}>
+        <TextInput aria-label={fieldLabel} onChange={(event) => { setRows((current) => current.map((value, rowIndex) => rowIndex === index ? event.target.value : value)); }} placeholder={placeholder} value={row} />
+        <button aria-label={removeLabel} className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg text-bad hover:bg-bad/10" onClick={() => { setRows((current) => current.length > 1 ? current.filter((_, rowIndex) => rowIndex !== index) : ['']); }} title={removeLabel} type="button"><Trash2 aria-hidden="true" size={14} /></button>
+      </div>)}
+    </FormGrid>
+    {note}
+    <button className="inline-flex w-fit items-center gap-2 py-0.5 text-sm-plus font-bold text-accent" onClick={() => { setRows((current) => [...current, '']); }} type="button"><Plus aria-hidden="true" size={15} />{addLabel}</button>
+  </>;
 }
 
 function PcAdd({ onClose, title }: Readonly<{ onClose: () => void; title: string }>) {
   const { t } = useTranslation('masters');
   const [rows, setRows] = useState(['']);
+  const bulk = useBulkImport('projectCategory', setRows);
   const filled = rows.filter((row) => row.trim());
   const missing = filled.length === 0;
   return <AddFrame message={missing ? t('form.missing.pc') : t(filled.length === 1 ? 'form.readyOne' : 'form.readyOther', { count: filled.length })} missing={missing} onClose={onClose} onSubmit={onClose} title={title}>
-    {card(<><div className="flex flex-wrap items-center gap-3"><span className="text-xs font-semibold tracking-wider text-fg-3 uppercase">{t('form.fields.name')}{' *'}</span><FutureBulkButtons /></div><RepeatableRows addLabel={t('form.addMore')} onAdd={() => { setRows((current) => [...current, '']); }} onRemove={(index) => { setRows((current) => current.length > 1 ? current.filter((_, rowIndex) => rowIndex !== index) : ['']); }} removeLabel={t('form.remove')} renderRow={(row, index, remove) => <div className="flex items-center gap-2.5" key={index}><TextInput aria-label={t('form.fields.name')} onChange={(event) => { setRows((current) => current.map((value, rowIndex) => rowIndex === index ? event.target.value : value)); }} placeholder={t('form.placeholders.name')} value={row} />{remove}</div>} rows={rows} /></>)}
+    {card(<><div className="flex flex-wrap items-center gap-3"><span className="text-xs font-semibold tracking-wider text-fg-3 uppercase">{t('form.fields.name')}{' *'}</span><BulkButtons fileRef={bulk.fileRef} kind="projectCategory" onFileChange={(event) => { void bulk.importSelectedFile(event); }} /></div><BulkNameRows addLabel={t('form.addMore')} fieldLabel={t('form.fields.name')} note={bulk.note ? <Chip className="w-fit" data-testid="bulk-import-note" tone="ok">{bulk.note}</Chip> : null} placeholder={t('form.placeholders.name')} removeLabel={t('form.remove')} rows={rows} setRows={setRows} /></>)}
   </AddFrame>;
 }
 
 function SubAreaAdd({ onClose, title }: Readonly<{ onClose: () => void; title: string }>) {
   const { t } = useTranslation('masters');
   const [location, setLocation] = useState(''); const [zone, setZone] = useState(''); const [assignmentArea, setArea] = useState(''); const [rows, setRows] = useState(['']);
+  const bulk = useBulkImport('subArea', setRows);
   const ready = rows.filter((row) => row.trim()).length;
   const missing = !location || !zone || !assignmentArea || ready === 0;
   return <AddFrame message={missing ? t('form.missing.saAdd') : t('form.subAreasReady', { count: ready })} missing={missing} onClose={onClose} onSubmit={onClose} title={title}>
     {card(<FormGrid columns={3}><Field label={t('form.fields.location')} required><Select ariaLabel={t('form.fields.location')} onChange={(value) => { setLocation(value); setZone(''); }} options={opts(AA_LOCATIONS)} placeholder={t('form.placeholders.location')} value={location} /></Field><Field label={t('form.fields.zone')} required><Select ariaLabel={t('form.fields.zone')} onChange={setZone} options={opts(aaZonesFor(location))} placeholder={t('form.placeholders.zone')} value={zone} /></Field><Field label={t('form.fields.assignmentArea')} required><Select ariaLabel={t('form.fields.assignmentArea')} onChange={setArea} options={opts(AA_AREA_NAMES)} placeholder={t('form.placeholders.assignmentArea')} value={assignmentArea} /></Field></FormGrid>)}
-    {card(<><div className="flex flex-wrap items-center gap-3"><span className="text-sm font-semibold text-fg-3">{t('form.sections.subAreas')}</span><FutureBulkButtons subArea /></div><p className="m-0 text-xs-plus text-fg-3">{t('form.uploadHint')}</p><RepeatableRows addLabel={t('form.addMore')} onAdd={() => { setRows((current) => [...current, '']); }} onRemove={(index) => { setRows((current) => current.length > 1 ? current.filter((_, rowIndex) => rowIndex !== index) : ['']); }} removeLabel={t('form.remove')} renderRow={(row, index, remove) => <div className="flex items-center gap-2.5" key={index}><TextInput aria-label={t('form.fields.subArea')} onChange={(event) => { setRows((current) => current.map((value, rowIndex) => rowIndex === index ? event.target.value : value)); }} placeholder={t('form.placeholders.subArea')} value={row} />{remove}</div>} rows={rows} /></>)}
+    {card(<><div className="flex flex-wrap items-center gap-3"><span className="text-sm font-semibold text-fg-3">{t('form.sections.subAreas')}</span><BulkButtons fileRef={bulk.fileRef} kind="subArea" onFileChange={(event) => { void bulk.importSelectedFile(event); }} /></div><p className="m-0 text-xs-plus text-fg-3">{t('form.uploadHint')}</p>{bulk.note ? <Chip className="w-fit" data-testid="bulk-import-note" tone="ok">{bulk.note}</Chip> : null}<BulkNameRows addLabel={t('form.addMore')} fieldLabel={t('form.fields.subArea')} placeholder={t('form.placeholders.subArea')} removeLabel={t('form.remove')} rows={rows} setRows={setRows} /></>)}
   </AddFrame>;
 }
 

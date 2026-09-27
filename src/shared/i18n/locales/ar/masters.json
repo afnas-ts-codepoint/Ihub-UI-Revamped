@@ -143,6 +143,14 @@
     "uploadRecords": "رفع سجلات",
     "uploadExcel": "رفع ملف إكسل",
     "uploadHint": "ارفع ملف إكسل (.xlsx) بمنطقة فرعية واحدة في كل صف في العمود الأول لإضافة عدة مناطق دفعة واحدة.",
+    "bulk": {
+      "recordsAdded": "{{count}} سجل أُضيف من {{fileName}}",
+      "subAreasAdded": "{{count}} منطقة فرعية أُضيفت من {{fileName}}",
+      "noRecords": "لم يتم العثور على سجلات في الملف.",
+      "noSubAreas": "لم يتم العثور على مناطق فرعية في الملف.",
+      "readerLoadFailed": "لم يتم تحميل قارئ الجداول — حدّث الصفحة وحاول مرة أخرى.",
+      "fileReadFailed": "تعذّرت قراءة الملف."
+    },
     "readyOne": "{{count}} سجل جاهز",
     "readyOther": "{{count}} سجل جاهز",
     "subAreasReady": "{{count}} منطقة فرعية جاهزة",
