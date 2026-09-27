@@ -13,6 +13,8 @@ export const paths = {
         : `/home/work-centre/${section}`,
     paymentSettlement: <Module extends string>(module: Module) =>
       `/home/payment-settlement/${module}` as const,
+    budgets: (section?: string) =>
+      section ? `/home/budgets/${section}` : '/home/budgets',
   },
   tasks: {
     view: <TaskId extends string>(taskId: TaskId): `/tasks/${TaskId}` =>

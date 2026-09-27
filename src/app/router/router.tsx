@@ -4,12 +4,18 @@ import {
   Navigate,
   ScrollRestoration,
   type RouteObject,
+  useParams,
 } from 'react-router';
 
 import { AppShell } from '@/app/layouts/app-shell/AppShell';
 import { SectionLayout } from '@/app/layouts/section/SectionLayout';
 import { AppraisalPage } from '@/features/appraisal';
-import { BudgetingPage } from '@/features/budgeting';
+import {
+  BudgetingPage,
+  defaultHomeBudgetSection,
+  HomeBudgetingPage,
+  isHomeBudgetSection,
+} from '@/features/budgeting';
 import { ChecklistPage } from '@/features/checklists';
 import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
 import { OvertimePage } from '@/features/hr';
@@ -59,6 +65,16 @@ function RootRoute() {
       <AppShell />
       <ScrollRestoration />
     </>
+  );
+}
+
+function HomeBudgetingRoute() {
+  const { section } = useParams<{ section?: string }>();
+  if (section == null) return <HomeBudgetingPage section={defaultHomeBudgetSection} />;
+  return isHomeBudgetSection(section) ? (
+    <HomeBudgetingPage section={section} />
+  ) : (
+    <NotFoundPage />
   );
 }
 
@@ -143,7 +159,7 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'budgets/:section?',
-            element: <HomePendingPage area="budgets" />,
+            element: <HomeBudgetingRoute />,
             handle: { homeTab: 'budgets' },
           },
           {

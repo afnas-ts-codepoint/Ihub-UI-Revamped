@@ -68,5 +68,54 @@
   "empty": {
     "title": "No budgeting records",
     "description": "No records are available for this view."
+  },
+  "home": {
+    "eyebrow": "Finance",
+    "title": "Budgets",
+    "sections": {
+      "ariaLabel": "Budget sections",
+      "sheet": "Budget sheet",
+      "activities": "Budget activities",
+      "newBudget": "New Budget",
+      "additionalBudget": "Additional Budget",
+      "transferFund": "Transfer Fund",
+      "report": "Report"
+    },
+    "requestTabs": { "pending": "Pending" },
+    "report": {
+      "projectingRevenue": "Projecting Revenue",
+      "stats": { "projected": "Projected revenue (FY)", "actual": "Actual to date", "remaining": "Remaining forecast", "variance": "Variance vs plan" },
+      "chart": { "title": "Projected revenue by month", "subtitle": "KWD thousands", "ariaLabel": "Projected revenue by month, KWD thousands" },
+      "columns": { "projected": "Projected (KWD)", "actual": "Actual (KWD)", "variance": "Variance", "attainment": "Attainment" }
+    },
+    "sheet": {
+      "title": "Budget sheet",
+      "subtitle": "Live worksheet across categories, activities and sub-activities. Click a cell to select, type or press F2 to edit, Enter and Tab to move — totals recalculate as you go.",
+      "expandAll": "Expand all", "collapseAll": "Collapse all", "reset": "Reset sheet", "export": "Export CSV", "hide": "Hide", "hidden": "Hidden categories", "line": "Line", "newLine": "New line", "grandTotal": "Grand total",
+      "categoriesShown": "{{count}} categories shown", "hiddenCount": "{{count}} hidden", "activityCount": "{{count}} activity", "activityCount_other": "{{count}} activities",
+      "columns": { "code": "Code", "category": "Category / Activity / Sub-activity", "budget": "Budget", "committed": "Committed", "forecast": "Forecast", "available": "Available", "variance": "Variance", "used": "Used" },
+      "formulaNote": "Available = Budget − Committed · Variance = Budget − Forecast · Used = Committed ÷ Budget. Activity and category rows are formula rows and cannot be typed into."
+    },
+    "newBudget": {
+      "tabs": { "add": "Add a New Budget", "listing": "New Budget listing", "release": "Records to be Released", "reject": "Reject Listing", "history": "History" },
+      "title": "Add a New Budget", "subtitle": "Classify each budget line, split it across the year by month and compare it against prior actuals. Add as many lines as the request needs.",
+      "select": "Select…", "line": "Budget line {{count}}", "removeLine": "Remove line", "classification": "Classification", "account": "Account", "pickActivity": "Pick an activity first", "setByActivity": "Set by the activity", "descriptionPlaceholder": "Fills automatically once activity and sub activity are picked.", "remarksPlaceholder": "Assumptions, dependencies or notes for the reviewer.",
+      "monthlySplit": "Monthly split", "splitEvenly": "Split evenly over 12 months", "clearMonths": "Clear months", "monthsBudgeted": "{{count}} / 12 months budgeted", "unallocated": "Unallocated KWD {{amount}}", "overYearly": "Over the yearly amount by KWD {{amount}}", "allocated": "Allocated", "addLine": "Add another budget line", "duplicate": "Duplicate last line", "lineCount": "{{count}} line(s) in this request", "total": "Total budget amount (in KWD)", "calculated": "Calculated from every monthly split", "variancePrompt": "Enter prior actuals to calculate variance.", "varianceHelp": "Variance compares the requested total against prior actuals.",
+      "attachments": "Attachments", "attachmentsHint": "Quotations and supporting files — each needs a caption.", "caption": "Caption (required)", "remove": "Remove", "upload": "Click to upload or drag and drop", "captionRequired": "Each attachment must have a caption", "captionWarning": "Add a caption to every attachment to submit.", "requiredWarning": "Every line needs location, department, activity, sub activity, year and at least one month.", "approvalNote": "Budgets above KWD 50,000 route to the CEO for approval.", "clear": "Clear", "saveDraft": "Save draft", "draftSaved": "Draft saved", "submit": "Submit budget", "submitted": "Budget submitted · BUD-2026-015 · {{count}} line(s) · KWD {{amount}}", "amount": "Amount (KWD)", "awaitingRelease": "Awaiting release",
+      "fields": { "location": "Location", "zone": "Zone", "department": "Department", "category": "Category", "activity": "Activity", "subActivity": "Sub activity", "year": "Budgeting year", "prior": "Prior actuals (KWD)", "accountName": "Account name", "accountNumber": "Account number", "description": "Activity description", "remarks": "Remarks", "yearlyAmount": "Yearly amount (KWD)" },
+      "months": { "jan": "Jan", "feb": "Feb", "mar": "Mar", "apr": "Apr", "may": "May", "jun": "Jun", "jul": "Jul", "aug": "Aug", "sep": "Sep", "oct": "Oct", "nov": "Nov", "dec": "Dec" },
+      "summary": { "lineTotal": "Line total", "prior": "Prior actuals", "variance": "Variance %", "months": "Months budgeted", "total": "Total", "lines": "Budget lines" },
+      "historyColumns": { "ref": "Ref", "action": "Action", "by": "By", "date": "Date", "note": "Note" },
+      "listings": { "listingSubtitle": "All new budget requests and where each one sits in the approval chain.", "releaseSubtitle": "Approved budgets awaiting fund release by Finance.", "rejectSubtitle": "Rejected budget requests with the reason recorded.", "historySubtitle": "Full audit trail of every action taken on new budget records." }
+    },
+    "activities": {
+      "stats": { "allocated": "Allocated (FY)", "committed": "Committed", "available": "Available", "subActivities": "Sub-activities", "activityDelta": "{{count}} budget activities", "inactiveDelta": "{{count}} inactive" },
+      "tabs": { "new": "New Budget Activity", "listing": "Budget activity listing" },
+      "new": { "title": "Add a budget activity", "subtitle": "Name the activity, describe it, attach the GL account and add as many sub-activities as it needs. Add as many activities as the request needs.", "activity": "Budget activity {{count}}", "removeActivity": "Remove activity", "subActivity": "Sub-activity {{count}}", "remove": "Remove", "addSub": "Add another sub-activity", "addAnother": "Add another budget activity", "duplicate": "Duplicate last activity", "requestCount": "{{count}} activity(ies) in this request", "summary": "Summary", "totalAllocation": "Total allocation", "assigned": "Assigned to sub-activities", "assignedShort": "Assigned", "unassigned": "Unassigned", "activityCount": "Budget activities", "subCount": "Sub-activities", "create": "Create {{count}}", "cancel": "Cancel", "saveHint": "Activity codes are generated on save. Allocations stay editable from the listing.", "nameHint": "Enter a name to enable creation." },
+      "fields": { "name": "Name", "description": "Description", "accountName": "Account name", "accountNumber": "Account number", "type": "Type", "owner": "Owner department", "year": "Budget year", "allocation": "Allocation (KWD)", "subActivities": "Sub-activities", "subActivity": "Sub activity" },
+      "listing": { "intro": "This is the master list. Each budget activity owns an annual allocation, split across its sub-activities — New Budget, Purchase Requests and Petty Cash read the options, account codes, descriptions and available budget from here.", "search": "Search budget activity…", "resultCount": "{{count}} of {{total}}", "new": "New budget activity", "subActivities": "sub-activities", "empty": "No budget activities match your search.", "showing": "Showing {{count}} budget activities" },
+      "columns": { "name": "Name", "description": "Description", "subActivity": "Sub activity", "accountName": "Account name", "accountNumber": "Account number", "status": "Status" },
+      "activated": "Activated", "deactivated": "Deactivated", "activate": "Activate", "deactivate": "Deactivate", "view": "View", "edit": "Edit", "close": "Close"
+    }
   }
 }

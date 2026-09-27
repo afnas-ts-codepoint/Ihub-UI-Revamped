@@ -2,6 +2,7 @@ import { StatTile, type StatTileTone } from '@/shared/ui/stat/StatTile';
 
 export type BudgetStat = Readonly<{
   label: string;
+  sub?: string;
   tone?: StatTileTone;
   value: string;
 }>;
@@ -15,6 +16,7 @@ export function BudgetStatRow({
         <StatTile
           key={stat.label}
           label={stat.label}
+          sub={stat.sub}
           tone={stat.tone}
           value={stat.value}
         />

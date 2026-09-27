@@ -192,8 +192,6 @@ describe('Phase 2 section 11 URL map', () => {
   it.each([
     paths.home.assigned('verify'),
     paths.home.assigned('tasks'),
-    paths.home.view('budgets'),
-    `${paths.home.view('budgets')}/department`,
     paths.home.view('purchasing'),
     `${paths.home.view('purchasing')}/orders`,
     paths.home.view('reports'),
@@ -216,6 +214,21 @@ describe('Phase 2 section 11 URL map', () => {
     expect(await screen.findByRole('status')).toHaveAttribute(
       'data-migration-pending',
     );
+    router.dispose();
+  });
+
+  it.each([
+    paths.home.budgets(),
+    paths.home.budgets('sheet'),
+    paths.home.budgets('activities'),
+    paths.home.budgets('new-budget'),
+    paths.home.budgets('additional-budget'),
+    paths.home.budgets('transfer-fund'),
+    paths.home.budgets('report'),
+  ])('routes the migrated Home Budgeting screen at %s', async (path) => {
+    const { router } = renderRoute(path);
+    expect(await screen.findByRole('heading', { name: 'Budgets' })).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });
 

@@ -4,6 +4,7 @@ Only human-approved work belongs here.
 
 | Task | Completed | Approval |
 |---|---|---|
+| [M6.2 — Budgeting (home variant) and sub-views](phases/M6.2.md) | 2026-09-27 | User-approved |
 | [M6.1 - Budgeting (section variant)](phases/M6.1.md) | 2026-09-27 | User-approved |
 | [M5.1 — Home layout and banner](phases/M5.1.md) | 2026-09-27 | User-approved |
 | [M4.3 — Bulk import (Project Category, Sub Area)](phases/M4.3.md) | 2026-09-27 | User-approved |
@@ -23,6 +24,7 @@ Only human-approved work belongs here.
 
 | Task ID | Task | Approval evidence | Completion notes |
 |---|---|---|---|
+| [M6.2](phases/M6.2.md) | Budgeting (home variant) and sub-views | User approved review completion on 2026-09-27. | Migrated the rendered Home Budgeting variant at `/home/budgets/:section?` (Budget sheet, Budget activities, New Budget, Additional Budget, Transfer Fund, Report), no-redirect default, exact fixtures/formula rows, golden-file CSV export contract, EN/AR/RTL/Paper-Ink/responsive behavior, 35 visual captures, 82 files/613 tests and G1-G10 gates completed; no commit or push was performed by Codex. |
 | [M6.1](phases/M6.1.md) | Budgeting (section variant) | User approved review completion on 2026-09-27. | Rendered `/finance`, `/finance/dashboard` and `/finance/budgeting` dashboard/Balance Report/approval-history variants, exact budget fixtures and counts, Facilities overspend row, EN/AR/RTL/responsive behavior, 40 visual captures, 80 files/591 tests and G1-G10 gates completed; projected-vs-actual chart intentionally deferred; no commit or push was performed by Codex. |
 | [M5.1](phases/M5.1.md) | Home layout and banner | User approved review completion on 2026-09-27. | Home frame, four-slide carousel, fixed Bahrain profile clock, AI menu, pulse strip, ten-tab navigation, incidents Reports/Live switch, live Checklist/SLA reuse, task banner wrapper, EN/AR/RTL/responsive behavior, 105 visual captures, 77 files/577 tests, and G1–G10 gates completed; no commit or push was performed by Codex. |
 | [M0.3](phases/M0.3.md) | Planning documents in the new repository | Phase 3 records Phase 2 as approved, and the repository README records planning as complete. | Required architecture, migration-plan, analysis, and register documents are present. |

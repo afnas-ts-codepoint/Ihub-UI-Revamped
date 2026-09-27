@@ -68,5 +68,44 @@
   "empty": {
     "title": "No budgeting records",
     "description": "No records are available for this view."
+  },
+  "home": {
+    "eyebrow": "Finance",
+    "title": "الميزانيات",
+    "sections": { "ariaLabel": "أقسام الميزانية", "sheet": "ورقة الميزانية", "activities": "أنشطة الميزانية", "newBudget": "ميزانية جديدة", "additionalBudget": "ميزانية إضافية", "transferFund": "تحويل الأموال", "report": "تقرير" },
+    "requestTabs": { "pending": "معلقة" },
+    "report": {
+      "projectingRevenue": "الإيرادات المتوقعة",
+      "stats": { "projected": "الإيرادات المتوقعة (السنة)", "actual": "الفعلي حتى تاريخه", "remaining": "المتبقي المتوقع", "variance": "الفرق مقابل الخطة" },
+      "chart": { "title": "الإيرادات المتوقعة شهرياً", "subtitle": "بآلاف الدنانير", "ariaLabel": "الإيرادات المتوقعة شهرياً" },
+      "columns": { "projected": "Projected (KWD)", "actual": "Actual (KWD)", "variance": "Variance", "attainment": "Attainment" }
+    },
+    "sheet": {
+      "title": "ورقة الميزانية", "subtitle": "ورقة عمل حية للفئات والأنشطة والأنشطة الفرعية. اضغط على الخلية للتحرير — تُحدّث الإجماليات تلقائياً.",
+      "expandAll": "توسيع الكل", "collapseAll": "طي الكل", "reset": "إعادة تعيين", "export": "تصدير CSV", "hide": "إخفاء", "hidden": "فئات مخفية", "line": "بند", "newLine": "بند جديد", "grandTotal": "الإجمالي العام",
+      "categoriesShown": "{{count}} فئة معروضة", "hiddenCount": "{{count}} مخفية", "activityCount": "{{count}} نشاط", "activityCount_other": "{{count}} أنشطة",
+      "columns": { "code": "الرمز", "category": "الفئة / النشاط / النشاط الفرعي", "budget": "الميزانية", "committed": "الملتزم", "forecast": "المتوقع", "available": "المتاح", "variance": "الفرق", "used": "الاستهلاك" },
+      "formulaNote": "المتاح = الميزانية − الملتزم · الفرق = الميزانية − المتوقع · الاستهلاك = الملتزم ÷ الميزانية."
+    },
+    "newBudget": {
+      "tabs": { "add": "إضافة ميزانية جديدة", "listing": "قائمة الميزانيات الجديدة", "release": "سجلات بانتظار الإفراج", "reject": "قائمة المرفوضة", "history": "السجل" },
+      "title": "إضافة ميزانية جديدة", "subtitle": "صنّف كل بند ووزّعه شهرياً وقارنه بالفعلي السابق.", "select": "اختر…", "line": "بند الميزانية {{count}}", "removeLine": "حذف البند", "classification": "التصنيف", "account": "الحساب", "pickActivity": "اختر النشاط أولاً", "setByActivity": "يُحدد حسب النشاط", "descriptionPlaceholder": "يُملأ تلقائياً بعد الاختيار.", "remarksPlaceholder": "الافتراضات أو الملاحظات للمراجع.",
+      "monthlySplit": "التوزيع الشهري", "splitEvenly": "توزيع بالتساوي على 12 شهراً", "clearMonths": "مسح الأشهر", "monthsBudgeted": "{{count}} / 12 شهر مُدرج", "unallocated": "غير موزّع KWD {{amount}}", "overYearly": "يتجاوز المبلغ السنوي بمقدار KWD {{amount}}", "allocated": "الموزّع", "addLine": "إضافة بند آخر", "duplicate": "تكرار البند الأخير", "lineCount": "{{count}} بند في هذا الطلب", "total": "إجمالي الميزانية (د.ك)", "calculated": "محسوب من كل التوزيعات الشهرية", "variancePrompt": "أدخل الفعلي السابق لحساب الانحراف.", "varianceHelp": "الانحراف يقارن المطلوب بالفعلي السابق.",
+      "attachments": "المرفقات", "attachmentsHint": "عروض الأسعار والمستندات — كل مرفق يحتاج وصفاً.", "caption": "الوصف (مطلوب)", "remove": "إزالة", "upload": "انقر للرفع أو اسحب وأفلت", "captionRequired": "كل مرفق يحتاج وصفاً", "captionWarning": "أضف وصفاً لكل مرفق.", "requiredWarning": "كل بند يحتاج الموقع والإدارة والنشاط والسنة وشهراً واحداً.", "approvalNote": "الميزانيات فوق 50,000 د.ك تُرفع للرئيس التنفيذي.", "clear": "مسح", "saveDraft": "حفظ مسودة", "draftSaved": "تم حفظ المسودة", "submit": "إرسال الميزانية", "submitted": "تم إرسال الميزانية · BUD-2026-015", "amount": "Amount (KWD)", "awaitingRelease": "بانتظار الإفراج",
+      "fields": { "location": "الموقع", "zone": "الزون", "department": "الإدارة", "category": "الفئة", "activity": "النشاط", "subActivity": "النشاط الفرعي", "year": "سنة الميزانية", "prior": "الفعلي السابق (د.ك)", "accountName": "اسم الحساب", "accountNumber": "رقم الحساب", "description": "وصف النشاط", "remarks": "الملاحظات", "yearlyAmount": "المبلغ السنوي (د.ك)" },
+      "months": { "jan": "يناير", "feb": "فبراير", "mar": "مارس", "apr": "أبريل", "may": "مايو", "jun": "يونيو", "jul": "يوليو", "aug": "أغسطس", "sep": "سبتمبر", "oct": "أكتوبر", "nov": "نوفمبر", "dec": "ديسمبر" },
+      "summary": { "lineTotal": "إجمالي البند", "prior": "الفعلي السابق", "variance": "نسبة الانحراف", "months": "الأشهر المُدرجة", "total": "الإجمالي", "lines": "بنود الميزانية" },
+      "historyColumns": { "ref": "Ref", "action": "Action", "by": "By", "date": "Date", "note": "Note" },
+      "listings": { "listingSubtitle": "كل طلبات الميزانيات الجديدة.", "releaseSubtitle": "ميزانيات معتمدة بانتظار الإفراج.", "rejectSubtitle": "طلبات ميزانية مرفوضة.", "historySubtitle": "سجل كامل لكل إجراء." }
+    },
+    "activities": {
+      "stats": { "allocated": "المخصص (السنة)", "committed": "الملتزم", "available": "المتاح", "subActivities": "الأنشطة الفرعية", "activityDelta": "{{count}} أنشطة", "inactiveDelta": "{{count}} معطّل" },
+      "tabs": { "new": "نشاط ميزانية جديد", "listing": "قائمة أنشطة الميزانية" },
+      "new": { "title": "إضافة نشاط ميزانية", "subtitle": "سمّ النشاط وأضف وصفه وحسابه وأنشطته الفرعية.", "activity": "نشاط الميزانية {{count}}", "removeActivity": "حذف النشاط", "subActivity": "نشاط فرعي {{count}}", "remove": "حذف", "addSub": "إضافة نشاط فرعي آخر", "addAnother": "إضافة نشاط آخر", "duplicate": "تكرار النشاط الأخير", "requestCount": "{{count}} نشاط في هذا الطلب", "summary": "الملخص", "totalAllocation": "إجمالي المخصص", "assigned": "الموزع", "assignedShort": "الموزّع", "unassigned": "غير موزع", "activityCount": "الأنشطة", "subCount": "الأنشطة الفرعية", "create": "إنشاء {{count}}", "cancel": "إلغاء", "saveHint": "تُنشأ الرموز عند الحفظ.", "nameHint": "أدخل الاسم لتفعيل الإنشاء." },
+      "fields": { "name": "الاسم", "description": "الوصف", "accountName": "اسم الحساب", "accountNumber": "رقم الحساب", "type": "النوع", "owner": "الإدارة المالكة", "year": "السنة", "allocation": "المخصص (د.ك)", "subActivities": "الأنشطة الفرعية", "subActivity": "النشاط الفرعي" },
+      "listing": { "intro": "هذه هي القائمة الرئيسية. كل نشاط له مخصص سنوي موزع على أنشطته الفرعية.", "search": "ابحث عن نشاط…", "resultCount": "{{count}} من {{total}}", "new": "نشاط جديد", "subActivities": "أنشطة فرعية", "empty": "لا توجد نتائج.", "showing": "عرض {{count}} نشاط" },
+      "columns": { "name": "الاسم", "description": "الوصف", "subActivity": "النشاط الفرعي", "accountName": "اسم الحساب", "accountNumber": "رقم الحساب", "status": "الحالة" },
+      "activated": "مفعّل", "deactivated": "معطّل", "activate": "تفعيل", "deactivate": "تعطيل", "view": "عرض", "edit": "تعديل", "close": "إغلاق"
+    }
   }
 }

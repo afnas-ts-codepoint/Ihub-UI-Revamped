@@ -6,6 +6,15 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M6.2 intake
+
+- Date: 2026-09-27.
+- Scope: `BudgetingScreen` 11309-11666 in Home mode, `NewBudgetView` 10546-10732, `BudgetSheetView` 10755-10904, Activity master/view 10905-11307, and their directly referenced Home-shell, stat, chart, filter, table, and export dependencies.
+- Result: `git diff --exit-code 273abc8 HEAD -- index.html` exited 0 at prototype HEAD `3c391b4`; the complete prototype entry file is byte-identical to the approved baseline.
+- Consistency: Home mode defaults to `sheet`; routes map to sheet, activities, new-budget, additional-budget, transfer-fund, and report. Both Additional Budget and Transfer Fund fall through to the same fixed four-row table with literal Pending 4 / All 28 counts. Home Report renders the reachable single-series `Projected revenue by month` chart and seven department rows.
+- Export contract: `budget-sheet.csv`, `text/csv`, fixed English headers, all visible sub-activity rows in display order, every cell double-quoted, embedded quotes doubled, LF endings, and no BOM.
+- Decision: no new ADOPT/DEFER decision is required. The M6.1-deferred projected-vs-actual local `reportView` remains unreachable and excluded; M6.2 implements the separate reachable Home Report using the already approved `BarChart` primitive.
+
 ## M6.1 intake
 
 - Date: 2026-09-27.

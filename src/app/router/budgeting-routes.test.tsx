@@ -1,4 +1,5 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { act, cleanup, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { afterEach, beforeAll, describe, expect, it } from 'vitest';
 import { createMemoryRouter, RouterProvider } from 'react-router';
 
@@ -46,11 +47,46 @@ describe('M6.1 finance routes', () => {
     router.dispose();
   });
 
-  it('does not expose M6.2 routes or content', async () => {
-    const router = renderRoute('/home/budgets/new-budget');
-    expect(await screen.findByRole('status')).toHaveAttribute(
-      'data-migration-pending',
-    );
+  it.each([
+    ['/home/budgets', 'Budget sheet'],
+    ['/home/budgets/sheet', 'Budget sheet'],
+    ['/home/budgets/activities', 'New Budget Activity'],
+    ['/home/budgets/new-budget', 'Add a New Budget'],
+    ['/home/budgets/additional-budget', 'Pending 4'],
+    ['/home/budgets/transfer-fund', 'Pending 4'],
+    ['/home/budgets/report', 'Projected revenue by month'],
+  ])('renders the Home Budgeting section at %s', async (path, expected) => {
+    const router = renderRoute(path);
+    expect(await screen.findByTestId('home-top-banner')).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'Budgets' })).toBeVisible();
+    if (expected.startsWith('Pending')) {
+      expect(screen.getByRole('tab', { name: expected })).toBeVisible();
+    } else {
+      expect(screen.getAllByText(expected)[0]).toBeVisible();
+    }
+    expect(screen.queryByText('Projected vs Actual Revenue')).toBeNull();
+    expect(screen.queryByText('Migration pending')).toBeNull();
+    router.dispose();
+  });
+
+  it('renders 404 for an unknown Home Budgeting section', async () => {
+    const router = renderRoute('/home/budgets/not-a-section');
+    expect(await screen.findByRole('heading', { name: /not found/i })).toBeVisible();
+    router.dispose();
+  });
+
+  it('navigates between Home Budgeting sections and restores the default sheet on browser back', async () => {
+    const user = userEvent.setup();
+    const router = renderRoute('/home/budgets');
+    await screen.findByRole('heading', { name: 'Budgets' });
+
+    await user.click(screen.getByRole('link', { name: 'Budget activities' }));
+    await waitFor(() => { expect(router.state.location.pathname).toBe('/home/budgets/activities'); });
+    expect(screen.getByRole('link', { name: 'Budget activities' })).toHaveAttribute('aria-current', 'page');
+
+    await act(async () => { await router.navigate(-1); });
+    await waitFor(() => { expect(router.state.location.pathname).toBe('/home/budgets'); });
+    expect(screen.getByRole('link', { name: 'Budget sheet' })).toHaveAttribute('aria-current', 'page');
     router.dispose();
   });
 });

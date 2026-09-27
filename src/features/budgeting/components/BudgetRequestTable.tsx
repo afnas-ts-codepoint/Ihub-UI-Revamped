@@ -37,10 +37,11 @@ function useTabs(
 
 type BudgetRequestTableProps = Readonly<{
   rows: readonly BudgetRequest[];
-  subView: Exclude<BudgetSubView, 'balanceReport'>;
+  subView?: Exclude<BudgetSubView, 'balanceReport'>;
+  tabs?: readonly TableTab[];
 }>;
 
-export function BudgetRequestTable({ rows, subView }: BudgetRequestTableProps) {
+export function BudgetRequestTable({ rows, subView = 'ceoPay', tabs: tabOverride }: BudgetRequestTableProps) {
   const { t } = useTranslation('budgeting');
   const tabs = useTabs(subView);
   const columns: readonly TableColumn<BudgetRequest>[] = [
@@ -91,7 +92,7 @@ export function BudgetRequestTable({ rows, subView }: BudgetRequestTableProps) {
         }),
       }}
       rows={rows}
-      tabs={tabs}
+      tabs={tabOverride ?? tabs}
     />
   );
 }

@@ -5,7 +5,6 @@ import { MigrationPending } from '@/shared/ui/feedback/MigrationPending';
 export type HomePendingArea =
   | 'approvals'
   | 'assigned'
-  | 'budgets'
   | 'company'
   | 'overview'
   | 'paymentSettlement'
