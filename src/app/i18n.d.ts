@@ -5,6 +5,7 @@ import type checklists from '@/shared/i18n/locales/en/checklists.json';
 import type common from '@/shared/i18n/locales/en/common.json';
 import type hr from '@/shared/i18n/locales/en/hr.json';
 import type history from '@/shared/i18n/locales/en/history.json';
+import type masters from '@/shared/i18n/locales/en/masters.json';
 import type nav from '@/shared/i18n/locales/en/nav.json';
 import type notifications from '@/shared/i18n/locales/en/notifications.json';
 import type organization from '@/shared/i18n/locales/en/organization.json';
@@ -22,6 +23,7 @@ declare module 'i18next' {
       common: typeof common;
       hr: typeof hr;
       history: typeof history;
+      masters: typeof masters;
       nav: typeof nav;
       notifications: typeof notifications;
       organization: typeof organization;

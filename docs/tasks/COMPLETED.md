@@ -4,6 +4,7 @@ Only human-approved work belongs here.
 
 | Task | Completed | Approval |
 |---|---|---|
+| [M4.1 — Master listing](phases/M4.1.md) | 2026-09-27 | User-approved |
 | [M3.9 — Reports Library](phases/M3.9.md) | 2026-09-26 | User-approved |
 | [M3.8 — SLA & Compliance](phases/M3.8.md) | 2026-09-26 | User-approved |
 | [M3.7 — Workflows](phases/M3.7.md) | 2026-09-26 | User-approved |
@@ -34,4 +35,5 @@ Only human-approved work belongs here.
 | [M3.7](phases/M3.7.md) | Workflows | User approved review completion on 2026-09-26. | Workflows route, exact four tabs, department/division/task/rule fixtures, expandable rules, decorative Switch, KPI strip, timeline, SLA/escalation with Department Head derivation, inert authoring controls, version badge, EN/AR, RTL/responsive/Section-Report QA, 26-check visual evidence, and M3.7 quality gates completed; no commit or push was performed by Codex. |
 | [M3.8](phases/M3.8.md) | SLA & Compliance | User approved review completion on 2026-09-26. | SLA route, rendered-prototype Overview without the dead clock card, department/item drill-ins, inert preview, ProgressBar, mapping search/filter/Add/Edit/Remove, silent Area-invalid save, P3 default, RHF/Yup form infrastructure, EN/AR/RTL/responsive QA, 56-check visual evidence, and M3.8 quality gates completed; no commit or push was performed by Codex. |
 | [M3.9](phases/M3.9.md) | Reports Library | User approved review completion on 2026-09-26. | Standalone `/reports` library with all 18 prototype reports, exact title-only heading parity, feature-local inert FilterForm, permanent placeholder preview, D12-preserved `/home/reports`, EN/AR/RTL/responsive visual QA, 51-check visual evidence, and M3.9 quality gates completed; no commit or push was performed by Codex. |
+| [M4.1](phases/M4.1.md) | Master listing | User approved on 2026-09-27. | Definition-driven `MasterPage` for the five `MASTERS_WITH_PAGE` items (PC/generic/AA/TM/SA modes) on the new `@tanstack/react-table` engine, with `DataTableView`, functional `TablePaginationBar`, `TableToolbar`, `ColumnSettingsDialog`, `RowActions`, and `ConfirmDialog`; four human-approved ADOPT decisions for rendered-prototype behavior beyond the phase card (full entries picker, full bulk selection, inert Add button, inert row View/Edit); `MasterPendingPage` replacing the interim `PlaceholderPage` for the other 75 catalogue items; 15-capture visual QA (two real fidelity bugs found and fixed via the capture); 463 tests (61 files) and M4.1 quality gates completed; no commit or push was performed by Codex. |
 

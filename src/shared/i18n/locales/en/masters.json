@@ -1,0 +1,133 @@
+{
+  "pending": {
+    "title": "Page not available yet",
+    "description": "This master has no screen designed yet. It is listed here so the menu stays complete."
+  },
+  "records": {
+    "title": "Records"
+  },
+  "actions": {
+    "add": "Add {{title}}",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "export": "Export",
+    "filters": "Filters",
+    "settings": "Settings"
+  },
+  "search": {
+    "placeholder": "Search records.."
+  },
+  "chips": {
+    "all": "All",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "toggle": {
+    "setInactive": "Click to set inactive",
+    "setActive": "Click to set active"
+  },
+  "bulk": {
+    "recordSelectedOne": "{{count}} record selected",
+    "recordSelectedOther": "{{count}} records selected",
+    "active": "Active",
+    "inactive": "Inactive",
+    "deleteAll": "Delete all",
+    "clearSelection": "Clear selection"
+  },
+  "select": {
+    "label": "Select"
+  },
+  "pagination": {
+    "show": "Show",
+    "entries": "entries",
+    "entriesAria": "Entries per page",
+    "all": "All",
+    "showing": "Showing {{shown}} of {{total}} records",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page"
+  },
+  "settings": {
+    "title": "Settings",
+    "close": "Close",
+    "cancel": "Cancel",
+    "save": "Save Settings",
+    "selectAll": "Select All",
+    "deselectAll": "Deselect All",
+    "tabs": {
+      "chips": "Chip Settings",
+      "filters": "Filter Settings",
+      "columns": "Column Settings"
+    },
+    "blurb": {
+      "chips": "Select which chips should be available above the records table",
+      "filters": "Select which filters should be available in the filter dialog",
+      "columns": "Select which columns should be visible in the records table"
+    }
+  },
+  "filterDialog": {
+    "title": "Filter records",
+    "description": "Narrow the list, then apply.",
+    "close": "Close",
+    "clearAll": "Clear all filters",
+    "selectedCountOne": "{{count}} selected",
+    "selectedCountOther": "{{count}} selected",
+    "nothingSelected": "Nothing selected",
+    "cancel": "Cancel",
+    "apply": "Apply filters",
+    "recordLabel": "Record",
+    "any": "Any",
+    "recordHint": {
+      "pc": "Name and date range",
+      "sa": "Location, zone, area and date range",
+      "aa": "Location, zone and date range",
+      "tm": "Mapping, ownership and date range",
+      "generic": "Reference or subject"
+    }
+  },
+  "fields": {
+    "name": "Name",
+    "namePlaceholder": "Category name",
+    "fromDate": "From Date",
+    "toDate": "To Date",
+    "allLocations": "All Locations",
+    "allZones": "All Zones",
+    "createdOn": "Created On",
+    "updatedOn": "Last Updated On",
+    "createdBy": "Created By",
+    "updatedBy": "Last Updated By",
+    "location": "Location",
+    "zone": "Zone",
+    "area": "Area",
+    "subArea": "Sub Area",
+    "touchPoint": "Touch Point",
+    "dept": "Owner Department",
+    "applicableFor": "Applicable For",
+    "assignmentArea": "Assignment Area",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "columns": {
+    "name": "Name",
+    "code": "Code",
+    "createdOn": "Created On",
+    "dept": "Owner Department",
+    "location": "Location",
+    "zone": "Zone",
+    "areaName": "Area Name",
+    "assignmentArea": "Assignment Area",
+    "subAreaName": "Sub Area",
+    "area": "Area",
+    "subArea": "Sub Area",
+    "touchPoint": "Touch Point",
+    "status": "Status"
+  },
+  "delete": {
+    "title": "Delete Record",
+    "body": "Are you sure you want to delete \"{{name}}\"?",
+    "cancel": "Cancel",
+    "confirm": "Delete"
+  }
+}

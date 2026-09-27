@@ -74,6 +74,7 @@ export async function initializeI18n(locale: Locale) {
       'common',
       'hr',
       'history',
+      'masters',
       'nav',
       'notifications',
       'organization',

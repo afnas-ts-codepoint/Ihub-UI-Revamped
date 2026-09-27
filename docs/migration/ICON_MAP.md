@@ -20,3 +20,26 @@ M2.2 shell icons use `lucide-react@1.48.0` through the shared `Icon` registry. E
 | `chevronDown` | `ChevronDown` | Lucide | None material. |
 
 No custom SVG was required for the M2.2 shell. Differences listed above are small path-shape differences, not substitutions of a different icon concept. Human icon-map approval is required before M2.2 can be marked complete.
+
+## M4.1 Master listing icons
+
+Icons used by `MasterPage`/`MasterPendingPage`, `RowActions`, `ConfirmDialog`, `ColumnSettingsDialog` and `TablePaginationBar`, all through the same `lucide-react` package.
+
+| Prototype icon | Production implementation | Mapping | Known visual difference |
+| --- | --- | --- | --- |
+| `folder` | `Folder` | Lucide | None material. |
+| `search` | `Search` | Lucide | None material. |
+| `filter` | `Filter` | Lucide | None material. |
+| `download` | `Download` | Lucide | None material. |
+| `plus` | `Plus` | Lucide | None material. |
+| `check` | `Check` | Lucide | None material. |
+| `close` | `X` | Lucide | None material (already mapped in M2.2). |
+| `eye` | `Eye` | Lucide | None material. |
+| `edit` | `Pencil` | Lucide | Lucide's pencil nib is a simple triangle; the prototype glyph has a slightly thicker tip. |
+| `trash` | `Trash2` | Lucide | Lucide includes the lid handle bar; the prototype glyph omits it. |
+| `checkCircle` | `CheckCircle2` | Lucide | None material. |
+| `xCircle` | `XCircle` | Lucide | None material. |
+| `arrowRight` (prev/next, rotated 180° for previous) | `ArrowRight` | Lucide | None material. |
+| `settings` | `Settings` | Lucide | Already mapped in M2.2 (eight teeth instead of the prototype's compact gear path). |
+
+No custom SVG was required for M4.1. Differences listed above are small path-shape differences, not substitutions of a different icon concept.

@@ -1,0 +1,133 @@
+{
+  "pending": {
+    "title": "الصفحة غير متاحة بعد",
+    "description": "لا توجد شاشة مصممة لهذا السجل بعد. يظهر هنا حتى تبقى القائمة كاملة."
+  },
+  "records": {
+    "title": "السجلات"
+  },
+  "actions": {
+    "add": "إضافة {{title}}",
+    "view": "عرض",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "export": "تصدير",
+    "filters": "المرشّحات",
+    "settings": "الإعدادات"
+  },
+  "search": {
+    "placeholder": "بحث في السجلات.."
+  },
+  "chips": {
+    "all": "الكل",
+    "active": "نشط",
+    "inactive": "غير نشط"
+  },
+  "toggle": {
+    "setInactive": "اضغط لجعلها غير نشطة",
+    "setActive": "اضغط لجعلها نشطة"
+  },
+  "bulk": {
+    "recordSelectedOne": "{{count}} سجل محدد",
+    "recordSelectedOther": "{{count}} سجلات محددة",
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "deleteAll": "حذف الكل",
+    "clearSelection": "إلغاء التحديد"
+  },
+  "select": {
+    "label": "تحديد"
+  },
+  "pagination": {
+    "show": "عرض",
+    "entries": "سجل",
+    "entriesAria": "عدد السجلات في الصفحة",
+    "all": "الكل",
+    "showing": "عرض {{shown}} من {{total}} سجلات",
+    "previous": "السابق",
+    "next": "التالي",
+    "page": "صفحة"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "close": "إغلاق",
+    "cancel": "إلغاء",
+    "save": "حفظ الإعدادات",
+    "selectAll": "تحديد الكل",
+    "deselectAll": "إلغاء تحديد الكل",
+    "tabs": {
+      "chips": "إعدادات الشارات",
+      "filters": "إعدادات المرشّحات",
+      "columns": "إعدادات الأعمدة"
+    },
+    "blurb": {
+      "chips": "حدد الشارات التي تظهر أعلى جدول السجلات",
+      "filters": "حدد المرشّحات التي تظهر في نافذة التصفية",
+      "columns": "حدد الأعمدة التي تظهر في جدول السجلات"
+    }
+  },
+  "filterDialog": {
+    "title": "تصفية السجلات",
+    "description": "حدّد النطاق ثم طبّق.",
+    "close": "إغلاق",
+    "clearAll": "مسح كل المرشّحات",
+    "selectedCountOne": "{{count}} محدّد",
+    "selectedCountOther": "{{count}} محدّد",
+    "nothingSelected": "لا شيء محدّد",
+    "cancel": "إلغاء",
+    "apply": "تطبيق",
+    "recordLabel": "السجل",
+    "any": "الكل",
+    "recordHint": {
+      "pc": "الاسم والنطاق الزمني",
+      "sa": "الموقع والزون والمنطقة والنطاق الزمني",
+      "aa": "الموقع والزون والنطاق الزمني",
+      "tm": "الربط والملكية والنطاق الزمني",
+      "generic": "المرجع أو الموضوع"
+    }
+  },
+  "fields": {
+    "name": "الاسم",
+    "namePlaceholder": "اسم الفئة",
+    "fromDate": "من تاريخ",
+    "toDate": "إلى تاريخ",
+    "allLocations": "كل المواقع",
+    "allZones": "كل الزونات",
+    "createdOn": "تاريخ الإنشاء",
+    "updatedOn": "آخر تحديث",
+    "createdBy": "أنشئ بواسطة",
+    "updatedBy": "حُدّث بواسطة",
+    "location": "الموقع",
+    "zone": "الزون",
+    "area": "المنطقة",
+    "subArea": "المنطقة الفرعية",
+    "touchPoint": "نقطة التواصل",
+    "dept": "القسم المالك",
+    "applicableFor": "ينطبق على",
+    "assignmentArea": "منطقة الإسناد",
+    "status": "الحالة",
+    "active": "نشط",
+    "inactive": "غير نشط"
+  },
+  "columns": {
+    "name": "الاسم",
+    "code": "الرمز",
+    "createdOn": "تاريخ الإنشاء",
+    "dept": "القسم المالك",
+    "location": "الموقع",
+    "zone": "الزون",
+    "areaName": "اسم المنطقة",
+    "assignmentArea": "منطقة الإسناد",
+    "subAreaName": "المنطقة الفرعية",
+    "area": "المنطقة",
+    "subArea": "المنطقة الفرعية",
+    "touchPoint": "نقطة التواصل",
+    "status": "الحالة"
+  },
+  "delete": {
+    "title": "حذف السجل",
+    "body": "هل أنت متأكد أنك تريد حذف \"{{name}}\"?",
+    "cancel": "إلغاء",
+    "confirm": "حذف"
+  }
+}

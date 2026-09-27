@@ -24,10 +24,12 @@
     "visual:capture:m3.6": "playwright test m3.6.spec.ts",
     "visual:capture:m3.7": "playwright test m3.7.spec.ts",
     "visual:capture:m3.8": "playwright test m3.8.spec.ts",
-    "visual:capture:m3.9": "playwright test m3.9.spec.ts"
+    "visual:capture:m3.9": "playwright test m3.9.spec.ts",
+    "visual:capture:m4.1": "playwright test m4.1.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
+    "@tanstack/react-table": "^9.2.4",
     "clsx": "^2.1.1",
     "i18next": "^26.4.2",
     "lucide-react": "^1.48.0",

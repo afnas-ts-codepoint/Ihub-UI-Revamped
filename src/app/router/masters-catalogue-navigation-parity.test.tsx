@@ -56,14 +56,16 @@ describe('M2.1 complete Masters catalogue route parity', () => {
     ['/masters-list/operation/task-mapping', 'Task Mapping'],
     ['/masters/operation/sub-area', 'Sub Area'],
   ])(
-    'routes the built screen at %s to MigrationPending',
+    'routes the built screen at %s to the real MasterPage listing',
     async (path, title) => {
       const { router } = renderRoute(path);
 
-      expect(await screen.findByRole('status')).toHaveAttribute(
-        'data-migration-pending',
-        title,
-      );
+      expect(
+        await screen.findByRole('heading', { level: 1, name: title }),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByPlaceholderText('Search records..'),
+      ).toBeInTheDocument();
       router.dispose();
     },
   );
@@ -74,21 +76,19 @@ describe('M2.1 complete Masters catalogue route parity', () => {
     ['/masters/hr/employees', 'Employees'],
     ['/masters-list/operation/area', 'Area'],
   ])(
-    'routes the screenless entry at %s to PlaceholderPage',
+    'routes the screenless entry at %s to MasterPendingPage',
     async (path, title) => {
-      const { container, router } = renderRoute(path);
+      const { router } = renderRoute(path);
 
       expect(
-        await screen.findByRole('heading', { name: title }),
+        await screen.findByRole('heading', { level: 1, name: title }),
       ).toBeInTheDocument();
+      expect(screen.getByText('Page not available yet')).toBeInTheDocument();
       expect(
         screen.getByText(
-          'Module landing — connect your data to see live content.',
+          'This master has no screen designed yet. It is listed here so the menu stays complete.',
         ),
       ).toBeInTheDocument();
-      expect(
-        container.querySelectorAll('main [aria-hidden="true"]'),
-      ).toHaveLength(6);
       router.dispose();
     },
   );

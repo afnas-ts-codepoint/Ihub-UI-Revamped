@@ -6,6 +6,7 @@ import arChecklists from '@/shared/i18n/locales/ar/checklists.json';
 import arCommon from '@/shared/i18n/locales/ar/common.json';
 import arHr from '@/shared/i18n/locales/ar/hr.json';
 import arHistory from '@/shared/i18n/locales/ar/history.json';
+import arMasters from '@/shared/i18n/locales/ar/masters.json';
 import arNav from '@/shared/i18n/locales/ar/nav.json';
 import arNotifications from '@/shared/i18n/locales/ar/notifications.json';
 import arOrganization from '@/shared/i18n/locales/ar/organization.json';
@@ -18,6 +19,7 @@ import enChecklists from '@/shared/i18n/locales/en/checklists.json';
 import enCommon from '@/shared/i18n/locales/en/common.json';
 import enHr from '@/shared/i18n/locales/en/hr.json';
 import enHistory from '@/shared/i18n/locales/en/history.json';
+import enMasters from '@/shared/i18n/locales/en/masters.json';
 import enNav from '@/shared/i18n/locales/en/nav.json';
 import enNotifications from '@/shared/i18n/locales/en/notifications.json';
 import enOrganization from '@/shared/i18n/locales/en/organization.json';
@@ -63,6 +65,7 @@ describe('i18n resources', () => {
     ['common', enCommon, arCommon],
     ['hr', enHr, arHr],
     ['history', enHistory, arHistory],
+    ['masters', enMasters, arMasters],
     ['nav', enNav, arNav],
     ['notifications', enNotifications, arNotifications],
     ['organization', enOrganization, arOrganization],

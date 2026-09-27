@@ -6,3 +6,6 @@ export {
   MASTER_CATALOG,
   OPERATION_MASTER_CATALOG,
 } from './catalogue/masterCatalogue';
+export { findMasterDefinition } from './domain/definitions';
+export { MasterPage } from './pages/MasterPage';
+export { MasterPendingPage } from './pages/MasterPendingPage';

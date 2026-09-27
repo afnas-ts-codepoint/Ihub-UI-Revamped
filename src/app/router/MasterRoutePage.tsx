@@ -2,13 +2,14 @@ import { useTranslation } from 'react-i18next';
 import { Navigate, useParams } from 'react-router';
 
 import { NotFoundPage } from '@/app/router/NotFoundPage';
-import { PlaceholderPage } from '@/app/router/PlaceholderPage';
 import {
   ADMIN_MASTER_CATALOG,
   findMaster,
+  findMasterDefinition,
   MASTER_CATALOG,
+  MasterPage,
+  MasterPendingPage,
 } from '@/features/masters';
-import { MigrationPending } from '@/shared/ui/feedback/MigrationPending';
 
 type MasterRouteMode = 'masters' | 'masters-list';
 
@@ -41,11 +42,12 @@ export function MasterRoutePage() {
 
   const title = t(entry.labelKey);
 
-  return entry.routeBehavior === 'migration-pending' ? (
-    <main className="bg-canvas p-7">
-      <MigrationPending area={title} />
-    </main>
-  ) : (
-    <PlaceholderPage title={title} />
-  );
+  if (entry.routeBehavior !== 'migration-pending') {
+    return <MasterPendingPage title={title} />;
+  }
+
+  const definition = findMasterDefinition(entry.slug);
+  if (!definition) return <MasterPendingPage title={title} />;
+
+  return <MasterPage definition={definition} title={title} />;
 }
