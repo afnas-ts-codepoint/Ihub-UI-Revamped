@@ -127,6 +127,32 @@ body {
   letter-spacing: -0.02em;
 }
 
+@keyframes budget-chart-grow {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.budget-chart-bars {
+  height: var(--chart-container-height);
+}
+
+.budget-chart-bar {
+  height: var(--chart-bar-height);
+  transform-origin: left;
+  animation: budget-chart-grow 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--chart-bar-delay);
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--chart-bar-color) 55%, transparent),
+    var(--chart-bar-color)
+  );
+}
+
 em,
 .accent-em,
 .display em {

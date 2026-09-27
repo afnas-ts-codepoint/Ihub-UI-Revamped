@@ -2,6 +2,7 @@ import { renderHook } from '@testing-library/react';
 import { beforeAll, describe, expect, it } from 'vitest';
 
 import arAppraisal from '@/shared/i18n/locales/ar/appraisal.json';
+import arBudgeting from '@/shared/i18n/locales/ar/budgeting.json';
 import arChecklists from '@/shared/i18n/locales/ar/checklists.json';
 import arCommon from '@/shared/i18n/locales/ar/common.json';
 import arHome from '@/shared/i18n/locales/ar/home.json';
@@ -16,6 +17,7 @@ import arSla from '@/shared/i18n/locales/ar/sla.json';
 import arValidation from '@/shared/i18n/locales/ar/validation.json';
 import arWorkflows from '@/shared/i18n/locales/ar/workflows.json';
 import enAppraisal from '@/shared/i18n/locales/en/appraisal.json';
+import enBudgeting from '@/shared/i18n/locales/en/budgeting.json';
 import enChecklists from '@/shared/i18n/locales/en/checklists.json';
 import enCommon from '@/shared/i18n/locales/en/common.json';
 import enHome from '@/shared/i18n/locales/en/home.json';
@@ -63,6 +65,7 @@ beforeAll(async () => {
 describe('i18n resources', () => {
   it.each([
     ['appraisal', enAppraisal, arAppraisal],
+    ['budgeting', enBudgeting, arBudgeting],
     ['checklists', enChecklists, arChecklists],
     ['common', enCommon, arCommon],
     ['home', enHome, arHome],

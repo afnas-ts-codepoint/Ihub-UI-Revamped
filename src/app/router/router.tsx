@@ -9,6 +9,7 @@ import {
 import { AppShell } from '@/app/layouts/app-shell/AppShell';
 import { SectionLayout } from '@/app/layouts/section/SectionLayout';
 import { AppraisalPage } from '@/features/appraisal';
+import { BudgetingPage } from '@/features/budgeting';
 import { ChecklistPage } from '@/features/checklists';
 import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
 import { OvertimePage } from '@/features/hr';
@@ -209,14 +210,20 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <NavRoutePage />,
+            element: <BudgetingPage section="dashboard" />,
             handle: { reportKey: 'budgeting' },
           },
           {
-            path: '*',
-            element: <NavRoutePage />,
+            path: 'dashboard',
+            element: <BudgetingPage section="dashboard" />,
             handle: { reportKey: 'budgeting' },
           },
+          {
+            path: 'budgeting',
+            element: <BudgetingPage section="budgeting" />,
+            handle: { reportKey: 'budgeting' },
+          },
+          { path: '*', element: <NotFoundPage /> },
         ],
       },
       {

@@ -23,7 +23,9 @@ describe('SectionLayout', () => {
   it('defaults to Section and switches to the explicit report URL', async () => {
     const user = userEvent.setup();
     const router = renderRoute(['/finance']);
-    expect(await screen.findByText('Migration pending')).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { name: 'Finance & Budgets' }),
+    ).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Report' }));
     expect(router.state.location.search).toBe('?view=report');
     expect(

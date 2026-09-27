@@ -6,11 +6,13 @@ import { navNodes, navTrailForPath } from '@/app/navigation/model';
 import { NAV_TREE } from '@/app/navigation/nav.config';
 import { appRoutes } from '@/app/router/router';
 import arChecklists from '@/shared/i18n/locales/ar/checklists.json';
+import arBudgeting from '@/shared/i18n/locales/ar/budgeting.json';
 import arHome from '@/shared/i18n/locales/ar/home.json';
 import arHr from '@/shared/i18n/locales/ar/hr.json';
 import arNav from '@/shared/i18n/locales/ar/nav.json';
 import enHr from '@/shared/i18n/locales/en/hr.json';
 import enChecklists from '@/shared/i18n/locales/en/checklists.json';
+import enBudgeting from '@/shared/i18n/locales/en/budgeting.json';
 import enHome from '@/shared/i18n/locales/en/home.json';
 import enNav from '@/shared/i18n/locales/en/nav.json';
 import { i18n, initializeI18n } from '@/shared/i18n/i18n';
@@ -48,6 +50,9 @@ function renderRoute(path: string) {
 const HEADING_OVERRIDES: Readonly<
   Record<string, Readonly<Record<'ar' | 'en', string>>>
 > = {
+  budgeting: { ar: arBudgeting.title, en: enBudgeting.title },
+  'budgeting/budgeting': { ar: arBudgeting.title, en: enBudgeting.title },
+  'budgeting/dashboard': { ar: arBudgeting.title, en: enBudgeting.title },
   checklist: { ar: arChecklists.title, en: enChecklists.title },
   overtime: { ar: arHr.title, en: enHr.title },
 };

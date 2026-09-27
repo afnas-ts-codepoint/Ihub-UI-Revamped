@@ -70,6 +70,7 @@ export async function initializeI18n(locale: Locale) {
     lng: locale,
     ns: [
       'appraisal',
+      'budgeting',
       'checklists',
       'common',
       'home',

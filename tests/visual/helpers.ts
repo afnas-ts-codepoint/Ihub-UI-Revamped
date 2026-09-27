@@ -95,10 +95,20 @@ export async function captureSideBySide(
   const imageWidth = String(width);
 
   await comparison.setViewportSize({ height: 900, width: width * 2 + 36 });
-  await comparison.setContent(`<!doctype html><style>
+  await comparison.setContent(
+    `<!doctype html><style>
     *{box-sizing:border-box}body{margin:0;padding:12px;background:#111;color:#fff;font:12px system-ui}
     main{display:grid;grid-template-columns:${imageWidth}px ${imageWidth}px;gap:12px;align-items:start}
     figure{margin:0}figcaption{padding:0 0 6px;font-weight:700}img{display:block;width:${imageWidth}px;height:auto}
-  </style><main><figure><figcaption>Prototype</figcaption><img src="${prototypeData}"></figure><figure><figcaption>Migrated application</figcaption><img src="${applicationData}"></figure></main>`);
+  </style><main><figure><figcaption>Prototype</figcaption><img src="${prototypeData}"></figure><figure><figcaption>Migrated application</figcaption><img src="${applicationData}"></figure></main>`,
+    {
+      waitUntil: 'domcontentloaded',
+    },
+  );
+  await comparison.waitForFunction(() =>
+    [...document.images].every(
+      (candidate) => candidate.complete && candidate.naturalWidth > 0,
+    ),
+  );
   await comparison.screenshot({ fullPage: true, path: outputPath });
 }

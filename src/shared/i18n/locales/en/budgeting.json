@@ -1,0 +1,72 @@
+{
+  "title": "Finance & Budgets",
+  "titleStart": "Finance &",
+  "titleEmphasis": "Budgets",
+  "subViews": {
+    "ariaLabel": "Budgeting views",
+    "balanceReport": "Balance Report",
+    "ceoPay": "CEO Payment Approval",
+    "preApproved": "Pre-approved Listing",
+    "onHold": "On Hold / Partial",
+    "rejected": "Rejected Listing",
+    "history": "History"
+  },
+  "dashboard": {
+    "stats": {
+      "total": "Total budget (FY)",
+      "committed": "Committed",
+      "available": "Available",
+      "pending": "Pending approvals"
+    },
+    "chart": {
+      "title": "Budget utilisation by month",
+      "subtitle": "KWD thousands",
+      "ariaLabel": "Budget utilisation by month, KWD thousands"
+    }
+  },
+  "balance": {
+    "stats": {
+      "total": "Total budget (FY)",
+      "committed": "Committed",
+      "available": "Available balance",
+      "overspent": "Overspent depts"
+    },
+    "chart": {
+      "title": "Balance by department",
+      "subtitle": "Remaining budget, KWD thousands",
+      "ariaLabel": "Balance by department, remaining budget in KWD thousands"
+    },
+    "byDepartment": "By department"
+  },
+  "columns": {
+    "id": "Budget #",
+    "title": "Title",
+    "department": "Department",
+    "period": "Period",
+    "projected": "Projected",
+    "requested": "Requested",
+    "budget": "Budget (KWD)",
+    "committed": "Committed (KWD)",
+    "balance": "Balance (KWD)",
+    "utilised": "Utilised",
+    "status": "Status"
+  },
+  "tableTabs": {
+    "pendingCeo": "Pending CEO",
+    "all": "All",
+    "recordListing": "Record Listing",
+    "onHold": "On Hold / Partial",
+    "preApproved": "Pre-approved",
+    "rejected": "Rejected"
+  },
+  "pagination": {
+    "previous": "Previous page",
+    "next": "Next page",
+    "page": "Page",
+    "summary": "Showing {{shown}} of {{total}} records"
+  },
+  "empty": {
+    "title": "No budgeting records",
+    "description": "No records are available for this view."
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "title": "المالية والميزانيات",
+  "titleStart": "المالية و",
+  "titleEmphasis": "الميزانيات",
+  "subViews": {
+    "ariaLabel": "عروض إعداد الميزانية",
+    "balanceReport": "تقرير الرصيد",
+    "ceoPay": "موافقة الرئيس التنفيذي",
+    "preApproved": "قائمة معتمدة مسبقاً",
+    "onHold": "معلق / جزئي",
+    "rejected": "قائمة مرفوضة",
+    "history": "السجل"
+  },
+  "dashboard": {
+    "stats": {
+      "total": "إجمالي الميزانية (السنة)",
+      "committed": "الملتزم",
+      "available": "المتاح",
+      "pending": "موافقات معلقة"
+    },
+    "chart": {
+      "title": "استخدام الميزانية شهرياً",
+      "subtitle": "بآلاف الدنانير",
+      "ariaLabel": "استخدام الميزانية شهرياً، بآلاف الدنانير"
+    }
+  },
+  "balance": {
+    "stats": {
+      "total": "إجمالي الميزانية (السنة)",
+      "committed": "الملتزم",
+      "available": "الرصيد المتاح",
+      "overspent": "إدارات تجاوزت"
+    },
+    "chart": {
+      "title": "الرصيد حسب الإدارة",
+      "subtitle": "الميزانية المتبقية، بآلاف الدنانير",
+      "ariaLabel": "الرصيد حسب الإدارة، الميزانية المتبقية بآلاف الدنانير"
+    },
+    "byDepartment": "حسب الإدارة"
+  },
+  "columns": {
+    "id": "Budget #",
+    "title": "Title",
+    "department": "Department",
+    "period": "Period",
+    "projected": "Projected",
+    "requested": "Requested",
+    "budget": "Budget (KWD)",
+    "committed": "Committed (KWD)",
+    "balance": "Balance (KWD)",
+    "utilised": "Utilised",
+    "status": "Status"
+  },
+  "tableTabs": {
+    "pendingCeo": "Pending CEO",
+    "all": "All",
+    "recordListing": "Record Listing",
+    "onHold": "On Hold / Partial",
+    "preApproved": "Pre-approved",
+    "rejected": "Rejected"
+  },
+  "pagination": {
+    "previous": "Previous page",
+    "next": "Next page",
+    "page": "Page",
+    "summary": "Showing {{shown}} of {{total}} records"
+  },
+  "empty": {
+    "title": "No budgeting records",
+    "description": "No records are available for this view."
+  }
+}

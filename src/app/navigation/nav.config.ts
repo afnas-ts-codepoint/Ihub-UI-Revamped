@@ -103,10 +103,10 @@ const finance = node(
   'budgeting',
   paths.finance.root,
   [
-    node('budgeting/dashboard', paths.finance.dashboard, undefined, pending),
-    node('budgeting/budgeting', paths.finance.budgeting, undefined, pending),
+    node('budgeting/dashboard', paths.finance.dashboard),
+    node('budgeting/budgeting', paths.finance.budgeting),
   ],
-  { ...pending, icon: 'coins' },
+  { icon: 'coins' },
 );
 
 const overtime = node(
