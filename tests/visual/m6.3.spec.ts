@@ -112,8 +112,9 @@ for (const state of states) {
         await submitReviewDialog(application, variant.locale, 'application');
       }
 
-      // Out of scope for M6.3 — the migrated app must never render PO/Quotations tabs or content.
-      await expect(application.getByText('Purchase Order', { exact: true })).toHaveCount(0);
+      // Supplier Quotations (M6.5) remains out of scope through M6.4 — the migrated app must not render it yet.
+      // Purchase Order became reachable in M6.4 (see docs/tasks/phases/M6.4.md), so the earlier
+      // "Purchase Order must be absent" assertion here no longer holds and has been removed.
       await expect(application.getByText('Supplier Quotations', { exact: true })).toHaveCount(0);
 
       await prototype.waitForTimeout(400);

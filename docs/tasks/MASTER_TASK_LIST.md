@@ -30,7 +30,7 @@ This table operationalizes the executable tasks in [Phase 3](../migration/PHASE_
 | [M6.1](phases/M6.1.md)   | Budgeting (section variant)                                        | Completed | Codex        | M3.2                    | Not opened | Approved |
 | [M6.2](phases/M6.2.md)   | Budgeting (home variant) and sub-views                             | Pending   | Not assigned | M6.1, M5.1              | TBD        | Required |
 | [M6.3](phases/M6.3.md)   | Purchasing: requests and review                                    | Pending   | Not assigned | M5.1, M3.8              | TBD        | Required |
-| [M6.4](phases/M6.4.md)   | Purchasing: purchase orders                                        | Pending   | Not assigned | M6.3                    | TBD        | Required |
+| [M6.4](phases/M6.4.md)   | Purchasing: purchase orders                                        | Review    | Claude       | M6.3                    | TBD        | Required |
 | [M6.5](phases/M6.5.md)   | Purchasing: supplier quotations                                    | Pending   | Not assigned | M6.4                    | TBD        | Required |
 | [M6.6](phases/M6.6.md)   | Payment settlement: layout and action sheets                       | Pending   | Not assigned | M5.1, M6.4              | TBD        | Required |
 | [M6.7](phases/M6.7.md)   | Payment settlement: petty cash                                     | Pending   | Not assigned | M6.6                    | TBD        | Required |

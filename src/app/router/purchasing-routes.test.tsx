@@ -22,6 +22,7 @@ describe('M6.3 Home Purchasing routes', () => {
     ['/home/purchasing/pending', 'Pending Requests'],
     ['/home/purchasing/edit', 'Edit PC Request'],
     ['/home/purchasing/review', 'Review Purchase Requests'],
+    ['/home/purchasing/po', 'Purchase Order'],
     ['/home/purchasing/todo', 'To Do 2'],
     ['/home/purchasing/missing', 'Missing Documents'],
     ['/home/purchasing/history', 'History'],

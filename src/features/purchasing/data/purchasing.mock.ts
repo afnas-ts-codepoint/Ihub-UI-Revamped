@@ -1,4 +1,11 @@
-import type { MissingDocumentRow, PurchaseHistoryRow, PurchaseRequestRow, ReviewExtra } from '../types/purchasing.types';
+import type {
+  MissingDocumentRow,
+  PurchaseHistoryRow,
+  PurchaseOrderHistoryRow,
+  PurchaseOrderRow,
+  PurchaseRequestRow,
+  ReviewExtra,
+} from '../types/purchasing.types';
 
 /** @prototype index.html:L10070-L10106 `rows` */
 export const purchaseRequestRows: readonly PurchaseRequestRow[] = [
@@ -20,6 +27,21 @@ export const purchaseHistoryRows: readonly PurchaseHistoryRow[] = [
   { action: 'Submitted', by: 'M. Faris', date: 'Apr 29', id: 'PC-2025-088', note: 'Sent to committee for review.', tone: 'warn' },
   { action: 'Approved', by: 'CEO Office', date: 'Apr 28', id: 'PC-2025-087', note: 'Approved — routed to Procurement.', tone: 'ok' },
   { action: 'Returned', by: 'Committee', date: 'Apr 26', id: 'PC-2025-086', note: 'Quotation mismatch — resubmit.', tone: 'bad' },
+];
+
+/** @prototype index.html:L10144-L10149 `poRows` */
+export const purchaseOrderRows: readonly PurchaseOrderRow[] = [
+  { id: 'PO-2025-142', issued: 'Apr 29', ref: 'PC-2025-088', status: 'Issued', supplier: 'Nasim Facility', tone: 'ok', value: '94,500.000' },
+  { id: 'PO-2025-141', issued: 'Apr 28', ref: 'PC-2025-087', status: 'Partially received', supplier: 'Tech Source', tone: 'warn', value: '38,200.000' },
+  { id: 'PO-2025-140', issued: 'Apr 27', ref: 'PC-2025-086', status: 'Received', supplier: 'PrintHub', tone: 'ok', value: '6,840.000' },
+  { id: 'PO-2025-139', issued: 'Apr 26', ref: 'PC-2025-085', status: 'Issued', supplier: 'CoolWorks', tone: 'ok', value: '52,000.000' },
+];
+
+/** @prototype index.html:L10332-L10336 `poHistRows` */
+export const purchaseOrderHistoryRows: readonly PurchaseOrderHistoryRow[] = [
+  { action: 'Issued', by: 'Procurement', date: 'Apr 29', id: 'PO-2025-142', note: 'PO issued to Nasim Facility.', tone: 'ok' },
+  { action: 'Partially received', by: 'Warehouse', date: 'Apr 28', id: 'PO-2025-141', note: '24 of 40 laptops received.', tone: 'warn' },
+  { action: 'Received', by: 'Warehouse', date: 'Apr 27', id: 'PO-2025-140', note: 'Goods received in full — GRN raised.', tone: 'ok' },
 ];
 
 /** @prototype index.html:L10231-L10235 `revExtra` */

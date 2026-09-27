@@ -3,6 +3,7 @@ export const HOME_PURCHASING_SECTIONS = [
   'pending',
   'edit',
   'review',
+  'po',
   'todo',
   'missing',
   'history',
@@ -42,6 +43,47 @@ export type PurchaseHistoryRow = Readonly<{
   id: string;
   note: string;
   tone: PurchasingTone;
+}>;
+
+/** @prototype index.html:L10144-L10149 `poRows`. */
+export type PurchaseOrderRow = Readonly<{
+  id: string;
+  issued: string;
+  ref: string;
+  status: string;
+  supplier: string;
+  tone: PurchasingTone;
+  value: string;
+}>;
+
+/** @prototype index.html:L10332-L10336 `poHistRows`. */
+export type PurchaseOrderHistoryRow = Readonly<{
+  action: string;
+  by: string;
+  date: string;
+  id: string;
+  note: string;
+  tone: PurchasingTone;
+}>;
+
+/** @prototype index.html:L10389-L10390 `poAttach.files` entries. */
+export type PoAttachmentFile = Readonly<{ caption: string; name: string }>;
+
+/**
+ * The recap fields seeded fresh on every row-action click
+ * (`index.html:L10140`); `poNo`/`actual`/`remarks`/`files` are intentionally
+ * excluded here because they live as `PoAttachDialog`'s own local state,
+ * reset by remounting the dialog on every open (see `PurchaseOrderView`).
+ * @prototype index.html:L10140 `setPoAttach({...})`
+ */
+export type PoAttachSeed = Readonly<{
+  pcDept: string;
+  pcRef: string;
+  pcStatus: string;
+  pcTitle: string;
+  pcValue: string;
+  po: string;
+  supplier: string;
 }>;
 
 /** @prototype index.html:L10231-L10235 `revExtra`. */

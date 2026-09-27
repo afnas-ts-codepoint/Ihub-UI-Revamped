@@ -190,3 +190,139 @@ describe('HomePurchasingPage', () => {
     expect(screen.getByRole('heading', { name: 'مراجعة طلبات الشراء' })).toBeVisible();
   });
 });
+
+describe('M6.4 Purchase Order', () => {
+  it('exposes the outer Purchase Order nav entry alongside the existing 8 segments', () => {
+    renderSection('po');
+    expect(screen.getByRole('link', { name: 'Purchase Order' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getAllByRole('link').length).toBe(9);
+  });
+
+  it('renders the To Do tab with the literal (non-derived) Open 3 / All 142 counts and no SectionHead', () => {
+    renderSection('po');
+    expect(screen.getByRole('tab', { name: 'Open 3' })).toBeVisible();
+    expect(screen.getByRole('tab', { name: 'All 142' })).toBeVisible();
+    expect(screen.queryByRole('heading', { level: 2 })).toBeNull();
+    const table = screen.getByRole('table');
+    expect(within(table).getByText('PO-2025-142')).toBeVisible();
+    expect(within(table).getByText('Nasim Facility')).toBeVisible();
+    expect(within(table).getByText('PC-2025-088')).toBeVisible();
+    expect(within(table).getByText('94,500.000')).toBeVisible();
+    expect(within(table).getAllByRole('button', { name: 'Attach Purchase Order' }).length).toBe(4);
+  });
+
+  it('narrows the To Do listing via the shared row-filter predicate', async () => {
+    const user = userEvent.setup();
+    renderSection('po');
+    const table = screen.getByRole('table');
+    await user.type(screen.getByPlaceholderText(/PC-2025-088/), 'Tech Source');
+    expect(within(table).getByText('PO-2025-141')).toBeVisible();
+    expect(within(table).queryByText('PO-2025-142')).toBeNull();
+  });
+
+  it('switches to History: derived All 3 count, no RecordFilter, and the verbatim fixture rows', async () => {
+    const user = userEvent.setup();
+    renderSection('po');
+    await user.click(screen.getByRole('button', { name: 'History' }));
+
+    expect(screen.getByRole('heading', { name: 'History' })).toBeVisible();
+    expect(screen.getByRole('tab', { name: 'All 3' })).toBeVisible();
+    expect(screen.getByText('PO issued to Nasim Facility.')).toBeVisible();
+    expect(screen.getByText('24 of 40 laptops received.')).toBeVisible();
+    // Unlike Request History, the prototype's `poInner` history branch never renders a RecordFilter.
+    expect(screen.queryByPlaceholderText(/PC-2025-088/)).toBeNull();
+  });
+
+  it('switches to Report: inert placeholder, filter present, never a table', async () => {
+    const user = userEvent.setup();
+    renderSection('po');
+    await user.click(screen.getByRole('button', { name: 'Report' }));
+
+    expect(screen.getByRole('heading', { name: 'Report' })).toBeVisible();
+    expect(screen.getByPlaceholderText(/PC-2025-088/)).toBeVisible();
+    expect(screen.getByText('Run the report to generate results. The table will render here.')).toBeVisible();
+    expect(screen.queryByRole('table')).toBeNull();
+  });
+
+  it('opens the Attach dialog seeded from the row and the matching request, with no captions/fields prefilled', async () => {
+    const user = userEvent.setup();
+    renderSection('po');
+    const attachButtons = screen.getAllByRole('button', { name: 'Attach Purchase Order' });
+    await user.click(nth(attachButtons, 0));
+
+    const dialog = screen.getByTestId('po-attach-dialog');
+    // The title also backs the dialog's sr-only accessible description, so it
+    // appears twice in the DOM (visible "Subject" meta + sr-only description).
+    expect(within(dialog).getAllByText('Cleaning services renewal — 24 months').length).toBeGreaterThan(0);
+    expect(within(dialog).getByText('Procurement')).toBeVisible();
+    expect(within(dialog).getByText('Pending CEO')).toBeVisible();
+    expect(within(dialog).getByPlaceholderText('PO-2025-000')).toHaveValue('');
+    expect(within(dialog).getByPlaceholderText('0.000')).toHaveValue('');
+  });
+
+  it('attaches a purchase order with a missing caption and blank PO number/actual value — no validation blocks it', async () => {
+    const user = userEvent.setup();
+    renderSection('po');
+    await user.click(nth(screen.getAllByRole('button', { name: 'Attach Purchase Order' }), 0));
+
+    const dialog = screen.getByTestId('po-attach-dialog');
+    // The dialog renders through a Radix portal appended to `document.body`,
+    // outside RTL's `container`, so the file input is queried from `document`.
+    const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+    await user.upload(fileInput, new File(['x'], 'grn.pdf', { type: 'application/pdf' }));
+    expect(within(dialog).getByPlaceholderText('Caption (required)…').parentElement).toHaveClass('border-bad');
+
+    await user.click(within(dialog).getByRole('button', { name: 'Attach purchase order' }));
+    expect(screen.queryByTestId('po-attach-dialog')).toBeNull();
+  });
+
+  it('resets every field to blank when a different row is opened, and when the same row is reopened', async () => {
+    const user = userEvent.setup();
+    renderSection('po');
+    const attachButtons = screen.getAllByRole('button', { name: 'Attach Purchase Order' });
+
+    await user.click(nth(attachButtons, 0));
+    let dialog = screen.getByTestId('po-attach-dialog');
+    await user.type(within(dialog).getByPlaceholderText('PO-2025-000'), 'PO-2025-200');
+    await user.click(within(dialog).getByRole('button', { name: 'Cancel' }));
+    expect(screen.queryByTestId('po-attach-dialog')).toBeNull();
+
+    // Reopening the SAME row seeds a brand-new blank object (no leaked draft).
+    await user.click(nth(attachButtons, 0));
+    dialog = screen.getByTestId('po-attach-dialog');
+    expect(within(dialog).getByPlaceholderText('PO-2025-000')).toHaveValue('');
+    await user.click(within(dialog).getByRole('button', { name: 'Cancel' }));
+
+    // Opening a DIFFERENT row also starts blank and recaps that row's own request.
+    await user.click(nth(attachButtons, 1));
+    dialog = screen.getByTestId('po-attach-dialog');
+    expect(within(dialog).getByPlaceholderText('PO-2025-000')).toHaveValue('');
+    expect(within(dialog).getAllByText('IT hardware — 40 laptops').length).toBeGreaterThan(0);
+  });
+
+  it('dismisses via the shared Radix Dialog outside-close mechanism (Escape), without validation', async () => {
+    // Same `onOpenChange` handler that closes on a real backdrop/overlay
+    // pointer-down (Radix `Dialog.Overlay`, already relied on by
+    // `ReviewDialog`); Escape is the established way this codebase exercises
+    // that dismissal path in jsdom (see `overlay.test.tsx`).
+    const user = userEvent.setup();
+    renderSection('po');
+    await user.click(nth(screen.getAllByRole('button', { name: 'Attach Purchase Order' }), 0));
+    expect(screen.getByTestId('po-attach-dialog')).toBeVisible();
+
+    await user.keyboard('{Escape}');
+    expect(screen.queryByTestId('po-attach-dialog')).toBeNull();
+  });
+
+  it('renders translated Arabic Purchase Order chrome in RTL', async () => {
+    await i18n.changeLanguage('ar');
+    document.documentElement.dir = 'rtl';
+    renderSection('po');
+
+    expect(document.documentElement).toHaveAttribute('dir', 'rtl');
+    expect(screen.getByRole('link', { name: 'أمر الشراء' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('button', { name: 'المهام' })).toBeVisible();
+    expect(screen.getByRole('button', { name: 'السجل' })).toBeVisible();
+    expect(screen.getByRole('button', { name: 'تقرير' })).toBeVisible();
+  });
+});

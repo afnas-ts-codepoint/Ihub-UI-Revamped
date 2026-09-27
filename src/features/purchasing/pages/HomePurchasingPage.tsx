@@ -7,6 +7,7 @@ import { EditRequestsView } from '../components/EditRequestsView';
 import { MissingDocumentsView } from '../components/MissingDocumentsView';
 import { PCRequestCreate } from '../components/PCRequestCreate';
 import { PendingRequestsView } from '../components/PendingRequestsView';
+import { PurchaseOrderView } from '../components/PurchaseOrderView';
 import { RequestHistoryView } from '../components/RequestHistoryView';
 import { RequestReportView } from '../components/RequestReportView';
 import { ReviewRequestsView } from '../components/ReviewRequestsView';
@@ -19,15 +20,24 @@ const labelKeys = {
   history: 'home.sections.history',
   missing: 'home.sections.missing',
   pending: 'home.sections.pending',
+  po: 'home.sections.po',
   report: 'home.sections.report',
   review: 'home.sections.review',
   todo: 'home.sections.todo',
 } as const satisfies Record<HomePurchasingSection, string>;
 
 /**
- * @prototype index.html:L10033-L10542 `PurchasingScreen`, requests tab only
- * (`reqSegBar` L10194-L10202 + `reqInner` L10212-L10229); the `review` section
+ * @prototype index.html:L10033-L10542 `PurchasingScreen`, requests tab
+ * (`reqSegBar` L10194-L10202 + `reqInner` L10212-L10229) plus the Purchase
+ * Order outer `pcSub` tab (`poBody` L10337-L10401); the `review` section
  * renders the reconciled functional `reviewBody` — see `ReviewRequestsView`.
+ * M6.4 adds `po` as one more flat entry in this same segment bar rather than
+ * reintroducing the prototype's separate outer 4-tab `pcSub` strip — M6.3
+ * already established (see `docs/tasks/phases/M6.3.md`, "Route map and shell
+ * integration") that the strip is not reproduced, since two of its tabs
+ * pointed at then-out-of-scope screens; now that Purchase Order is in scope,
+ * it takes its natural place in the single flat bar, and only Supplier
+ * Quotations (M6.5) remains omitted.
  */
 export function HomePurchasingPage({ section }: Readonly<{ section: HomePurchasingSection }>) {
   const { t } = useTranslation('purchasing');
@@ -53,6 +63,7 @@ export function HomePurchasingPage({ section }: Readonly<{ section: HomePurchasi
       {section === 'pending' ? <PendingRequestsView /> : null}
       {section === 'edit' ? <EditRequestsView /> : null}
       {section === 'review' ? <ReviewRequestsView /> : null}
+      {section === 'po' ? <PurchaseOrderView /> : null}
       {section === 'todo' ? <TodoRequestsView /> : null}
       {section === 'missing' ? <MissingDocumentsView /> : null}
       {section === 'history' ? <RequestHistoryView /> : null}

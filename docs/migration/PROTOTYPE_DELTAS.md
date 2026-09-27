@@ -6,6 +6,19 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M6.4 intake
+
+- Date: 2026-09-27.
+- Scope: `PurchasingScreen`'s Purchase Order tab only — `poSub` state (`index.html` 10109), `poAttach` state (10112), `poCols`/`poRows` (10125-10149), `poHistCols`/`poHistRows` (10325-10336), `poSubDef`/`poSegBar`/`poInner` (10337-10358), `poAttachModal`/`poBody` (10360-10401), and the outer routing that reaches `poBody` via `pcSub === 'po'` (10535, 10541). Supplier Quotations (`quoteCols`/`quotationsBody`/`quoteModal`) remains explicitly out of scope for M6.5 and was not read beyond confirming its boundary.
+- Result: `git diff --exit-code 273abc8 HEAD -- index.html` exited 0 at prototype HEAD `3c391b4`; the complete prototype entry file is byte-identical to the approved baseline. No source drift to intake.
+- Consistency finding 1 (material, human-resolved): the phase card's PO scope requires a reachable outer "Purchase Order" nav entry, but M6.3 (see `docs/tasks/phases/M6.3.md`) deliberately did not reproduce the prototype's outer 4-tab `pcSub` strip at all, since two of its tabs (`Purchase Order`, `Supplier Quotations`) were then out of scope. ADOPT (see `DECISIONS.md`): add `po` as one more flat entry in the same single Purchasing segment bar (`HOME_PURCHASING_SECTIONS`) that M6.3 already established, rather than reintroducing a separate wrapping outer strip.
+- Consistency finding 2 (non-blocking, resolved by literal fidelity): `poSub` (`index.html` 10109) is local component state, never part of a URL, unlike `reqSub`, which M6.3 promoted to real routes. ADOPT current prototype behavior: `poSegBar`/`poInner`'s 3-way To Do/History/Report switch is reproduced as an in-page segmented control inside the single `po` route, not as 3 new deep-linked routes the prototype does not have.
+- Consistency finding 3 (non-blocking, resolved by literal fidelity): the History branch of `poInner` (`index.html` 10352) renders no `RecordFilter` at all, unlike the Requests History segment (`RecordFilter kind="history"`) and unlike PO's own To Do/Report branches (`RecordFilter kind="request"`). Preserved as a deliberate omission, not an oversight.
+- Consistency finding 4 (acceptance-critical, resolved by literal fidelity): `poAttachModal`'s Cancel and "Attach purchase order" buttons (`index.html` 10399-10400) both call the identical `setPoAttach(null)` with zero validation — missing captions, a blank PO number, and a blank actual value never block either button. Implemented with no gating on either control; see `DECISIONS.md`.
+- Consistency finding 5 (non-blocking, resolved by literal fidelity): the attachment file-picker's "Click to upload or drag and drop" copy (`index.html` 10392) is dead text — no `onDrop`/`onDragOver`/`onDragEnter` exists anywhere in `poAttachModal`. Implemented click-to-pick only; the misleading copy is preserved verbatim.
+- Fixture verification: `poRows` (4 purchase orders) and `poHistRows` (3 history rows) were read and ported verbatim, including exact ids, suppliers, PC refs, values, dates, statuses and tones. The To Do tab's `Open`/`All` tab counts (3/142) and the History tab's `All` count (3, derived from `poHistRows.length`) were both verified against source and ported with the same derived-vs-literal distinction as the source.
+- Architecture note (not a `DECISIONS.md`-level item): the row-action seeds a brand-new `PoAttachSeed` object on every click, looked up from `purchaseRequestRows` by `ref` (mirroring `index.html` 10140's `rows.find(x => x.id === r.ref)`); `PoAttachDialog` is only mounted while a seed exists, so its own `poNo`/`actual`/`remarks`/`files` state is fresh on every open (including re-opening the same row) via remount, matching the prototype's per-click object construction without a `useEffect`-based reset — the same mechanism M6.3 used for `ReviewDialog`.
+
 ## M6.3 intake
 
 - Date: 2026-09-27.

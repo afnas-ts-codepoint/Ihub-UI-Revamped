@@ -17,6 +17,7 @@
       "pending": "Pending Requests",
       "edit": "Edit PC Request",
       "review": "Review PC Request",
+      "po": "Purchase Order",
       "todo": "To Do",
       "missing": "Missing Documents",
       "history": "History",
@@ -88,6 +89,41 @@
       "submittedMessage": "Submitted — {{supplier}} awarded. Sent to the purchase committee for approval.",
       "submittedOn": "submitted"
     }
+  },
+  "po": {
+    "segments": { "todo": "To Do", "history": "History", "report": "Report" },
+    "history": {
+      "title": "History",
+      "subtitle": "Full activity trail across purchase orders."
+    },
+    "report": {
+      "title": "Report",
+      "subtitle": "Build and export a purchase order report."
+    },
+    "attach": {
+      "title": "Attach Purchase Order",
+      "against": "Against approved request",
+      "requestDetails": "Request details",
+      "readOnly": "Read only",
+      "requestNumber": "Request #",
+      "supplier": "Supplier",
+      "department": "Department",
+      "approvedValue": "Approved value",
+      "committeeStatus": "Committee status",
+      "subject": "Subject",
+      "poNumber": "Purchase Order Number",
+      "actualValue": "Actual purchase value (KWD)",
+      "remarks": "Authorization remarks",
+      "remarksPlaceholder": "Who authorised this PO, variance against the approved value, conditions…",
+      "cancel": "Cancel",
+      "submit": "Attach purchase order"
+    }
+  },
+  "attachments": {
+    "captionPlaceholder": "Caption (required)…",
+    "untitledFile": "Untitled file",
+    "uploadHint": "Click to upload or drag and drop",
+    "captionHint": "Each attachment requires a caption"
   },
   "create": {
     "title": "Purchase Committee Request",

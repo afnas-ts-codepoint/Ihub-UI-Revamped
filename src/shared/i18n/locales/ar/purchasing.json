@@ -17,6 +17,7 @@
       "pending": "الطلبات المعلقة",
       "edit": "تعديل الطلب",
       "review": "مراجعة الطلب",
+      "po": "أمر الشراء",
       "todo": "المهام",
       "missing": "مستندات ناقصة",
       "history": "السجل",
@@ -88,6 +89,41 @@
       "submittedMessage": "تم الإرسال — الترسية على {{supplier}}. أُحيل الطلب إلى لجنة المشتريات للاعتماد.",
       "submittedOn": "قُدّم"
     }
+  },
+  "po": {
+    "segments": { "todo": "المهام", "history": "السجل", "report": "تقرير" },
+    "history": {
+      "title": "السجل",
+      "subtitle": "سجل النشاط الكامل عبر أوامر الشراء."
+    },
+    "report": {
+      "title": "تقرير",
+      "subtitle": "أنشئ وصدّر تقرير أوامر الشراء."
+    },
+    "attach": {
+      "title": "إرفاق أمر الشراء",
+      "against": "مقابل الطلب المعتمد",
+      "requestDetails": "بيانات الطلب",
+      "readOnly": "للقراءة فقط",
+      "requestNumber": "رقم الطلب",
+      "supplier": "المورّد",
+      "department": "الإدارة",
+      "approvedValue": "القيمة المعتمدة",
+      "committeeStatus": "حالة اللجنة",
+      "subject": "الموضوع",
+      "poNumber": "رقم أمر الشراء",
+      "actualValue": "قيمة الشراء الفعلية (د.ك)",
+      "remarks": "ملاحظات التفويض",
+      "remarksPlaceholder": "من فوّض أمر الشراء، الفرق عن القيمة المعتمدة، الشروط…",
+      "cancel": "إلغاء",
+      "submit": "إرفاق أمر الشراء"
+    }
+  },
+  "attachments": {
+    "captionPlaceholder": "وصف (مطلوب)…",
+    "untitledFile": "ملف",
+    "uploadHint": "انقر للرفع أو اسحب وأفلت",
+    "captionHint": "كل مرفق يتطلب وصفاً"
   },
   "create": {
     "title": "طلب لجنة المشتريات",
