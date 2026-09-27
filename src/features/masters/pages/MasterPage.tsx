@@ -1,7 +1,9 @@
 import { Download, Filter, Folder, Plus, Settings } from 'lucide-react';
 
 import { BulkActionsBar } from '../components/BulkActionsBar';
+import { MasterAddDialog } from '../components/MasterAddDialog';
 import { MasterFilterDialog } from '../components/MasterFilterDialog';
+import { MasterEditDialog, MasterViewDialog } from '../components/MasterRecordDialogs';
 import { MasterStatusChips } from '../components/MasterStatusChips';
 import { MasterTitle } from '../components/MasterTitle';
 import type { MasterDefinition } from '../domain/types';
@@ -14,6 +16,7 @@ import { DataTableView } from '@/shared/table/DataTableView';
 import { TablePaginationBar } from '@/shared/table/TablePaginationBar';
 import { TableToolbar } from '@/shared/table/TableToolbar';
 import { ConfirmDialog } from '@/shared/ui/overlay/ConfirmDialog';
+import { useState } from 'react';
 
 type MasterPageProps = Readonly<{
   definition: MasterDefinition;
@@ -24,12 +27,12 @@ type MasterPageProps = Readonly<{
  * Definition-driven listing page for one of the five `MASTERS_WITH_PAGE`
  * items: search, status chips, in-row status toggle, bulk selection,
  * settings dialog, functional pagination, row actions and delete
- * confirmation. The Add button and the View/Edit row actions are visible but
- * inert — they point at Master record forms, which are M4.2 scope.
+ * confirmation, plus the M4.2 Add/View/Edit record-form dialogs.
  * @prototype index.html:L4520-L5014 (`MasterListingMock`)
  */
 export function MasterPage({ definition, title }: MasterPageProps) {
   const listing = useMasterListing(definition);
+  const [addOpen, setAddOpen] = useState(false);
   const { t } = listing;
   /** Field/column label keys are runtime strings built from domain data, not literals. */
   const tr = (key: string) => t(key, { defaultValue: key });
@@ -74,12 +77,17 @@ export function MasterPage({ definition, title }: MasterPageProps) {
         </h1>
         <button
           className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-accent-ink"
+          onClick={() => { setAddOpen(true); }}
           type="button"
         >
           <Plus aria-hidden="true" size={16} />
           {t('actions.add', { title })}
         </button>
       </div>
+
+      {addOpen ? <MasterAddDialog definition={definition} onClose={() => { setAddOpen(false); }} title={title} /> : null}
+      {listing.viewTarget ? <MasterViewDialog definition={definition} onClose={listing.closeView} onEdit={listing.editFromView} record={listing.viewTarget} title={title} /> : null}
+      {listing.editTarget ? <MasterEditDialog definition={definition} onClose={listing.closeEdit} onSave={listing.saveEdit} record={listing.editTarget} title={title} /> : null}
 
       <MasterFilterDialog
         definition={definition}

@@ -1,4 +1,4 @@
-import { cleanup, render, screen, within } from '@testing-library/react';
+import { cleanup, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeAll, describe, expect, it } from 'vitest';
 
@@ -204,7 +204,7 @@ describe('MasterPage — Project Category Master (pc mode)', () => {
     expect(screen.queryByText(/records selected/)).not.toBeInTheDocument();
   });
 
-  it('leaves Export, Add and row View/Edit inert', async () => {
+  it('opens Add, gates Save, closes valid Add without persisting, and keeps Export inert', async () => {
     const user = userEvent.setup();
     renderPc();
 
@@ -215,15 +215,37 @@ describe('MasterPage — Project Category Master (pc mode)', () => {
     await user.click(exportButton);
     await user.click(addButton);
 
-    // Neither control opens a dialog, downloads anything, or changes the list.
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-    expect(rowsBody()).toHaveLength(10);
+    const addDialog = screen.getByTestId('master-add-dialog');
+    const save = within(addDialog).getByRole('button', { name: 'Save' });
+    expect(save).toBeDisabled();
+    await user.type(within(addDialog).getByRole('textbox', { name: 'Name' }), 'New category');
+    expect(save).toBeEnabled();
+    await user.click(save);
+    await waitFor(() => { expect(screen.queryByTestId('master-add-dialog')).not.toBeInTheDocument(); });
+    expect(screen.queryByText('New category')).not.toBeInTheDocument();
+    expect(screen.getByText('Showing 10 of 18 records')).toBeVisible();
+  });
+
+  it('opens a read-only View and persists a valid Edit to the listing', async () => {
+    const user = userEvent.setup();
+    renderPc();
 
     const row = screen.getByText('Consumables').closest('tr');
     if (!row) throw new Error('row not found');
     await user.click(within(row).getByRole('button', { name: 'View' }));
-    await user.click(within(row).getByRole('button', { name: 'Edit' }));
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    const view = screen.getByTestId('master-view-dialog');
+    expect(within(view).getByText('Consumables')).toBeVisible();
+    expect(within(view).queryByRole('textbox')).not.toBeInTheDocument();
+    await user.click(within(view).getByRole('button', { name: 'Edit' }));
+
+    const edit = await screen.findByTestId('master-edit-dialog');
+    const name = within(edit).getByRole('textbox', { name: 'Name' });
+    await user.clear(name);
+    expect(within(edit).getByRole('button', { name: 'Save changes' })).toBeDisabled();
+    await user.type(name, 'Edited category');
+    await user.click(within(edit).getByRole('button', { name: 'Save changes' }));
+    expect(await screen.findByText('Edited category')).toBeVisible();
+    expect(screen.queryByText('Consumables')).not.toBeInTheDocument();
   });
 });
 
@@ -269,6 +291,17 @@ describe('MasterPage — mode parity', () => {
     expect(
       screen.getByRole('combobox', { name: 'Applicable For' }),
     ).toBeVisible();
+  });
+
+  it('opens the specialized Task Mapping Add with adopted note, chips, swatches and medium priority default', async () => {
+    const user = userEvent.setup();
+    render(<MasterPage definition={TASK_MAPPING} title="Task Mapping" />);
+    await user.click(screen.getByRole('button', { name: 'Add Task Mapping' }));
+    const dialog = screen.getByTestId('master-add-dialog');
+    expect(within(dialog).getByText('Note : Separate Sub area will created for each area.')).toBeVisible();
+    expect(within(dialog).getAllByRole('radio', { name: 'Medium' })[1]).toBeChecked();
+    expect(within(dialog).getAllByRole('radio', { name: 'Low' })).toHaveLength(2);
+    expect(within(dialog).getByRole('button', { name: 'Save' })).toBeDisabled();
   });
 
   it('renders Machine Master (generic mode) columns and "All Locations"/"All Zones" filter labels', async () => {

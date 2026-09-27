@@ -17,12 +17,14 @@ export type MasterRow = Readonly<{
   code: string;
   createdOn?: string;
   dept?: string;
+  kpi?: string;
   location?: string;
   matrix?: string;
   name: string;
   poWorkflow?: boolean;
   priority?: 'high' | 'low' | 'medium';
   severity?: 'high' | 'low' | 'medium';
+  snagType?: boolean;
   status: MasterStatus;
   subArea?: string;
   touchPoint?: string;

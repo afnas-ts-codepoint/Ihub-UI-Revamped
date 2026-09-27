@@ -2,6 +2,20 @@
   box-sizing: border-box;
 }
 
+.form-grid-4 {
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, max(200px, calc((100% - 42px) / 4))), 1fr)
+  );
+}
+
+.form-grid-3 {
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, max(260px, calc((100% - 28px) / 3))), 1fr)
+  );
+}
+
 html,
 body,
 #root {

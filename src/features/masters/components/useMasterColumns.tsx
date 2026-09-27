@@ -11,7 +11,9 @@ const helper = createDataTableColumnHelper<MasterRow>();
 type UseMasterColumnsOptions = Readonly<{
   definition: MasterDefinition;
   onDelete: (row: MasterRow) => void;
+  onEdit: (row: MasterRow) => void;
   onToggleStatus: (code: string) => void;
+  onView: (row: MasterRow) => void;
   t: TFunction<'masters'>;
 }>;
 
@@ -26,7 +28,9 @@ type UseMasterColumnsOptions = Readonly<{
 export function useMasterColumns({
   definition,
   onDelete,
+  onEdit,
   onToggleStatus,
+  onView,
   t,
 }: UseMasterColumnsOptions) {
   return useMemo(
@@ -85,13 +89,13 @@ export function useMasterColumns({
                 icon: Eye,
                 key: 'view',
                 label: t('actions.view'),
-                onClick: () => undefined,
+                onClick: () => { onView(row.original); },
               },
               {
                 icon: Pencil,
                 key: 'edit',
                 label: t('actions.edit'),
-                onClick: () => undefined,
+                onClick: () => { onEdit(row.original); },
               },
               {
                 icon: Trash2,
@@ -110,6 +114,6 @@ export function useMasterColumns({
         id: 'actions',
       }),
     ],
-    [definition, onDelete, onToggleStatus, t],
+    [definition, onDelete, onEdit, onToggleStatus, onView, t],
   );
 }

@@ -3,6 +3,14 @@ import '@testing-library/jest-dom/vitest';
 window.scrollTo = () => undefined;
 Element.prototype.scrollIntoView = () => undefined;
 
+class TestResizeObserver implements ResizeObserver {
+  disconnect() {}
+  observe() {}
+  unobserve() {}
+}
+
+globalThis.ResizeObserver = TestResizeObserver;
+
 Object.defineProperty(window, 'matchMedia', {
   configurable: true,
   value: (query: string): MediaQueryList => ({

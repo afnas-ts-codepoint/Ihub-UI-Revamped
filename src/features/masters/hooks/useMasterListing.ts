@@ -53,6 +53,8 @@ export function useMasterListing(definition: MasterDefinition) {
   const [pageIndex, setPageIndex] = useState(0);
   const [entriesValue, setEntriesValue] = useState<string>('10');
   const [deleteTarget, setDeleteTarget] = useState<MasterRow | null>(null);
+  const [viewTarget, setViewTarget] = useState<MasterRow | null>(null);
+  const [editTarget, setEditTarget] = useState<MasterRow | null>(null);
 
   // Reset every piece of session state when the routed Master changes,
   // mirroring the prototype's `useEffect(() => {...reset...}, [title])` — the
@@ -76,6 +78,8 @@ export function useMasterListing(definition: MasterDefinition) {
     setPageIndex(0);
     setEntriesValue('10');
     setDeleteTarget(null);
+    setViewTarget(null);
+    setEditTarget(null);
   }
 
   // Reset to page 1 after a search/status/page-size change, same as the
@@ -137,7 +141,9 @@ export function useMasterListing(definition: MasterDefinition) {
     onDelete: (row) => {
       setDeleteTarget(row);
     },
+    onEdit: (row) => { setEditTarget(row); },
     onToggleStatus: toggleRowStatus,
+    onView: (row) => { setViewTarget(row); },
     t,
   });
 
@@ -181,6 +187,7 @@ export function useMasterListing(definition: MasterDefinition) {
     definition,
     deleteTarget,
     entriesValue,
+    editTarget,
     filterDialogOpen,
     filterFieldVisibility,
     filteredRows,
@@ -195,6 +202,7 @@ export function useMasterListing(definition: MasterDefinition) {
     t,
     table,
     totalPages,
+    viewTarget,
 
     applyFilters: (next: MasterFilterValue) => {
       setFilters(next);
@@ -210,6 +218,8 @@ export function useMasterListing(definition: MasterDefinition) {
       if (deleteTarget) removeCodes([deleteTarget.code]);
       setDeleteTarget(null);
     },
+    closeEdit: () => { setEditTarget(null); },
+    closeView: () => { setViewTarget(null); },
     deleteSelected: () => {
       removeCodes(selectedCodes);
     },
@@ -220,6 +230,14 @@ export function useMasterListing(definition: MasterDefinition) {
       setColumnVisibility(value.columns ?? {});
       setChipVisibility(value.chips ?? {});
       setFilterFieldVisibility(value.filters ?? {});
+    },
+    saveEdit: (next: MasterRow) => {
+      setAllRows((rows) => rows.map((row) => row.code === next.code ? next : row));
+      setEditTarget(null);
+    },
+    editFromView: () => {
+      if (viewTarget) setEditTarget(viewTarget);
+      setViewTarget(null);
     },
     setEntriesValue,
     setFilterDialogOpen,
