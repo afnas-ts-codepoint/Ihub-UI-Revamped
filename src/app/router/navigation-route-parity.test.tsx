@@ -192,8 +192,6 @@ describe('Phase 2 section 11 URL map', () => {
   it.each([
     paths.home.assigned('verify'),
     paths.home.assigned('tasks'),
-    paths.home.view('purchasing'),
-    `${paths.home.view('purchasing')}/orders`,
     paths.home.view('reports'),
     paths.home.workCentre('create-task'),
     paths.home.workCentre('tasks', 'open'),
@@ -229,6 +227,29 @@ describe('Phase 2 section 11 URL map', () => {
     const { router } = renderRoute(path);
     expect(await screen.findByRole('heading', { name: 'Budgets' })).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it.each([
+    paths.home.purchasing(),
+    paths.home.purchasing('create'),
+    paths.home.purchasing('pending'),
+    paths.home.purchasing('edit'),
+    paths.home.purchasing('review'),
+    paths.home.purchasing('todo'),
+    paths.home.purchasing('missing'),
+    paths.home.purchasing('history'),
+    paths.home.purchasing('report'),
+  ])('routes the migrated Home Purchasing screen at %s', async (path) => {
+    const { router } = renderRoute(path);
+    expect(await screen.findByRole('heading', { name: 'Purchasing' })).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it('renders 404 for an unknown Home Purchasing section', async () => {
+    const { router } = renderRoute(`${paths.home.view('purchasing')}/orders`);
+    expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
     router.dispose();
   });
 

@@ -26,6 +26,11 @@ import {
   HomePendingPage,
 } from '@/features/home';
 import { NotificationsPage } from '@/features/notifications';
+import {
+  defaultHomePurchasingSection,
+  HomePurchasingPage,
+  isHomePurchasingSection,
+} from '@/features/purchasing';
 import { ReportsLibraryPage } from '@/features/reports';
 import { SlaPage } from '@/features/sla';
 import { WorkflowsPage } from '@/features/workflows';
@@ -73,6 +78,16 @@ function HomeBudgetingRoute() {
   if (section == null) return <HomeBudgetingPage section={defaultHomeBudgetSection} />;
   return isHomeBudgetSection(section) ? (
     <HomeBudgetingPage section={section} />
+  ) : (
+    <NotFoundPage />
+  );
+}
+
+function HomePurchasingRoute() {
+  const { section } = useParams<{ section?: string }>();
+  if (section == null) return <HomePurchasingPage section={defaultHomePurchasingSection} />;
+  return isHomePurchasingSection(section) ? (
+    <HomePurchasingPage section={section} />
   ) : (
     <NotFoundPage />
   );
@@ -164,7 +179,7 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'purchasing/:section?',
-            element: <HomePendingPage area="purchasing" />,
+            element: <HomePurchasingRoute />,
             handle: { homeTab: 'purchasing' },
           },
           {

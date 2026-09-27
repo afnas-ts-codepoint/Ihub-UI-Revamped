@@ -1,0 +1,129 @@
+{
+  "pagination": {
+    "previous": "Previous page",
+    "next": "Next page",
+    "page": "Page",
+    "summary": "Showing {{shown}} of {{total}} records"
+  },
+  "empty": {
+    "title": "No purchasing records",
+    "description": "No records are available for this view."
+  },
+  "home": {
+    "title": "المشتريات",
+    "sections": {
+      "ariaLabel": "أقسام المشتريات",
+      "create": "طلب لجنة المشتريات",
+      "pending": "الطلبات المعلقة",
+      "edit": "تعديل الطلب",
+      "review": "مراجعة الطلب",
+      "todo": "المهام",
+      "missing": "مستندات ناقصة",
+      "history": "السجل",
+      "report": "تقرير"
+    }
+  },
+  "pending": {
+    "title": "الطلبات المعلقة",
+    "subtitle": "الطلبات المقدمة بانتظار الموافقة."
+  },
+  "edit": {
+    "title": "تعديل الطلب",
+    "subtitle": "اختر طلباً لتعديله.",
+    "action": "تعديل"
+  },
+  "missing": {
+    "title": "مستندات ناقصة",
+    "subtitle": "طلبات تنتظر المستندات المطلوبة."
+  },
+  "history": {
+    "title": "السجل",
+    "subtitle": "سجل النشاط الكامل عبر طلبات لجنة المشتريات."
+  },
+  "report": {
+    "title": "تقرير",
+    "subtitle": "أنشئ وصدّر تقرير طلبات لجنة المشتريات.",
+    "placeholder": "شغّل التقرير لإنشاء النتائج. سيظهر الجدول هنا."
+  },
+  "review": {
+    "title": "مراجعة طلبات الشراء",
+    "subtitle": "الطلبات بانتظار المراجعة — افتح الطلب لقراءة المبرر والعروض ثم اعتمد أو أرجع أو ارفض.",
+    "action": "مراجعة",
+    "tabs": { "pending": "بانتظار المراجعة", "all": "كل الطلبات" },
+    "columns": {
+      "id": "رقم الطلب", "title": "الطلب", "department": "الإدارة", "vendor": "المورّد",
+      "quotes": "العروض", "value": "القيمة (د.ك)", "submitted": "قُدّم", "status": "الحالة"
+    },
+    "dialog": {
+      "quotationsReceived": "العروض المستلمة",
+      "lowestQuote": "أقل عرض",
+      "highestQuote": "أعلى عرض",
+      "committeeStatus": "حالة اللجنة",
+      "submittedRequest": "الطلب المقدَّم",
+      "asFiled": "كما قدّمه مقدم الطلب",
+      "location": "الموقع",
+      "zone": "الزون",
+      "department": "الإدارة",
+      "year": "السنة",
+      "activity": "النشاط",
+      "subActivity": "النشاط الفرعي",
+      "budgeted": "مدرج بالميزانية",
+      "budgetedValue": "قيمة الميزانية",
+      "locationType": "نوع الموقع",
+      "requestedValue": "القيمة المطلوبة",
+      "justification": "المبرر",
+      "attachments": "المرفقات",
+      "committeeRemarks": "ملاحظات اللجنة",
+      "noRemarks": "لا توجد ملاحظات.",
+      "selectSupplier": "اختر المورّد",
+      "editableHint": "الحقل الوحيد القابل للتعديل — بقية البيانات كما قُدّمت.",
+      "awardedSupplier": "المورّد المرسى عليه",
+      "selectSupplierPlaceholder": "اختر المورّد…",
+      "submitToCommittee": "إرسال إلى لجنة المشتريات",
+      "submittedStatus": "الحالة: بانتظار اعتماد اللجنة — سيتم إشعارك عند تسجيل القرار.",
+      "submittedNote": "تم الإرسال. الطلب الآن لدى لجنة المشتريات — لا يمكن إجراء تعديلات أخرى.",
+      "beforeSubmitNote": "اختر المورّد المرسى عليه ثم أرسل — يُحال الطلب إلى لجنة المشتريات للاعتماد.",
+      "close": "إغلاق",
+      "dismiss": "إغلاق",
+      "submittedMessage": "تم الإرسال — الترسية على {{supplier}}. أُحيل الطلب إلى لجنة المشتريات للاعتماد.",
+      "submittedOn": "قُدّم"
+    }
+  },
+  "create": {
+    "title": "طلب لجنة المشتريات",
+    "subtitle": "املأ التفاصيل لإنشاء طلب. يمكنك دمج عدة طلبات في إرسال واحد.",
+    "request": "طلب",
+    "fields": {
+      "location": "الموقع", "zone": "الزون", "department": "الإدارة", "year": "السنة",
+      "activity": "النشاط", "subActivity": "النشاط الفرعي", "budgeted": "مدرج بالميزانية",
+      "budgetedValue": "قيمة الميزانية", "locationType": "نوع الموقع", "remarks": "ملاحظات", "logNote": "ملاحظة السجل"
+    },
+    "select": {
+      "location": "اختر الموقع…", "zone": "اختر الزون…", "department": "اختر الإدارة…",
+      "year": "اختر السنة…", "activity": "اختر النشاط…", "subActivity": "اختر النشاط الفرعي…"
+    },
+    "budgeted": { "yes": "نعم", "no": "لا" },
+    "locationType": { "local": "محلي", "international": "دولي" },
+    "selectActivityFirst": "اختر نشاطاً",
+    "notBudgeted": "غير مدرج",
+    "budgetedForHint": "المدرج للنشاط / النشاط الفرعي المحدد",
+    "remarksPlaceholder": "أضف ملاحظات للمعتمدين…",
+    "attachments": "المرفقات",
+    "untitledFile": "ملف",
+    "captionPlaceholder": "وصف (مطلوب)…",
+    "uploadHint": "انقر للرفع أو اسحب وأفلت",
+    "captionHint": "كل مرفق يتطلب وصفاً",
+    "logNotePlaceholder": "أضف ملاحظة سجل لهذا الطلب…",
+    "combine": "دمج طلب لجنة مشتريات",
+    "summary": "الملخص",
+    "requestCount": "{{count}} طلب",
+    "requestCount_other": "{{count}} طلبات",
+    "totalBudgetedValue": "إجمالي القيمة المدرجة",
+    "actions": "إجراءات",
+    "submit": "إرسال الطلب",
+    "captionError": "كل مرفق يحتاج وصفاً.",
+    "submittedSingle": "تم إرسال الطلب",
+    "submittedCombined": "تم إرسال الطلب المجمّع",
+    "saveDraft": "حفظ كمسودة"
+  }
+}

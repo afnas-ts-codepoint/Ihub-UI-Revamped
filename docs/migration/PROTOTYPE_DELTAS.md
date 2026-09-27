@@ -6,6 +6,16 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M6.3 intake
+
+- Date: 2026-09-27.
+- Scope: `PurchasingScreen` requests tab only — `index.html` 10033-10542 (not the phase card's rough 10033-11308 estimate, which swept in the unrelated Budgeting section); `PCRequestCreate` 9949-10031; `reqSegBar`/`reqSubDef` 10184-10202; `pcMatchRow`/`pcRowsF` 10203-10211; `reqInner` 10212-10229; `revExtra` 10230-10235; `revCols`/`reviewBody` 10238-10323; `revModal` 10254-10317; and `window.ACTIVITY_MASTER` plus its derivation helpers 10907-10964. Purchase Order (`poBody`/`poAttachModal`) and Supplier Quotations (`quotationsBody`/`quoteModal`) are explicitly out of scope for M6.4/M6.5 and were not read beyond confirming their boundaries.
+- Result: `git diff --exit-code 273abc8 HEAD -- index.html` exited 0 at prototype HEAD `3c391b4`; the complete prototype entry file is byte-identical to the approved baseline. No source drift to intake.
+- Consistency finding 1 (material, human-resolved): the plan's single `review` segment maps onto two different prototype surfaces — see the matching `DECISIONS.md` entry. ADOPT the functional `reviewBody`/`revModal` behavior for the `review` segment body, while keeping the segment pill's own literal label.
+- Consistency finding 2 (non-blocking, resolved by literal fidelity): the `edit` segment's row action (`reqActBtn`, `index.html` 10150-10153) has no `onClick` anywhere in `PurchasingScreen` — there is no edit dialog, form, or field-level edit state for PC requests. Implemented as a listing-only view with a visible, inert `PROTOTYPE-NOOP(D2)` Edit action (see `PROTOTYPE_NOOPS.md`).
+- Fixture verification: `rows` (4 PC requests), `reqMissRows` (3 rows), `reqHistRows` (3 rows), and `revExtra` (all 4 PC ids' full detail) were read and ported verbatim, including exact ids, values, dates, statuses, tones and supplier/document lists.
+- Architecture note (not a DECISIONS.md-level item, per G8 "no forced cross-feature reuse"): `src/features/budgeting` does not export its activity-map handling via `index.ts`, so Purchasing ports the literal `window.ACTIVITY_MASTER` fixture and its small derivation helpers as local, purchasing-feature-only domain code instead of reaching into Budgeting internals.
+
 ## M6.2 intake
 
 - Date: 2026-09-27.

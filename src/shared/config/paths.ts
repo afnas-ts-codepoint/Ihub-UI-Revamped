@@ -15,6 +15,8 @@ export const paths = {
       `/home/payment-settlement/${module}` as const,
     budgets: (section?: string) =>
       section ? `/home/budgets/${section}` : '/home/budgets',
+    purchasing: (section?: string) =>
+      section ? `/home/purchasing/${section}` : '/home/purchasing',
   },
   tasks: {
     view: <TaskId extends string>(taskId: TaskId): `/tasks/${TaskId}` =>
