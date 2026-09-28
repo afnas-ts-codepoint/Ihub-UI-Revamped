@@ -72,7 +72,7 @@ export const WORK_CENTRE_SECTIONS: readonly WorkCentreSectionConfig[] = [
     group: 'general',
     id: 'snag-lists',
     labelKey: 'sections.snagLists',
-    renderer: 'pending',
+    renderer: 'snag-lists',
   },
   {
     group: 'commercial',

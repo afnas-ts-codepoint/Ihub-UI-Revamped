@@ -1,0 +1,14 @@
+{
+  "sections": { "where": "Where", "ownership": "Ownership & rating", "linkedRecords": "Linked records" },
+  "fields": { "location": "Location", "zone": "Zone", "area": "Area", "subArea": "Sub area", "touchpoint": "Touchpoint", "kpi": "Guest satisfaction KPI", "owner": "Process owner", "priority": "Priority", "severity": "Severity", "matrix": "Matrix partners", "details": "Details", "enquiry": "Enquiry reference number", "observation": "Observation reference number", "incident": "Incident reference number", "logNote": "Log note" },
+  "metadata": { "requestedBy": "Requested by", "department": "Requested department", "requestedDate": "Requested date & time", "reference": "Reference" },
+  "placeholders": { "select": "Select…", "details": "What was snagged, where, and the condition found.", "logNote": "Internal note for the record trail." },
+  "attachments": { "title": "Attachments", "intro": "Every file needs a caption before submission.", "caption": "Caption (required)", "remove": "Remove", "upload": "Click to upload or drag and drop", "hint": "Photos of each snag — every attachment needs a caption" },
+  "actions": { "clear": "Clear", "saveDraft": "Save draft", "convert": "Convert", "dontConvert": "Don’t convert", "submit": "Submit snag list", "submitConvert": "Submit & convert", "removeValue": "Remove {{value}}" },
+  "messages": { "captionRequired": "Add a caption to every attachment to submit.", "severityNotice": "Critical snags notify the process owner immediately.", "draftSaved": "Draft saved", "submitted": "Snag list submitted", "converted": "and converted to a" },
+  "convert": { "task": "Task", "enquiry": "Enquiry", "incident": "Incident" },
+  "tabs": { "open": "Open snags", "closed": "Closed" },
+  "columns": { "id": "Snag list #", "scope": "Area / scope", "party": "Responsible party", "site": "Site", "items": "Items", "target": "Target", "priority": "Priority", "status": "Status" },
+  "pagination": { "showing": "Showing {{count}} of {{count}} records" },
+  "report": { "snagLists": "Snag lists", "openLists": "Open lists", "itemsClosed": "Items closed", "completion": "Completion", "byParty": "By responsible party" }
+}

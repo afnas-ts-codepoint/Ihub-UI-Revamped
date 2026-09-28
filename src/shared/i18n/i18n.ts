@@ -81,6 +81,7 @@ export async function initializeI18n(locale: Locale) {
       'nav',
       'notifications',
       'observations',
+      'snagLists',
       'organization',
       'purchasing',
       'reports',

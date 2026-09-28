@@ -196,7 +196,6 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.workCentre('create-task'),
     paths.home.workCentre('tasks', 'open'),
     paths.home.workCentre('incidents'),
-    paths.home.workCentre('snag-lists'),
     paths.home.paymentSettlement('action-sheet'),
     paths.home.paymentSettlement('petty-cash'),
     paths.home.paymentSettlement('add-supplier'),
@@ -233,6 +232,13 @@ describe('Phase 2 section 11 URL map', () => {
   it('routes the migrated Observations screen', async () => {
     const { router } = renderRoute(paths.home.workCentre('observations'));
     expect(await screen.findByTestId('observation-add')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it('routes the migrated Snag Lists screen', async () => {
+    const { router } = renderRoute(paths.home.workCentre('snag-lists'));
+    expect(await screen.findByTestId('snag-add')).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });

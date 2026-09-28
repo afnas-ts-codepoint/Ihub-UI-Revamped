@@ -28,6 +28,7 @@ import {
 } from '@/features/home';
 import { NotificationsPage } from '@/features/notifications';
 import { ObservationsPage } from '@/features/observations';
+import { SnagListsPage } from '@/features/snag-lists';
 import {
   defaultHomePurchasingSection,
   HomePurchasingPage,
@@ -200,6 +201,7 @@ export const appRoutes: RouteObject[] = [
                 notFound={<NotFoundPage />}
                 renderEnquiries={(view) => <EnquiriesPage view={view} />}
                 renderObservations={(view) => <ObservationsPage view={view} />}
+                renderSnagLists={(view) => <SnagListsPage view={view} />}
               />
             ),
             handle: { homeTab: 'work-centre' },

@@ -1,7 +1,8 @@
 {
   "actions": {
     "createChecklist": "Create a New Checklist",
-    "addEnquiryFromHistory": "Add an Enquiry"
+    "addEnquiryFromHistory": "Add an Enquiry",
+    "createSnagList": "Create a Snag List"
   },
   "groups": {
     "ariaLabel": "Work Centre groups",

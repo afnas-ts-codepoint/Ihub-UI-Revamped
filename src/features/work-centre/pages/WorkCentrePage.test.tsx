@@ -27,6 +27,9 @@ function renderPath(path: string) {
             renderObservations={(view) => (
               <div data-testid="observations-view">{view}</div>
             )}
+            renderSnagLists={(view) => (
+              <div data-testid="snag-lists-view">{view}</div>
+            )}
           />
         ),
       },
@@ -88,7 +91,6 @@ describe('M7.1 Work Centre hub', () => {
     for (const path of [
       '/home/work-centre/create-task',
       '/home/work-centre/tasks',
-      '/home/work-centre/snag-lists/add',
     ]) {
       const router = renderPath(path);
       expect(screen.getByRole('status')).toHaveAttribute(
@@ -109,6 +111,22 @@ describe('M7.1 Work Centre hub', () => {
     ] as const) {
       const router = renderPath(path);
       expect(screen.getByTestId('observations-view')).toHaveTextContent(view);
+      expect(screen.queryByRole('status')).not.toBeInTheDocument();
+      expect(router.state.location.pathname).toBe(path);
+      router.dispose();
+      cleanup();
+    }
+  });
+
+  it('renders all real Snag Lists destinations without changing their URLs', () => {
+    for (const [path, view] of [
+      ['/home/work-centre/snag-lists', 'add'],
+      ['/home/work-centre/snag-lists/add', 'add'],
+      ['/home/work-centre/snag-lists/listing', 'listing'],
+      ['/home/work-centre/snag-lists/report', 'report'],
+    ] as const) {
+      const router = renderPath(path);
+      expect(screen.getByTestId('snag-lists-view')).toHaveTextContent(view);
       expect(screen.queryByRole('status')).not.toBeInTheDocument();
       expect(router.state.location.pathname).toBe(path);
       router.dispose();
@@ -205,6 +223,7 @@ describe('M7.1 Work Centre hub', () => {
     '/home/work-centre/unknown',
     '/home/work-centre/create-task/legacy-create',
     '/home/work-centre/checklists/unknown',
+    '/home/work-centre/snag-lists/unknown',
   ])('rejects the invalid Work Centre path %s', (path) => {
     renderPath(path);
     expect(screen.getByTestId('not-found')).toBeInTheDocument();

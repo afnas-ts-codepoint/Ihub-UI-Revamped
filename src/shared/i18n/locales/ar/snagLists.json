@@ -1,0 +1,14 @@
+{
+  "sections": { "where": "الموقع", "ownership": "الملكية والتقييم", "linkedRecords": "السجلات المرتبطة" },
+  "fields": { "location": "الموقع", "zone": "الزون", "area": "المنطقة", "subArea": "المنطقة الفرعية", "touchpoint": "نقطة التلامس", "kpi": "مؤشر رضا الضيف", "owner": "مالك العملية", "priority": "الأولوية", "severity": "الخطورة", "matrix": "الشركاء المصفوفيون", "details": "التفاصيل", "enquiry": "رقم الاستفسار", "observation": "رقم الملاحظة", "incident": "رقم الحادث", "logNote": "ملاحظة السجل" },
+  "metadata": { "requestedBy": "مقدم الطلب", "department": "الإدارة الطالبة", "requestedDate": "تاريخ ووقت الطلب", "reference": "المرجع" },
+  "placeholders": { "select": "اختر…", "details": "ما تم رصده وأين والحالة الملاحظة.", "logNote": "ملاحظة داخلية لسجل التتبع." },
+  "attachments": { "title": "المرفقات", "intro": "كل مرفق يحتاج وصفاً قبل الإرسال.", "caption": "الوصف (مطلوب)", "remove": "إزالة", "upload": "انقر للرفع أو اسحب وأفلت", "hint": "صور كل ملاحقة — كل مرفق يحتاج وصفاً" },
+  "actions": { "clear": "مسح", "saveDraft": "حفظ مسودة", "convert": "تحويل", "dontConvert": "بدون تحويل", "submit": "إرسال القائمة", "submitConvert": "إرسال وتحويل", "removeValue": "إزالة {{value}}" },
+  "messages": { "captionRequired": "أضف وصفاً لكل مرفق للإرسال.", "severityNotice": "الملاحقات الحرجة تبلغ مالك العملية فوراً.", "draftSaved": "تم حفظ المسودة", "submitted": "تم إرسال قائمة الملاحقات", "converted": "وتم تحويلها إلى" },
+  "convert": { "task": "مهمة", "enquiry": "استفسار", "incident": "حادث" },
+  "tabs": { "open": "ملاحقات مفتوحة", "closed": "مغلقة" },
+  "columns": { "id": "رقم قائمة الملاحقات", "scope": "المنطقة / النطاق", "party": "الجهة المسؤولة", "site": "الموقع", "items": "البنود", "target": "المستهدف", "priority": "الأولوية", "status": "الحالة" },
+  "pagination": { "showing": "عرض {{count}} من {{count}} سجلاً" },
+  "report": { "snagLists": "القوائم", "openLists": "القوائم المفتوحة", "itemsClosed": "البنود المغلقة", "completion": "الإنجاز", "byParty": "حسب الجهة المسؤولة" }
+}

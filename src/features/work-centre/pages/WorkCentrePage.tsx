@@ -33,12 +33,14 @@ type WorkCentrePageProps = Readonly<{
   renderObservations?: (
     view: 'add' | 'assignment' | 'history' | 'report',
   ) => ReactNode;
+  renderSnagLists?: (view: 'add' | 'listing' | 'report') => ReactNode;
 }>;
 
 export function WorkCentrePage({
   notFound = null,
   renderEnquiries,
   renderObservations,
+  renderSnagLists,
 }: WorkCentrePageProps) {
   const { child, section } = useParams<{ child?: string; section?: string }>();
   const { t } = useTranslation('workCentre');
@@ -87,6 +89,14 @@ export function WorkCentrePage({
           >
             <Plus aria-hidden size={15} />
             {t('actions.addEnquiryFromHistory')}
+          </Link>
+        ) : activeSection.id === 'snag-lists' ? (
+          <Link
+            className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-accent-ink"
+            to={paths.home.workCentre('snag-lists', 'add')}
+          >
+            <Plus aria-hidden size={15} />
+            {t('actions.createSnagList')}
           </Link>
         ) : null}
       </header>
@@ -162,6 +172,12 @@ export function WorkCentrePage({
           activeChild === 'assignment' ||
             activeChild === 'history' ||
             activeChild === 'report'
+            ? activeChild
+            : 'add',
+        ) ?? <MigrationPending area={destinationLabel} />)
+      ) : activeSection.renderer === 'snag-lists' ? (
+        (renderSnagLists?.(
+          activeChild === 'listing' || activeChild === 'report'
             ? activeChild
             : 'add',
         ) ?? <MigrationPending area={destinationLabel} />)

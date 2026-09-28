@@ -118,6 +118,19 @@ export default tseslint.config(
     },
   },
   {
+    files: ['src/features/snag-lists/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': restrictedImports(
+        appImport,
+        featureImport(['enquiries', 'organization']),
+      ),
+      '@typescript-eslint/no-base-to-string': 'off',
+      '@typescript-eslint/no-confusing-void-expression': 'off',
+      '@typescript-eslint/restrict-template-expressions': 'off',
+      'no-restricted-syntax': 'off',
+    },
+  },
+  {
     files: ['src/features/observations/**/*.{ts,tsx}'],
     rules: {
       'no-restricted-imports': restrictedImports(

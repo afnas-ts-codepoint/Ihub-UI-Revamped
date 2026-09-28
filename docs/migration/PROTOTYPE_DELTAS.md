@@ -36,6 +36,13 @@ Track prototype changes made after the approved migration baseline.
 - Boundary finding: current dedicated Create Task/Tasks/Enquiry/Observations/Snag branches remain `MigrationPending` for M8/M7.2-M7.4. Checklists, Price Change, and Promotions use the rendered fixed fallback branch in M7.1.
 - No new material plan/prototype conflict was found during implementation.
 
+## M7.4 intake
+
+- Date: 2026-09-28.
+- Written plan: separate Open, Add, List, Closed and Report views.
+- Current prototype: `SnagListView` exposes `snagAdd`, `snagList` and `snagReport`; Open and Closed are visual-only tabs inside Listing and both display the same five rows without filtering.
+- Human decision: **ADOPT current prototype**. M7.4 implements the three prototype states and preserves non-filtering Open/Closed tab behavior. No separate Open/Closed routes, datasets or status filtering are introduced.
+
 ## M6.5 intake
 
 - Date: 2026-09-28.
