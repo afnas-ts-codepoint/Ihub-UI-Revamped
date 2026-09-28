@@ -7,6 +7,7 @@
 ## Files
 
 - [MASTER_TASK_LIST.md](MASTER_TASK_LIST.md) shows overall progress.
+- [../migration/PLAN_CHANGELOG.md](../migration/PLAN_CHANGELOG.md) records approved sequencing and release-flow changes.
 - [ACTIVE.md](ACTIVE.md) lists only work currently being executed.
 - [COMPLETED.md](COMPLETED.md) lists tasks completed after human approval.
 - [BLOCKED.md](BLOCKED.md) records actionable blockers.

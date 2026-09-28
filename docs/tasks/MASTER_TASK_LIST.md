@@ -2,6 +2,17 @@
 
 This table operationalizes the executable tasks in [Phase 3](../migration/PHASE_3_MIGRATION_PLAN.md). Phase 3 remains authoritative for scope, sequence, dependencies, and gates.
 
+## First-release execution priority
+
+The approved first-release order is:
+
+1. Navbar and menus — M2.1–M2.3 (completed).
+2. Masters — M4.1–M4.3 (completed).
+3. Home and Work Centre — M5.1 (completed), then M7.1–M7.6. Pull forward only M8 phases that block a reachable Work Centre flow.
+4. Settings configuration — M11.1 then M11.2, limited to prototype-visible UI and local/mock behavior. M11.3 runtime integration remains in the full migration.
+
+Destinations outside this release flow continue to show the registered `MigrationPending` screen. See Phase 3 §6.1 and [PLAN_CHANGELOG.md](../migration/PLAN_CHANGELOG.md).
+
 | ID                       | Task                                                               | Status    | Owner        | Depends On              | PR         | Approval |
 | ------------------------ | ------------------------------------------------------------------ | --------- | ------------ | ----------------------- | ---------- | -------- |
 | [M0.1](phases/M0.1.md)   | New repository                                                     | Blocked   | Not assigned | None                    | TBD        | Required |
@@ -22,14 +33,14 @@ This table operationalizes the executable tasks in [Phase 3](../migration/PHASE_
 | [M3.6](phases/M3.6.md)   | History                                                            | Completed | Codex        | M3.2                    | Not opened | Approved |
 | [M3.7](phases/M3.7.md)   | Workflows                                                          | Completed | Codex        | M3.1                    | Not opened | Approved |
 | [M3.8](phases/M3.8.md)   | SLA & Compliance                                                   | Completed | Codex        | M3.1                    | Not opened | Approved |
-| [M3.9](phases/M3.9.md)   | Reports library                                                    | Pending   | Not assigned | M3.4                    | TBD        | Required |
+| [M3.9](phases/M3.9.md)   | Reports library                                                    | Completed | Codex        | M3.4                    | Not opened | Approved |
 | [M4.1](phases/M4.1.md)   | Master listing                                                     | Completed | Codex        | M3.2                    | Not opened | Approved |
-| [M4.2](phases/M4.2.md)   | Master record forms                                                | Pending   | Not assigned | M4.1, M3.8              | TBD        | Required |
+| [M4.2](phases/M4.2.md)   | Master record forms                                                | Completed | Codex        | M4.1, M3.8              | Not opened | Approved |
 | [M4.3](phases/M4.3.md)   | Bulk import (Project Category, Sub Area)                           | Completed | Codex        | M4.2                    | Not opened | Approved |
 | [M5.1](phases/M5.1.md)   | Home layout and banner                                             | Completed | Codex        | M3.5, M3.8              | Not opened | Approved |
 | [M6.1](phases/M6.1.md)   | Budgeting (section variant)                                        | Completed | Codex        | M3.2                    | Not opened | Approved |
-| [M6.2](phases/M6.2.md)   | Budgeting (home variant) and sub-views                             | Pending   | Not assigned | M6.1, M5.1              | TBD        | Required |
-| [M6.3](phases/M6.3.md)   | Purchasing: requests and review                                    | Pending   | Not assigned | M5.1, M3.8              | TBD        | Required |
+| [M6.2](phases/M6.2.md)   | Budgeting (home variant) and sub-views                             | Completed | Codex        | M6.1, M5.1              | Not opened | Approved |
+| [M6.3](phases/M6.3.md)   | Purchasing: requests and review                                    | Completed | Codex        | M5.1, M3.8              | Not opened | Approved |
 | [M6.4](phases/M6.4.md)   | Purchasing: purchase orders                                        | Completed | Claude       | M6.3                    | Not opened | Approved |
 | [M6.5](phases/M6.5.md)   | Purchasing: supplier quotations                                    | Review    | Codex        | M6.4                    | Not opened | Required |
 | [M6.6](phases/M6.6.md)   | Payment settlement: layout and action sheets                       | Pending   | Not assigned | M5.1, M6.4              | TBD        | Required |
@@ -54,7 +65,8 @@ This table operationalizes the executable tasks in [Phase 3](../migration/PHASE_
 | [M10.3](phases/M10.3.md) | Assigned, live incidents, tracker, legacy-form entry points        | Pending   | Not assigned | M10.2                   | TBD        | Required |
 | [M10.4](phases/M10.4.md) | Company, Home tasks, Home analytics & reports                      | Pending   | Not assigned | M10.1                   | TBD        | Required |
 | [M11.1](phases/M11.1.md) | Configuration: user administration                                 | Pending   | Not assigned | M2.3                    | TBD        | Required |
-| [M11.2](phases/M11.2.md) | Dashboard configuration builders                                   | Pending   | Not assigned | M11.1, M8.2, M10.2      | TBD        | Required |
+| [M11.2](phases/M11.2.md) | Dashboard configuration builders (prototype UI/local state)        | Pending   | Not assigned | M11.1                   | TBD        | Required |
+| [M11.3](phases/M11.3.md) | Dashboard configuration runtime integration                        | Pending   | Not assigned | M11.2, M8.2, M10.2      | TBD        | Required |
 | [M12.1](phases/M12.1.md) | Full regression                                                    | Pending   | Not assigned | all                     | TBD        | Required |
 | [M12.2](phases/M12.2.md) | Production readiness                                               | Pending   | Not assigned | M12.1                   | TBD        | Required |
 | [M12.3](phases/M12.3.md) | Release sign-off                                                   | Pending   | Not assigned | M12.2                   | TBD        | Required |

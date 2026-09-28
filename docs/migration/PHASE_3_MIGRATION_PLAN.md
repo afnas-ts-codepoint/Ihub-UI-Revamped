@@ -2,6 +2,8 @@
 
 **Baseline:** the prototype repository at commit `273abc8` ("assignment info", 2026-09-24), file `index.html`. Every line reference below points to that commit. The production app is built in a new, separate repository. The prototype repository stays read-only.
 
+**First-release priority amendment (2026-09-28):** execution is now prioritized around the complete navigation shell, Masters, Home/Work Centre, and prototype-faithful Settings configuration. This is an ordering and release-scope overlay; it does not mark unimplemented destinations complete or remove their `MigrationPending` boundaries. See §6.1 and [PLAN_CHANGELOG.md](PLAN_CHANGELOG.md).
+
 **ID prefixes:**
 - **M** — migration phase
 - **D** — product decision (Phase 2 §32)
@@ -50,7 +52,7 @@ The product decisions (D-items) are mapped to their gating phases in §9.
 | R2 | **Infrastructure arrives with its first consumer.** A shared component, hook or utility is created only in the phase whose screen needs it, and is used in that same phase. |
 | R3 | **Packages arrive with their first consumer.** A phase adds only the packages its card lists. |
 | R4 | **A feature folder is created when that feature's migration begins.** |
-| R5 | **Two different placeholders.** `PlaceholderPage` reproduces the prototype's own StubScreen and is final. `MigrationPending` marks prototype functionality that isn't migrated yet: visually distinct, dev-only, and it must reach zero before release. |
+| R5 | **Two different placeholders.** `PlaceholderPage` reproduces the prototype's own StubScreen and is final. `MigrationPending` marks prototype functionality that is not migrated yet and remains visually distinct. Registered pending destinations outside the approved first-release flow may remain visible in that release; pending markers inside the approved flow must reach zero. The full-migration release still requires zero pending markers globally. |
 | R6 | **Delta intake.** At phase start, diff the prototype's current HEAD against the baseline for that phase's source ranges. If anything changed, report it; a human chooses to **adopt** it (recorded as a per-feature baseline bump) or **defer** it. |
 | R7 | **Fidelity first.** Reproduce the canonical UI and behavior. Prototype no-ops stay inert, are tagged `PROTOTYPE-NOOP(Dn)`, and are registered. Nothing is "fixed" silently. |
 | R8 | **Excluded code is never ported.** That covers D3, D9, D11 and D15 components, the Tweaks panel, the edit-mode `postMessage` bridge, the `?ihubPreview` hook and the diagnostic overlay. |
@@ -150,7 +152,35 @@ Each phase lists its interactions: open/close, keyboard, validation gating, stat
 
 ## 6. Plan overview
 
-Phases run in ID order. Within Stages 3, 6 and 7, phases may be reordered with approval, as long as "Depends on" is respected. **Size** is prototype source volume: S = under 300 lines, M = 300–800, L = over 800 or high complexity.
+The full migration normally runs in ID order. The approved first-release overlay in §6.1 may reorder remaining work while every hard dependency and approval gate remains enforced. **Size** is prototype source volume: S = under 300 lines, M = 300–800, L = over 800 or high complexity.
+
+### 6.1 Approved first-release priority overlay
+
+The first release is a deliberately partial, prototype-faithful slice. It must never present an unfinished destination as complete: navigation entries outside this slice continue to resolve to the registered `MigrationPending` screen.
+
+| Priority | Outcome | Included phases | First-release rule |
+|---|---|---|---|
+| P1 | Navbar, menus and header actions | M2.1–M2.3 (completed) | Navigation remains complete even when an out-of-scope destination is pending. Nav↔route parity and the visible pending boundary must remain green. |
+| P2 | Masters | M4.1–M4.3 (completed) | Preserve the approved five real Master screens and the prototype-final/pending treatment of the remaining catalogue entries. |
+| P3 | Home and Work Centre | M5.1 (completed), M7.1–M7.6 | Home remains the entry point. Before Work Centre is declared first-release ready, execute any M8 task phase that blocks a reachable Work Centre flow. Do not migrate unrelated M8 functionality speculatively. |
+| P4 | Settings configuration | M11.1, M11.2 | Match the reachable prototype UI and behavior using local/mock state. Do not add backend services, production authorization, or dashboard-runtime integration merely to polish the first release. |
+
+Approved remaining execution order:
+
+1. Finish the currently active/reviewed phase, then start M7.1.
+2. After the Work Centre shell exposes its actual reachable flows, pull forward only the minimum blocking task phases (expected candidates: M8.1, M8.3 and M8.4) before approving the affected Work Centre flow. Their existing dependencies still apply.
+3. Complete M7.2–M7.6 in dependency order; phases that do not depend on one another may be reviewed independently, one phase at a time.
+4. Complete M11.1 followed by M11.2.
+5. Defer M11.3 and all unrelated phases to the continuing full migration.
+
+First-release exit criteria:
+
+- P1–P4 routes and interactions pass their applicable G1–G10 gates and human review.
+- No `MigrationPending` marker remains inside a reachable P1–P4 flow. Registered destinations outside the first-release flow may remain pending and must display the standard pending screen.
+- Settings is judged against the prototype-visible behavior and local state. Integration with later Task/Overview dashboard stores is explicitly deferred to M11.3.
+- Full M12 release sign-off and the global zero-pending requirement remain the exit criteria for the completed migration, not for this scoped first release.
+
+### 6.2 Full migration phase table
 
 | ID | Phase | Size | Depends on | Shared infrastructure introduced | Packages added | Gates |
 |---|---|---|---|---|---|---|
@@ -204,7 +234,8 @@ Phases run in ID order. Within Stages 3, 6 and 7, phases may be reordered with a
 | M10.3 | Assigned, live incidents, tracker | M | M10.2 | — | — | D16 |
 | M10.4 | Company, Home tasks, Home reports | S | M10.1 | — | — | D12 |
 | M11.1 | Configuration: user administration | S | M2.3 | — | — | — |
-| M11.2 | Dashboard configuration builders | L | M11.1, M8.2, M10.2 | file/json | — | delta intake |
+| M11.2 | Dashboard configuration builders (prototype UI/local state) | L | M11.1 | file/json | — | delta intake |
+| M11.3 | Dashboard configuration runtime integration | M | M11.2, M8.2, M10.2 | — | — | integration sign-off |
 | M12.1 | Full regression | — | all | — | — | — |
 | M12.2 | Production readiness | — | M12.1 | — | — | D17 |
 | M12.3 | Release sign-off | — | M12.2 | — | — | final approval |
@@ -769,13 +800,18 @@ Every phase must pass G1–G10 and end with a stop for approval. The cards list 
   - Ordering, hiding and locked widgets; `MAX = 15`.
   - Admin rules and user inheritance.
   - JSON import/export with validation.
-  - Live previews.
-  - Writes go to `taskDashboardConfig.store`.
+  - Prototype-faithful local-state previews.
+  - No backend, production authorization model, or dependency on unfinished Task/Overview dashboard stores.
 - **Introduces:** `shared/file/json.ts`.
 - **Acceptance:**
   - JSON golden cases: valid, invalid, over the limit, unknown ids.
   - Inheritance tests.
-  - The Tasks dashboard updates live.
+  - Reachable Settings controls and previews match the prototype.
+
+**M11.3 — Dashboard configuration runtime integration**
+- **Scope:** connect the approved M11.2 builders to `taskDashboardConfig.store` and the completed Task/Overview dashboards once M8.2 and M10.2 exist.
+- **Acceptance:** saved configuration updates the completed dashboards live without changing the approved M11.2 UI behavior.
+- **First-release status:** deferred; this integration is not required for the prototype-visible Settings slice.
 
 ### Stage 12 — Release
 
@@ -804,7 +840,7 @@ Every phase must pass G1–G10 and end with a stop for approval. The cards list 
 
 ## 8. Ordering rationale
 
-**Dependency order** (Phase 2 §6): organization → sla, payment-settlement, tasks → incidents → home → settings. Pages mounted inside hubs need the Home frame (M5.1) and the Work Centre hub (M7.1) first.
+**Dependency order** (Phase 2 §6): organization → sla, payment-settlement, tasks → incidents → home → settings. Pages mounted inside hubs need the Home frame (M5.1) and the Work Centre hub (M7.1) first. The §6.1 first-release overlay changes execution priority, not these technical dependencies; M11.2 is intentionally limited to prototype-visible local behavior, while M11.3 retains the later dashboard integration dependencies.
 
 **Volatility** (lines changed in the prototype, `index.html`):
 
