@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "where": "Where",
+    "ownership": "Ownership & rating",
+    "linkedRecords": "Linked records"
+  },
+  "fields": {
+    "subject": "Subject",
+    "location": "Location",
+    "zone": "Zone",
+    "department": "Department",
+    "area": "Area",
+    "subArea": "Sub area",
+    "touchPoint": "Touch point",
+    "owner": "Process owner",
+    "severity": "Severity",
+    "matrix": "Matrix partners",
+    "priority": "Priority",
+    "enquiryReference": "Enquiry reference number",
+    "taskReference": "Task reference number",
+    "incidentReference": "Incident reference number",
+    "finding": "Finding",
+    "recommendations": "Recommendations",
+    "logNote": "Log note"
+  },
+  "placeholders": {
+    "subject": "One line summarising the observation",
+    "select": "Select…",
+    "searchReference": "Search reference…",
+    "finding": "What was observed, where and when.",
+    "recommendations": "Suggested corrective or preventive action.",
+    "logNote": "Internal note for the record trail."
+  },
+  "metadata": {
+    "requestedBy": "Requested by",
+    "requestedDate": "Requested date",
+    "reference": "Reference"
+  },
+  "severity": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "priority": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "attachments": {
+    "title": "Attachments",
+    "intro": "Every file needs a caption before submission.",
+    "add": "Add file",
+    "caption": "Caption (required)",
+    "remove": "Remove",
+    "empty": "No attachments yet — photos help the reviewer act faster."
+  },
+  "actions": {
+    "link": "Link",
+    "clear": "Clear",
+    "saveDraft": "Save draft",
+    "submit": "Submit observation",
+    "open": "Open",
+    "removeValue": "Remove {{value}}"
+  },
+  "messages": {
+    "captionRequired": "Add a caption to every attachment to submit.",
+    "severityNotice": "High severity observations notify the duty manager immediately.",
+    "draftSaved": "Draft saved",
+    "submitted": "Observation submitted"
+  },
+  "assignment": {
+    "title": "Edit assignment",
+    "subtitle": "Reassign an observation to another owner.",
+    "updated": "Assignment updated for {{id}}",
+    "assigneeFor": "Assigned to for {{id}}",
+    "columns": {
+      "observation": "Observation",
+      "site": "Site",
+      "severity": "Severity",
+      "assignedTo": "Assigned to"
+    }
+  },
+  "history": {
+    "columns": {
+      "ref": "Ref",
+      "observation": "Observation",
+      "action": "Action",
+      "by": "By",
+      "date": "Date",
+      "note": "Note"
+    }
+  }
+}

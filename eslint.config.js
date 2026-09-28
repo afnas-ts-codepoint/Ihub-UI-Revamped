@@ -118,6 +118,15 @@ export default tseslint.config(
     },
   },
   {
+    files: ['src/features/observations/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': restrictedImports(
+        appImport,
+        featureImport(['enquiries', 'reports', 'organization']),
+      ),
+    },
+  },
+  {
     files: ['src/features/home/**/*.{ts,tsx}'],
     rules: {
       'no-restricted-imports': restrictedImports(

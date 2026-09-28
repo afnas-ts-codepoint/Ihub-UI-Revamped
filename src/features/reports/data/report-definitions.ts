@@ -46,6 +46,18 @@ export const REPORT_DEFINITIONS = {
     ],
     totals: { label: 'Average completion', value: '97.3%' },
   },
+  observations: {
+    kind: 'observation',
+    label: { en: 'Observations', ar: 'الملاحظات' },
+    columns: ['Observation #', 'Subject', 'Location', 'Category', 'Severity', 'Assigned to', 'Status'],
+    rows: [
+      ['OBS-2026-072', 'Wet floor near Jump entry — no signage', 'The Avenues', 'Safety observation', 'High', 'Facilities — O. Najjar', 'Action raised'],
+      ['OBS-2026-071', 'Harness inspection log completed early', 'Al Kout', 'Staff practice', 'Low', 'Operations — K. Ibrahim', 'Logged'],
+      ['OBS-2026-069', 'Queue barrier tape frayed', '360 Mall', 'Equipment condition', 'Medium', 'Unassigned', 'Under review'],
+      ['OBS-2026-066', 'Near miss — guest ran on soft play stairs', 'SAMA Mall', 'Near miss', 'Medium', 'Safety & Security — R. Salem', 'Closed'],
+    ],
+    totals: { label: 'Open observations', value: '3 of 4' },
+  },
   workflows: {
     kind: 'task',
     label: { en: 'Workflows', ar: 'مسارات العمل' },
@@ -96,7 +108,6 @@ export type ReportKey = keyof typeof REPORT_DEFINITIONS;
 
 export const UNREACHABLE_REPORT_KEYS = [
   'joborders',
-  'observations',
   'processes',
   'purchasing',
   'pettycash',

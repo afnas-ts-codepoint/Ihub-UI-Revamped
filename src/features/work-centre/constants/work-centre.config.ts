@@ -49,7 +49,7 @@ export const WORK_CENTRE_SECTIONS: readonly WorkCentreSectionConfig[] = [
     group: 'general',
     id: 'observations',
     labelKey: 'sections.observations',
-    renderer: 'pending',
+    renderer: 'observations',
   },
   {
     children: [

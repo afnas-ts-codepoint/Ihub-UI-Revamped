@@ -80,6 +80,7 @@ export async function initializeI18n(locale: Locale) {
       'masters',
       'nav',
       'notifications',
+      'observations',
       'organization',
       'purchasing',
       'reports',

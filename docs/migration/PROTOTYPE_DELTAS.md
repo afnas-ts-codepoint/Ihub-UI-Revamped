@@ -6,6 +6,17 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M7.3 intake
+
+- Date: 2026-09-28.
+- Scope: current rendered `ObservationsView` in `ihub/index.html` (lines 6890-7032), its `ProcessesScreen` routing at lines 7286 and 7460-7463, and the separate `ProcessesScreen` observation fixture at lines 7376-7406.
+- Result: `git diff --exit-code 273abc8 HEAD -- ihub/index.html` exited 0 at prototype HEAD `3c391b4`; there is no M7.3 source drift from the approved baseline. The phase card's historical `ObservationsView` range is stale, but the located component and runtime behavior are unambiguous.
+- Gating finding: Submit depends only on `captionedFiles(files)`. Zero attachments are valid; every present attachment needs a non-whitespace caption. Subject is visually required but does not gate Submit. Severity, priority, matrix partners, and linked records also do not gate Submit.
+- Side-effect finding: Submit and Save draft only replace local confirmation text. Assignment changes only show local confirmation. They do not persist, reset, navigate, append to History, or call a backend. Assignment Open, History filtering, and the shared report period control remain inert.
+- D16 finding: the four dedicated `ObservationsView` rows remain a feature-local fixture. They are not consolidated with the separate duplicate `ProcessesScreen` rows or with the report fixture.
+- Navigation finding: the Observations section now owns `add`, `assignment`, `history`, and `report`; entering `/home/work-centre/observations` renders Add without redirecting. Only the M7.1 Observations pending boundary is replaced.
+- No material plan/prototype conflict was found. No ADOPT/DEFER decision was required.
+
 ## M7.2 intake
 
 - Date: 2026-09-28.

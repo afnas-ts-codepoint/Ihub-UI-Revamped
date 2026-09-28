@@ -30,11 +30,15 @@ function renderTitle(title: string) {
 type WorkCentrePageProps = Readonly<{
   notFound?: ReactNode;
   renderEnquiries?: (view: 'add' | 'history') => ReactNode;
+  renderObservations?: (
+    view: 'add' | 'assignment' | 'history' | 'report',
+  ) => ReactNode;
 }>;
 
 export function WorkCentrePage({
   notFound = null,
   renderEnquiries,
+  renderObservations,
 }: WorkCentrePageProps) {
   const { child, section } = useParams<{ child?: string; section?: string }>();
   const { t } = useTranslation('workCentre');
@@ -153,6 +157,14 @@ export function WorkCentrePage({
         (renderEnquiries?.(activeChild === 'history' ? 'history' : 'add') ?? (
           <MigrationPending area={destinationLabel} />
         ))
+      ) : activeSection.renderer === 'observations' ? (
+        (renderObservations?.(
+          activeChild === 'assignment' ||
+            activeChild === 'history' ||
+            activeChild === 'report'
+            ? activeChild
+            : 'add',
+        ) ?? <MigrationPending area={destinationLabel} />)
       ) : (
         <MigrationPending area={destinationLabel} />
       )}

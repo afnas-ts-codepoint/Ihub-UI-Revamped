@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "where": "الموقع",
+    "ownership": "الملكية والتقييم",
+    "linkedRecords": "السجلات المرتبطة"
+  },
+  "fields": {
+    "subject": "الموضوع",
+    "location": "الموقع",
+    "zone": "الزون",
+    "department": "الإدارة",
+    "area": "المنطقة",
+    "subArea": "المنطقة الفرعية",
+    "touchPoint": "نقطة التلامس",
+    "owner": "مالك العملية",
+    "severity": "الخطورة",
+    "matrix": "الشركاء المصفوفيون",
+    "priority": "الأولوية",
+    "enquiryReference": "رقم الاستفسار",
+    "taskReference": "رقم المهمة",
+    "incidentReference": "رقم الحادث",
+    "finding": "النتيجة",
+    "recommendations": "التوصيات",
+    "logNote": "ملاحظة السجل"
+  },
+  "placeholders": {
+    "subject": "سطر واحد يوجز الملاحظة",
+    "select": "اختر…",
+    "searchReference": "ابحث عن المرجع…",
+    "finding": "ما تم ملاحظته، أين ومتى.",
+    "recommendations": "الإجراء التصحيحي أو الوقائي المقترح.",
+    "logNote": "ملاحظة داخلية لسجل التتبع."
+  },
+  "metadata": {
+    "requestedBy": "مقدّم الملاحظة",
+    "requestedDate": "تاريخ الطلب",
+    "reference": "المرجع"
+  },
+  "severity": {
+    "low": "منخفضة",
+    "medium": "متوسطة",
+    "high": "مرتفعة"
+  },
+  "priority": {
+    "low": "منخفضة",
+    "medium": "متوسطة",
+    "high": "مرتفعة"
+  },
+  "attachments": {
+    "title": "المرفقات",
+    "intro": "كل مرفق يحتاج وصفاً قبل الإرسال.",
+    "add": "إضافة مرفق",
+    "caption": "الوصف (مطلوب)",
+    "remove": "إزالة",
+    "empty": "لا مرفقات بعد — الصور تساعد المراجع."
+  },
+  "actions": {
+    "link": "ربط",
+    "clear": "مسح",
+    "saveDraft": "حفظ مسودة",
+    "submit": "إرسال الملاحظة",
+    "open": "فتح",
+    "removeValue": "إزالة {{value}}"
+  },
+  "messages": {
+    "captionRequired": "أضف وصفاً لكل مرفق للإرسال.",
+    "severityNotice": "الملاحظات عالية الخطورة تُبلّغ مدير المناوبة فوراً.",
+    "draftSaved": "تم حفظ المسودة",
+    "submitted": "تم إرسال الملاحظة"
+  },
+  "assignment": {
+    "title": "تعديل الإسناد",
+    "subtitle": "أعد إسناد الملاحظة لمالك آخر.",
+    "updated": "تم تحديث الإسناد: {{id}}",
+    "assigneeFor": "مسند إلى للملاحظة {{id}}",
+    "columns": {
+      "observation": "الملاحظة",
+      "site": "الموقع",
+      "severity": "الخطورة",
+      "assignedTo": "مسند إلى"
+    }
+  },
+  "history": {
+    "columns": {
+      "ref": "المرجع",
+      "observation": "الملاحظة",
+      "action": "الإجراء",
+      "by": "بواسطة",
+      "date": "التاريخ",
+      "note": "ملاحظة"
+    }
+  }
+}

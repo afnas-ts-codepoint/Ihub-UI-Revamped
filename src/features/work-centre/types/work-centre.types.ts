@@ -11,7 +11,8 @@ export type WorkCentreSection =
   | 'price-change'
   | 'promotions';
 
-export type WorkCentreRenderer = 'enquiries' | 'fallback' | 'pending';
+export type WorkCentreRenderer =
+  'enquiries' | 'fallback' | 'observations' | 'pending';
 
 export type WorkCentreLabelKey =
   | 'sections.createTask'

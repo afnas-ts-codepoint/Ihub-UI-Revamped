@@ -24,6 +24,9 @@ function renderPath(path: string) {
             renderEnquiries={(view) => (
               <div data-testid="enquiries-view">{view}</div>
             )}
+            renderObservations={(view) => (
+              <div data-testid="observations-view">{view}</div>
+            )}
           />
         ),
       },
@@ -85,13 +88,29 @@ describe('M7.1 Work Centre hub', () => {
     for (const path of [
       '/home/work-centre/create-task',
       '/home/work-centre/tasks',
-      '/home/work-centre/observations/add',
       '/home/work-centre/snag-lists/add',
     ]) {
       const router = renderPath(path);
       expect(screen.getByRole('status')).toHaveAttribute(
         'data-migration-pending',
       );
+      router.dispose();
+      cleanup();
+    }
+  });
+
+  it('renders all real Observation destinations without changing their URLs', () => {
+    for (const [path, view] of [
+      ['/home/work-centre/observations', 'add'],
+      ['/home/work-centre/observations/add', 'add'],
+      ['/home/work-centre/observations/assignment', 'assignment'],
+      ['/home/work-centre/observations/history', 'history'],
+      ['/home/work-centre/observations/report', 'report'],
+    ] as const) {
+      const router = renderPath(path);
+      expect(screen.getByTestId('observations-view')).toHaveTextContent(view);
+      expect(screen.queryByRole('status')).not.toBeInTheDocument();
+      expect(router.state.location.pathname).toBe(path);
       router.dispose();
       cleanup();
     }

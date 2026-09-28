@@ -195,7 +195,6 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.view('reports'),
     paths.home.workCentre('create-task'),
     paths.home.workCentre('tasks', 'open'),
-    paths.home.workCentre('observations'),
     paths.home.workCentre('incidents'),
     paths.home.workCentre('snag-lists'),
     paths.home.paymentSettlement('action-sheet'),
@@ -227,6 +226,13 @@ describe('Phase 2 section 11 URL map', () => {
     expect(
       await screen.findByRole('heading', { name: 'Add an Enquiry' }),
     ).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it('routes the migrated Observations screen', async () => {
+    const { router } = renderRoute(paths.home.workCentre('observations'));
+    expect(await screen.findByTestId('observation-add')).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });

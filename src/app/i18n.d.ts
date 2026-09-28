@@ -11,6 +11,7 @@ import type history from '@/shared/i18n/locales/en/history.json';
 import type masters from '@/shared/i18n/locales/en/masters.json';
 import type nav from '@/shared/i18n/locales/en/nav.json';
 import type notifications from '@/shared/i18n/locales/en/notifications.json';
+import type observations from '@/shared/i18n/locales/en/observations.json';
 import type organization from '@/shared/i18n/locales/en/organization.json';
 import type purchasing from '@/shared/i18n/locales/en/purchasing.json';
 import type reports from '@/shared/i18n/locales/en/reports.json';
@@ -34,6 +35,7 @@ declare module 'i18next' {
       masters: typeof masters;
       nav: typeof nav;
       notifications: typeof notifications;
+      observations: typeof observations;
       organization: typeof organization;
       purchasing: typeof purchasing;
       reports: typeof reports;
