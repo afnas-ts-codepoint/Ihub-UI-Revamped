@@ -61,6 +61,12 @@ export function WorkCentrePage({
   const group = activeSection.group;
   const title = t(activeSection.labelKey);
   const activeChild = child ?? activeSection.children?.[0]?.id;
+  const checklistActionLabel =
+    activeChild === 'sequence'
+      ? 'Create a Sequence'
+      : activeChild === 'fill'
+        ? 'Fill a Checklist'
+        : 'Create a New Checklist';
   const destinationLabel = activeChild
     ? t(
         activeSection.children?.find((item) => item.id === activeChild)
@@ -80,7 +86,7 @@ export function WorkCentrePage({
             type="button"
           >
             <Plus aria-hidden size={15} />
-            {t('actions.createChecklist')}
+            {checklistActionLabel}
           </button>
         ) : activeSection.id === 'enquiry' && activeChild === 'history' ? (
           <Link

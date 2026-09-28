@@ -1,6 +1,5 @@
 {
   "actions": {
-    "createChecklist": "إنشاء قائمة مراجعة جديدة",
     "addEnquiryFromHistory": "Add an Enquiry"
   },
   "groups": {

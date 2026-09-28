@@ -6,6 +6,16 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M7.6 intake
+
+- Date: 2026-09-28.
+- Scope: the four reachable `ProcessesScreen` checklist children (`create`, `sequence`, `fill`, `editFill`), their child-dependent header action label, and the shared fallback branch.
+- Result: `git diff --exit-code 273abc8 HEAD -- ihub/index.html` exited 0 at prototype HEAD `3c391b4`; there is no M7.6 source drift from the approved baseline.
+- Rendered finding: all four children retain the same sheet `RecordFilter`, literal Open 12 / Closed 47 tabs, four fixed enquiry rows, and inert pagination. Child selection changes active presentation only.
+- Action finding: Sequence renders `Create a Sequence`, Fill renders `Fill a Checklist`, and Create/Edit Filled Checklist render `Create a New Checklist` in both EN and AR; the button has no checklist click branch and remains inert.
+- Routing reconciliation: production retains M7.1's approved real child URLs while reproducing the prototype's same-screen local-state result. No second router or checklist workflow was introduced.
+- No material plan/prototype conflict or new ADOPT/DEFER decision exists.
+
 ## M7.5 intake
 
 - Date: 2026-09-28.

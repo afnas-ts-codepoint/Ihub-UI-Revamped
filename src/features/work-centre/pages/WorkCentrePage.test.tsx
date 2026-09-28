@@ -185,6 +185,49 @@ describe('M7.1 Work Centre hub', () => {
     expect(screen.getByTestId('work-centre-fallback')).toBeVisible();
   });
 
+  it.each([
+    ['/home/work-centre/checklists', 'Create', 'Create a New Checklist'],
+    ['/home/work-centre/checklists/create', 'Create', 'Create a New Checklist'],
+    ['/home/work-centre/checklists/sequence', 'Sequence', 'Create a Sequence'],
+    ['/home/work-centre/checklists/fill', 'Fill', 'Fill a Checklist'],
+    [
+      '/home/work-centre/checklists/edit-filled',
+      'Edit Filled Checklist',
+      'Create a New Checklist',
+    ],
+  ])(
+    'renders the verified checklist fallback at %s with the exact child and action labels',
+    async (path, childLabel, actionLabel) => {
+      const user = userEvent.setup();
+      const router = renderPath(path);
+      expect(screen.getByRole('link', { name: childLabel })).toHaveAttribute(
+        'aria-current',
+        'page',
+      );
+      expect(screen.getByRole('button', { name: actionLabel })).toBeVisible();
+      expect(screen.getByPlaceholderText(/AS-2026-114/)).toBeVisible();
+      expect(screen.getByRole('tab', { name: 'Open 12' })).toBeVisible();
+      expect(screen.getByRole('tab', { name: 'Closed 47' })).toBeVisible();
+      expect(within(screen.getByRole('table')).getAllByRole('row')).toHaveLength(
+        5,
+      );
+      expect(screen.getByRole('table')).toHaveTextContent('ENQ-118');
+      expect(screen.getByRole('table')).toHaveTextContent('ENQ-115');
+
+      await user.click(screen.getByRole('button', { name: actionLabel }));
+      expect(router.state.location.pathname).toBe(path);
+      expect(screen.getByTestId('work-centre-fallback')).toBeVisible();
+    },
+  );
+
+  it('preserves the prototype English checklist action copy in RTL', async () => {
+    await i18n.changeLanguage('ar');
+    document.documentElement.dir = 'rtl';
+    renderPath('/home/work-centre/checklists/sequence');
+    expect(screen.getByRole('button', { name: 'Create a Sequence' })).toBeVisible();
+    expect(screen.getByTestId('work-centre-fallback')).toBeVisible();
+  });
+
   it('renders literal Open/Closed counts and keeps the same four rows after tab switching', async () => {
     const user = userEvent.setup();
     renderPath('/home/work-centre/price-change');

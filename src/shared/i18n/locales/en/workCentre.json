@@ -1,6 +1,5 @@
 {
   "actions": {
-    "createChecklist": "Create a New Checklist",
     "addEnquiryFromHistory": "Add an Enquiry",
     "createSnagList": "Create a Snag List"
   },
