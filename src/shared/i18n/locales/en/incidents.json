@@ -1,0 +1,84 @@
+{
+  "actions": {
+    "callback": "Callback request",
+    "cancel": "Cancel",
+    "clear": "Clear",
+    "close": "Close case",
+    "closeDialog": "Close",
+    "compensate": "Compensate",
+    "edit": "Edit report",
+    "feedback": "Write feedback",
+    "investigate": "Request investigation",
+    "menu": "Actions",
+    "no": "No",
+    "remove": "Remove",
+    "saveDraft": "Save draft",
+    "select": "Select…",
+    "submit": "Submit report",
+    "task": "Raise a task",
+    "track": "Track",
+    "view": "View",
+    "yes": "Yes"
+  },
+  "attachments": {
+    "caption": "Caption (required)…",
+    "hint": "Photos, CCTV stills or statements — each needs a caption",
+    "title": "Attachments",
+    "upload": "Click to upload or drag and drop"
+  },
+  "columns": { "date": "Date", "priority": "Priority", "raisedBy": "Raised by", "reference": "Ref #", "site": "Site", "status": "Status", "subject": "Subject" },
+  "compensation": {
+    "details": "Compensation details",
+    "note": "Logged to the case file and routed to Finance for reconciliation.",
+    "recipient": "Recipient",
+    "record": "Record compensation",
+    "reference": "Reference / receipt #",
+    "title": "Compensate",
+    "type": "Compensation type",
+    "value": "Value (KWD)"
+  },
+  "detail": { "classification": "Classification", "people": "People", "readOnly": "Read only", "whenImpact": "When & impact", "where": "Where" },
+  "feedback": { "field": "Feedback", "note": "Saved to the case file history.", "save": "Save feedback", "title": "Write feedback" },
+  "fields": {
+    "area": "Area", "attachments": "Attachments", "date": "Date of incident", "department": "Department", "description": "Description", "employees": "Involved employee/s", "employeePosition": "Involved employee position", "facility": "Facility / Equipment", "guestAction": "Guest action / behaviour", "guestContact": "Guest contact", "guestEmail": "Guest email", "guestName": "Involved guest name", "houseAction": "House action", "impactType": "Incident impact type", "injuries": "Injuries / Medical", "location": "Location", "mailTo": "Mail to", "mainCategory": "Incident main category", "notes": "Special notes if any", "riskType": "Incident risk type", "scenario": "Incident scenario", "specificArea": "Specific area of incident", "subCategory": "Incident sub category", "time": "Time of incident", "witnessEmail": "Witness email", "zone": "Zone"
+  },
+  "history": {
+    "acknowledged": "Acknowledged by duty manager",
+    "assigned": "Assigned for follow-up",
+    "compensation": "Compensation: {{summary}}",
+    "events_one": "{{count}} event",
+    "events_other": "{{count}} events",
+    "feedback": "Feedback: {{value}}",
+    "justNow": "just now",
+    "reported": "Reported",
+    "severityConfirmed": "Severity confirmed",
+    "title": "History & updates",
+    "tracked": "Added to tracking — updates now show in Overview."
+  },
+  "listing": { "closed": "Closed", "emptyDescription": "No incident matches the active filters.", "emptyTitle": "No incidents", "open": "Open", "subtitle": "All reported incidents — edit a report or take the same incident actions.", "title": "Incident Listing", "tracking": "Tracking" },
+  "messages": {
+    "callback": "Callback request · {{id}}",
+    "close": "Close case · {{id}}",
+    "compensation": "{{id}} · compensation recorded",
+    "draftSaved": "Draft saved",
+    "feedback": "{{id}} · feedback saved",
+    "investigate": "Request investigation · {{id}}",
+    "submitted": "Incident report submitted",
+    "tracked": "{{id}} added to tracking · shows in Overview"
+  },
+  "pagination": { "next": "Next page", "page": "Page", "previous": "Previous page", "summary": "Showing {{count}} of {{count}} records" },
+  "placeholders": { "description": "Sequence of events, conditions, witnesses and immediate action taken…", "employeePosition": "e.g. Ride Operator", "employees": "Names, comma separated", "guestAction": "What the guest did or how they responded…", "guestName": "Full name", "houseAction": "Action taken by the venue — refund, first aid, escort, ban…", "notes": "Anything else the reviewer should know…", "specificArea": "e.g. Bay 3, near the exit gate" },
+  "report": {
+    "designation": "Designation",
+    "distribution": "Distribution list is preset by incident category.",
+    "notice": "Critical and high severity reports notify the duty manager immediately.",
+    "reporter": "Reporter",
+    "reportingDate": "Reporting date",
+    "reportingTime": "Reporting time",
+    "requestedBy": "Requested by",
+    "subtitle": "Record what happened, where, and the immediate action taken. Submitted reports open a case in the incident log.",
+    "title": "Create Incident Report"
+  },
+  "tabs": { "list": "Incident Listing", "report": "Create Incident Report" },
+  "task": { "fromIncident": "From incident" }
+}

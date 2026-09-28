@@ -144,7 +144,7 @@ export default tseslint.config(
     rules: {
       'no-restricted-imports': restrictedImports(
         appImport,
-        featureImport(['tasks', 'sla', 'payment-settlement', 'organization']),
+        featureImport(['tasks', 'sla', 'payment-settlement', 'organization', 'incidents']),
       ),
     },
   },

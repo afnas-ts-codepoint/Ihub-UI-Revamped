@@ -6,6 +6,16 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M7.5 intake
+
+- Date: 2026-09-28.
+- Scope: current rendered `IncidentWorkspace` and `RecordHUD`, plus Home Incidents integration in `ihub/index.html`.
+- Result: `git diff --exit-code 273abc8 HEAD -- ihub/index.html` exited 0 at prototype HEAD `3c391b4`; there is no M7.5 source drift from the approved baseline.
+- Written plan: expose incident views under `/home/work-centre/incidents/*`, add a detail route, task conversion, Timeline infrastructure, and a tracking store.
+- Current prototype: the workspace renders under Home → Incidents → Incident Reports, detail is an in-place modal, and Work Centre has no visible Incidents section. History uses the feature-local `RecordHUD`; local component state is sufficient for tracking.
+- Human decision: **ADOPT current prototype**. Production mounts the workspace at `/home/incidents/reports`, preserves the hidden Work Centre incident boundary, uses a modal for detail, and adds no speculative detail route, Timeline abstraction, global store, or task conversion.
+- Boundary decision: `Raise a task` remains `MigrationPending` for M9.2. No task form, task reference, status mutation, or task-history mutation is introduced by M7.5.
+
 ## M7.3 intake
 
 - Date: 2026-09-28.

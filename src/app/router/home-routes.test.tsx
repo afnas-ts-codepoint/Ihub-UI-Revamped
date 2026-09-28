@@ -42,10 +42,12 @@ describe('M5.1 Home routes', () => {
     router.dispose();
   });
 
-  it('switches incidents sub-tabs by URL while their later content stays pending', async () => {
+  it('renders Incident Reports and keeps only Live Incidents pending', async () => {
     const router = renderPath('/home/incidents/reports');
     const subTabs = await screen.findByTestId('incidents-sub-tabs');
     expect(withinTab(subTabs, 'Incident Reports')).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('heading', { name: 'Create Incident Report' })).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
     fireEvent.click(withinTab(subTabs, 'Live Incidents'));
     expect(router.state.location.pathname).toBe('/home/incidents/live');
     expect(screen.getByRole('status')).toHaveTextContent('Live Incidents');

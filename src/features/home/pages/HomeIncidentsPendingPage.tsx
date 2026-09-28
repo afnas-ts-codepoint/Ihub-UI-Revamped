@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { paths } from '@/shared/config/paths';
 import { MigrationPending } from '@/shared/ui/feedback/MigrationPending';
 import { UnderlineTabs } from '@/shared/ui/tabs/UnderlineTabs';
+import { IncidentWorkspacePage } from '@/features/incidents';
 
 type IncidentSubTab = 'reports' | 'live';
 
@@ -26,9 +27,11 @@ export function HomeIncidentsPendingPage({ activeTab }: Readonly<{ activeTab: In
           }}
         />
       </div>
-      <MigrationPending
-        area={activeTab === 'reports' ? t('incidents.reports') : t('incidents.live')}
-      />
+      {activeTab === 'reports' ? (
+        <IncidentWorkspacePage />
+      ) : (
+        <MigrationPending area={t('incidents.live')} />
+      )}
     </section>
   );
 }

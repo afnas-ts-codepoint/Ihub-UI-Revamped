@@ -83,8 +83,6 @@ const home = node(
     node(
       'dashboard/incidents',
       paths.home.incidents('reports'),
-      undefined,
-      pending,
     ),
     node('dashboard/tasks', paths.home.view('tasks'), undefined, pending),
     node(

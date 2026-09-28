@@ -2,6 +2,19 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-09-28 — M7.5 route and task-boundary reconciliation
+
+### Human authorization and decision
+
+- M7.5 Incident Workspace is explicitly authorized; M7.6 and later phases remain unauthorized.
+- **ADOPT current prototype** for the written-plan conflict: Incident Workspace belongs under Home → Incidents → Incident Reports, not a new visible Work Centre Incidents section.
+- Incident detail remains an in-place modal rather than a new ID route.
+- `Raise a task` remains `MigrationPending` for M9.2. M7.5 does not implement task creation, conversion, references, status changes, or task-related history.
+
+### Implementation consequence
+
+M7.5 uses feature-local `RecordHUD` and in-memory tracking state. The speculative Timeline abstractions, global tracking store, and `convertToTask` requirement are removed from the active M7.5 contract because the current prototype has no present consumer requiring them.
+
 ## 2026-09-28 — First-release priority flow
 
 ### Requested outcome
