@@ -16,6 +16,7 @@ import type reports from '@/shared/i18n/locales/en/reports.json';
 import type sla from '@/shared/i18n/locales/en/sla.json';
 import type validation from '@/shared/i18n/locales/en/validation.json';
 import type workflows from '@/shared/i18n/locales/en/workflows.json';
+import type workCentre from '@/shared/i18n/locales/en/workCentre.json';
 
 declare module 'i18next' {
   interface CustomTypeOptions {
@@ -36,6 +37,7 @@ declare module 'i18next' {
       reports: typeof reports;
       sla: typeof sla;
       validation: typeof validation;
+      workCentre: typeof workCentre;
       workflows: typeof workflows;
     };
   }

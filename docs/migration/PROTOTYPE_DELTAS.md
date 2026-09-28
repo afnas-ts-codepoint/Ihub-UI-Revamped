@@ -6,6 +6,15 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M7.1 intake
+
+- Date: 2026-09-28.
+- Scope: current rendered `ProcessesScreen` in `ihub/index.html` (`createTask`/group/child state, section configuration, fallback columns/rows, group and section switching, and render branches).
+- Result: `git diff --exit-code 273abc8 HEAD -- ihub/index.html` exited 0 at prototype HEAD `3c391b4`; there is no M7.1 source drift from the approved baseline.
+- Rendered finding: the current section strip contains General (`Create a New Task`, `Tasks`, `Enquiry`, `Observations`, `Checklists`, `Snag Lists`) and Commercial (`Price Change`, `Promotions`). Incidents has translation/config residue but no rendered section entry; production preserves its already-registered deep link as pending for M7.5 without adding a visible pill.
+- Boundary finding: current dedicated Create Task/Tasks/Enquiry/Observations/Snag branches remain `MigrationPending` for M8/M7.2-M7.4. Checklists, Price Change, and Promotions use the rendered fixed fallback branch in M7.1.
+- No new material plan/prototype conflict was found during implementation.
+
 ## M6.5 intake
 
 - Date: 2026-09-28.

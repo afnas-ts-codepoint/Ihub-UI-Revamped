@@ -83,6 +83,7 @@ export async function initializeI18n(locale: Locale) {
       'purchasing',
       'reports',
       'sla',
+      'workCentre',
       'workflows',
     ],
     preload: supportedLocales,

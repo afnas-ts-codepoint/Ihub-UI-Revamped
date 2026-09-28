@@ -34,6 +34,7 @@ import {
 import { ReportsLibraryPage } from '@/features/reports';
 import { SlaPage } from '@/features/sla';
 import { WorkflowsPage } from '@/features/workflows';
+import { WorkCentrePage } from '@/features/work-centre';
 import {
   NavRoutePage,
   PendingRoutePage,
@@ -51,17 +52,6 @@ import { paths } from '@/shared/config/paths';
 
 const assignedQueues = ['approvals', 'verify', 'tasks'] as const;
 const incidentViews = ['reports', 'live'] as const;
-const workCentreSections = [
-  'create-task',
-  'tasks',
-  'enquiry',
-  'observations',
-  'incidents',
-  'checklists',
-  'snag-lists',
-  'price-change',
-  'promotions',
-] as const;
 const paymentModules = ['action-sheet', 'petty-cash', 'add-supplier'] as const;
 
 function RootRoute() {
@@ -198,14 +188,8 @@ export const appRoutes: RouteObject[] = [
             handle: { homeTab: 'reports' },
           },
           {
-            path: 'work-centre/:section/:child?',
-            element: (
-              <ValidatedPendingRoute
-                allowed={workCentreSections}
-                parameter="section"
-                titleKey="routes.workCentre"
-              />
-            ),
+            path: 'work-centre/:section?/:child?',
+            element: <WorkCentrePage notFound={<NotFoundPage />} />,
             handle: { homeTab: 'work-centre' },
           },
           {

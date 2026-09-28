@@ -198,10 +198,7 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.workCentre('enquiry'),
     paths.home.workCentre('observations'),
     paths.home.workCentre('incidents'),
-    paths.home.workCentre('checklists'),
     paths.home.workCentre('snag-lists'),
-    paths.home.workCentre('price-change'),
-    paths.home.workCentre('promotions'),
     paths.home.paymentSettlement('action-sheet'),
     paths.home.paymentSettlement('petty-cash'),
     paths.home.paymentSettlement('add-supplier'),
@@ -212,6 +209,17 @@ describe('Phase 2 section 11 URL map', () => {
     expect(await screen.findByRole('status')).toHaveAttribute(
       'data-migration-pending',
     );
+    router.dispose();
+  });
+
+  it.each([
+    paths.home.workCentre('checklists'),
+    paths.home.workCentre('price-change'),
+    paths.home.workCentre('promotions'),
+  ])('routes the migrated Work Centre fallback at %s', async (path) => {
+    const { router } = renderRoute(path);
+    expect(await screen.findByTestId('work-centre-fallback')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });
 
