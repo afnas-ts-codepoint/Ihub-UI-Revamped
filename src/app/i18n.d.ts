@@ -4,6 +4,7 @@ import type appraisal from '@/shared/i18n/locales/en/appraisal.json';
 import type budgeting from '@/shared/i18n/locales/en/budgeting.json';
 import type checklists from '@/shared/i18n/locales/en/checklists.json';
 import type common from '@/shared/i18n/locales/en/common.json';
+import type enquiries from '@/shared/i18n/locales/en/enquiries.json';
 import type home from '@/shared/i18n/locales/en/home.json';
 import type hr from '@/shared/i18n/locales/en/hr.json';
 import type history from '@/shared/i18n/locales/en/history.json';
@@ -26,6 +27,7 @@ declare module 'i18next' {
       budgeting: typeof budgeting;
       checklists: typeof checklists;
       common: typeof common;
+      enquiries: typeof enquiries;
       home: typeof home;
       hr: typeof hr;
       history: typeof history;

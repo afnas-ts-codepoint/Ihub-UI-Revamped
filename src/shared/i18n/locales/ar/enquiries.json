@@ -1,0 +1,58 @@
+{
+  "add": {
+    "title": "إضافة استفسار",
+    "subtitle": "سجّل الاستفسار وحدد أولويته ووجّهه إلى مالك العملية."
+  },
+  "sections": { "ownership": "الملكية والأولوية" },
+  "fields": {
+    "subject": "الموضوع",
+    "owner": "مالك العملية",
+    "priority": "الأولوية",
+    "matrix": "الشركاء المصفوفيون",
+    "description": "الوصف",
+    "logNote": "ملاحظة السجل"
+  },
+  "placeholders": {
+    "select": "اختر…",
+    "subject": "سطر واحد يوجز الاستفسار",
+    "description": "ما هو الاستفسار ومن قدّمه وأي سياق يحتاجه المالك.",
+    "logNote": "ملاحظة داخلية لسجل التتبع."
+  },
+  "priority": { "low": "منخفضة", "medium": "متوسطة", "high": "مرتفعة" },
+  "metadata": {
+    "requestedBy": "مقدّم الاستفسار",
+    "requestedDate": "تاريخ الطلب",
+    "reference": "المرجع"
+  },
+  "attachments": {
+    "title": "المرفقات",
+    "intro": "كل مرفق يحتاج وصفاً قبل الإرسال.",
+    "caption": "الوصف (مطلوب)",
+    "remove": "إزالة",
+    "upload": "انقر للرفع أو اسحب وأفلت",
+    "hint": "كل مرفق يحتاج وصفاً"
+  },
+  "actions": {
+    "addFromHistory": "Add an Enquiry",
+    "clear": "مسح",
+    "saveDraft": "حفظ مسودة",
+    "submit": "إرسال الاستفسار"
+  },
+  "messages": {
+    "captionRequired": "أضف وصفاً لكل مرفق للإرسال.",
+    "fieldsRequired": "الموضوع والأولوية مطلوبان.",
+    "priorityNotice": "الاستفسارات عالية الأولوية تُبلّغ مالك العملية فوراً.",
+    "draftSaved": "تم حفظ المسودة",
+    "submitted": "تم إرسال الاستفسار · ENQ-135"
+  },
+  "history": {
+    "emptyTitle": "لا توجد استفسارات",
+    "emptyDescription": "لا توجد استفسارات مطابقة لهذا العرض.",
+    "pagination": {
+      "previous": "الصفحة السابقة",
+      "next": "الصفحة التالية",
+      "page": "صفحة",
+      "summary": "عرض 4 من 4 سجلات"
+    }
+  }
+}

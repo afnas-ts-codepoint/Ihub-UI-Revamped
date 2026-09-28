@@ -5,6 +5,7 @@ import arAppraisal from '@/shared/i18n/locales/ar/appraisal.json';
 import arBudgeting from '@/shared/i18n/locales/ar/budgeting.json';
 import arChecklists from '@/shared/i18n/locales/ar/checklists.json';
 import arCommon from '@/shared/i18n/locales/ar/common.json';
+import arEnquiries from '@/shared/i18n/locales/ar/enquiries.json';
 import arHome from '@/shared/i18n/locales/ar/home.json';
 import arHr from '@/shared/i18n/locales/ar/hr.json';
 import arHistory from '@/shared/i18n/locales/ar/history.json';
@@ -21,6 +22,7 @@ import enAppraisal from '@/shared/i18n/locales/en/appraisal.json';
 import enBudgeting from '@/shared/i18n/locales/en/budgeting.json';
 import enChecklists from '@/shared/i18n/locales/en/checklists.json';
 import enCommon from '@/shared/i18n/locales/en/common.json';
+import enEnquiries from '@/shared/i18n/locales/en/enquiries.json';
 import enHome from '@/shared/i18n/locales/en/home.json';
 import enHr from '@/shared/i18n/locales/en/hr.json';
 import enHistory from '@/shared/i18n/locales/en/history.json';
@@ -70,6 +72,7 @@ describe('i18n resources', () => {
     ['budgeting', enBudgeting, arBudgeting],
     ['checklists', enChecklists, arChecklists],
     ['common', enCommon, arCommon],
+    ['enquiries', enEnquiries, arEnquiries],
     ['home', enHome, arHome],
     ['hr', enHr, arHr],
     ['history', enHistory, arHistory],

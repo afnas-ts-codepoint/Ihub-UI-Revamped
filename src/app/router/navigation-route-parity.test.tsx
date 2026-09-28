@@ -195,7 +195,6 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.view('reports'),
     paths.home.workCentre('create-task'),
     paths.home.workCentre('tasks', 'open'),
-    paths.home.workCentre('enquiry'),
     paths.home.workCentre('observations'),
     paths.home.workCentre('incidents'),
     paths.home.workCentre('snag-lists'),
@@ -223,6 +222,15 @@ describe('Phase 2 section 11 URL map', () => {
     router.dispose();
   });
 
+  it('routes the migrated Enquiry screen', async () => {
+    const { router } = renderRoute(paths.home.workCentre('enquiry'));
+    expect(
+      await screen.findByRole('heading', { name: 'Add an Enquiry' }),
+    ).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
   it.each([
     paths.home.budgets(),
     paths.home.budgets('sheet'),
@@ -233,7 +241,9 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.budgets('report'),
   ])('routes the migrated Home Budgeting screen at %s', async (path) => {
     const { router } = renderRoute(path);
-    expect(await screen.findByRole('heading', { name: 'Budgets' })).toBeVisible();
+    expect(
+      await screen.findByRole('heading', { name: 'Budgets' }),
+    ).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });
@@ -251,14 +261,18 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.purchasing('report'),
   ])('routes the migrated Home Purchasing screen at %s', async (path) => {
     const { router } = renderRoute(path);
-    expect(await screen.findByRole('heading', { name: 'Purchasing' })).toBeVisible();
+    expect(
+      await screen.findByRole('heading', { name: 'Purchasing' }),
+    ).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });
 
   it('renders 404 for an unknown Home Purchasing section', async () => {
     const { router } = renderRoute(`${paths.home.view('purchasing')}/orders`);
-    expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { name: 'Page not found' }),
+    ).toBeInTheDocument();
     router.dispose();
   });
 

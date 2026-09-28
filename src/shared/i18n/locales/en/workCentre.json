@@ -1,6 +1,13 @@
 {
-  "actions": { "createChecklist": "Create a New Checklist" },
-  "groups": { "ariaLabel": "Work Centre groups", "general": "General", "commercial": "Commercial" },
+  "actions": {
+    "createChecklist": "Create a New Checklist",
+    "addEnquiryFromHistory": "Add an Enquiry"
+  },
+  "groups": {
+    "ariaLabel": "Work Centre groups",
+    "general": "General",
+    "commercial": "Commercial"
+  },
   "sections": {
     "ariaLabel": "Work Centre sections",
     "createTask": "Create a New Task",
@@ -16,13 +23,32 @@
   "children": {
     "ariaLabel": "Work Centre section views",
     "enquiry": { "add": "Add an Enquiry", "history": "History" },
-    "observations": { "add": "Add an Observation", "assignment": "Edit Assignment Observations", "history": "History", "report": "Report" },
-    "checklists": { "create": "Create", "sequence": "Sequence", "fill": "Fill", "editFilled": "Edit Filled Checklist" },
-    "snagLists": { "add": "Add a Snag List", "listing": "Snag Listing", "report": "Report" }
+    "observations": {
+      "add": "Add an Observation",
+      "assignment": "Edit Assignment Observations",
+      "history": "History",
+      "report": "Report"
+    },
+    "checklists": {
+      "create": "Create",
+      "sequence": "Sequence",
+      "fill": "Fill",
+      "editFilled": "Edit Filled Checklist"
+    },
+    "snagLists": {
+      "add": "Add a Snag List",
+      "listing": "Snag Listing",
+      "report": "Report"
+    }
   },
   "fallback": {
     "emptyTitle": "No records",
     "emptyDescription": "No records match this view.",
-    "pagination": { "previous": "Previous page", "next": "Next page", "page": "Page", "summary": "Showing 1–4 of 4" }
+    "pagination": {
+      "previous": "Previous page",
+      "next": "Next page",
+      "page": "Page",
+      "summary": "Showing 1–4 of 4"
+    }
   }
 }

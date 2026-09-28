@@ -4,11 +4,24 @@ import type {
   WorkCentreSectionConfig,
 } from '../types/work-centre.types';
 
-export const WORK_CENTRE_GROUPS = ['general', 'commercial'] as const satisfies readonly WorkCentreGroup[];
+export const WORK_CENTRE_GROUPS = [
+  'general',
+  'commercial',
+] as const satisfies readonly WorkCentreGroup[];
 
 export const WORK_CENTRE_SECTIONS: readonly WorkCentreSectionConfig[] = [
-  { group: 'general', id: 'create-task', labelKey: 'sections.createTask', renderer: 'pending' },
-  { group: 'general', id: 'tasks', labelKey: 'sections.tasks', renderer: 'pending' },
+  {
+    group: 'general',
+    id: 'create-task',
+    labelKey: 'sections.createTask',
+    renderer: 'pending',
+  },
+  {
+    group: 'general',
+    id: 'tasks',
+    labelKey: 'sections.tasks',
+    renderer: 'pending',
+  },
   {
     children: [
       { id: 'add', labelKey: 'children.enquiry.add' },
@@ -17,7 +30,7 @@ export const WORK_CENTRE_SECTIONS: readonly WorkCentreSectionConfig[] = [
     group: 'general',
     id: 'enquiry',
     labelKey: 'sections.enquiry',
-    renderer: 'pending',
+    renderer: 'enquiries',
   },
   {
     group: 'general',
@@ -61,8 +74,18 @@ export const WORK_CENTRE_SECTIONS: readonly WorkCentreSectionConfig[] = [
     labelKey: 'sections.snagLists',
     renderer: 'pending',
   },
-  { group: 'commercial', id: 'price-change', labelKey: 'sections.priceChange', renderer: 'fallback' },
-  { group: 'commercial', id: 'promotions', labelKey: 'sections.promotions', renderer: 'fallback' },
+  {
+    group: 'commercial',
+    id: 'price-change',
+    labelKey: 'sections.priceChange',
+    renderer: 'fallback',
+  },
+  {
+    group: 'commercial',
+    id: 'promotions',
+    labelKey: 'sections.promotions',
+    renderer: 'fallback',
+  },
 ];
 
 export const DEFAULT_WORK_CENTRE_SECTION: WorkCentreSection = 'create-task';
@@ -71,6 +94,8 @@ export function getWorkCentreSection(section: string | undefined) {
   return WORK_CENTRE_SECTIONS.find((item) => item.id === section);
 }
 
-export function firstSectionForGroup(group: WorkCentreGroup): WorkCentreSection {
+export function firstSectionForGroup(
+  group: WorkCentreGroup,
+): WorkCentreSection {
   return group === 'general' ? 'create-task' : 'price-change';
 }

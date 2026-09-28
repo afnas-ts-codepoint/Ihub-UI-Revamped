@@ -1,6 +1,13 @@
 {
-  "actions": { "createChecklist": "إنشاء قائمة مراجعة جديدة" },
-  "groups": { "ariaLabel": "مجموعات مركز العمل", "general": "عام", "commercial": "تجاري" },
+  "actions": {
+    "createChecklist": "إنشاء قائمة مراجعة جديدة",
+    "addEnquiryFromHistory": "Add an Enquiry"
+  },
+  "groups": {
+    "ariaLabel": "مجموعات مركز العمل",
+    "general": "عام",
+    "commercial": "تجاري"
+  },
   "sections": {
     "ariaLabel": "أقسام مركز العمل",
     "createTask": "إنشاء مهمة جديدة",
@@ -16,13 +23,32 @@
   "children": {
     "ariaLabel": "طرق عرض قسم مركز العمل",
     "enquiry": { "add": "إضافة استفسار", "history": "السجل" },
-    "observations": { "add": "إضافة ملاحظة", "assignment": "تعديل إسناد الملاحظات", "history": "السجل", "report": "تقرير" },
-    "checklists": { "create": "إنشاء", "sequence": "تسلسل", "fill": "تعبئة", "editFilled": "تعديل قائمة معبأة" },
-    "snagLists": { "add": "إضافة قائمة ملاحقات", "listing": "سجل الملاحقات", "report": "تقرير" }
+    "observations": {
+      "add": "إضافة ملاحظة",
+      "assignment": "تعديل إسناد الملاحظات",
+      "history": "السجل",
+      "report": "تقرير"
+    },
+    "checklists": {
+      "create": "إنشاء",
+      "sequence": "تسلسل",
+      "fill": "تعبئة",
+      "editFilled": "تعديل قائمة معبأة"
+    },
+    "snagLists": {
+      "add": "إضافة قائمة ملاحقات",
+      "listing": "سجل الملاحقات",
+      "report": "تقرير"
+    }
   },
   "fallback": {
     "emptyTitle": "لا توجد سجلات",
     "emptyDescription": "لا توجد سجلات مطابقة لهذا العرض.",
-    "pagination": { "previous": "الصفحة السابقة", "next": "الصفحة التالية", "page": "صفحة", "summary": "عرض 1–4 من 4" }
+    "pagination": {
+      "previous": "الصفحة السابقة",
+      "next": "الصفحة التالية",
+      "page": "صفحة",
+      "summary": "عرض 1–4 من 4"
+    }
   }
 }

@@ -6,6 +6,16 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M7.2 intake
+
+- Date: 2026-09-28.
+- Scope: current rendered `EnquiryView` in `ihub/index.html` (currently lines 7034-7107), plus its `ProcessesScreen` section/child integration and shared fallback History branch (approximately lines 7278-7485).
+- Result: `git diff --exit-code 273abc8 HEAD -- ihub/index.html` exited 0 at prototype HEAD `3c391b4`; there is no M7.2 source drift from the approved baseline. The phase card's historical `EnquiryView` line range (9144-9219) is stale, but the located component and runtime behavior are unambiguous.
+- Gating finding: Submit is enabled exactly when the trimmed subject is non-empty, a priority is selected, and every selected file has a non-whitespace caption. With zero files the attachment predicate is vacuously true; adding, removing, or editing a file updates validity immediately.
+- Side-effect finding: valid Submit and Save draft only replace the local message text. They do not create a record, update History, reset the form, navigate, show a toast, or call a backend.
+- Navigation finding: Enquiry remains the approved M7.1 section key with `add` and `history` children; entering the section selects `add`, changes the URL, and performs no redirect. Only the M7.1 Enquiry pending boundary is replaced.
+- No new material plan/prototype conflict was found. M7.3 Observations remains pending and untouched.
+
 ## M7.1 intake
 
 - Date: 2026-09-28.

@@ -17,6 +17,7 @@ import {
   isHomeBudgetSection,
 } from '@/features/budgeting';
 import { ChecklistPage } from '@/features/checklists';
+import { EnquiriesPage } from '@/features/enquiries';
 import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
 import { OvertimePage } from '@/features/hr';
 import {
@@ -65,7 +66,8 @@ function RootRoute() {
 
 function HomeBudgetingRoute() {
   const { section } = useParams<{ section?: string }>();
-  if (section == null) return <HomeBudgetingPage section={defaultHomeBudgetSection} />;
+  if (section == null)
+    return <HomeBudgetingPage section={defaultHomeBudgetSection} />;
   return isHomeBudgetSection(section) ? (
     <HomeBudgetingPage section={section} />
   ) : (
@@ -75,7 +77,8 @@ function HomeBudgetingRoute() {
 
 function HomePurchasingRoute() {
   const { section } = useParams<{ section?: string }>();
-  if (section == null) return <HomePurchasingPage section={defaultHomePurchasingSection} />;
+  if (section == null)
+    return <HomePurchasingPage section={defaultHomePurchasingSection} />;
   return isHomePurchasingSection(section) ? (
     <HomePurchasingPage section={section} />
   ) : (
@@ -148,7 +151,9 @@ export const appRoutes: RouteObject[] = [
             children: [
               {
                 index: true,
-                element: <Navigate replace to={paths.home.incidents('reports')} />,
+                element: (
+                  <Navigate replace to={paths.home.incidents('reports')} />
+                ),
               },
               {
                 path: incidentViews[0],
@@ -189,7 +194,12 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'work-centre/:section?/:child?',
-            element: <WorkCentrePage notFound={<NotFoundPage />} />,
+            element: (
+              <WorkCentrePage
+                notFound={<NotFoundPage />}
+                renderEnquiries={(view) => <EnquiriesPage view={view} />}
+              />
+            ),
             handle: { homeTab: 'work-centre' },
           },
           {

@@ -73,6 +73,7 @@ export async function initializeI18n(locale: Locale) {
       'budgeting',
       'checklists',
       'common',
+      'enquiries',
       'home',
       'hr',
       'history',

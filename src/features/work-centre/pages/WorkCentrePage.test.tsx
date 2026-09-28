@@ -18,7 +18,14 @@ function renderPath(path: string) {
     [
       {
         path: '/home/work-centre/:section?/:child?',
-        element: <WorkCentrePage notFound={<div data-testid="not-found" />} />,
+        element: (
+          <WorkCentrePage
+            notFound={<div data-testid="not-found" />}
+            renderEnquiries={(view) => (
+              <div data-testid="enquiries-view">{view}</div>
+            )}
+          />
+        ),
       },
     ],
     { initialEntries: [path] },
@@ -30,9 +37,17 @@ function renderPath(path: string) {
 describe('M7.1 Work Centre hub', () => {
   it('defaults at the sectionless URL to General / Create a New Task without redirecting', () => {
     const router = renderPath('/home/work-centre');
-    expect(screen.getByRole('link', { name: 'General' })).toHaveAttribute('aria-current', 'page');
-    expect(screen.getByRole('link', { name: 'Create a New Task' })).toHaveAttribute('aria-current', 'page');
-    expect(screen.getByRole('status')).toHaveAttribute('data-migration-pending', 'Create a New Task');
+    expect(screen.getByRole('link', { name: 'General' })).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
+    expect(
+      screen.getByRole('link', { name: 'Create a New Task' }),
+    ).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('status')).toHaveAttribute(
+      'data-migration-pending',
+      'Create a New Task',
+    );
     expect(router.state.location.pathname).toBe('/home/work-centre');
   });
 
@@ -40,35 +55,73 @@ describe('M7.1 Work Centre hub', () => {
     const user = userEvent.setup();
     const router = renderPath('/home/work-centre/observations/history');
     await user.click(screen.getByRole('link', { name: 'Commercial' }));
-    expect(router.state.location.pathname).toBe('/home/work-centre/price-change');
+    expect(router.state.location.pathname).toBe(
+      '/home/work-centre/price-change',
+    );
     expect(screen.getByRole('heading', { name: 'Price Change' })).toBeVisible();
     await user.click(screen.getByRole('link', { name: 'General' }));
-    expect(router.state.location.pathname).toBe('/home/work-centre/create-task');
+    expect(router.state.location.pathname).toBe(
+      '/home/work-centre/create-task',
+    );
   });
 
   it('switches sections and defaults child sections to their first visible child', async () => {
     const user = userEvent.setup();
     const router = renderPath('/home/work-centre/create-task');
     await user.click(screen.getByRole('link', { name: 'Enquiry' }));
-    expect(router.state.location.pathname).toBe('/home/work-centre/enquiry/add');
-    expect(screen.getByRole('link', { name: 'Add an Enquiry' })).toHaveAttribute('aria-current', 'page');
+    expect(router.state.location.pathname).toBe(
+      '/home/work-centre/enquiry/add',
+    );
+    expect(
+      screen.getByRole('link', { name: 'Add an Enquiry' }),
+    ).toHaveAttribute('aria-current', 'page');
     await user.click(screen.getByRole('link', { name: 'History' }));
-    expect(router.state.location.pathname).toBe('/home/work-centre/enquiry/history');
+    expect(router.state.location.pathname).toBe(
+      '/home/work-centre/enquiry/history',
+    );
   });
 
   it('keeps Create Task, Tasks, and future dedicated screens pending', () => {
     for (const path of [
       '/home/work-centre/create-task',
       '/home/work-centre/tasks',
-      '/home/work-centre/enquiry/add',
       '/home/work-centre/observations/add',
       '/home/work-centre/snag-lists/add',
     ]) {
       const router = renderPath(path);
-      expect(screen.getByRole('status')).toHaveAttribute('data-migration-pending');
+      expect(screen.getByRole('status')).toHaveAttribute(
+        'data-migration-pending',
+      );
       router.dispose();
       cleanup();
     }
+  });
+
+  it('renders the real Enquiry Add and History destinations and keeps their URLs stable', async () => {
+    const user = userEvent.setup();
+    const router = renderPath('/home/work-centre/enquiry');
+    expect(screen.getByTestId('enquiries-view')).toHaveTextContent('add');
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    expect(router.state.location.pathname).toBe('/home/work-centre/enquiry');
+
+    await user.click(screen.getByRole('link', { name: 'History' }));
+    expect(router.state.location.pathname).toBe(
+      '/home/work-centre/enquiry/history',
+    );
+    expect(screen.getByTestId('enquiries-view')).toHaveTextContent('history');
+    expect(
+      screen.getAllByRole('link', { name: 'Add an Enquiry' }),
+    ).toHaveLength(2);
+
+    const addLinks = screen.getAllByRole('link', { name: 'Add an Enquiry' });
+    const headerAdd = addLinks[0];
+    if (!headerAdd)
+      throw new Error('Expected the History Add an Enquiry action');
+    await user.click(headerAdd);
+    expect(router.state.location.pathname).toBe(
+      '/home/work-centre/enquiry/add',
+    );
+    expect(screen.getByTestId('enquiries-view')).toHaveTextContent('add');
   });
 
   it.each([
@@ -86,8 +139,12 @@ describe('M7.1 Work Centre hub', () => {
     const user = userEvent.setup();
     const router = renderPath('/home/work-centre/checklists/create');
     expect(screen.getByPlaceholderText(/AS-2026-114/)).toBeVisible();
-    await user.click(screen.getByRole('button', { name: 'Create a New Checklist' }));
-    expect(router.state.location.pathname).toBe('/home/work-centre/checklists/create');
+    await user.click(
+      screen.getByRole('button', { name: 'Create a New Checklist' }),
+    );
+    expect(router.state.location.pathname).toBe(
+      '/home/work-centre/checklists/create',
+    );
     expect(screen.getByTestId('work-centre-fallback')).toBeVisible();
   });
 
@@ -95,10 +152,17 @@ describe('M7.1 Work Centre hub', () => {
     const user = userEvent.setup();
     renderPath('/home/work-centre/price-change');
     const table = screen.getByRole('table');
-    expect(screen.getByRole('tab', { name: 'Open 12' })).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByRole('tab', { name: 'Open 12' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
     expect(screen.getByRole('tab', { name: 'Closed 47' })).toBeVisible();
     expect(within(table).getByText('ENQ-118')).toBeVisible();
-    expect(within(table).getByText('Aircon noise on floor 3 — escalating after 8 PM')).toBeVisible();
+    expect(
+      within(table).getByText(
+        'Aircon noise on floor 3 — escalating after 8 PM',
+      ),
+    ).toBeVisible();
     expect(within(table).getAllByRole('row')).toHaveLength(5);
     await user.click(screen.getByRole('tab', { name: 'Closed 47' }));
     expect(within(table).getAllByRole('row')).toHaveLength(5);
@@ -107,9 +171,15 @@ describe('M7.1 Work Centre hub', () => {
 
   it('does not expose the hidden legacy create tab or the absent incident pill', () => {
     renderPath('/home/work-centre/create-task');
-    expect(screen.queryByRole('link', { name: 'Create' })).not.toBeInTheDocument();
-    expect(screen.queryByRole('link', { name: 'Incidents' })).not.toBeInTheDocument();
-    expect(screen.getAllByRole('link', { name: 'Create a New Task' })).toHaveLength(1);
+    expect(
+      screen.queryByRole('link', { name: 'Create' }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('link', { name: 'Incidents' }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getAllByRole('link', { name: 'Create a New Task' }),
+    ).toHaveLength(1);
   });
 
   it.each([
@@ -119,14 +189,19 @@ describe('M7.1 Work Centre hub', () => {
   ])('rejects the invalid Work Centre path %s', (path) => {
     renderPath(path);
     expect(screen.getByTestId('not-found')).toBeInTheDocument();
-    expect(screen.queryByTestId('work-centre-fallback')).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId('work-centre-fallback'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders Arabic navigation in RTL while preserving English-only fallback content and Latin digits', async () => {
     await i18n.changeLanguage('ar');
     document.documentElement.dir = 'rtl';
     renderPath('/home/work-centre/price-change');
-    expect(screen.getByRole('link', { name: 'تجاري' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('link', { name: 'تجاري' })).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
     expect(screen.getByRole('heading', { name: 'تغيير السعر' })).toBeVisible();
     expect(screen.getByRole('columnheader', { name: 'Ref #' })).toBeVisible();
     expect(screen.getByRole('tab', { name: 'Open 12' })).toBeVisible();
