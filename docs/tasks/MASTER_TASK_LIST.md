@@ -46,7 +46,7 @@ Destinations outside this release flow continue to show the registered `Migratio
 | [M6.6](phases/M6.6.md)   | Payment settlement: layout and action sheets                       | Pending   | Not assigned | M5.1, M6.4              | TBD        | Required |
 | [M6.7](phases/M6.7.md)   | Payment settlement: petty cash                                     | Pending   | Not assigned | M6.6                    | TBD        | Required |
 | [M6.8](phases/M6.8.md)   | Payment settlement: add a supplier                                 | Pending   | Not assigned | M6.6                    | TBD        | Required |
-| [M7.1](phases/M7.1.md)   | Work Centre hub                                                    | Review    | Codex        | M5.1                    | Not opened | Required |
+| [M7.1](phases/M7.1.md)   | Work Centre hub                                                    | Completed | Codex        | M5.1                    | Not opened | Approved |
 | [M7.2](phases/M7.2.md)   | Enquiries                                                          | Pending   | Not assigned | M7.1, M6.4              | TBD        | Required |
 | [M7.3](phases/M7.3.md)   | Observations                                                       | Pending   | Not assigned | M7.2                    | TBD        | Required |
 | [M7.4](phases/M7.4.md)   | Snag lists                                                         | Pending   | Not assigned | M7.1                    | TBD        | Required |
