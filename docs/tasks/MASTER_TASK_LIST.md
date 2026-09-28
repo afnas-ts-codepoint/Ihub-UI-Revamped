@@ -8,7 +8,7 @@ The approved first-release order is:
 
 1. Navbar and menus — M2.1–M2.3 (completed).
 2. Masters — M4.1–M4.3 (completed).
-3. Home and Work Centre — M5.1 (completed), then M7.1–M7.6. Pull forward only M8 phases that block a reachable Work Centre flow.
+3. Home and Work Centre — M5.1 (completed), M7.1–M7.6, then the user-authorized M8.1/M8.3/M8.4 pull-forward for reachable task flows.
 4. Settings configuration — M11.1 then M11.2, limited to prototype-visible UI and local/mock behavior. M11.3 runtime integration remains in the full migration.
 
 Destinations outside this release flow continue to show the registered `MigrationPending` screen. See Phase 3 §6.1 and [PLAN_CHANGELOG.md](../migration/PLAN_CHANGELOG.md).
@@ -52,10 +52,10 @@ Destinations outside this release flow continue to show the registered `Migratio
 | [M7.4](phases/M7.4.md)   | Snag lists                                                         | Completed | Codex        | M7.1                    | 2026-09-28 | Approved |
 | [M7.5](phases/M7.5.md)   | Incident workspace                                                 | Completed | Codex        | M7.1                    | 2026-09-28 | Approved |
 | [M7.6](phases/M7.6.md)   | Work Centre checklist sub-views                                    | Completed | Codex        | M7.1, M3.5              | Not opened | Approved |
-| [M8.1](phases/M8.1.md)   | Task list                                                          | Pending   | Not assigned | M7.1, M4.1              | TBD        | Required |
+| [M8.1](phases/M8.1.md)   | Task list                                                          | Active    | Codex        | M7.1, M4.1              | Not opened | Authorized |
 | [M8.2](phases/M8.2.md)   | Task analytics, workload heatmap, dashboard config store           | Pending   | Not assigned | M8.1                    | TBD        | Required |
-| [M8.3](phases/M8.3.md)   | Create Task (canonical)                                            | Pending   | Not assigned | M8.1, M6.5              | TBD        | Required |
-| [M8.4](phases/M8.4.md)   | Task View                                                          | Pending   | Not assigned | M8.3                    | TBD        | Required |
+| [M8.3](phases/M8.3.md)   | Create Task (canonical)                                            | Pending   | Codex        | M8.1, M6.5              | Not opened | Authorized |
+| [M8.4](phases/M8.4.md)   | Task View                                                          | Pending   | Codex        | M8.3                    | Not opened | Authorized |
 | [M8.5](phases/M8.5.md)   | Task Edit: cards, comments, notes, history                         | Pending   | Not assigned | M8.4                    | TBD        | Required |
 | [M8.6](phases/M8.6.md)   | Task Edit: dialogs and action bar                                  | Pending   | Not assigned | M8.5                    | TBD        | Required |
 | [M9.1](phases/M9.1.md)   | Analysis of the five legacy usages (document only)                 | Pending   | Not assigned | M8.3, M7.5              | TBD        | Required |

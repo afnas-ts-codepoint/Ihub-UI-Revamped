@@ -2,6 +2,18 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-09-29 - Pull Work Centre Tasks into the first release
+
+### Human authorization and decision
+
+The user authorized the reachable Work Centre task flows shown by the current prototype to be included in the first release. Pull forward M8.1 Task list and M8.3 Create Task; their existing dependency on M7.1, M4.1, and M6.5 remains in force. M8.4 Task View is also pulled forward as the minimum destination required by M8.1 row actions. M8.2 analytics and M8.5-M8.6 task editing remain deferred.
+
+### Consequences accepted
+
+- `/home/work-centre/tasks`, `/home/work-centre/create-task`, and the task-view destination are no longer allowed to remain `MigrationPending` in the approved Work Centre flow.
+- The pulled-forward phases remain subject to the one-phase-at-a-time review and human approval gates.
+- No unrelated M8, M9, M10, or M11 work is authorized by this change.
+
 ## 2026-09-28 — M7.5 route and task-boundary reconciliation
 
 ### Human authorization and decision

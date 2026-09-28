@@ -168,7 +168,7 @@ The first release is a deliberately partial, prototype-faithful slice. It must n
 Approved remaining execution order:
 
 1. Finish the currently active/reviewed phase, then start M7.1.
-2. After the Work Centre shell exposes its actual reachable flows, pull forward only the minimum blocking task phases (expected candidates: M8.1, M8.3 and M8.4) before approving the affected Work Centre flow. Their existing dependencies still apply.
+2. The user-authorized first-release pull-forward includes the minimum blocking task phases M8.1, M8.3, and M8.4 before approving the affected Work Centre flow. Their existing dependencies still apply.
 3. Complete M7.2–M7.6 in dependency order; phases that do not depend on one another may be reviewed independently, one phase at a time.
 4. Complete M11.1 followed by M11.2.
 5. Defer M11.3 and all unrelated phases to the continuing full migration.
@@ -613,7 +613,7 @@ Every phase must pass G1–G10 and end with a stop for approval. The cards list 
   - `features/work-centre`: `WorkCentreLayout` (General/Commercial tabs, section pills, child links; the hidden legacy create tab is excluded).
   - Section config.
   - A fallback Open/Closed listing for sections without dedicated views (price change and promotions are checked at phase start).
-  - `/home/work-centre/*` goes live. Create Task and Tasks stay `MigrationPending` until Stage 8.
+  - `/home/work-centre/*` goes live. Create Task, Tasks, and the minimum task-view destination are pulled forward from Stage 8 under the 2026-09-29 plan change; M8.2 analytics and M8.5-M8.6 task editing remain deferred.
 - **Acceptance:**
   - Navigation parity: the default section is Create a New Task, and switching group lands on the first visible section (9542).
   - Fallback listing parity.
