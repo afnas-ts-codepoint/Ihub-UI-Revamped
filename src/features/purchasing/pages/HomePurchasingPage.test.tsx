@@ -195,7 +195,7 @@ describe('M6.4 Purchase Order', () => {
   it('exposes the outer Purchase Order nav entry alongside the existing 8 segments', () => {
     renderSection('po');
     expect(screen.getByRole('link', { name: 'Purchase Order' })).toHaveAttribute('aria-current', 'page');
-    expect(screen.getAllByRole('link').length).toBe(9);
+    expect(screen.getAllByRole('link').length).toBe(10);
   });
 
   it('renders the To Do tab with the literal (non-derived) Open 3 / All 142 counts and no SectionHead', () => {
@@ -324,5 +324,72 @@ describe('M6.4 Purchase Order', () => {
     expect(screen.getByRole('button', { name: 'المهام' })).toBeVisible();
     expect(screen.getByRole('button', { name: 'السجل' })).toBeVisible();
     expect(screen.getByRole('button', { name: 'تقرير' })).toBeVisible();
+  });
+});
+
+describe('M6.5 Supplier Quotations', () => {
+  it('exposes the quotations route in the flat Purchasing navigation', () => {
+    renderSection('quotations');
+    expect(screen.getByRole('link', { name: 'Supplier Quotations' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getAllByRole('link')).toHaveLength(10);
+  });
+
+  it('renders exact fixtures and literal/derived counts while table tabs remain visual only', async () => {
+    const user = userEvent.setup();
+    renderSection('quotations');
+    const table = screen.getByRole('table');
+    expect(screen.getByRole('tab', { name: 'Open 4' })).toBeVisible();
+    expect(screen.getByRole('tab', { name: 'All quotations 6' })).toBeVisible();
+    expect(within(table).getByText('SQ-2025-311')).toBeVisible();
+    expect(within(table).getByText('Gulf Facilities Services Co.')).toBeVisible();
+    expect(within(table).getByText('4,250.000')).toBeVisible();
+    expect(within(table).getAllByRole('button', { name: 'Add Quotation' })).toHaveLength(6);
+    await user.click(screen.getByRole('tab', { name: 'All quotations 6' }));
+    expect(within(table).getAllByRole('button', { name: 'Add Quotation' })).toHaveLength(6);
+  });
+
+  it('filters quotation rows and opens a freshly seeded builder', async () => {
+    const user = userEvent.setup();
+    renderSection('quotations');
+    await user.type(screen.getByPlaceholderText(/PC-2025-088/), 'Advanced Tech');
+    const table = screen.getByRole('table');
+    expect(within(table).getByText('SQ-2025-309')).toBeVisible();
+    expect(within(table).queryByText('SQ-2025-311')).toBeNull();
+    await user.click(within(table).getByRole('button', { name: 'Add Quotation' }));
+    const dialog = screen.getByTestId('add-quotation-dialog');
+    expect(within(dialog).getAllByText('PC-2025-086')).toHaveLength(2);
+    expect(within(dialog).getByText('Marketing')).toBeVisible();
+    expect(within(dialog).getByText('6,840.000 KWD')).toBeVisible();
+  });
+
+  it('renders History with inherited PO # heading and no RecordFilter', async () => {
+    const user = userEvent.setup();
+    renderSection('quotations');
+    await user.click(screen.getByRole('button', { name: 'History' }));
+    expect(screen.getByRole('tab', { name: 'All 3' })).toBeVisible();
+    expect(screen.getByRole('columnheader', { name: 'PO #' })).toBeVisible();
+    expect(screen.getByText('Quotation received from Gulf Facilities.')).toBeVisible();
+    expect(screen.queryByPlaceholderText(/PC-2025-088/)).toBeNull();
+  });
+
+  it('renders the permanent report placeholder with a filter and no table', async () => {
+    const user = userEvent.setup();
+    renderSection('quotations');
+    await user.click(screen.getByRole('button', { name: 'Report' }));
+    expect(screen.getByText('Run the report to generate results. The table will render here.')).toBeVisible();
+    expect(screen.getByPlaceholderText(/PC-2025-088/)).toBeVisible();
+    expect(screen.queryByRole('table')).toBeNull();
+  });
+
+  it('renders translated Arabic quotation navigation and builder in RTL', async () => {
+    const user = userEvent.setup();
+    await i18n.changeLanguage('ar');
+    document.documentElement.dir = 'rtl';
+    renderSection('quotations');
+    expect(screen.getByRole('link', { name: 'عروض الموردين' })).toHaveAttribute('aria-current', 'page');
+    await user.click(nth(screen.getAllByRole('button', { name: 'إضافة عرض' }), 0));
+    const dialog = screen.getByTestId('add-quotation-dialog');
+    expect(within(dialog).getByText('إضافة عرض سعر')).toBeVisible();
+    expect(within(dialog).getByRole('button', { name: 'المورّد A' })).toBeVisible();
   });
 });

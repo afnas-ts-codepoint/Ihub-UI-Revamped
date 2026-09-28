@@ -5,6 +5,8 @@ import type {
   PurchaseOrderRow,
   PurchaseRequestRow,
   ReviewExtra,
+  SupplierQuotationHistoryRow,
+  SupplierQuotationRow,
 } from '../types/purchasing.types';
 
 /** @prototype index.html:L10070-L10106 `rows` */
@@ -42,6 +44,23 @@ export const purchaseOrderHistoryRows: readonly PurchaseOrderHistoryRow[] = [
   { action: 'Issued', by: 'Procurement', date: 'Apr 29', id: 'PO-2025-142', note: 'PO issued to Nasim Facility.', tone: 'ok' },
   { action: 'Partially received', by: 'Warehouse', date: 'Apr 28', id: 'PO-2025-141', note: '24 of 40 laptops received.', tone: 'warn' },
   { action: 'Received', by: 'Warehouse', date: 'Apr 27', id: 'PO-2025-140', note: 'Goods received in full — GRN raised.', tone: 'ok' },
+];
+
+/** @prototype index.html:L10418-L10425 `quoteRows` */
+export const supplierQuotationRows: readonly SupplierQuotationRow[] = [
+  { id: 'SQ-2025-311', items: '12', pcRef: 'PC-2025-088', status: 'Received', supplier: 'Gulf Facilities Services Co.', tone: 'ok', valid: '15 Aug 2026', value: '4,250.000' },
+  { id: 'SQ-2025-310', items: '12', pcRef: 'PC-2025-088', status: 'Received', supplier: 'Al Mulla Trading Co.', tone: 'ok', valid: '12 Aug 2026', value: '4,610.000' },
+  { id: 'SQ-2025-309', items: '8', pcRef: 'PC-2025-086', status: 'Under review', supplier: 'Advanced Tech Systems', tone: 'warn', valid: '09 Aug 2026', value: '3,180.000' },
+  { id: 'SQ-2025-308', items: '20', pcRef: 'PC-2025-085', status: 'Shortlisted', supplier: 'Kuwait Supplies Group', tone: 'ok', valid: '05 Aug 2026', value: '9,740.000' },
+  { id: 'SQ-2025-307', items: '6', pcRef: 'PC-2025-084', status: 'Expired', supplier: 'National Cleaning Co.', tone: 'bad', valid: '02 Aug 2026', value: '1,920.000' },
+  { id: 'SQ-2025-306', items: '6', pcRef: 'PC-2025-084', status: 'Rejected', supplier: 'Prime Maintenance Ltd.', tone: 'bad', valid: '28 Jul 2026', value: '2,050.000' },
+];
+
+/** @prototype index.html:L10441-L10445 `quoteHistRows` */
+export const supplierQuotationHistoryRows: readonly SupplierQuotationHistoryRow[] = [
+  { action: 'Received', by: 'Procurement', date: '29 Apr', id: 'SQ-2025-311', note: 'Quotation received from Gulf Facilities.', tone: 'ok' },
+  { action: 'Shortlisted', by: 'Committee', date: '28 Apr', id: 'SQ-2025-309', note: 'Advanced Tech moved to shortlist.', tone: 'ok' },
+  { action: 'Rejected', by: 'Committee', date: '27 Apr', id: 'SQ-2025-307', note: 'Price above budget — rejected.', tone: 'bad' },
 ];
 
 /** @prototype index.html:L10231-L10235 `revExtra` */

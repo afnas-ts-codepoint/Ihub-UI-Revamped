@@ -18,6 +18,7 @@
       "edit": "Edit PC Request",
       "review": "Review PC Request",
       "po": "Purchase Order",
+      "quotations": "Supplier Quotations",
       "todo": "To Do",
       "missing": "Missing Documents",
       "history": "History",
@@ -117,6 +118,54 @@
       "remarksPlaceholder": "Who authorised this PO, variance against the approved value, conditions…",
       "cancel": "Cancel",
       "submit": "Attach purchase order"
+    }
+  },
+  "quotations": {
+    "segments": { "todo": "To Do", "history": "History", "report": "Report" },
+    "tabs": { "open": "Open", "allQuotations": "All quotations", "all": "All" },
+    "columns": {
+      "id": "Quotation #", "supplier": "Supplier", "pcRef": "PC Ref", "items": "Items",
+      "value": "Value (KWD)", "valid": "Valid until", "status": "Status"
+    },
+    "action": "Add Quotation",
+    "history": { "title": "History", "subtitle": "Full activity trail across supplier quotations." },
+    "report": { "title": "Report", "subtitle": "Build and export a supplier quotations report." },
+    "builder": {
+      "title": "Add Quotation",
+      "against": "Against purchasing committee request",
+      "close": "Close",
+      "requestDetails": "Request details",
+      "readOnly": "Read only",
+      "requestNumber": "Request #",
+      "department": "Department",
+      "estimatedValue": "Estimated value",
+      "submitted": "Submitted",
+      "status": "Status",
+      "subject": "Subject",
+      "supplierQuotations": "Supplier quotations",
+      "supplierCount": "{{count}} supplier",
+      "supplierCount_other": "{{count}} suppliers",
+      "supplier": "Supplier",
+      "addSupplier": "Add supplier",
+      "removeSupplier": "Remove supplier {{number}}",
+      "cancel": "Cancel",
+      "save": "Save quotations",
+      "conversionHint": "Converted automatically at the CBK reference rate",
+      "overrideHint": " — editable if the supplier states a different figure.",
+      "fields": {
+        "name": "Quotation name", "category": "Supplier category", "description": "Description",
+        "currency": "Currency", "amount": "Quoted amount", "converted": "Converted amount (KWD)",
+        "remarks": "Remarks", "attachments": "Attachments"
+      },
+      "placeholders": {
+        "name": "e.g. Gulf Facilities — Option A", "category": "Choose category…",
+        "description": "Scope of supply, inclusions and exclusions…",
+        "remarks": "Payment terms, delivery lead time, validity…"
+      },
+      "categories": {
+        "facilities": "Facilities & cleaning", "it": "IT & hardware", "maintenance": "Maintenance",
+        "printing": "Printing & marketing", "security": "Security", "other": "Other"
+      }
     }
   },
   "attachments": {

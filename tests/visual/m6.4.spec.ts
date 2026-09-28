@@ -31,14 +31,17 @@ async function openPrototypePo(page: Page, locale: QaLocale, theme: QaTheme, seg
   const poTabLabel = locale === 'ar' ? 'أمر الشراء' : 'Purchase Order';
   await page.getByRole('button', { exact: true, name: poTabLabel }).first().click();
   if (segment !== 'todo') {
-    await page.getByRole('button', { exact: true, name: segmentLabels[segment][locale] }).first().click();
+    // Scoped to `main`: "History"/"السجل" also names an outer global module
+    // nav item, which `.first()` would otherwise match instead of this
+    // in-page Purchase Order tab.
+    await page.getByRole('main').getByRole('button', { exact: true, name: segmentLabels[segment][locale] }).first().click();
   }
 }
 
 async function openApplicationPo(page: Page, path: string, theme: QaTheme, locale: QaLocale, segment: PoSegment) {
   await prepareApplication(page, path, theme, locale);
   if (segment !== 'todo') {
-    await page.getByRole('button', { exact: true, name: segmentLabels[segment][locale] }).first().click();
+    await page.getByRole('main').getByRole('button', { exact: true, name: segmentLabels[segment][locale] }).first().click();
   }
 }
 
@@ -106,8 +109,9 @@ for (const state of states) {
         ]);
       }
 
-      // Out of scope through M6.4 — the migrated app must never render Supplier Quotations tabs or content.
-      await expect(application.getByText('Supplier Quotations', { exact: true })).toHaveCount(0);
+      // M6.5 makes Supplier Quotations reachable in the integrated Purchasing shell.
+      const quotationsLabel = variant.locale === 'ar' ? 'عروض الموردين' : 'Supplier Quotations';
+      await expect(application.getByText(quotationsLabel, { exact: true })).toHaveCount(1);
 
       await prototype.waitForTimeout(400);
       await application.waitForTimeout(400);

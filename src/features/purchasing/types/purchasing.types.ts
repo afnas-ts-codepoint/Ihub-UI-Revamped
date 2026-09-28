@@ -4,6 +4,7 @@ export const HOME_PURCHASING_SECTIONS = [
   'edit',
   'review',
   'po',
+  'quotations',
   'todo',
   'missing',
   'history',
@@ -84,6 +85,50 @@ export type PoAttachSeed = Readonly<{
   pcValue: string;
   po: string;
   supplier: string;
+}>;
+
+export type QuotationCurrency = 'AED' | 'EUR' | 'GBP' | 'KWD' | 'SAR' | 'USD';
+
+export type SupplierQuotationRow = Readonly<{
+  id: string;
+  items: string;
+  pcRef: string;
+  status: string;
+  supplier: string;
+  tone: PurchasingTone;
+  valid: string;
+  value: string;
+}>;
+
+export type SupplierQuotationHistoryRow = Readonly<{
+  action: string;
+  by: string;
+  date: string;
+  id: string;
+  note: string;
+  tone: PurchasingTone;
+}>;
+
+export type QuotationSupplierDraft = Readonly<{
+  amount: string;
+  attachments: readonly PoAttachmentFile[];
+  category: string;
+  collapsed?: boolean;
+  convertedAmount: string;
+  convertedAmountEdited: boolean;
+  currency: QuotationCurrency;
+  description: string;
+  name: string;
+  remarks: string;
+}>;
+
+export type AddQuotationSeed = Readonly<{
+  pcDept: string;
+  pcRef: string;
+  pcStatus: string;
+  pcSubmitted: string;
+  pcTitle: string;
+  pcValue: string;
 }>;
 
 /** @prototype index.html:L10231-L10235 `revExtra`. */

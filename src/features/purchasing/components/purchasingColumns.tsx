@@ -1,4 +1,4 @@
-import { Folder, Pencil } from 'lucide-react';
+import { Folder, Pencil, Plus } from 'lucide-react';
 
 import type { TableColumn } from '@/shared/table';
 import { Chip } from '@/shared/ui/chip/Chip';
@@ -9,6 +9,8 @@ import type {
   PurchaseOrderHistoryRow,
   PurchaseOrderRow,
   PurchaseRequestRow,
+  SupplierQuotationHistoryRow,
+  SupplierQuotationRow,
 } from '../types/purchasing.types';
 import { rowActionButtonClass } from './purchasingButtonStyles';
 
@@ -129,6 +131,40 @@ export const purchaseOrderHistoryColumns: readonly TableColumn<PurchaseOrderHist
     key: 'action', label: 'Action',
     render: (row) => <Chip tone={row.tone}>{row.action}</Chip>,
   },
+  { key: 'by', label: 'By', muted: true },
+  { key: 'note', label: 'Note', muted: true, wrap: true },
+];
+
+/** @prototype index.html:L10403-L10416 `quoteCols` */
+export function supplierQuotationColumns(
+  labels: Readonly<Record<'action' | 'id' | 'items' | 'pcRef' | 'status' | 'supplier' | 'valid' | 'value', string>>,
+  onAdd: (row: SupplierQuotationRow) => void,
+): readonly TableColumn<SupplierQuotationRow>[] {
+  return [
+    { key: 'id', label: labels.id, render: (row) => <span className="num font-semibold">{row.id}</span> },
+    { key: 'supplier', label: labels.supplier },
+    { key: 'pcRef', label: labels.pcRef, muted: true, render: (row) => <span className="num">{row.pcRef}</span> },
+    { align: 'end', key: 'items', label: labels.items, muted: true },
+    { align: 'end', key: 'value', label: labels.value, render: (row) => <span className="num font-semibold">{row.value}</span> },
+    { key: 'valid', label: labels.valid, muted: true },
+    { key: 'status', label: labels.status, render: (row) => <Chip tone={row.tone}>{row.status}</Chip> },
+    {
+      align: 'end', key: 'act', label: '',
+      render: (row) => (
+        <button className={rowActionButtonClass} onClick={() => { onAdd(row); }} type="button">
+          <Plus aria-hidden="true" size={13} />
+          {labels.action}
+        </button>
+      ),
+    },
+  ];
+}
+
+/** Prototype deliberately reuses `poHistCols`, including its literal `PO #` heading. */
+export const supplierQuotationHistoryColumns: readonly TableColumn<SupplierQuotationHistoryRow>[] = [
+  { key: 'date', label: 'Date', muted: true },
+  { key: 'id', label: 'PO #', render: (row) => <span className="num font-semibold">{row.id}</span> },
+  { key: 'action', label: 'Action', render: (row) => <Chip tone={row.tone}>{row.action}</Chip> },
   { key: 'by', label: 'By', muted: true },
   { key: 'note', label: 'Note', muted: true, wrap: true },
 ];

@@ -35,7 +35,10 @@ async function openPrototypeSegment(page: Page, locale: QaLocale, theme: QaTheme
   const purchasingTabLabel = locale === 'ar' ? 'المشتريات' : 'Purchasing';
   await page.getByRole('button', { exact: true, name: purchasingTabLabel }).first().click();
   const label = segmentLabels[segment][locale];
-  await page.getByRole('button', { exact: true, name: label }).first().click();
+  // Scoped to `main`: the segment label (e.g. "History") collides with an
+  // identically-named item in the outer global module nav, which `.first()`
+  // would otherwise match instead of the in-page Purchasing tab.
+  await page.getByRole('main').getByRole('button', { exact: true, name: label }).first().click();
 }
 
 async function openApplicationSegment(page: Page, path: string, theme: QaTheme, locale: QaLocale) {
@@ -112,10 +115,10 @@ for (const state of states) {
         await submitReviewDialog(application, variant.locale, 'application');
       }
 
-      // Supplier Quotations (M6.5) remains out of scope through M6.4 — the migrated app must not render it yet.
-      // Purchase Order became reachable in M6.4 (see docs/tasks/phases/M6.4.md), so the earlier
-      // "Purchase Order must be absent" assertion here no longer holds and has been removed.
-      await expect(application.getByText('Supplier Quotations', { exact: true })).toHaveCount(0);
+      // Later phases made Purchase Order (M6.4) and Supplier Quotations (M6.5) reachable;
+      // this retained M6.3 visual flow now verifies the current integrated shell.
+      const quotationsLabel = variant.locale === 'ar' ? 'عروض الموردين' : 'Supplier Quotations';
+      await expect(application.getByText(quotationsLabel, { exact: true })).toHaveCount(1);
 
       await prototype.waitForTimeout(400);
       await application.waitForTimeout(400);

@@ -18,6 +18,7 @@
       "edit": "تعديل الطلب",
       "review": "مراجعة الطلب",
       "po": "أمر الشراء",
+      "quotations": "عروض الموردين",
       "todo": "المهام",
       "missing": "مستندات ناقصة",
       "history": "السجل",
@@ -117,6 +118,54 @@
       "remarksPlaceholder": "من فوّض أمر الشراء، الفرق عن القيمة المعتمدة، الشروط…",
       "cancel": "إلغاء",
       "submit": "إرفاق أمر الشراء"
+    }
+  },
+  "quotations": {
+    "segments": { "todo": "المهام", "history": "السجل", "report": "تقرير" },
+    "tabs": { "open": "مفتوحة", "allQuotations": "كل العروض", "all": "الكل" },
+    "columns": {
+      "id": "رقم العرض", "supplier": "المورّد", "pcRef": "مرجع اللجنة", "items": "الأصناف",
+      "value": "القيمة (د.ك)", "valid": "صالح حتى", "status": "الحالة"
+    },
+    "action": "إضافة عرض",
+    "history": { "title": "السجل", "subtitle": "سجل النشاط الكامل عبر عروض الموردين." },
+    "report": { "title": "تقرير", "subtitle": "أنشئ وصدّر تقرير عروض الموردين." },
+    "builder": {
+      "title": "إضافة عرض سعر",
+      "against": "مقابل طلب لجنة المشتريات",
+      "close": "إغلاق",
+      "requestDetails": "بيانات الطلب",
+      "readOnly": "للقراءة فقط",
+      "requestNumber": "رقم الطلب",
+      "department": "الإدارة",
+      "estimatedValue": "القيمة التقديرية",
+      "submitted": "تاريخ التقديم",
+      "status": "الحالة",
+      "subject": "الموضوع",
+      "supplierQuotations": "عروض الموردين",
+      "supplierCount": "{{count}} مورّد",
+      "supplierCount_other": "{{count}} موردين",
+      "supplier": "المورّد",
+      "addSupplier": "إضافة مورّد",
+      "removeSupplier": "إزالة المورّد {{number}}",
+      "cancel": "إلغاء",
+      "save": "حفظ العروض",
+      "conversionHint": "يُحوّل تلقائياً حسب سعر بنك الكويت المركزي",
+      "overrideHint": " — قابل للتعديل إذا ذكر المورّد قيمة مختلفة.",
+      "fields": {
+        "name": "اسم العرض", "category": "فئة المورّد", "description": "الوصف",
+        "currency": "العملة", "amount": "المبلغ المعروض", "converted": "المبلغ المحوّل (د.ك)",
+        "remarks": "ملاحظات", "attachments": "المرفقات"
+      },
+      "placeholders": {
+        "name": "مثال: عرض الخليج — الخيار أ", "category": "اختر الفئة…",
+        "description": "نطاق التوريد والاستثناءات…",
+        "remarks": "شروط الدفع ومدة التسليم والصلاحية…"
+      },
+      "categories": {
+        "facilities": "الخدمات والنظافة", "it": "تقنية المعلومات", "maintenance": "الصيانة",
+        "printing": "الطباعة والتسويق", "security": "الأمن", "other": "أخرى"
+      }
     }
   },
   "attachments": {

@@ -6,6 +6,25 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M6.5 intake
+
+- Date: 2026-09-28.
+- Scope: `PurchasingScreen` Supplier Quotations only — `quoteSub`/`quoteAdd` state (`index.html` 10110-10111), `quoteCols`/`quoteRows` (10403-10425), tabs/history/rendered branches (10426-10449), CBK rates/conversion/supplier state (10450-10461), supplier cards (10462-10491), Add Quotation dialog (10492-10528), and outer branch (10529-10542).
+- Result: `git diff --exit-code 273abc8 HEAD -- index.html` exited 0 at prototype HEAD `3c391b4`; the complete entry file remains byte-identical to the approved baseline.
+- Material finding, human-resolved ADOPT: `qLetters` contains only A-H, but Add Supplier has no maximum guard. The ninth and later suppliers remain addable with an `undefined` indexed letter, rendered by React as no letter text. Production deliberately preserves the defect; see `DECISIONS.md` and the dedicated component regression test.
+- Routing finding: continued the approved M6.3/M6.4 flat-section decision by adding `/home/purchasing/quotations`; quotation To Do/History/Report state remains non-routed.
+- No other plan/prototype conflict or source delta was found. M6.6 was not implemented.
+
+## M6.5 verification pass (test-tooling defect, not a prototype/product delta)
+
+- Date: 2026-09-28.
+- An independent verification pass re-ran the full suite (typecheck/lint/vitest/build/bundle-check all reproduced clean, matching the phase card) and additionally executed the Playwright visual capture, which the original implementation pass had not actually run to completion for regression coverage.
+- Finding: `openApplication`/`openPrototype` in `tests/visual/m6.5.spec.ts` (and the identical pre-existing pattern in `m6.3.spec.ts`'s `openPrototypeSegment` and `m6.4.spec.ts`'s `openPrototypePo`/`openApplicationPo`) switch the local `History`/`السجل` segment tab via an unscoped `page.getByRole('button', { exact: true, name: 'History' }).first()`. This text is **also** the exact label of the outer global module nav's History link, and `.first()` resolves to that global link instead of the in-page Purchasing tab, silently navigating away to the unrelated global History module. No assertion existed to catch this, so the resulting side-by-side screenshot captured the wrong page.
+- Impact confirmed by direct inspection: `docs/migration/qa/M6.3/history/*.png` (prototype pane only) and `docs/migration/qa/M6.4/history/*.png` (both panes) — both **already human-approved** — showed the global History module (`HIS-20260xx` rows), not the Purchasing/Purchase Order History tab. `docs/migration/qa/M6.5/history/*.png` had the identical defect (both panes).
+- Fix: scoped the segment-tab locator to the `main` landmark in all three spec files (`m6.3.spec.ts`, `m6.4.spec.ts`, `m6.5.spec.ts`). Separately, the M6.5 diff's own new assertion (`getByText('Supplier Quotations', { exact: true })`, added to `m6.3.spec.ts`/`m6.4.spec.ts` to guard against M6.6-style scope regressions) was hardcoded to the English string regardless of `variant.locale`, which broke every `ar` scenario in both files; fixed to branch on locale.
+- Verified: re-ran `m6.3.spec.ts` + `m6.4.spec.ts` + `m6.5.spec.ts` twice after the fix (full green, exit code 0, both times); visually confirmed the regenerated `history` captures for M6.3, M6.4, and M6.5 now correctly show the in-page Purchasing/Purchase Order/Supplier Quotations History tab on both panes. All `docs/migration/qa/{M6.3,M6.4,M6.5}/history/*.png` files were regenerated in place.
+- **Human awareness needed:** this means the M6.3 and M6.4 phases' already-approved visual QA evidence contained at least one materially wrong capture (the `history` state) at approval time. The underlying application behavior was always correct — only the QA screenshot evidence was wrong, due to a test-locator bug, not a code regression. No M6.3/M6.4 approval status was changed by this verification pass; this is flagged for human awareness/record only.
+
 ## M6.4 intake
 
 - Date: 2026-09-27.
