@@ -1,31 +1,44 @@
-import { Calendar, Clock, Globe } from 'lucide-react';
+import { Calendar, Clock, Globe, Plus } from 'lucide-react';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CollapsiblePanel } from './CollapsiblePanel';
 import { PanelIntro } from './FieldGrid';
-import { TASK_VIEW_DEPENDENCIES } from '../../data/taskView.mock';
+import { TASK_VIEW_DEPENDENCIES, type DependencyRow } from '../../data/taskView.mock';
 import { addWorkdays, toUsDate } from '@/shared/lib/date/workdays';
 import { Chip } from '@/shared/ui/chip/Chip';
 
 export const DEPENDENCIES_PANEL_ANCHOR_ID = 'task-view-dependencies';
 
+export type DisplayDependency = Omit<DependencyRow, 'workdaysFromNow'> & Readonly<{ impactDate: string }>;
+
 /**
- * Dependencies — read-only list of the current dependency fixture; Add/Edit/
- * Remove are hidden (`readOnly ? null : …`). `highlighted` briefly tints the
- * panel when the dependency reminder's "View dependencies" button opens and
- * scrolls to it, matching the prototype's `depFlash` effect.
+ * Dependencies — read-only list of the current dependency fixture; Edit/
+ * Remove are hidden (`readOnly ? null : …`) and remain out of M8.6's scope.
+ * Add is edit-mode only (`onAddDependency`, present only on the edit route)
+ * and opens the Add Dependency dialog (M8.6); `extraDependencies` appends
+ * what that dialog adds. `highlighted` briefly tints the panel when the
+ * dependency reminder's "View dependencies" button opens and scrolls to it,
+ * matching the prototype's `depFlash` effect.
  *
  * @prototype ihub/ORIGINAL_SOURCE.html:L18662-L18685 (`dependenciesPanel`),
  * L18637-L18646 (`focusCurrentDeps`).
  */
 export function DependenciesPanel({
+  extraDependencies = [],
   highlighted,
+  onAddDependency,
   onOpenChange,
   open,
-}: Readonly<{ highlighted: boolean; onOpenChange: (open: boolean) => void; open: boolean }>) {
+}: Readonly<{
+  extraDependencies?: readonly DisplayDependency[];
+  highlighted: boolean;
+  onAddDependency?: () => void;
+  onOpenChange: (open: boolean) => void;
+  open: boolean;
+}>) {
   const { t } = useTranslation('taskView');
-  const dependencies = useMemo(
+  const seeded = useMemo(
     () =>
       TASK_VIEW_DEPENDENCIES.map((dependency) => ({
         ...dependency,
@@ -33,9 +46,20 @@ export function DependenciesPanel({
       })),
     [],
   );
+  const dependencies = useMemo(() => [...seeded, ...extraDependencies], [extraDependencies, seeded]);
 
   return (
     <CollapsiblePanel
+      headerRight={onAddDependency ? (
+        <button
+          className="inline-flex shrink-0 items-center gap-1 rounded-lg border border-line-strong px-2.5 py-1.5 text-xs-plus font-semibold text-fg-2"
+          onClick={(event) => { event.stopPropagation(); onAddDependency(); }}
+          type="button"
+        >
+          <Plus aria-hidden size={12} />
+          {t('dependencyDialog.add')}
+        </button>
+      ) : undefined}
       icon={Globe}
       onOpenChange={onOpenChange}
       open={open}

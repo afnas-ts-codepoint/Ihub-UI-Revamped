@@ -69,7 +69,8 @@ describe('M5.1 Home routes', () => {
 
     const editRouter = renderPath('/tasks/JO-7779/edit');
     expect(await screen.findByTestId('home-top-banner')).toBeVisible();
-    expect(screen.getByRole('status')).toHaveTextContent('Edit Task');
+    expect(await screen.findByTestId('task-edit-not-found')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
     editRouter.dispose();
   });
 });

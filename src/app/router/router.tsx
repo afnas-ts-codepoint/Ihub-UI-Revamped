@@ -37,12 +37,11 @@ import {
 import { ReportsLibraryPage } from '@/features/reports';
 import { SettingsConfigurationPage } from '@/features/settings';
 import { SlaPage } from '@/features/sla';
-import { CreateTaskPage, TasksPage, TaskViewPage } from '@/features/tasks';
+import { CreateTaskPage, TaskEditPage, TasksPage, TaskViewPage } from '@/features/tasks';
 import { WorkflowsPage } from '@/features/workflows';
 import { WorkCentrePage } from '@/features/work-centre';
 import {
   NavRoutePage,
-  PendingRoutePage,
   ValidatedPendingRoute,
 } from '@/app/router/NavRoutePage';
 import { NotFoundPage } from '@/app/router/NotFoundPage';
@@ -233,7 +232,7 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'tasks/:taskId/edit',
-            element: <PendingRoutePage titleKey="routes.taskEdit" />,
+            element: <TaskEditPage />,
           },
         ],
       },

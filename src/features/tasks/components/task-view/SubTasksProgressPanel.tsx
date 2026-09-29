@@ -24,13 +24,26 @@ function average(rows: readonly SubtaskProgressRow[]) {
 
 /**
  * Sub Tasks Progress — department/sub-department filters over the 7-row
- * `EDIT_SUBTASKS` fixture, grouped into per-department cards; clicking any
- * row card opens the Sub Task History dialog, matching the prototype's
- * `openStCard` (which always opens history in read-only mode).
+ * `EDIT_SUBTASKS` fixture, grouped into per-department cards. Row clicks call
+ * the prototype's shared `openStCard`, which branches on mode: read-only
+ * opens the Sub Task History dialog (`onOpenHistory`); edit mode opens the
+ * Update Sub Tasks / Resolution Tasks dialog (`onUpdateSubTasks`) — the exact
+ * same unfiltered dialog the header's own "Update Sub Tasks" button opens,
+ * regardless of which row was clicked (`openStCard` takes no row argument).
  *
- * @prototype ihub/ORIGINAL_SOURCE.html:L18151-L18239.
+ * @prototype ihub/ORIGINAL_SOURCE.html:L18151-L18239 (rows),
+ * L18188-L18208 (`openStCard`/`stCard`).
  */
-export function SubTasksProgressPanel({ onOpenHistory }: Readonly<{ onOpenHistory: () => void }>) {
+export function SubTasksProgressPanel({
+  interaction = 'history',
+  onOpenHistory,
+  onUpdateSubTasks,
+}: Readonly<{
+  interaction?: 'history' | 'pending-update';
+  onOpenHistory: () => void;
+  onUpdateSubTasks?: () => void;
+}>) {
+  const openStCard = interaction === 'pending-update' ? (onUpdateSubTasks ?? onOpenHistory) : onOpenHistory;
   const { t } = useTranslation('taskView');
   const [department, setDepartment] = useState('');
   const [subDepartment, setSubDepartment] = useState('');
@@ -157,8 +170,8 @@ export function SubTasksProgressPanel({ onOpenHistory }: Readonly<{ onOpenHistor
                 <button
                   className="flex w-full flex-col gap-1.5 border-t border-line p-3.5 text-start first:border-t-0"
                   key={row.title}
-                  onClick={onOpenHistory}
-                  title={t('subtasks.viewHistory')}
+                  onClick={openStCard}
+                  title={interaction === 'history' ? t('subtasks.viewHistory') : t('subtasks.update')}
                   type="button"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">

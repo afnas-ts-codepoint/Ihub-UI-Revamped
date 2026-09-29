@@ -199,7 +199,6 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.paymentSettlement('action-sheet'),
     paths.home.paymentSettlement('petty-cash'),
     paths.home.paymentSettlement('add-supplier'),
-    paths.tasks.edit('T-100'),
   ])('routes the pending prototype screen at %s', async (path) => {
     const { router } = renderRoute(path);
     expect(await screen.findByRole('status')).toHaveAttribute(
@@ -211,6 +210,13 @@ describe('Phase 2 section 11 URL map', () => {
   it('routes the M8.4 Task View page (not the pending placeholder) at /tasks/:taskId', async () => {
     const { router } = renderRoute(paths.tasks.view('T-001'));
     expect(await screen.findByTestId('task-view-page')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it('routes the M8.5 Task Edit page (not the pending placeholder) at /tasks/:taskId/edit', async () => {
+    const { router } = renderRoute(paths.tasks.edit('T-001'));
+    expect(await screen.findByTestId('task-edit-page')).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });

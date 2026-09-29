@@ -1,4 +1,4 @@
-import { MessageSquare, Search } from 'lucide-react';
+import { ArrowUpRight, MessageSquare, Search } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -20,13 +20,25 @@ const TABS = ['All Notes', '@Mentions', 'My Notes'] as const;
  *
  * @prototype ihub/ORIGINAL_SOURCE.html:L18770-L18798 `logNotesPanel`.
  */
-export function LogNotesPanel() {
+export function LogNotesPanel({ editable = false }: Readonly<{ editable?: boolean }>) {
   const { t } = useTranslation('taskView');
   const [search, setSearch] = useState('');
   const [tab, setTab] = useState<(typeof TABS)[number]>('All Notes');
-  const notes = TASK_VIEW_LOG_NOTES.filter((note) =>
+  const [allNotes, setAllNotes] = useState(TASK_VIEW_LOG_NOTES);
+  const [message, setMessage] = useState('');
+  const notes = allNotes.filter((note) =>
     note.text.toLowerCase().includes(search.toLowerCase()),
   );
+
+  const postNote = () => {
+    const text = message.trim();
+    if (!text) return;
+    setAllNotes((current) => [
+      ...current,
+      { text, when: t('logNotes.justNow'), who: t('logNotes.currentUser') },
+    ]);
+    setMessage('');
+  };
 
   return (
     <section className="flex flex-col gap-3.5 rounded-xl bg-accent-dim p-5">
@@ -90,6 +102,31 @@ export function LogNotesPanel() {
           </p>
         ) : null}
       </div>
+
+      {editable ? (
+        <div className="flex items-center gap-2">
+          <input
+            aria-label={t('logNotes.compose')}
+            className="min-w-0 flex-1 rounded-lg border border-line-strong bg-canvas px-3 py-2 text-sm-plus outline-none"
+            onChange={(event) => {
+              setMessage(event.target.value);
+            }}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') postNote();
+            }}
+            placeholder={t('logNotes.compose')}
+            value={message}
+          />
+          <button
+            aria-label={t('logNotes.send')}
+            className="flex size-9.5 shrink-0 items-center justify-center rounded-full bg-accent text-accent-ink"
+            onClick={postNote}
+            type="button"
+          >
+            <ArrowUpRight aria-hidden size={15} />
+          </button>
+        </div>
+      ) : null}
     </section>
   );
 }

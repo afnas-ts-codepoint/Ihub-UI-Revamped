@@ -52,8 +52,9 @@ function downloadActivityFile(file: ActivityFile) {
  */
 export function ActivityHistoryPanel({
   department,
+  headerActions = false,
   seed,
-}: Readonly<{ department: string; seed: number }>) {
+}: Readonly<{ department: string; headerActions?: boolean; seed: number }>) {
   const { t } = useTranslation('taskView');
   const rows = useMemo(() => buildActivityRows(seed, department), [department, seed]);
   const [columnOrder, setColumnOrder] = useState<readonly number[]>([0, 1, 2, 3, 4, 5]);
@@ -109,7 +110,21 @@ export function ActivityHistoryPanel({
   };
 
   return (
-    <CollapsiblePanel className="flex-1" icon={Activity} title={t('activity.title')}>
+    <CollapsiblePanel
+      className="flex-1"
+      headerRight={headerActions ? (
+        <div className="flex gap-2">
+          <button className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-1.5 text-sm font-semibold text-accent-ink" type="button">
+            <Filter aria-hidden size={13} />{t('activity.filters')}
+          </button>
+          <button className="inline-flex items-center gap-1.5 rounded-lg border border-line-strong px-3 py-1.5 text-sm font-semibold text-fg-2" type="button">
+            <Download aria-hidden size={13} />{t('activity.exportHistoryPdf')}
+          </button>
+        </div>
+      ) : undefined}
+      icon={Activity}
+      title={t('activity.title')}
+    >
       <PanelIntro>{t('activity.intro')}</PanelIntro>
 
       <div className="grid grid-cols-1 gap-3.5 tablet:grid-cols-[repeat(3,minmax(0,1fr))_auto]">
@@ -295,7 +310,7 @@ export function ActivityHistoryPanel({
         </div>
       </div>
 
-      <div className="flex gap-2">
+      {!headerActions ? <div className="flex gap-2">
         <button
           className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-3.5 py-2 text-sm font-semibold text-accent-ink"
           type="button"
@@ -310,7 +325,7 @@ export function ActivityHistoryPanel({
           <Download aria-hidden size={13} />
           {t('activity.exportHistoryPdf')}
         </button>
-      </div>
+      </div> : null}
     </CollapsiblePanel>
   );
 }

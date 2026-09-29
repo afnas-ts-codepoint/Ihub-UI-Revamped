@@ -6,6 +6,25 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M8.6 intake
+
+- Date: 2026-09-29.
+- Baseline/current: `273abc8` → `3c391b4` (current HEAD); `git diff --exit-code 273abc8 HEAD -- index.html` exited 0 in the read-only prototype repository — zero prototype drift.
+- Relevant source: `TaskEditPage`'s edit-only controls, `index.html:18068-18085` (sticky action bar + overflow menu), `18801-18972` (CEO Comments, Approve, Reject, Close Task, Redirect), `18623-18705` (Add Dependency), `19180-19479` (Resolution Tasks / Update Sub Tasks, its Add/Edit Subtask sub-form, per-row delete confirm, and Copy/Move), `19481-19483` (fixed/portal wiring, `readOnly ? null : …`).
+- Delta result: no baseline-to-current source drift and no dead/unreachable M8.6 branch, with one exception: the legacy `TaskDetailPage` (`index.html:17372-17890`) and its own separate `subTaskHistoryModal` are dead/unreachable fallback code (only used if `window.TaskViewPage` were undefined, which it never is) — excluded, not migrated.
+- Behavioral findings resolved by literal fidelity rather than "fixed": the Reject dialog's heading literally reads "Reject Job Order" (not "Task"); the Approve dialog's body copy is a leftover generic "track this item" message, not approval-specific text; the CEO Comments footer's "Process owner and assignee are required" note is copy-pasted from Redirect and enforces nothing (already flagged D2 by the task card); Add Dependency's "Impacted Date" field is only conditionally shown when "Mark as Showstopper" is checked but is never actually required by validation (an unenforced-requirement quirk of the same shape as the CEO note, newly found during this intake); the Resolution Tasks modal's own heading reads "Resolution Tasks" although the trigger button/tooltip say "Update Sub Tasks"; its per-department "Total: 100%" labels are static/fake and were preserved literally rather than replaced with the real computed sum (the real sum only ever surfaces in the over-100% blocking banner). All six dialogs plus the action bar are architecturally reachable only on the edit route (`readOnly` falsy) — none are reachable from the read-only Task View route (M8.4) or the Create Task flow (M8.3).
+- Human resolution: not required — no material plan/prototype disagreement was found; all quirks above are preserved verbatim rather than "improved," consistent with the fidelity-first rule.
+
+## M8.5 intake
+
+- Date: 2026-09-29.
+- Baseline/current: `273abc8` → `3c391b4b5ccbc3fa0bb0ff56d5c8eda6bc6f80ff`; `git diff --exit-code 273abc8 HEAD -- index.html` exited 0 in the read-only prototype repository.
+- Relevant source: `TaskEditPage` edit paths (`index.html:17892-19510`), especially editable-card state and layout (`18006-18476`), Activity History (`18477-18622`), delayed dependency reminder (`18623-18663`), Add Comment (`18706-18768`), Log Notes (`18770-18798`), and final edit-mode composition (`19481-19510`).
+- Delta result: no baseline-to-current source drift and no dead/unreachable M8.5 branch. The route itself is reachable through the prototype's `task-edit` branch and `?ihubPreview=taskScope` shortcut.
+- Boundary finding: the same prototype component also renders M8.6's sticky action bar and dialogs, but the approved phase cards divide that component unambiguously. M8.5 activates only cards/comments/notes/history/SLA/reminder; M8.6 retains CEO Comments, Submit/Approve/Reject/Close/Redirect, Add Dependency, Update Sub Tasks, copy/move, and the sticky action bar.
+- Behavioral findings resolved by literal fidelity: SLA save requires a changed date plus trimmed justification and prepends local history; comment posting requires only trimmed Partner Remarks and resets without creating an Activity History row; Log Notes tabs are visual-only and `@mentions` remain literal; Activity History filters remain decorative; all M8.5 state is session-local and refresh-reset because the prototype's only page-level submit belongs to M8.6.
+- Human resolution: not required; no material plan/prototype disagreement or M8.5/M8.6 ambiguity remained after source/runtime verification.
+
 ## M11.2 intake
 
 - Date: 2026-09-29.

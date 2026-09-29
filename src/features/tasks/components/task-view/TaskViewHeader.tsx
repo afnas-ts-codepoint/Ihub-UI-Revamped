@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowUpRight, Box, Check, Folder, Search } from 'lucide-react';
+import { AlertTriangle, ArrowUpRight, Box, Check, ChevronRight, Folder, Search } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -123,19 +123,23 @@ function StageMarkerBadge({ marker }: Readonly<{ marker: StageMarker }>) {
  * Task View header card: subject/chips, four seeded header stats, an inert
  * search box, the 8-stage progress track with its two fixed marker popovers,
  * work progress, started/target dates and the Assigned Users avatar stack.
- * "Update Sub Tasks" is hidden (`readOnly ? null : …`); the expand button
- * opens the Sub Task History dialog in both modes.
+ * "Update Sub Tasks" (`onUpdateSubTasks`) renders only when the prop is
+ * passed — edit mode only, matching the prototype's `readOnly ? null : …`
+ * toolbar button; the expand button opens the Sub Task History dialog in
+ * both modes.
  *
  * @prototype ihub/ORIGINAL_SOURCE.html:L18087-L18149.
  */
 export function TaskViewHeader({
   onOpenHistory,
+  onUpdateSubTasks,
   schedule,
   stats,
   task,
   times,
 }: Readonly<{
   onOpenHistory: () => void;
+  onUpdateSubTasks?: () => void;
   schedule: Readonly<{ start: string; target: string }>;
   stats: TaskViewHeaderStats;
   task: TaskViewModel;
@@ -307,6 +311,20 @@ export function TaskViewHeader({
             </div>
           ) : null}
         </div>
+        {onUpdateSubTasks ? (
+          <>
+            <div className="hidden self-stretch border-s border-line tablet:block" />
+            <button
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-accent px-3.5 py-2 text-sm font-semibold text-accent-ink"
+              onClick={onUpdateSubTasks}
+              type="button"
+            >
+              <Folder aria-hidden size={13} />
+              {t('subtasks.update')}
+              <ChevronRight aria-hidden size={13} />
+            </button>
+          </>
+        ) : null}
       </div>
     </div>
   );

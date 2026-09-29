@@ -56,8 +56,8 @@ Destinations outside this release flow continue to show the registered `Migratio
 | [M8.2](phases/M8.2.md)   | Task analytics, workload heatmap, dashboard config store           | Completed | Codex        | M8.1                    | 2026-09-29 | Approved |
 | [M8.3](phases/M8.3.md)   | Create Task (canonical)                                            | Completed | Codex        | M8.1, M6.5              | Not opened | Approved   |
 | [M8.4](phases/M8.4.md)   | Task View                                                          | Completed | Claude       | M8.3                    | Not opened | Approved |
-| [M8.5](phases/M8.5.md)   | Task Edit: cards, comments, notes, history                         | Pending   | Not assigned | M8.4                    | TBD        | Required |
-| [M8.6](phases/M8.6.md)   | Task Edit: dialogs and action bar                                  | Pending   | Not assigned | M8.5                    | TBD        | Required |
+| [M8.5](phases/M8.5.md)   | Task Edit: cards, comments, notes, history                         | Completed | Codex        | M8.4                    | 2026-09-29 | Approved |
+| [M8.6](phases/M8.6.md)   | Task Edit: dialogs and action bar                                  | Completed | Claude       | M8.5                    | 2026-09-29 | Approved |
 | [M9.1](phases/M9.1.md)   | Analysis of the five legacy usages (document only)                 | Pending   | Not assigned | M8.3, M7.5              | TBD        | Required |
 | [M9.2](phases/M9.2.md)   | Implement the approved task-form modes and incident "Raise a task" | Pending   | Not assigned | M9.1                    | TBD        | Required |
 | [M10.1](phases/M10.1.md) | Queues, workflow drawer, Approvals view                            | Pending   | Not assigned | M6.6, M6.7, M9.2        | TBD        | Required |
