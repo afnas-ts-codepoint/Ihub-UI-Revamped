@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { TaskBoard } from '../components/TaskBoard';
+import { TaskDashboard } from '../components/TaskDashboard';
 import { TaskDetailDialog } from '../components/TaskDetailDialog';
 import { TaskTable } from '../components/TaskTable';
 import {
@@ -18,7 +19,6 @@ import {
   RecordFilter,
   type RecordFilterValue,
 } from '@/features/organization';
-import { MigrationPending } from '@/shared/ui/feedback/MigrationPending';
 
 type TaskView = 'board' | 'dashboard' | 'list';
 type ListStatus = 'all' | 'completed' | 'critical' | 'new' | 'progress';
@@ -172,6 +172,7 @@ function TaskBoardView({
 
 export function TasksPage() {
   const { t } = useTranslation('tasks');
+  const tasks = useTasks();
   const [view, setView] = useState<TaskView>('list');
   const [kind, setKind] = useState<TaskKindFilter>('all');
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -244,15 +245,7 @@ export function TasksPage() {
       ) : view === 'board' ? (
         <TaskBoardView kind={kind} onOpen={setActiveId} />
       ) : (
-        <div data-testid="task-dashboard-pending">
-          <MigrationPending area={t('dashboard.pending')} />
-          <button
-            className="mt-3 rounded-lg px-3 py-2 text-sm font-semibold text-accent"
-            type="button"
-          >
-            {t('actions.goToTasks')}
-          </button>
-        </div>
+        <TaskDashboard kind={kind} onOpen={setActiveId} tasks={tasks} />
       )}
 
       <TaskDetailDialog

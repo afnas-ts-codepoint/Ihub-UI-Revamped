@@ -2,6 +2,15 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-09-29 - M8.2 Task analytics dashboard approved
+
+- Replaced the M8.1 Dashboard `MigrationPending` body inside `/home/work-centre/tasks` with the reachable current-prototype Soft Tint dashboard.
+- Added all eleven registered Task dashboard widgets with exact static fixtures, current Task-store-backed High priority rows/search, impacted-area drill-down, and the Department/Employee workload heatmap with filters and deterministic inline Gantt rows.
+- Added the persisted `taskDashboardConfig.store` under `ihub.v2.taskdash.config`; it owns organization/personal runtime configs and prototype-equivalent effective-layout rules without `window.*` events.
+- Kept the M11.2 Settings builder store independent. Connecting Settings to this runtime store remains M11.3 and still also depends on M10.2.
+- Preserved the High priority widget's inert `Go to tasks` control and the M8.1 in-place detail modal; M8.5/M8.6 edit behavior remains pending.
+- Added focused domain/store/page coverage and a 13-image visual evidence pack across EN/AR, Paper/Ink, desktop/tablet/mobile, impacted-area drill-down, and workload states. User approved M8.2 on 2026-09-29; it is recorded in `COMPLETED.md`.
+
 ## 2026-09-29 - M11.1 dead-code exclusion and M11.2 implementation
 
 ### Human authorization and decision
@@ -14,7 +23,7 @@ With M11.1 resolved, M11.2 (Dashboard configuration builders) was implemented ag
 
 - `/settings/configuration` becomes live, replacing its `PendingRoutePage` marker with the `SettingsConfigurationPage` two-tab shell (Admin Configuration / User Configuration).
 - No `DashboardLayoutView`/`DL_WIDGETS` (`index.html:7449-7853`) migration — confirmed dead/unreachable during the M11.2 delta intake, same exclusion rationale as M11.1's finding.
-- Runtime integration with `taskDashboardConfig.store` and the completed Task/Overview dashboards remains deferred to M11.3, which has not been started; M8.2 and M10.2 (M11.3's other dependencies) are also still pending.
+- Runtime integration with `taskDashboardConfig.store` and the Task/Overview dashboards remains deferred to M11.3, which has not been started; M8.2 is now in Review and M10.2 is still pending.
 - No new npm dependency was added; `shared/file/json.ts` is the one new shared module, with M11.2 as its first real consumer.
 
 ## 2026-09-29 - M8.3 current-prototype adoption
@@ -87,7 +96,7 @@ Unmigrated destinations may remain in navigation, but they must show the standar
 - The first release is intentionally partial and is not the final M12 migration release.
 - Navigation parity remains mandatory even when a destination is pending.
 - No pending marker may remain inside the approved Navbar → Masters/Home → Work Centre → Settings first-release flow.
-- Full dashboard configuration integration remains pending until M8.2 and M10.2 are complete.
+- Full dashboard configuration integration remains pending until M8.2 is approved and M10.2 is complete.
 
 ### Files changed
 

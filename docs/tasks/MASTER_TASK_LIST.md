@@ -53,7 +53,7 @@ Destinations outside this release flow continue to show the registered `Migratio
 | [M7.5](phases/M7.5.md)   | Incident workspace                                                 | Completed | Codex        | M7.1                    | 2026-09-28 | Approved |
 | [M7.6](phases/M7.6.md)   | Work Centre checklist sub-views                                    | Completed | Codex        | M7.1, M3.5              | Not opened | Approved |
 | [M8.1](phases/M8.1.md)   | Task list                                                          | Completed | Codex        | M7.1, M4.1              | Not opened | Approved |
-| [M8.2](phases/M8.2.md)   | Task analytics, workload heatmap, dashboard config store           | Pending   | Not assigned | M8.1                    | TBD        | Required |
+| [M8.2](phases/M8.2.md)   | Task analytics, workload heatmap, dashboard config store           | Completed | Codex        | M8.1                    | 2026-09-29 | Approved |
 | [M8.3](phases/M8.3.md)   | Create Task (canonical)                                            | Completed | Codex        | M8.1, M6.5              | Not opened | Approved   |
 | [M8.4](phases/M8.4.md)   | Task View                                                          | Completed | Claude       | M8.3                    | Not opened | Approved |
 | [M8.5](phases/M8.5.md)   | Task Edit: cards, comments, notes, history                         | Pending   | Not assigned | M8.4                    | TBD        | Required |

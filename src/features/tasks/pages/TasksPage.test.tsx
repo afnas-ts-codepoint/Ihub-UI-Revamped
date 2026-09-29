@@ -4,12 +4,15 @@ import { afterEach, beforeAll, describe, expect, it } from 'vitest';
 
 import { TasksPage } from './TasksPage';
 import { useTasksStore } from '../store/tasks.store';
+import { useTaskDashboardConfigStore } from '../store/taskDashboardConfig.store';
 import { i18n, initializeI18n } from '@/shared/i18n/i18n';
 
 beforeAll(async () => initializeI18n('en'));
 afterEach(async () => {
   cleanup();
   useTasksStore.getState().reset();
+  useTaskDashboardConfigStore.getState().reset();
+  localStorage.removeItem('ihub.v2.taskdash.config');
   await i18n.changeLanguage('en');
   document.documentElement.dir = 'ltr';
 });
@@ -89,16 +92,61 @@ describe('M8.1 Tasks page', () => {
     expect(screen.getAllByRole('button', { name: 'Add card' })).toHaveLength(4);
   });
 
-  it('keeps Dashboard analytics pending and its Go to tasks control inert', async () => {
+  it('renders all eleven M8.2 dashboard widgets and keeps Go to tasks inert', async () => {
     const user = userEvent.setup();
     render(<TasksPage />);
     await user.click(screen.getByRole('button', { name: 'Dashboard' }));
-    expect(screen.getByRole('status')).toHaveAttribute(
-      'data-migration-pending',
-      'Task dashboard analytics',
-    );
-    await user.click(screen.getByRole('button', { name: 'Go to tasks →' }));
-    expect(screen.getByRole('status')).toBeVisible();
+    const dashboard = screen.getByTestId('task-dashboard');
+    expect(dashboard.querySelectorAll('[data-widget-id]')).toHaveLength(11);
+    expect(screen.getByText('Task metrics')).toBeVisible();
+    expect(screen.getByText('SLA performance')).toBeVisible();
+    expect(screen.getByText('Department resource availability & workload')).toBeVisible();
+    await user.click(screen.getByRole('button', { name: 'Go to tasks' }));
+    expect(screen.getByTestId('task-dashboard')).toBeVisible();
+  });
+
+  it('supports dashboard search, impacted-area drill-down, and task modal reuse', async () => {
+    const user = userEvent.setup();
+    render(<TasksPage />);
+    await user.click(screen.getByRole('button', { name: 'Dashboard' }));
+    await user.type(screen.getByRole('textbox', { name: 'Search high priority tasks' }), 'T-004');
+    expect(screen.getByText('Fire alarm fault codes — Warehouse')).toBeVisible();
+    expect(screen.queryByText('Emergency HVAC failure — 360 Mall')).not.toBeInTheDocument();
+    await user.click(screen.getByText('Fire alarm fault codes — Warehouse'));
+    expect(screen.getByRole('dialog')).toBeVisible();
+    await user.click(screen.getByRole('button', { name: 'Close' }));
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    await user.click(screen.getByTitle('View details — Thrill Rides'));
+    expect(screen.getByTestId('impacted-area-detail')).toHaveTextContent('Performance Metrics Overview');
+  });
+
+  it('supports workload view, row, filter, and status interactions', async () => {
+    const user = userEvent.setup();
+    render(<TasksPage />);
+    await user.click(screen.getByRole('button', { name: 'Dashboard' }));
+    const heatmap = screen.getByTestId('workload-heatmap');
+    await user.click(within(heatmap).getByRole('button', { name: 'Open workload details for IT' }));
+    expect(screen.getByTestId('workload-gantt')).toBeVisible();
+    await user.selectOptions(within(heatmap).getByRole('combobox', { name: 'Status' }), 'Done');
+    expect(screen.getByTestId('workload-gantt')).toBeVisible();
+    await user.click(within(heatmap).getByRole('button', { name: 'Employee' }));
+    expect(within(heatmap).getByRole('combobox', { name: 'Employee' })).toHaveValue('all');
+    expect(within(heatmap).getByRole('button', { name: 'Open workload details for A. Al-Harbi' })).toBeVisible();
+  });
+
+  it('applies the independent task dashboard runtime config', async () => {
+    useTaskDashboardConfigStore.getState().setOrganizationConfig({
+      cols: 3,
+      dnd: true,
+      hide: true,
+      ids: ['metrics', 'workload'],
+      lock: false,
+    });
+    const user = userEvent.setup();
+    render(<TasksPage />);
+    await user.click(screen.getByRole('button', { name: 'Dashboard' }));
+    expect(screen.getByTestId('task-dashboard').querySelectorAll('[data-widget-id]')).toHaveLength(2);
+    expect(screen.queryByText('SLA performance')).not.toBeInTheDocument();
   });
 
   it('opens the detail modal from a row and Delete Task only closes it', async () => {
@@ -154,5 +202,8 @@ describe('M8.1 Tasks page', () => {
     expect(screen.getByRole('button', { name: 'داخلية' })).toBeVisible();
     expect(screen.getByRole('columnheader', { name: 'Subject' })).toBeVisible();
     expect(screen.getByText('Emergency HVAC failure — 360 Mall')).toBeVisible();
+    await userEvent.setup().click(screen.getByRole('button', { name: 'لوحة المعلومات' }));
+    expect(screen.getByText('مؤشرات المهام')).toBeVisible();
+    expect(screen.getByText('توافر موارد الإدارات وأعباء العمل')).toBeVisible();
   });
 });
