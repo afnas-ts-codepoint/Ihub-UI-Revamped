@@ -1,0 +1,232 @@
+{
+  "pageTitle": "View Task",
+  "editTask": "Edit Task",
+  "back": "Back",
+  "notFound": {
+    "title": "Task not found",
+    "description": "This task doesn't exist or may have been removed.",
+    "back": "Back to tasks"
+  },
+  "common": {
+    "close": "Close",
+    "collapse": "Collapse",
+    "expand": "Expand"
+  },
+  "header": {
+    "external": "External",
+    "internal": "Internal",
+    "slaMet": "SLA Met",
+    "slaOnTrack": "SLA On Track",
+    "search": "Search…",
+    "taskStatus": "Task Status",
+    "stageOf": "Stage {{current}} of {{total}}",
+    "workProgress": "Work Progress",
+    "startedAt": "Started {{date}}, {{time}}",
+    "targetAt": "Target {{date}}, {{time}}",
+    "expand": "Expand",
+    "expandTitle": "Expand work progress details",
+    "assignedUsers": "Assigned Users",
+    "marker": {
+      "approvalRequired": "Approval Required",
+      "technicalSpecs": "Technical specs approval",
+      "cleared": "Cleared",
+      "spareParts": "Spare Parts",
+      "mountingBrackets": "Mounting brackets",
+      "inReviewBlocking": "In Review · Blocking",
+      "vendorDependency": "Vendor Dependency",
+      "technicianCertification": "Technician certification check",
+      "inReview": "In Review"
+    }
+  },
+  "details": {
+    "title": "Task Details",
+    "intro": "Core task information — subject, project, and details.",
+    "subject": "Task Subject",
+    "projectName": "Project Name",
+    "projectCategory": "Project Category",
+    "description": "Details",
+    "descriptionValue": "Scheduled maintenance and inspection task for {{department}}."
+  },
+  "classification": {
+    "title": "Task Classification",
+    "intro": "How this task is categorized and its business impact.",
+    "category": "Category",
+    "taskType": "Task Type",
+    "taskTypeValue": "Emergency Maintenance",
+    "risk": "Risk / Impacted Category",
+    "riskValue": "Operations",
+    "impactedArea": "Impacted Area"
+  },
+  "requester": {
+    "title": "Requester Info",
+    "intro": "Who requested this task and when.",
+    "requestedAt": "Requested Date & Time",
+    "requestedBy": "Requested By",
+    "department": "Requester Department",
+    "type": "Requester Type / Role",
+    "typeValue": "Manager",
+    "daysElapsed": "No. of Days Elapsed",
+    "daysValue": "{{count}} day",
+    "daysValue_other": "{{count}} days",
+    "sinceRequest": "Since request"
+  },
+  "location": {
+    "title": "Location & Zone",
+    "intro": "Where this task takes place, its priority, and the related asset.",
+    "location": "Location",
+    "zone": "Zone",
+    "area": "Area",
+    "areaValue": "Roll Coaster Area",
+    "subArea": "Sub-Area",
+    "subAreaValue": "Track section Area",
+    "priority": "Priority",
+    "severity": "Severity",
+    "touchpoint": "Touchpoint",
+    "guestKpi": "Guest Satisfaction's KPI",
+    "guestKpiValue": "High",
+    "assetCategory": "Asset Category",
+    "assetName": "Asset Name",
+    "assetCode": "Asset Code"
+  },
+  "reference": {
+    "title": "Reference Numbers",
+    "intro": "Related enquiry, observation, or incident reference numbers.",
+    "enquiry": "Enquiry #",
+    "observation": "Observation #",
+    "incident": "Incident #",
+    "source": "Source",
+    "sourceValue": "Generic"
+  },
+  "assignment": {
+    "title": "Assignment Info",
+    "intro": "Who owns this task, its matrix partners, and who it is assigned to.",
+    "processOwner": "Process Owner",
+    "matrixPartner": "Matrix Partner",
+    "assignee": "Assignee",
+    "unassigned": "Unassigned"
+  },
+  "dependencies": {
+    "title": "Dependencies",
+    "intro": "Dependencies & Blockers",
+    "current": "Current Dependencies ({{count}})",
+    "current_other": "Current Dependencies ({{count}})",
+    "blocking": "Blocking",
+    "leadTime": "Lead Time",
+    "dateImpact": "Date Impact",
+    "startDelayedTo": "Start delayed to",
+    "empty": "No Dependencies Added"
+  },
+  "dependencyReminder": {
+    "title": "Dependency Reminder",
+    "summary": "{{count}} pending dependency is due within the next {{days}} working days (one week). Follow up so this task isn't delayed.",
+    "summary_other": "{{count}} pending dependencies are due within the next {{days}} working days (one week). Follow up so this task isn't delayed.",
+    "overdueBy": "Overdue by {{count}} day",
+    "overdueBy_other": "Overdue by {{count}} days",
+    "dueToday": "Due today",
+    "workdaysLeft": "{{count}} working day left",
+    "workdaysLeft_other": "{{count}} working days left",
+    "due": "Due",
+    "viewDependencies": "View dependencies"
+  },
+  "sla": {
+    "title": "SLA & Performance",
+    "intro": "SLA status, the target completion and every change made to it.",
+    "breachedTitle": "SLA Breached",
+    "breachedSub": "One or more tasks exceeded their SLA deadline",
+    "onTrackTitle": "SLA On Track",
+    "onTrackSub": "All tasks are within their SLA deadline",
+    "breached": "Breached",
+    "onTrack": "On Track",
+    "targetCompletion": "Target Completion",
+    "changeHistory": "Target Change History",
+    "changeCount": "{{count}} change",
+    "changeCount_other": "{{count}} changes",
+    "noChanges": "No target changes yet."
+  },
+  "attachments": {
+    "title": "Attachments",
+    "intro": "Files and documents attached to this task.",
+    "view": "View",
+    "download": "Download",
+    "downloading": "Downloading…",
+    "close": "Close",
+    "empty": "No attachments"
+  },
+  "activity": {
+    "title": "Activity History",
+    "intro": "A timeline of all updates and comments on this task.",
+    "allDepartments": "All Departments",
+    "allStatuses": "All Statuses",
+    "allTypes": "All Activities",
+    "removeFilter": "Remove Filter",
+    "comment": "Comment",
+    "attachments": "Attachments",
+    "download": "Download",
+    "showing": "Showing {{count}} of {{total}} activities",
+    "filters": "Filters",
+    "exportHistoryPdf": "Export History PDF"
+  },
+  "logNotes": {
+    "title": "Log Notes",
+    "subtitle": "Team Conversations",
+    "search": "Search…",
+    "tabs": "Log note filters",
+    "empty": "No log notes yet"
+  },
+  "subtasks": {
+    "title": "Sub Tasks Progress",
+    "intro": "Breakdown of sub-tasks by department and their completion progress.",
+    "department": "Department",
+    "subDepartment": "Sub Department",
+    "allDepartments": "All Departments ({{count}})",
+    "allSubDepartments": "All Sub Departments",
+    "reset": "Reset",
+    "departmentsCount": "department",
+    "departmentsCount_other": "departments",
+    "subtasksCount": "sub-tasks",
+    "subDepartmentsCount": "sub department",
+    "subDepartmentsCount_other": "sub departments",
+    "status": {
+      "done": "Completed",
+      "progress": "In Progress",
+      "pending": "Pending"
+    },
+    "viewHistory": "View Sub Task History",
+    "due": "Due",
+    "withinSla": "Within SLA",
+    "atRisk": "At Risk",
+    "noMatches": "No sub-tasks match the selected filters."
+  },
+  "subtaskHistory": {
+    "title": "Sub Task History",
+    "subtitle": "Detailed timeline of all sub-task activities and logs",
+    "timelineTab": "Timeline Log",
+    "ganttTab": "Gantt Chart",
+    "searchLabel": "Search By Task Title",
+    "advancedFilters": "Advanced Filters",
+    "searchPlaceholder": "Type to search tasks…",
+    "filter": {
+      "assignee": "Task Assignee",
+      "department": "Department",
+      "subDepartment": "Sub Department",
+      "category": "Project Category",
+      "status": "Status",
+      "all": {
+        "assignee": "All Assignees",
+        "department": "All Departments",
+        "subDepartment": "All Sub Departments",
+        "category": "All Categories",
+        "status": "All Statuses"
+      }
+    },
+    "timelineEntries": "Complete Activity Timeline ({{count}} entry)",
+    "timelineEntries_other": "Complete Activity Timeline ({{count}} entries)",
+    "noResults": "No sub-tasks found. Try a different search term.",
+    "subTask": "Sub Task",
+    "stats": {
+      "total": "Total Tasks",
+      "completed": "Completed",
+      "inProgress": "In Progress"
+    }
+  }
+}

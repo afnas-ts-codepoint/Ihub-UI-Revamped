@@ -199,13 +199,26 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.paymentSettlement('action-sheet'),
     paths.home.paymentSettlement('petty-cash'),
     paths.home.paymentSettlement('add-supplier'),
-    paths.tasks.view('T-100'),
     paths.tasks.edit('T-100'),
   ])('routes the pending prototype screen at %s', async (path) => {
     const { router } = renderRoute(path);
     expect(await screen.findByRole('status')).toHaveAttribute(
       'data-migration-pending',
     );
+    router.dispose();
+  });
+
+  it('routes the M8.4 Task View page (not the pending placeholder) at /tasks/:taskId', async () => {
+    const { router } = renderRoute(paths.tasks.view('T-001'));
+    expect(await screen.findByTestId('task-view-page')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it('shows a not-found state for an unknown task id, still not the pending placeholder', async () => {
+    const { router } = renderRoute(paths.tasks.view('T-100'));
+    expect(await screen.findByTestId('task-view-not-found')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });
 

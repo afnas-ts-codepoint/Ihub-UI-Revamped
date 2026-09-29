@@ -6,6 +6,18 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M8.4 intake
+
+- Date: 2026-09-29.
+- Baseline/current: `273abc8` → `3c391b4b5ccbc3fa0bb0ff56d5c8eda6bc6f80ff`; `git diff --exit-code 273abc8 HEAD -- index.html` exited 0 in the prototype repository, confirming zero prototype drift since baseline for this run.
+- Relevant source: `TaskEditPage` (`index.html:L17892-L19510`) rendered with `readOnly:true` (`TaskViewPage`, `L19511-L19513`); dependency/working-days helpers and `StageMarkerBadge`/`DependencyReminderModal`/`useDependencyReminder` (`L17279-L17370`); `TASK_STAGES` (`L17244-L17253`).
+- Delta result: no baseline-to-current source drift. Every line reference in the preflight brief was re-verified directly against source during implementation.
+- Findings made during source reading, beyond the preflight brief (resolved by literal fidelity, no new material plan conflict):
+  1. **Log Notes panel** (`L18770-L18798`) is unconditionally rendered in the right column even in read-only mode — it was not called out in the preflight brief. Ported as its own panel (search-filtered, compose box hidden when read-only).
+  2. Several visible labels are passed to the prototype's `T(x, x, locale)` helper with the *same* string as both the English and Arabic argument — a genuine, easily-missed no-op: the header's four stat labels (Response/Verification/Resolution/Completion, `L18100`), the 8 stage-track names (`L18112`), the Gantt Day/Week/Month toggle and the Log Notes tabs (both via the shared `seg()` helper, `L18004`), and the Activity History filter labels ("Department"/"Partner Status"/"Activity Type", `L18566`). These are kept as literal, locale-invariant English in the port rather than translated, to avoid a silent Arabic-translation "improvement" the prototype does not make. See `PROTOTYPE_NOOPS.md`.
+  3. Attachment-row `aria-label`s ("View"/"Download"/"Remove") are hardcoded English in the prototype (`L18278-L18280`), not `T()`'d. Unlike the visible-copy no-ops above, these are screen-reader-only strings; routing them through i18n (as every other feature's aria-labels already are in this codebase) is a reasonable, consistent accessibility choice, not a visible-UX deviation, so they were translated normally rather than preserved as English-only.
+- Human resolution: not required — no material plan/prototype conflict was found; the findings above were resolved by literal fidelity or, for the aria-label point, by following this codebase's existing accessibility convention.
+
 ## M8.3 intake and approved reconciliation
 
 - Date: 2026-09-29.

@@ -1,0 +1,232 @@
+{
+  "pageTitle": "عرض المهمة",
+  "editTask": "تعديل المهمة",
+  "back": "رجوع",
+  "notFound": {
+    "title": "المهمة غير موجودة",
+    "description": "هذه المهمة غير موجودة أو ربما تمت إزالتها.",
+    "back": "العودة إلى المهام"
+  },
+  "common": {
+    "close": "إغلاق",
+    "collapse": "طي",
+    "expand": "توسيع"
+  },
+  "header": {
+    "external": "خارجية",
+    "internal": "داخلية",
+    "slaMet": "ضمن الاتفاقية",
+    "slaOnTrack": "ملتزم باتفاقية الخدمة",
+    "search": "بحث…",
+    "taskStatus": "حالة المهمة",
+    "stageOf": "المرحلة {{current}} من {{total}}",
+    "workProgress": "تقدم العمل",
+    "startedAt": "بدأت {{date}}, {{time}}",
+    "targetAt": "الهدف {{date}}, {{time}}",
+    "expand": "توسيع",
+    "expandTitle": "عرض تفاصيل تقدم العمل",
+    "assignedUsers": "المستخدمون المعينون",
+    "marker": {
+      "approvalRequired": "الموافقة مطلوبة",
+      "technicalSpecs": "اعتماد المواصفات الفنية",
+      "cleared": "تم الاعتماد",
+      "spareParts": "قطع الغيار",
+      "mountingBrackets": "حوامل التركيب",
+      "inReviewBlocking": "قيد المراجعة · معلّق",
+      "vendorDependency": "اعتماد على المورد",
+      "technicianCertification": "التحقق من شهادة الفني",
+      "inReview": "قيد المراجعة"
+    }
+  },
+  "details": {
+    "title": "تفاصيل المهمة",
+    "intro": "معلومات المهمة الأساسية — الموضوع والمشروع والتفاصيل.",
+    "subject": "موضوع المهمة",
+    "projectName": "اسم المشروع",
+    "projectCategory": "فئة المشروع",
+    "description": "التفاصيل",
+    "descriptionValue": "مهمة صيانة وفحص مجدولة لقسم {{department}}."
+  },
+  "classification": {
+    "title": "تصنيف المهمة",
+    "intro": "كيفية تصنيف هذه المهمة وأثرها على العمل.",
+    "category": "الفئة",
+    "taskType": "نوع المهمة",
+    "taskTypeValue": "Emergency Maintenance",
+    "risk": "فئة المخاطر / الأثر",
+    "riskValue": "Operations",
+    "impactedArea": "المنطقة المتأثرة"
+  },
+  "requester": {
+    "title": "معلومات مقدّم الطلب",
+    "intro": "من طلب هذه المهمة ومتى.",
+    "requestedAt": "تاريخ ووقت الطلب",
+    "requestedBy": "مقدّم الطلب",
+    "department": "قسم مقدّم الطلب",
+    "type": "نوع / دور مقدّم الطلب",
+    "typeValue": "مدير",
+    "daysElapsed": "عدد الأيام المنقضية",
+    "daysValue": "{{count}} يوم",
+    "daysValue_other": "{{count}} يوم",
+    "sinceRequest": "منذ الطلب"
+  },
+  "location": {
+    "title": "الموقع والمنطقة",
+    "intro": "مكان تنفيذ المهمة وأولويتها والأصل المرتبط بها.",
+    "location": "الموقع",
+    "zone": "المنطقة",
+    "area": "المنطقة الفرعية",
+    "areaValue": "منطقة الأفعوانية",
+    "subArea": "القسم الفرعي",
+    "subAreaValue": "منطقة المسار",
+    "priority": "الأولوية",
+    "severity": "الخطورة",
+    "touchpoint": "نقطة التواصل",
+    "guestKpi": "مؤشر رضا الضيف",
+    "guestKpiValue": "High",
+    "assetCategory": "فئة الأصل",
+    "assetName": "اسم الأصل",
+    "assetCode": "رمز الأصل"
+  },
+  "reference": {
+    "title": "أرقام مرجعية",
+    "intro": "أرقام الاستفسار أو الملاحظة أو الحادثة ذات الصلة.",
+    "enquiry": "رقم الاستفسار",
+    "observation": "رقم الملاحظة",
+    "incident": "رقم الحادثة",
+    "source": "المصدر",
+    "sourceValue": "Generic"
+  },
+  "assignment": {
+    "title": "معلومات الإسناد",
+    "intro": "من يملك هذه المهمة وشركاؤها المصفوفيون ولمن أُسندت.",
+    "processOwner": "مالك العملية",
+    "matrixPartner": "الشريك المصفوفي",
+    "assignee": "المكلف",
+    "unassigned": "غير مسند"
+  },
+  "dependencies": {
+    "title": "التبعيات",
+    "intro": "التبعيات والمعوقات",
+    "current": "التبعيات الحالية ({{count}})",
+    "current_other": "التبعيات الحالية ({{count}})",
+    "blocking": "معيق",
+    "leadTime": "وقت التنفيذ",
+    "dateImpact": "التأثير على التاريخ",
+    "startDelayedTo": "تأخر البدء إلى",
+    "empty": "لم تتم إضافة تبعيات"
+  },
+  "dependencyReminder": {
+    "title": "تذكير بالتبعيات",
+    "summary": "{{count}} تبعية معلقة مستحقة خلال {{days}} أيام عمل (أسبوع). يرجى المتابعة لتجنب تأخير المهمة.",
+    "summary_other": "{{count}} تبعية معلقة مستحقة خلال {{days}} أيام عمل (أسبوع). يرجى المتابعة لتجنب تأخير المهمة.",
+    "overdueBy": "متأخر {{count}} يوم",
+    "overdueBy_other": "متأخر {{count}} يوم",
+    "dueToday": "مستحق اليوم",
+    "workdaysLeft": "متبقٍ {{count}} يوم عمل",
+    "workdaysLeft_other": "متبقٍ {{count}} يوم عمل",
+    "due": "الاستحقاق",
+    "viewDependencies": "عرض التبعيات"
+  },
+  "sla": {
+    "title": "اتفاقية الخدمة والأداء",
+    "intro": "حالة اتفاقية الخدمة والموعد المستهدف وكل تغيير عليه.",
+    "breachedTitle": "تم تجاوز اتفاقية الخدمة",
+    "breachedSub": "تجاوزت مهمة أو أكثر الموعد النهائي لاتفاقية الخدمة",
+    "onTrackTitle": "ضمن اتفاقية الخدمة",
+    "onTrackSub": "جميع المهام ضمن الموعد النهائي لاتفاقية الخدمة",
+    "breached": "متجاوز",
+    "onTrack": "ضمن الموعد",
+    "targetCompletion": "الإنجاز المستهدف",
+    "changeHistory": "سجل تغيير الموعد المستهدف",
+    "changeCount": "{{count}} تغيير",
+    "changeCount_other": "{{count}} تغييرات",
+    "noChanges": "لا توجد تغييرات على الموعد بعد."
+  },
+  "attachments": {
+    "title": "المرفقات",
+    "intro": "الملفات والمستندات المرفقة بهذه المهمة.",
+    "view": "عرض",
+    "download": "تنزيل",
+    "downloading": "جارٍ التنزيل…",
+    "close": "إغلاق",
+    "empty": "لا توجد مرفقات"
+  },
+  "activity": {
+    "title": "سجل النشاط",
+    "intro": "سجل زمني لجميع التحديثات والتعليقات على هذه المهمة.",
+    "allDepartments": "كل الإدارات",
+    "allStatuses": "كل الحالات",
+    "allTypes": "كل الأنشطة",
+    "removeFilter": "إزالة عامل التصفية",
+    "comment": "تعليق",
+    "attachments": "المرفقات",
+    "download": "تنزيل",
+    "showing": "عرض {{count}} من {{total}} نشاطات",
+    "filters": "عوامل التصفية",
+    "exportHistoryPdf": "تصدير السجل PDF"
+  },
+  "logNotes": {
+    "title": "ملاحظات السجل",
+    "subtitle": "محادثات الفريق",
+    "search": "بحث…",
+    "tabs": "عوامل تصفية ملاحظات السجل",
+    "empty": "لا توجد ملاحظات سجل بعد"
+  },
+  "subtasks": {
+    "title": "تقدم المهام الفرعية",
+    "intro": "تفصيل المهام الفرعية حسب القسم ونسبة إنجازها.",
+    "department": "القسم",
+    "subDepartment": "القسم الفرعي",
+    "allDepartments": "كل الأقسام ({{count}})",
+    "allSubDepartments": "كل الأقسام الفرعية",
+    "reset": "إعادة تعيين",
+    "departmentsCount": "قسم",
+    "departmentsCount_other": "أقسام",
+    "subtasksCount": "مهام فرعية",
+    "subDepartmentsCount": "قسم فرعي",
+    "subDepartmentsCount_other": "أقسام فرعية",
+    "status": {
+      "done": "مكتمل",
+      "progress": "قيد التنفيذ",
+      "pending": "قيد الانتظار"
+    },
+    "viewHistory": "عرض سجل المهام الفرعية",
+    "due": "تاريخ الاستحقاق",
+    "withinSla": "ضمن الاتفاقية",
+    "atRisk": "معرضة للخطر",
+    "noMatches": "لا توجد مهام فرعية مطابقة للفلاتر المحددة."
+  },
+  "subtaskHistory": {
+    "title": "سجل المهام الفرعية",
+    "subtitle": "جدول زمني تفصيلي لجميع أنشطة وسجلات المهام الفرعية",
+    "timelineTab": "سجل زمني",
+    "ganttTab": "مخطط جانت",
+    "searchLabel": "البحث حسب عنوان المهمة",
+    "advancedFilters": "عوامل تصفية متقدمة",
+    "searchPlaceholder": "اكتب للبحث عن المهام…",
+    "filter": {
+      "assignee": "المكلف بالمهمة",
+      "department": "القسم",
+      "subDepartment": "القسم الفرعي",
+      "category": "فئة المشروع",
+      "status": "الحالة",
+      "all": {
+        "assignee": "كل المكلفين",
+        "department": "كل الإدارات",
+        "subDepartment": "كل الأقسام الفرعية",
+        "category": "كل الفئات",
+        "status": "كل الحالات"
+      }
+    },
+    "timelineEntries": "السجل الزمني الكامل للنشاط ({{count}} إدخال)",
+    "timelineEntries_other": "السجل الزمني الكامل للنشاط ({{count}} إدخالات)",
+    "noResults": "لم يتم العثور على مهام فرعية. جرّب مصطلح بحث مختلف.",
+    "subTask": "المهمة الفرعية",
+    "stats": {
+      "total": "إجمالي المهام",
+      "completed": "مكتمل",
+      "inProgress": "قيد التنفيذ"
+    }
+  }
+}

@@ -54,10 +54,11 @@ describe('M5.1 Home routes', () => {
     router.dispose();
   });
 
-  it('wraps task detail and edit markers in HomeBannerLayout with no active tab', async () => {
+  it('wraps the M8.4 Task View (not-found for this unseeded id) in HomeBannerLayout with no active tab', async () => {
     const viewRouter = renderPath('/tasks/JO-7779');
     expect(await screen.findByTestId('home-top-banner')).toBeVisible();
-    expect(screen.getByRole('status')).toHaveTextContent('Task Details');
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    expect(await screen.findByTestId('task-view-not-found')).toBeVisible();
     expect(
       within(screen.getByTestId('home-tab-bar')).queryByRole('button', {
         current: 'page',

@@ -89,6 +89,7 @@ export async function initializeI18n(locale: Locale) {
       'sla',
       'taskCreate',
       'tasks',
+      'taskView',
       'workCentre',
       'workflows',
     ],

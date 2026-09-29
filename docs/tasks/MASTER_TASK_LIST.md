@@ -55,7 +55,7 @@ Destinations outside this release flow continue to show the registered `Migratio
 | [M8.1](phases/M8.1.md)   | Task list                                                          | Completed | Codex        | M7.1, M4.1              | Not opened | Approved |
 | [M8.2](phases/M8.2.md)   | Task analytics, workload heatmap, dashboard config store           | Pending   | Not assigned | M8.1                    | TBD        | Required |
 | [M8.3](phases/M8.3.md)   | Create Task (canonical)                                            | Completed | Codex        | M8.1, M6.5              | Not opened | Approved   |
-| [M8.4](phases/M8.4.md)   | Task View                                                          | Pending   | Codex        | M8.3                    | Not opened | Authorized |
+| [M8.4](phases/M8.4.md)   | Task View                                                          | Completed | Claude       | M8.3                    | Not opened | Approved |
 | [M8.5](phases/M8.5.md)   | Task Edit: cards, comments, notes, history                         | Pending   | Not assigned | M8.4                    | TBD        | Required |
 | [M8.6](phases/M8.6.md)   | Task Edit: dialogs and action bar                                  | Pending   | Not assigned | M8.5                    | TBD        | Required |
 | [M9.1](phases/M9.1.md)   | Analysis of the five legacy usages (document only)                 | Pending   | Not assigned | M8.3, M7.5              | TBD        | Required |

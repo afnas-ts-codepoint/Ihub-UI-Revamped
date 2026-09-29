@@ -36,7 +36,7 @@ import {
 } from '@/features/purchasing';
 import { ReportsLibraryPage } from '@/features/reports';
 import { SlaPage } from '@/features/sla';
-import { CreateTaskPage, TasksPage } from '@/features/tasks';
+import { CreateTaskPage, TasksPage, TaskViewPage } from '@/features/tasks';
 import { WorkflowsPage } from '@/features/workflows';
 import { WorkCentrePage } from '@/features/work-centre';
 import {
@@ -228,7 +228,7 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             path: 'tasks/:taskId',
-            element: <PendingRoutePage titleKey="routes.taskDetails" />,
+            element: <TaskViewPage />,
           },
           {
             path: 'tasks/:taskId/edit',

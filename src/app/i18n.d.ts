@@ -20,6 +20,7 @@ import type reports from '@/shared/i18n/locales/en/reports.json';
 import type sla from '@/shared/i18n/locales/en/sla.json';
 import type taskCreate from '@/shared/i18n/locales/en/taskCreate.json';
 import type tasks from '@/shared/i18n/locales/en/tasks.json';
+import type taskView from '@/shared/i18n/locales/en/taskView.json';
 import type validation from '@/shared/i18n/locales/en/validation.json';
 import type workflows from '@/shared/i18n/locales/en/workflows.json';
 import type workCentre from '@/shared/i18n/locales/en/workCentre.json';
@@ -48,6 +49,7 @@ declare module 'i18next' {
       sla: typeof sla;
       taskCreate: typeof taskCreate;
       tasks: typeof tasks;
+      taskView: typeof taskView;
       validation: typeof validation;
       workCentre: typeof workCentre;
       workflows: typeof workflows;

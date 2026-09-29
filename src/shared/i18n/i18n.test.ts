@@ -16,6 +16,7 @@ import arOrganization from '@/shared/i18n/locales/ar/organization.json';
 import arPurchasing from '@/shared/i18n/locales/ar/purchasing.json';
 import arReports from '@/shared/i18n/locales/ar/reports.json';
 import arSla from '@/shared/i18n/locales/ar/sla.json';
+import arTaskView from '@/shared/i18n/locales/ar/taskView.json';
 import arValidation from '@/shared/i18n/locales/ar/validation.json';
 import arWorkflows from '@/shared/i18n/locales/ar/workflows.json';
 import enAppraisal from '@/shared/i18n/locales/en/appraisal.json';
@@ -33,6 +34,7 @@ import enOrganization from '@/shared/i18n/locales/en/organization.json';
 import enPurchasing from '@/shared/i18n/locales/en/purchasing.json';
 import enReports from '@/shared/i18n/locales/en/reports.json';
 import enSla from '@/shared/i18n/locales/en/sla.json';
+import enTaskView from '@/shared/i18n/locales/en/taskView.json';
 import enValidation from '@/shared/i18n/locales/en/validation.json';
 import enWorkflows from '@/shared/i18n/locales/en/workflows.json';
 import { getCalendarLabels } from '@/shared/i18n/calendar';
@@ -83,6 +85,7 @@ describe('i18n resources', () => {
     ['purchasing', enPurchasing, arPurchasing],
     ['reports', enReports, arReports],
     ['sla', enSla, arSla],
+    ['taskView', enTaskView, arTaskView],
     ['validation', enValidation, arValidation],
     ['workflows', enWorkflows, arWorkflows],
   ])('keeps en/ar %s keys in parity', (_namespace, english, arabic) => {
