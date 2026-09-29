@@ -36,6 +36,7 @@ import {
 } from '@/features/purchasing';
 import { ReportsLibraryPage } from '@/features/reports';
 import { SlaPage } from '@/features/sla';
+import { TasksPage } from '@/features/tasks';
 import { WorkflowsPage } from '@/features/workflows';
 import { WorkCentrePage } from '@/features/work-centre';
 import {
@@ -202,6 +203,7 @@ export const appRoutes: RouteObject[] = [
                 renderEnquiries={(view) => <EnquiriesPage view={view} />}
                 renderObservations={(view) => <ObservationsPage view={view} />}
                 renderSnagLists={(view) => <SnagListsPage view={view} />}
+                renderTasks={() => <TasksPage />}
               />
             ),
             handle: { homeTab: 'work-centre' },

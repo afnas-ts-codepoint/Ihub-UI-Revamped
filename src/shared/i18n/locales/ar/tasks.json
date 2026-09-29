@@ -1,0 +1,73 @@
+{
+  "actions": {
+    "addCard": "إضافة بطاقة",
+    "addComment": "إضافة تعليق",
+    "archive": "أرشفة المهمة",
+    "close": "إغلاق",
+    "closeDialog": "إغلاق",
+    "create": "إنشاء مهمة جديدة",
+    "delete": "حذف المهمة",
+    "duplicate": "تكرار المهمة",
+    "goToTasks": "عرض المهام ←",
+    "reopen": "إعادة فتح",
+    "saveDraft": "حفظ كمسودة"
+  },
+  "board": {
+    "openCard": "فتح {{id}}"
+  },
+  "dashboard": {
+    "pending": "تحليلات لوحة المهام"
+  },
+  "empty": "لا توجد أوامر عمل",
+  "kind": {
+    "all": "الكل",
+    "ariaLabel": "نوع المهمة",
+    "external": "خارجية",
+    "internal": "داخلية"
+  },
+  "lastUpdated": "آخر تحديث",
+  "updatedAt": "10:45 AM",
+  "list": {
+    "settings": "Settings",
+    "export": "Export",
+    "group": "Group:",
+    "title": "جميع أوامر العمل"
+  },
+  "modal": {
+    "actions": "إجراءات",
+    "attachments": "المرفقات",
+    "checklist": "مجموعات القائمة ({{count}}/{{total}})",
+    "commentPlaceholder": "اكتب تعليقاً…",
+    "comments": "التعليقات",
+    "department": "الإدارة",
+    "due": "الاستحقاق",
+    "inList": "في القائمة",
+    "kind": "النوع",
+    "noComments": "لا توجد تعليقات بعد",
+    "overallProgress": "التقدم الإجمالي",
+    "risk": "المخاطرة",
+    "severity": "الخطورة",
+    "taskType": "نوع المهمة",
+    "unassigned": "غير معيّن",
+    "upload": "انقر للرفع أو اسحب وأفلت",
+    "uploadTypes": "PDF، صور، مستندات"
+  },
+  "progress": {
+    "label": "تقدم قائمة {{id}}"
+  },
+  "status": {
+    "all": "الكل",
+    "completed": "مكتمل",
+    "critical": "حرِج",
+    "new": "جديد",
+    "progress": "قيد التنفيذ"
+  },
+  "table": {
+    "openTask": "فتح {{id}}"
+  },
+  "views": {
+    "board": "اللوحة",
+    "dashboard": "لوحة المعلومات",
+    "list": "القائمة"
+  }
+}

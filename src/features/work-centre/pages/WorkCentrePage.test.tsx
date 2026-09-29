@@ -30,6 +30,7 @@ function renderPath(path: string) {
             renderSnagLists={(view) => (
               <div data-testid="snag-lists-view">{view}</div>
             )}
+            renderTasks={() => <div data-testid="tasks-view" />}
           />
         ),
       },
@@ -87,18 +88,19 @@ describe('M7.1 Work Centre hub', () => {
     );
   });
 
-  it('keeps Create Task, Tasks, and future dedicated screens pending', () => {
-    for (const path of [
-      '/home/work-centre/create-task',
-      '/home/work-centre/tasks',
-    ]) {
-      const router = renderPath(path);
-      expect(screen.getByRole('status')).toHaveAttribute(
-        'data-migration-pending',
-      );
-      router.dispose();
-      cleanup();
-    }
+  it('keeps Create Task pending and activates the Tasks renderer', () => {
+    const createRouter = renderPath('/home/work-centre/create-task');
+    expect(screen.getByRole('status')).toHaveAttribute(
+      'data-migration-pending',
+      'Create a New Task',
+    );
+    createRouter.dispose();
+    cleanup();
+
+    const tasksRouter = renderPath('/home/work-centre/tasks');
+    expect(screen.getByTestId('tasks-view')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    tasksRouter.dispose();
   });
 
   it('renders all real Observation destinations without changing their URLs', () => {
@@ -208,9 +210,9 @@ describe('M7.1 Work Centre hub', () => {
       expect(screen.getByPlaceholderText(/AS-2026-114/)).toBeVisible();
       expect(screen.getByRole('tab', { name: 'Open 12' })).toBeVisible();
       expect(screen.getByRole('tab', { name: 'Closed 47' })).toBeVisible();
-      expect(within(screen.getByRole('table')).getAllByRole('row')).toHaveLength(
-        5,
-      );
+      expect(
+        within(screen.getByRole('table')).getAllByRole('row'),
+      ).toHaveLength(5);
       expect(screen.getByRole('table')).toHaveTextContent('ENQ-118');
       expect(screen.getByRole('table')).toHaveTextContent('ENQ-115');
 
@@ -224,7 +226,9 @@ describe('M7.1 Work Centre hub', () => {
     await i18n.changeLanguage('ar');
     document.documentElement.dir = 'rtl';
     renderPath('/home/work-centre/checklists/sequence');
-    expect(screen.getByRole('button', { name: 'Create a Sequence' })).toBeVisible();
+    expect(
+      screen.getByRole('button', { name: 'Create a Sequence' }),
+    ).toBeVisible();
     expect(screen.getByTestId('work-centre-fallback')).toBeVisible();
   });
 

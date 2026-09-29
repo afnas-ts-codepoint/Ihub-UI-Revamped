@@ -221,7 +221,7 @@ First-release exit criteria:
 | M7.4 | Snag lists | S | M7.1 | — | — | — |
 | M7.5 | Incident workspace | M | M7.1 | Timeline, TimelineItem, HistoryRail, useRecordHistory, tracking store | — | — |
 | M7.6 | Work Centre checklist sub-views | S | M7.1, M3.5 | — | — | — |
-| M8.1 | Task list | M | M7.1, M4.1 | SegmentBar, column ordering/grouping | — | delta intake |
+| M8.1 | Task list | M | M7.1, M4.1 | Dashboard/List/Board, current prototype List surface, partial RecordFilter, local progress/modal behavior | — | reconciled current-prototype delta; completed and approved |
 | M8.2 | Task analytics & workload heatmap | L | M8.1 | remaining charts, task dashboard config store | recharts (if not added yet) | delta intake |
 | M8.3 | Create Task (canonical) | L | M8.1, M6.5 | FileDropZone, AttachmentPreviewDialog, useObjectUrl, seedable random | — | delta intake |
 | M8.4 | Task View | L | M8.3 | GanttChart, working-days util | — | delta intake |
@@ -657,17 +657,11 @@ Every phase must pass G1–G10 and end with a stop for approval. The cards list 
 
 **M8.1 — Task list**
 - **Source:** `JobOrdersScreen`/`ListView` 16814–17278; `TasksTable` 16379–16513; `Board` 16665–16813; `TASKS` 15976 onward.
-- **Scope:**
-  - `features/tasks` begins at `/home/work-centre/tasks`.
-  - List, board and card views; settings dialog; RecordFilter `task`; internal/external kinds.
-  - Table:
-    - drag column reorder and grouping by status, priority, assignee or department;
-    - clickable progress segments;
-    - row actions: view → `/tasks/:id`, edit → `/tasks/:id/edit`, delete confirmation that hides the row client-side.
-  - QA rows not editable on the board.
-  - Seeded `tasks.store` plus `useTasks` and `useTask`.
-- **Introduces:** `SegmentBar`; column ordering and grouping on the table engine.
-- **Acceptance:** parity for each view; grouping, ordering and delete-hide behaviors match.
+- **Approved reconciliation (2026-09-29):** ADOPT the current rendered prototype where this original scope conflicted with it; see `DECISIONS.md` and `PROTOTYPE_DELTAS.md`.
+- **Scope:** `/home/work-centre/tasks`; Dashboard/List/Board controls with Dashboard content deferred to M8.2; exact fixtures; internal/external filtering; current partial `RecordFilter` behavior; List table; four-column Board; checklist progress; Close/Reopen; and the in-place detail modal.
+- **Excluded:** Card, settings, column reorder/grouping, QA restrictions, explicit View/Edit actions, confirmation, and delete/hide mutation.
+- **Introduces:** the smallest feature-local task state consumed by M8.1. Existing `SegmentedControl`/filter/dialog/table infrastructure is reused where it matches.
+- **Acceptance:** current List/Board/modal parity, partial predicates, synchronized progress/Close/Reopen state, deliberate no-ops, EN/AR/RTL, and responsive overflow behavior.
 
 **M8.2 — Task analytics, workload heatmap, dashboard config store**
 - **Source:** task datasets and chart primitives 15846–16095; soft widgets 16106–16283; `Workload` 16297–16359; `TASK_DASH_WIDGETS` and config 16909–16951.

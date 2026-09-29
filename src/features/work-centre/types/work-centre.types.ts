@@ -12,7 +12,12 @@ export type WorkCentreSection =
   | 'promotions';
 
 export type WorkCentreRenderer =
-  'enquiries' | 'fallback' | 'observations' | 'snag-lists' | 'pending';
+  | 'enquiries'
+  | 'fallback'
+  | 'observations'
+  | 'snag-lists'
+  | 'tasks'
+  | 'pending';
 
 export type WorkCentreLabelKey =
   | 'sections.createTask'

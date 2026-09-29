@@ -1,0 +1,73 @@
+{
+  "actions": {
+    "addCard": "Add card",
+    "addComment": "Add Comment",
+    "archive": "Archive Task",
+    "close": "Close",
+    "closeDialog": "Close",
+    "create": "Create a New Task",
+    "delete": "Delete Task",
+    "duplicate": "Duplicate Task",
+    "goToTasks": "Go to tasks →",
+    "reopen": "Reopen",
+    "saveDraft": "Save as Draft"
+  },
+  "board": {
+    "openCard": "Open {{id}}"
+  },
+  "dashboard": {
+    "pending": "Task dashboard analytics"
+  },
+  "empty": "No tasks",
+  "kind": {
+    "all": "All",
+    "ariaLabel": "Task kind",
+    "external": "External",
+    "internal": "Internal"
+  },
+  "lastUpdated": "Last updated",
+  "updatedAt": "10:45 AM",
+  "list": {
+    "title": "All tasks",
+    "settings": "Settings",
+    "export": "Export",
+    "group": "Group:"
+  },
+  "modal": {
+    "actions": "Actions",
+    "attachments": "Attachments",
+    "checklist": "Checklist Groups ({{count}}/{{total}})",
+    "commentPlaceholder": "Write a comment…",
+    "comments": "Comments",
+    "department": "Department",
+    "due": "Due",
+    "inList": "in list",
+    "kind": "Kind",
+    "noComments": "No comments yet",
+    "overallProgress": "Overall Progress",
+    "risk": "Risk",
+    "severity": "Severity",
+    "taskType": "Task Type",
+    "unassigned": "Unassigned",
+    "upload": "Click to upload or drag and drop",
+    "uploadTypes": "PDF, Images, Documents (Max 10MB each)"
+  },
+  "progress": {
+    "label": "Checklist progress for {{id}}"
+  },
+  "status": {
+    "all": "All",
+    "completed": "Completed",
+    "critical": "Critical",
+    "new": "New",
+    "progress": "In progress"
+  },
+  "table": {
+    "openTask": "Open {{id}}"
+  },
+  "views": {
+    "board": "Board",
+    "dashboard": "Dashboard",
+    "list": "List"
+  }
+}

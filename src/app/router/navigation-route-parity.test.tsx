@@ -56,7 +56,10 @@ const HEADING_OVERRIDES: Readonly<
   'budgeting/budgeting': { ar: arBudgeting.title, en: enBudgeting.title },
   'budgeting/dashboard': { ar: arBudgeting.title, en: enBudgeting.title },
   checklist: { ar: arChecklists.title, en: enChecklists.title },
-  'dashboard/incidents': { ar: arIncidents.report.title, en: enIncidents.report.title },
+  'dashboard/incidents': {
+    ar: arIncidents.report.title,
+    en: enIncidents.report.title,
+  },
   overtime: { ar: arHr.title, en: enHr.title },
 };
 
@@ -193,7 +196,6 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.assigned('tasks'),
     paths.home.view('reports'),
     paths.home.workCentre('create-task'),
-    paths.home.workCentre('tasks', 'open'),
     paths.home.workCentre('incidents'),
     paths.home.paymentSettlement('action-sheet'),
     paths.home.paymentSettlement('petty-cash'),
@@ -215,6 +217,16 @@ describe('Phase 2 section 11 URL map', () => {
   ])('routes the migrated Work Centre fallback at %s', async (path) => {
     const { router } = renderRoute(path);
     expect(await screen.findByTestId('work-centre-fallback')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it.each([
+    paths.home.workCentre('tasks'),
+    paths.home.workCentre('tasks', 'open'),
+  ])('routes the migrated Task List at %s', async (path) => {
+    const { router } = renderRoute(path);
+    expect(await screen.findByTestId('tasks-page')).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });

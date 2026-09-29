@@ -6,11 +6,13 @@ This file records approved changes to migration sequencing, release flow, task s
 
 ### Human authorization and decision
 
-The user authorized the reachable Work Centre task flows shown by the current prototype to be included in the first release. Pull forward M8.1 Task list and M8.3 Create Task; their existing dependency on M7.1, M4.1, and M6.5 remains in force. M8.4 Task View is also pulled forward as the minimum destination required by M8.1 row actions. M8.2 analytics and M8.5-M8.6 task editing remain deferred.
+The user authorized the reachable Work Centre task flows shown by the current prototype to be included in the first release. Pull forward M8.1 Task list and M8.3 Create Task; their existing dependency on M7.1, M4.1, and M6.5 remains in force. M8.4 Task View remains separately authorized for the first release, but the adopted M8.1 prototype opens an in-place modal and does not depend on that route. M8.2 analytics and M8.5-M8.6 task editing remain deferred.
+
+For M8.1, the user first resolved the written-plan/current-prototype conflict with **ADOPT CURRENT PROTOTYPE**, then reopened that decision on 2026-09-29 after visual QA found the current rendered List surface also includes Location/Zone and Department columns, Settings/Export affordances, Group controls, row View/Edit/Remove affordances, and six-row pagination. M8.1 now reproduces those visible affordances while keeping them inert and preserving the M8.2-M8.6 boundaries; it still does not deliver Card view, functional settings, column reorder/grouping, QA restrictions, routed View/Edit, or delete/hide behavior.
 
 ### Consequences accepted
 
-- `/home/work-centre/tasks`, `/home/work-centre/create-task`, and the task-view destination are no longer allowed to remain `MigrationPending` in the approved Work Centre flow.
+- `/home/work-centre/tasks` becomes live in M8.1. `/home/work-centre/create-task` remains pending until M8.3, and `/tasks/:taskId` remains pending until the separately authorized M8.4 phase.
 - The pulled-forward phases remain subject to the one-phase-at-a-time review and human approval gates.
 - No unrelated M8, M9, M10, or M11 work is authorized by this change.
 

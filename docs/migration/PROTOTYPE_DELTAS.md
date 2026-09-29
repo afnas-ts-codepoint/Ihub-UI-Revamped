@@ -6,6 +6,14 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M8.1 intake and approved reconciliation
+
+- Date: 2026-09-29.
+- Scope: current rendered Tasks Dashboard/List/Board controls, fixtures, `RecordFilter` predicates, progress actions, Board placement, and detail modal.
+- Result: `git diff --exit-code 273abc8 HEAD -- ihub/index.html` exited 0 at prototype HEAD `3c391b4`; the relevant task source has no drift from the approved baseline or completed preflight.
+- Material plan conflict: visual QA of the current rendered prototype found that the live List surface also exposes Location/Zone and Department columns, Settings and Export affordances, status chips, Group controls, row View/Edit/Remove affordances, and six-row pagination (`Showing 6 of 10 records`). These were absent from the earlier reduced implementation scope.
+- Human resolution: **REOPEN AND RECONCILE — ADOPT CURRENT PROTOTYPE** on 2026-09-29. M8.1 now reproduces those visible affordances, while keeping Settings/Group/View/Edit/Remove inert where functional behavior belongs to later phases. Dashboard analytics remain deferred to M8.2, Create remains M8.3, routed View remains M8.4, and edit remains M8.5/M8.6.
+
 ## M7.6 intake
 
 - Date: 2026-09-28.

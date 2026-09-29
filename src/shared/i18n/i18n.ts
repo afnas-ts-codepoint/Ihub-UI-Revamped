@@ -87,6 +87,7 @@ export async function initializeI18n(locale: Locale) {
       'purchasing',
       'reports',
       'sla',
+      'tasks',
       'workCentre',
       'workflows',
     ],

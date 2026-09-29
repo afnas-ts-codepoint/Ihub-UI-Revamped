@@ -34,6 +34,7 @@ type WorkCentrePageProps = Readonly<{
     view: 'add' | 'assignment' | 'history' | 'report',
   ) => ReactNode;
   renderSnagLists?: (view: 'add' | 'listing' | 'report') => ReactNode;
+  renderTasks?: () => ReactNode;
 }>;
 
 export function WorkCentrePage({
@@ -41,6 +42,7 @@ export function WorkCentrePage({
   renderEnquiries,
   renderObservations,
   renderSnagLists,
+  renderTasks,
 }: WorkCentrePageProps) {
   const { child, section } = useParams<{ child?: string; section?: string }>();
   const { t } = useTranslation('workCentre');
@@ -187,6 +189,8 @@ export function WorkCentrePage({
             ? activeChild
             : 'add',
         ) ?? <MigrationPending area={destinationLabel} />)
+      ) : activeSection.renderer === 'tasks' ? (
+        (renderTasks?.() ?? <MigrationPending area={destinationLabel} />)
       ) : (
         <MigrationPending area={destinationLabel} />
       )}
