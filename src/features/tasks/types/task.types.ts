@@ -3,7 +3,7 @@ export type TaskRisk = 'Critical' | 'High' | 'Low' | 'Medium';
 export type TaskStage = 'Done' | 'In progress' | 'Open' | 'Review';
 export type TaskKind = 'external' | 'internal';
 export type TaskFlow = 'direct' | 'multi';
-export type TaskSla = 'atrisk' | 'exceeded' | 'met';
+export type TaskSla = '' | 'atrisk' | 'exceeded' | 'met';
 
 export type Task = Readonly<{
   days: number;

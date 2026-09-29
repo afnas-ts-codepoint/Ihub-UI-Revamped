@@ -3,10 +3,12 @@ import { create } from 'zustand';
 
 import { TASKS, TASK_CHECKLIST } from '../data/tasks.mock';
 import { initialChecklistCount, progressFromChecklist } from '../domain/tasks';
-import type { TaskStage, TaskViewModel } from '../types/task.types';
+import type { Task, TaskStage, TaskViewModel } from '../types/task.types';
 
 type TasksState = {
   checklistCounts: Readonly<Record<string, number>>;
+  createdTasks: readonly Task[];
+  prependTask: (task: Task) => void;
   reset: () => void;
   setChecklistCount: (id: string, count: number) => void;
   stageOverrides: Readonly<Record<string, TaskStage>>;
@@ -15,16 +17,22 @@ type TasksState = {
 
 const emptyState = {
   checklistCounts: {},
+  createdTasks: [],
   stageOverrides: {},
 } as const;
 
 export const useTasksStore = create<TasksState>()((set, get) => ({
   ...emptyState,
+  prependTask: (task) => {
+    set((state) => ({ createdTasks: [task, ...state.createdTasks] }));
+  },
   reset: () => {
     set(emptyState);
   },
   setChecklistCount: (id, requestedCount) => {
-    const task = TASKS.find((candidate) => candidate.id === id);
+    const task = [...get().createdTasks, ...TASKS].find(
+      (candidate) => candidate.id === id,
+    );
     if (!task) return;
     const count = Math.min(TASK_CHECKLIST.length, Math.max(0, requestedCount));
     const currentStage = get().stageOverrides[id] ?? task.stage;
@@ -40,7 +48,9 @@ export const useTasksStore = create<TasksState>()((set, get) => ({
     }));
   },
   toggleClosed: (id) => {
-    const task = TASKS.find((candidate) => candidate.id === id);
+    const task = [...get().createdTasks, ...TASKS].find(
+      (candidate) => candidate.id === id,
+    );
     if (!task) return;
     const currentStage = get().stageOverrides[id] ?? task.stage;
     const done = currentStage === 'Done';
@@ -59,10 +69,11 @@ export const useTasksStore = create<TasksState>()((set, get) => ({
 
 export function useTasks(): readonly TaskViewModel[] {
   const checklistCounts = useTasksStore((state) => state.checklistCounts);
+  const createdTasks = useTasksStore((state) => state.createdTasks);
   const stageOverrides = useTasksStore((state) => state.stageOverrides);
   return useMemo(
     () =>
-      TASKS.map((task) => {
+      [...createdTasks, ...TASKS].map((task) => {
         const stage = stageOverrides[task.id] ?? task.stage;
         const taskWithStage = { ...task, stage };
         const checklistCount =
@@ -73,7 +84,7 @@ export function useTasks(): readonly TaskViewModel[] {
           progress: progressFromChecklist(checklistCount),
         };
       }),
-    [checklistCounts, stageOverrides],
+    [checklistCounts, createdTasks, stageOverrides],
   );
 }
 

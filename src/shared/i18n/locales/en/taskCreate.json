@@ -1,0 +1,105 @@
+{
+  "actions": {
+    "add": "Add",
+    "cancel": "Cancel",
+    "create": "Create task",
+    "download": "Download",
+    "enterManually": "Enter Manually",
+    "remove": "Remove",
+    "scan": "Scan QR Code",
+    "simulate": "Simulate Scan"
+  },
+  "asset": {
+    "category": "Asset Category",
+    "code": "Asset Code",
+    "codePlaceholder": "e.g. AST-2026-0042",
+    "name": "Asset Name",
+    "namePlaceholder": "e.g. Thunder Mountain Coaster",
+    "title": "Asset / Machine Information"
+  },
+  "attachments": {
+    "currentUser": "Current User",
+    "title": "Attachments",
+    "upload": "Click to upload or drag and drop",
+    "uploadTypes": "Allowed file formats — jpg, png, jpeg, pdf (Max size 2MB)"
+  },
+  "classification": {
+    "category": "Category",
+    "guestKpi": "Guest Satisfaction KPI",
+    "impactedArea": "Impacted Area",
+    "impactedPlaceholder": "Specific area impacted by the issue",
+    "risk": "Risk / Impacted Category",
+    "taskType": "Task Type",
+    "title": "Task Classification",
+    "touchpoint": "Touchpoint"
+  },
+  "details": {
+    "description": "Details",
+    "descriptionPlaceholder": "Enter detailed description…",
+    "endDate": "End date / Target completion",
+    "priority": "Priority",
+    "projectCategory": "Project Category",
+    "projectName": "Project Name",
+    "projectNamePlaceholder": "Enter project name…",
+    "scope": "Task Scope",
+    "severity": "Severity",
+    "startDate": "Start date",
+    "subject": "Task subject",
+    "subjectPlaceholder": "Enter task subject",
+    "title": "Task Details"
+  },
+  "location": {
+    "added": "added",
+    "area": "Area",
+    "description": "Pick the location (mall), zone (venue), area and sub-area this task applies to",
+    "empty": "Nothing added yet",
+    "location": "Location",
+    "subArea": "Sub-area",
+    "title": "Location and Zone",
+    "zone": "Zone"
+  },
+  "options": {
+    "anyArea": "Any area",
+    "anySubArea": "Any sub-area",
+    "critical": "Critical",
+    "external": "External",
+    "high": "High",
+    "internal": "Internal",
+    "low": "Low",
+    "medium": "Medium",
+    "select": "Select…",
+    "selectCategory": "Select category…",
+    "selectLocation": "Select location…",
+    "selectRisk": "Select risk category…",
+    "selectZone": "Select zone…"
+  },
+  "qr": {
+    "camera": "Camera viewfinder",
+    "description": "Point your camera at the QR code on the asset / machine",
+    "title": "Scan Asset QR Code"
+  },
+  "references": {
+    "enquiry": "Enquiry #",
+    "incident": "Incident #",
+    "observation": "Observation #",
+    "selectEnquiry": "Select enquiry…",
+    "selectIncident": "Select incident…",
+    "selectObservation": "Select observation…",
+    "source": "Source",
+    "title": "Reference Numbers"
+  },
+  "requester": {
+    "assignment": "Assignment Details",
+    "days": "No. of days elapsed",
+    "daysValue": "{{count}} days",
+    "department": "Requester Department",
+    "matrixPartner": "Matrix Partner",
+    "processOwner": "Process Owner",
+    "requestedAt": "Requested Date & Time",
+    "requestedBy": "Requested By",
+    "since": "since request",
+    "title": "Requester Information",
+    "type": "Requester Type / Role"
+  },
+  "result": "Task created"
+}

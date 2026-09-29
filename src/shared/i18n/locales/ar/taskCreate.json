@@ -1,0 +1,105 @@
+{
+  "actions": {
+    "add": "إضافة",
+    "cancel": "إلغاء",
+    "create": "إنشاء مهمة",
+    "download": "تنزيل",
+    "enterManually": "إدخال يدوي",
+    "remove": "إزالة",
+    "scan": "مسح رمز QR",
+    "simulate": "محاكاة المسح"
+  },
+  "asset": {
+    "category": "فئة الأصل",
+    "code": "رمز الأصل",
+    "codePlaceholder": "مثال: AST-2026-0042",
+    "name": "اسم الأصل",
+    "namePlaceholder": "مثال: قطار الملاهي",
+    "title": "معلومات الأصل / الجهاز"
+  },
+  "attachments": {
+    "currentUser": "المستخدم الحالي",
+    "title": "المرفقات",
+    "upload": "انقر للرفع أو اسحب وأفلت",
+    "uploadTypes": "الصيغ المسموحة — jpg، png، jpeg، pdf (الحد الأقصى 2 ميغابايت)"
+  },
+  "classification": {
+    "category": "الفئة",
+    "guestKpi": "مؤشر رضا الضيف",
+    "impactedArea": "المنطقة المتأثرة",
+    "impactedPlaceholder": "المنطقة المحددة المتأثرة",
+    "risk": "فئة المخاطر/الأثر",
+    "taskType": "نوع المهمة",
+    "title": "تصنيف المهمة",
+    "touchpoint": "نقطة التماس"
+  },
+  "details": {
+    "description": "التفاصيل",
+    "descriptionPlaceholder": "أدخل وصفاً تفصيلياً…",
+    "endDate": "تاريخ الانتهاء / الإنجاز المستهدف",
+    "priority": "الأولوية",
+    "projectCategory": "فئة المشروع",
+    "projectName": "اسم المشروع",
+    "projectNamePlaceholder": "أدخل اسم المشروع…",
+    "scope": "نطاق المهمة",
+    "severity": "الخطورة",
+    "startDate": "تاريخ البدء",
+    "subject": "موضوع المهمة",
+    "subjectPlaceholder": "أدخل موضوع المهمة",
+    "title": "تفاصيل المهمة"
+  },
+  "location": {
+    "added": "مضافة",
+    "area": "المنطقة",
+    "description": "اختر الموقع والزون والمنطقة والمنطقة الفرعية",
+    "empty": "لم تتم الإضافة بعد",
+    "location": "الموقع",
+    "subArea": "المنطقة الفرعية",
+    "title": "الموقع والزون",
+    "zone": "الزون"
+  },
+  "options": {
+    "anyArea": "أي منطقة",
+    "anySubArea": "أي منطقة فرعية",
+    "critical": "حرجة",
+    "external": "خارجية",
+    "high": "عالية",
+    "internal": "داخلية",
+    "low": "منخفضة",
+    "medium": "متوسطة",
+    "select": "اختر…",
+    "selectCategory": "اختر الفئة…",
+    "selectLocation": "اختر الموقع…",
+    "selectRisk": "اختر فئة المخاطر…",
+    "selectZone": "اختر الزون…"
+  },
+  "qr": {
+    "camera": "عارض الكاميرا",
+    "description": "وجّه الكاميرا نحو رمز QR على الأصل / الجهاز",
+    "title": "مسح رمز QR للأصل"
+  },
+  "references": {
+    "enquiry": "رقم الاستفسار",
+    "incident": "رقم الحادث",
+    "observation": "رقم الملاحظة",
+    "selectEnquiry": "اختر الاستفسار…",
+    "selectIncident": "اختر الحادث…",
+    "selectObservation": "اختر الملاحظة…",
+    "source": "المصدر",
+    "title": "أرقام مرجعية"
+  },
+  "requester": {
+    "assignment": "تفاصيل الإسناد",
+    "days": "عدد الأيام المنقضية",
+    "daysValue": "{{count}} يوم",
+    "department": "إدارة مقدّم الطلب",
+    "matrixPartner": "الشريك المصفوفي",
+    "processOwner": "مالك العملية",
+    "requestedAt": "تاريخ ووقت الطلب",
+    "requestedBy": "مقدّم الطلب",
+    "since": "منذ الطلب",
+    "title": "معلومات مقدّم الطلب",
+    "type": "نوع/دور مقدّم الطلب"
+  },
+  "result": "تم إنشاء المهمة"
+}

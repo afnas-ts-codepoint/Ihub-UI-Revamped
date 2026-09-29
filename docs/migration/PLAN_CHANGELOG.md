@@ -2,6 +2,18 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-09-29 - M8.3 current-prototype adoption
+
+### Human authorization and decision
+
+The user resolved the material M8.3 written-plan/current-prototype conflict with **ADOPT CURRENT PROTOTYPE for M8.3**. The phase targets the current `/ihub/index.html` `CreateTaskPanel` `!task` three-column form and its actual local interactions, not the stale `CreateTaskPanelDesignChange`/root-shell expectations.
+
+### Consequences accepted
+
+- `/home/work-centre/create-task` becomes live with inline Location/Zone rows, Asset Code-only QR simulation, local attachments, literal requester data, validation-free Create, and a minimal prepend to the existing M8.1 store.
+- Location drawer/edit/Add Another/cascades, team auto-suggest, checklist, dependencies, sample attachments, Save Draft, shared attachment abstractions, and seedable-random infrastructure are excluded because the selected current form does not render or require them.
+- Successful Create stays on the populated form, shows inline `Task created`, and is session-memory only. M8.2 remains deferred; M8.4, M8.5/M8.6, M9, M10, and M11 are not started.
+
 ## 2026-09-29 - Pull Work Centre Tasks into the first release
 
 ### Human authorization and decision

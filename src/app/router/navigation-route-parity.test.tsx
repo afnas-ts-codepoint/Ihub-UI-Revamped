@@ -195,7 +195,6 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.assigned('verify'),
     paths.home.assigned('tasks'),
     paths.home.view('reports'),
-    paths.home.workCentre('create-task'),
     paths.home.workCentre('incidents'),
     paths.home.paymentSettlement('action-sheet'),
     paths.home.paymentSettlement('petty-cash'),
@@ -227,6 +226,13 @@ describe('Phase 2 section 11 URL map', () => {
   ])('routes the migrated Task List at %s', async (path) => {
     const { router } = renderRoute(path);
     expect(await screen.findByTestId('tasks-page')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it('routes the migrated Create Task screen', async () => {
+    const { router } = renderRoute(paths.home.workCentre('create-task'));
+    expect(await screen.findByTestId('create-task-page')).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });

@@ -36,7 +36,7 @@ import {
 } from '@/features/purchasing';
 import { ReportsLibraryPage } from '@/features/reports';
 import { SlaPage } from '@/features/sla';
-import { TasksPage } from '@/features/tasks';
+import { CreateTaskPage, TasksPage } from '@/features/tasks';
 import { WorkflowsPage } from '@/features/workflows';
 import { WorkCentrePage } from '@/features/work-centre';
 import {
@@ -200,6 +200,7 @@ export const appRoutes: RouteObject[] = [
             element: (
               <WorkCentrePage
                 notFound={<NotFoundPage />}
+                renderCreateTask={() => <CreateTaskPage />}
                 renderEnquiries={(view) => <EnquiriesPage view={view} />}
                 renderObservations={(view) => <ObservationsPage view={view} />}
                 renderSnagLists={(view) => <SnagListsPage view={view} />}

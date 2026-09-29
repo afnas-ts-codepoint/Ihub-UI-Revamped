@@ -21,6 +21,7 @@ function renderPath(path: string) {
         element: (
           <WorkCentrePage
             notFound={<div data-testid="not-found" />}
+            renderCreateTask={() => <div data-testid="create-task-view" />}
             renderEnquiries={(view) => (
               <div data-testid="enquiries-view">{view}</div>
             )}
@@ -51,10 +52,7 @@ describe('M7.1 Work Centre hub', () => {
     expect(
       screen.getByRole('link', { name: 'Create a New Task' }),
     ).toHaveAttribute('aria-current', 'page');
-    expect(screen.getByRole('status')).toHaveAttribute(
-      'data-migration-pending',
-      'Create a New Task',
-    );
+    expect(screen.getByTestId('create-task-view')).toBeVisible();
     expect(router.state.location.pathname).toBe('/home/work-centre');
   });
 
@@ -88,12 +86,10 @@ describe('M7.1 Work Centre hub', () => {
     );
   });
 
-  it('keeps Create Task pending and activates the Tasks renderer', () => {
+  it('activates both Create Task and Tasks renderers', () => {
     const createRouter = renderPath('/home/work-centre/create-task');
-    expect(screen.getByRole('status')).toHaveAttribute(
-      'data-migration-pending',
-      'Create a New Task',
-    );
+    expect(screen.getByTestId('create-task-view')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
     createRouter.dispose();
     cleanup();
 

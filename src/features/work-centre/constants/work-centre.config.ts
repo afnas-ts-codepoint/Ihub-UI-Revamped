@@ -14,7 +14,7 @@ export const WORK_CENTRE_SECTIONS: readonly WorkCentreSectionConfig[] = [
     group: 'general',
     id: 'create-task',
     labelKey: 'sections.createTask',
-    renderer: 'pending',
+    renderer: 'create-task',
   },
   {
     group: 'general',

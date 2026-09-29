@@ -29,6 +29,7 @@ function renderTitle(title: string) {
 
 type WorkCentrePageProps = Readonly<{
   notFound?: ReactNode;
+  renderCreateTask?: () => ReactNode;
   renderEnquiries?: (view: 'add' | 'history') => ReactNode;
   renderObservations?: (
     view: 'add' | 'assignment' | 'history' | 'report',
@@ -39,6 +40,7 @@ type WorkCentrePageProps = Readonly<{
 
 export function WorkCentrePage({
   notFound = null,
+  renderCreateTask,
   renderEnquiries,
   renderObservations,
   renderSnagLists,
@@ -167,7 +169,9 @@ export function WorkCentrePage({
         </nav>
       ) : null}
 
-      {activeSection.renderer === 'fallback' ? (
+      {activeSection.renderer === 'create-task' ? (
+        (renderCreateTask?.() ?? <MigrationPending area={destinationLabel} />)
+      ) : activeSection.renderer === 'fallback' ? (
         <WorkCentreFallback
           kind={activeSection.id === 'checklists' ? 'sheet' : 'enquiry'}
         />

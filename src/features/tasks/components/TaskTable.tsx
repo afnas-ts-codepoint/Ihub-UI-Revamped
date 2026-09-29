@@ -105,7 +105,11 @@ export function TaskTable({
                 <td
                   className={`px-3.5 py-3.5 text-base font-semibold whitespace-nowrap ${task.sla === 'exceeded' ? 'text-bad' : 'text-ok'}`}
                 >
-                  {task.sla === 'exceeded' ? 'SLA exceeded' : 'On track'}
+                  {task.sla === 'exceeded'
+                    ? 'SLA exceeded'
+                    : task.sla
+                      ? 'On track'
+                      : ''}
                 </td>
                 <td className="px-3.5 py-3.5 whitespace-nowrap text-fg-3">
                   {task.department}

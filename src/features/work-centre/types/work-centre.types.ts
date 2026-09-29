@@ -12,6 +12,7 @@ export type WorkCentreSection =
   | 'promotions';
 
 export type WorkCentreRenderer =
+  | 'create-task'
   | 'enquiries'
   | 'fallback'
   | 'observations'

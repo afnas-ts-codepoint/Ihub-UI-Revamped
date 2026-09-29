@@ -6,6 +6,16 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M8.3 intake and approved reconciliation
+
+- Date: 2026-09-29.
+- Baseline/current: `273abc8` → `3c391b4b5ccbc3fa0bb0ff56d5c8eda6bc6f80ff`.
+- Relevant source: current `/ihub/index.html` `CreateTaskPanel`, approximately lines 16462-16973, including the `!task` branch; `git diff --exit-code 273abc8 HEAD -- ihub/index.html` exited 0.
+- Delta result: no baseline-to-current source drift in fields, validation, interactions, fixtures, location behavior, QR, attachments, submit, post-submit, or navigation.
+- Material plan conflict: the phase card/root-shell references described `CreateTaskPanelDesignChange`, location profiles in a drawer, cascades/registry QR, team suggestions, checklist, dependencies, sample attachments, Save Draft, and shared attachment/random helpers. The selected current component has none of those behaviors.
+- Current behavior: three-column cards; inline Location/Zone Add/Remove; Add requires only Location or Zone; simulated QR writes only Asset Code; click/drop/download/remove attachments without runtime type/size validation; literal requester data; Create accepts an empty form; successful Create prepends a minimal session-memory M8.1 task, shows `Task created`, stays on the populated form, and does not navigate or persist.
+- Human resolution: **ADOPT CURRENT PROTOTYPE for M8.3**. The stale behaviors are excluded, M8.4 and later boundaries remain pending, and no new shared infrastructure or dependency is introduced.
+
 ## M8.1 intake and approved reconciliation
 
 - Date: 2026-09-29.
