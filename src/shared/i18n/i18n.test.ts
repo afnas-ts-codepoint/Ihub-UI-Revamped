@@ -15,6 +15,7 @@ import arNotifications from '@/shared/i18n/locales/ar/notifications.json';
 import arOrganization from '@/shared/i18n/locales/ar/organization.json';
 import arPurchasing from '@/shared/i18n/locales/ar/purchasing.json';
 import arReports from '@/shared/i18n/locales/ar/reports.json';
+import arSettings from '@/shared/i18n/locales/ar/settings.json';
 import arSla from '@/shared/i18n/locales/ar/sla.json';
 import arTaskView from '@/shared/i18n/locales/ar/taskView.json';
 import arValidation from '@/shared/i18n/locales/ar/validation.json';
@@ -33,6 +34,7 @@ import enNotifications from '@/shared/i18n/locales/en/notifications.json';
 import enOrganization from '@/shared/i18n/locales/en/organization.json';
 import enPurchasing from '@/shared/i18n/locales/en/purchasing.json';
 import enReports from '@/shared/i18n/locales/en/reports.json';
+import enSettings from '@/shared/i18n/locales/en/settings.json';
 import enSla from '@/shared/i18n/locales/en/sla.json';
 import enTaskView from '@/shared/i18n/locales/en/taskView.json';
 import enValidation from '@/shared/i18n/locales/en/validation.json';
@@ -84,6 +86,7 @@ describe('i18n resources', () => {
     ['organization', enOrganization, arOrganization],
     ['purchasing', enPurchasing, arPurchasing],
     ['reports', enReports, arReports],
+    ['settings', enSettings, arSettings],
     ['sla', enSla, arSla],
     ['taskView', enTaskView, arTaskView],
     ['validation', enValidation, arValidation],

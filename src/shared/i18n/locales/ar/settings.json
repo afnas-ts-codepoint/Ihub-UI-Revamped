@@ -1,0 +1,221 @@
+{
+  "tabs": {
+    "admin": "إعدادات المسؤول",
+    "user": "إعدادات المستخدم"
+  },
+  "sectionHead": {
+    "subtitle": "تصاميم اللوحات للمؤسسة والأدوار والإدارات والمستخدمين.",
+    "title": "التهيئة"
+  },
+  "picker": {
+    "label": "اللوحة المراد تهيئتها",
+    "layoutOnly": "تصميم فقط",
+    "live": "مفعّلة",
+    "shownIn": "تظهر في ",
+    "widgetsAvailable": "عنصر متاح"
+  },
+  "scope": {
+    "addDepartment": "إضافة إدارة…",
+    "addUser": "إضافة مستخدم…",
+    "allUsers": "جميع المستخدمين",
+    "appliesTo": "ينطبق على",
+    "baseLayoutForEveryone": "التصميم الأساسي للجميع",
+    "customLayout": "تصميم مخصص",
+    "default": {
+      "desc": "تصميم عام لجميع المستخدمين",
+      "title": "افتراضي"
+    },
+    "departmentSingular": "الإدارة",
+    "departmentsPlural": "الإدارات",
+    "dept": {
+      "desc": "لإدارة أو أكثر",
+      "title": "الإدارة / الفريق"
+    },
+    "deptLabel": "الإدارات / الفرق",
+    "eyebrow": "نطاق التهيئة",
+    "inheritsFromDefault": "يرث من الافتراضي",
+    "nobodySelected": "لم يتم التحديد",
+    "role": {
+      "desc": "لكل من يحمل الدور",
+      "title": "حسب الدور"
+    },
+    "roleLabel": "الدور",
+    "selectOneOrMore": "اختر واحدًا أو أكثر",
+    "sub": "لمن ينطبق تصميم اللوحة",
+    "unsavedChanges": "تغييرات غير محفوظة",
+    "user": {
+      "desc": "تخصيص لأشخاص محددين",
+      "title": "مستخدم فردي"
+    },
+    "userLabel": "المستخدمون",
+    "userSingular": "المستخدم",
+    "usersPlural": "المستخدمون"
+  },
+  "myDashboard": {
+    "helper": "التغييرات تظهر لك فقط. تبدأ من تصميم المسؤول وضمن القواعد أدناه.",
+    "hidingAllowed": "الإخفاء مسموح",
+    "hidingOff": "الإخفاء معطل",
+    "mandatoryLocked": "العناصر الإلزامية مقفلة",
+    "personalLayout": "تصميم شخصي",
+    "reorderingAllowed": "إعادة الترتيب مسموحة",
+    "reorderingOff": "إعادة الترتيب معطلة",
+    "setByAdmin": "يحددها المسؤول",
+    "title": "لوحتي",
+    "usingOrgLayout": "تصميم المؤسسة",
+    "you": "أنت"
+  },
+  "preview": {
+    "close": "إغلاق",
+    "column": "عمود",
+    "columns": "أعمدة",
+    "desktop": "سطح المكتب",
+    "dialogLabel": "معاينة اللوحة",
+    "mobile": "جوال",
+    "modalTitlePrefix": "معاينة — ",
+    "notBuiltYet": "معاينة التصميم — هذه اللوحة غير مبنية كعناصر بعد. يُحفظ التصميم ويُطبّق عند تفعيلها.",
+    "noWidgets": "لا توجد عناصر مفعّلة لهذه اللوحة.",
+    "openFullSize": "معاينة بالحجم الكامل",
+    "tablet": "جهاز لوحي",
+    "title": "معاينة مباشرة",
+    "widgets": "عناصر"
+  },
+  "widgets": {
+    "categories": {
+      "All": "الكل",
+      "Charts": "الرسوم",
+      "Lists": "القوائم",
+      "Metrics": "المؤشرات",
+      "Utilities": "أدوات"
+    },
+    "clear": "مسح",
+    "dragToReorder": "اسحب لإعادة الترتيب",
+    "full": "كامل",
+    "half": "نصف",
+    "hidingOff": "الإخفاء معطل",
+    "noMatches": "لا نتائج.",
+    "orderSetByAdmin": "الترتيب يحدده المسؤول",
+    "searchPlaceholder": "ابحث عن عنصر…",
+    "selectAll": "تحديد الكل",
+    "tickToShow": "حدّد للإظهار",
+    "title": "{{dashboard}} — العناصر"
+  },
+  "layout": {
+    "allowDnd": {
+      "sub": "يعيد المستخدمون ترتيب عناصرهم",
+      "title": "السماح بالسحب والإفلات"
+    },
+    "allowHide": {
+      "sub": "يخفي المستخدمون ما لا يحتاجونه",
+      "title": "السماح بإخفاء العناصر"
+    },
+    "allowed": "مسموح",
+    "alwaysShown": "تظهر دائمًا",
+    "columns": {
+      "four": {
+        "desc": "مربعات صغيرة ومدمجة",
+        "title": "أربعة أعمدة"
+      },
+      "one": {
+        "desc": "عرض كامل وتفاصيل أكثر",
+        "title": "عمود واحد"
+      },
+      "three": {
+        "desc": "نظرة أكثر كثافة",
+        "title": "ثلاثة أعمدة"
+      },
+      "two": {
+        "desc": "متوازن — موصى به",
+        "title": "عمودان"
+      }
+    },
+    "columnsAriaLabel": "العناصر في كل صف",
+    "columnsHelper": "العناصر الكبيرة تأخذ صفًا كاملًا، والصغيرة تتجاور. اختيارك هو الحد الأقصى.",
+    "columnsQuestion": "كم عنصرًا في كل صف؟",
+    "helperAdmin": "عند تفعيل السحب والإفلات يمكن للمستخدمين تخصيص تصميمهم. هذه الإعدادات تحدد التصميم الأولي.",
+    "helperPersonal": "تصميمك يغيّر لوحتك فقط. العناصر التي لم يضفها المسؤول غير متاحة.",
+    "hideRow": {
+      "sub": "يحددها المسؤول",
+      "title": "إخفاء العناصر"
+    },
+    "lockMandatory": {
+      "alwaysShownSuffix": " تظهر دائمًا",
+      "title": "قفل العناصر الإلزامية"
+    },
+    "mandatoryRow": {
+      "title": "العناصر الإلزامية"
+    },
+    "notAllowed": "غير مسموح",
+    "optional": "اختيارية",
+    "reorderRow": {
+      "sub": "يحددها المسؤول",
+      "title": "إعادة ترتيب العناصر"
+    },
+    "title": "إعدادات التصميم",
+    "widgetNameJoiner": " و"
+  },
+  "library": {
+    "active": "نشط",
+    "appliedTo": "مطبّق على",
+    "by": "بواسطة",
+    "copySuffix": "(نسخة)",
+    "defaultLayoutName": "التصميم الافتراضي",
+    "delete": "حذف",
+    "draft": "مسودة",
+    "duplicate": "نسخ",
+    "empty": "لا توجد تهيئات محفوظة.",
+    "emptyPersonal": "لا توجد تصاميم محفوظة بعد.",
+    "layoutSuffix": "تصميم",
+    "load": "تحميل",
+    "myLayoutPrefix": "تصميمي — ",
+    "myLayoutSuffix": "",
+    "popular": "الأكثر استخدامًا",
+    "preview": "معاينة",
+    "recent": "الأحدث",
+    "star": "تمييز",
+    "titleAdmin": "التهيئات المحفوظة",
+    "titlePersonal": "تصاميمي المحفوظة",
+    "unstar": "إزالة التمييز",
+    "uses": "استخدام"
+  },
+  "actions": {
+    "export": "تصدير",
+    "import": "استيراد",
+    "reset": "استعادة",
+    "resetTitleDefault": "استعادة اللوحة القياسية",
+    "resetTitleInherit": "العودة للوراثة من الافتراضي",
+    "resetTitlePersonal": "العودة لتصميم المؤسسة",
+    "save": "حفظ التهيئة",
+    "saveMine": "حفظ تصميمي"
+  },
+  "summary": {
+    "columns": "الأعمدة",
+    "disabled": "معطّل",
+    "dragAndDrop": "السحب والإفلات",
+    "enabled": "مفعّل",
+    "scope": "النطاق",
+    "widgets": "العناصر"
+  },
+  "flash": {
+    "chooseDepartment": "اختر إدارة واحدة على الأقل",
+    "chooseUser": "اختر مستخدمًا واحدًا على الأقل",
+    "deleted": "“{{name}}” تم الحذف",
+    "duplicated": "تم النسخ كمسودة",
+    "hideDisallowed": "لا يسمح المسؤول بإخفاء العناصر في هذه اللوحة",
+    "imported": "تم الاستيراد — احفظ للتطبيق",
+    "importInvalid": "الملف غير صالح",
+    "loaded": "“{{name}}” تم التحميل — احفظ للتطبيق",
+    "maxWidgets": "الحد الأقصى 15 عنصرًا",
+    "resetDefault": "تمت الاستعادة — احفظ للتطبيق",
+    "resetInherit": "يرث الآن من الافتراضي — احفظ للتطبيق",
+    "resetPersonal": "العودة لتصميم المؤسسة — احفظ للتطبيق",
+    "savedDefaultLive": "تم الحفظ — اللوحة تستخدم هذا التصميم الآن",
+    "savedDefaultPending": "تم الحفظ — يُطبّق عند تفعيل اللوحة",
+    "savedForTarget": "تم حفظ التهيئة لـ {{target}}",
+    "savedPersonalLive": "تم الحفظ — لوحتك تستخدم هذا التصميم الآن",
+    "savedPersonalPending": "تم الحفظ — يُطبّق عند تفعيل اللوحة",
+    "widgetLocked": "هذا العنصر إلزامي"
+  },
+  "dashboardPicker": {
+    "dashboardFieldLabel": "اللوحة"
+  }
+}

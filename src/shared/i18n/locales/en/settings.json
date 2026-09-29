@@ -1,0 +1,221 @@
+{
+  "tabs": {
+    "admin": "Admin Configuration",
+    "user": "User Configuration"
+  },
+  "sectionHead": {
+    "subtitle": "Dashboard layouts for the organisation, roles, departments and individual users.",
+    "title": "Configuration"
+  },
+  "picker": {
+    "label": "Dashboard to configure",
+    "layoutOnly": "Layout only",
+    "live": "Live",
+    "shownIn": "Shown in ",
+    "widgetsAvailable": "widgets available"
+  },
+  "scope": {
+    "addDepartment": "Add a department…",
+    "addUser": "Add a user…",
+    "allUsers": "All users",
+    "appliesTo": "Applies to",
+    "baseLayoutForEveryone": "Base layout for everyone",
+    "customLayout": "Custom layout",
+    "default": {
+      "desc": "Organisation-wide layout for all users",
+      "title": "Default"
+    },
+    "departmentSingular": "Department",
+    "departmentsPlural": "Departments",
+    "dept": {
+      "desc": "Applies to one or more departments",
+      "title": "Department / team"
+    },
+    "deptLabel": "Departments / teams",
+    "eyebrow": "Configuration scope",
+    "inheritsFromDefault": "Inherits from Default",
+    "nobodySelected": "nobody selected",
+    "role": {
+      "desc": "Applies to everyone in a role",
+      "title": "Role-based"
+    },
+    "roleLabel": "Role",
+    "selectOneOrMore": "select one or more",
+    "sub": "Who this dashboard layout applies to",
+    "unsavedChanges": "Unsaved changes",
+    "user": {
+      "desc": "Overrides for selected people",
+      "title": "Individual user"
+    },
+    "userLabel": "Users",
+    "userSingular": "User",
+    "usersPlural": "Users"
+  },
+  "myDashboard": {
+    "helper": "Only you see these changes. You start from the layout your administrator set, within the rules below.",
+    "hidingAllowed": "Hiding allowed",
+    "hidingOff": "Hiding off",
+    "mandatoryLocked": "Mandatory widgets locked",
+    "personalLayout": "Personal layout",
+    "reorderingAllowed": "Reordering allowed",
+    "reorderingOff": "Reordering off",
+    "setByAdmin": "Set by your administrator",
+    "title": "My dashboard",
+    "usingOrgLayout": "Using organisation layout",
+    "you": "you"
+  },
+  "preview": {
+    "close": "Close",
+    "column": "column",
+    "columns": "columns",
+    "desktop": "Desktop",
+    "dialogLabel": "Dashboard preview",
+    "mobile": "Mobile",
+    "modalTitlePrefix": "Preview — ",
+    "notBuiltYet": "Layout preview — this dashboard is not built as widgets yet. Your saved layout is kept and applied once it goes live.",
+    "noWidgets": "No widgets are switched on for this dashboard.",
+    "openFullSize": "Open full-size preview",
+    "tablet": "Tablet",
+    "title": "Live preview",
+    "widgets": "widgets"
+  },
+  "widgets": {
+    "categories": {
+      "All": "All",
+      "Charts": "Charts",
+      "Lists": "Lists",
+      "Metrics": "Metrics",
+      "Utilities": "Utilities"
+    },
+    "clear": "Clear",
+    "dragToReorder": "drag to reorder",
+    "full": "Full",
+    "half": "Half",
+    "hidingOff": "Hiding is off — all widgets stay on",
+    "noMatches": "No widgets match.",
+    "orderSetByAdmin": "order set by your administrator",
+    "searchPlaceholder": "Search widgets…",
+    "selectAll": "Select all",
+    "tickToShow": "Tick to show",
+    "title": "{{dashboard}} widgets"
+  },
+  "layout": {
+    "allowDnd": {
+      "sub": "Users can reorder their own widgets",
+      "title": "Allow drag & drop"
+    },
+    "allowHide": {
+      "sub": "Users can hide widgets they don’t need",
+      "title": "Allow hiding widgets"
+    },
+    "allowed": "Allowed",
+    "alwaysShown": "Always shown",
+    "columns": {
+      "four": {
+        "desc": "Compact, small tiles",
+        "title": "Four columns"
+      },
+      "one": {
+        "desc": "Full width, most detail",
+        "title": "One column"
+      },
+      "three": {
+        "desc": "Denser overview",
+        "title": "Three columns"
+      },
+      "two": {
+        "desc": "Balanced — recommended",
+        "title": "Two columns"
+      }
+    },
+    "columnsAriaLabel": "Widgets per row",
+    "columnsHelper": "Large widgets always take a whole row — compact ones fill in beside each other. Your choice is the maximum.",
+    "columnsQuestion": "How many widgets sit side by side?",
+    "helperAdmin": "When drag & drop is on, users can personalise their own layout. The settings here set the starting layout they receive.",
+    "helperPersonal": "Your layout only changes your own dashboard. Widgets your administrator hasn’t added to this dashboard aren’t available here.",
+    "hideRow": {
+      "sub": "Set by your administrator",
+      "title": "Hide widgets"
+    },
+    "lockMandatory": {
+      "alwaysShownSuffix": " always shown",
+      "title": "Lock mandatory widgets"
+    },
+    "mandatoryRow": {
+      "title": "Mandatory widgets"
+    },
+    "notAllowed": "Not allowed",
+    "optional": "Optional",
+    "reorderRow": {
+      "sub": "Set by your administrator",
+      "title": "Reorder widgets"
+    },
+    "title": "Layout settings",
+    "widgetNameJoiner": " and "
+  },
+  "library": {
+    "active": "Active",
+    "appliedTo": "Applied to",
+    "by": "By",
+    "copySuffix": "(copy)",
+    "defaultLayoutName": "Default layout",
+    "delete": "Delete",
+    "draft": "Draft",
+    "duplicate": "Duplicate",
+    "empty": "No saved configurations yet.",
+    "emptyPersonal": "No saved layouts yet — save your layout to keep a copy here.",
+    "layoutSuffix": "layout",
+    "load": "Load",
+    "myLayoutPrefix": "My ",
+    "myLayoutSuffix": " layout",
+    "popular": "Popular",
+    "preview": "Preview",
+    "recent": "Recent",
+    "star": "Star",
+    "titleAdmin": "Saved configurations",
+    "titlePersonal": "My saved layouts",
+    "unstar": "Unstar",
+    "uses": "uses"
+  },
+  "actions": {
+    "export": "Export",
+    "import": "Import",
+    "reset": "Reset",
+    "resetTitleDefault": "Reset to standard dashboard",
+    "resetTitleInherit": "Reset to inherit Default",
+    "resetTitlePersonal": "Go back to the organisation layout",
+    "save": "Save configuration",
+    "saveMine": "Save my layout"
+  },
+  "summary": {
+    "columns": "Columns",
+    "disabled": "Disabled",
+    "dragAndDrop": "Drag & drop",
+    "enabled": "Enabled",
+    "scope": "Scope",
+    "widgets": "Widgets"
+  },
+  "flash": {
+    "chooseDepartment": "Choose at least one department",
+    "chooseUser": "Choose at least one user",
+    "deleted": "“{{name}}” deleted",
+    "duplicated": "Duplicated as draft",
+    "hideDisallowed": "Your administrator doesn’t allow hiding widgets on this dashboard",
+    "imported": "Configuration imported — save to apply",
+    "importInvalid": "That file is not a dashboard configuration",
+    "loaded": "“{{name}}” loaded — save to apply",
+    "maxWidgets": "Up to 15 widgets allowed",
+    "resetDefault": "Restored the standard dashboard — save to apply",
+    "resetInherit": "Now inheriting from Default — save to apply",
+    "resetPersonal": "Back to your organisation’s layout — save to apply",
+    "savedDefaultLive": "Saved — the {{dashboard}} dashboard now uses this layout",
+    "savedDefaultPending": "Saved — this layout applies when the {{dashboard}} dashboard goes live",
+    "savedForTarget": "Configuration saved for {{target}}",
+    "savedPersonalLive": "Saved — your {{dashboard}} dashboard now uses this layout",
+    "savedPersonalPending": "Saved — applies to your {{dashboard}} dashboard once it goes live",
+    "widgetLocked": "This widget is locked as mandatory"
+  },
+  "dashboardPicker": {
+    "dashboardFieldLabel": "Dashboard"
+  }
+}

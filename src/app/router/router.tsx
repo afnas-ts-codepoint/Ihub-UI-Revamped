@@ -35,6 +35,7 @@ import {
   isHomePurchasingSection,
 } from '@/features/purchasing';
 import { ReportsLibraryPage } from '@/features/reports';
+import { SettingsConfigurationPage } from '@/features/settings';
 import { SlaPage } from '@/features/sla';
 import { CreateTaskPage, TasksPage, TaskViewPage } from '@/features/tasks';
 import { WorkflowsPage } from '@/features/workflows';
@@ -338,9 +339,7 @@ export const appRoutes: RouteObject[] = [
       },
       {
         path: 'settings/configuration',
-        element: (
-          <PendingRoutePage titleKey="navigation.settings-configuration_configuration" />
-        ),
+        element: <SettingsConfigurationPage />,
       },
       {
         path: 'settings',

@@ -6,6 +6,15 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M11.2 intake
+
+- Date: 2026-09-29.
+- Baseline/current: `273abc8` → `3c391b4b5ccbc3fa0bb0ff56d5c8eda6bc6f80ff`; `git diff --exit-code 273abc8 HEAD -- index.html` exited 0 in the prototype repository, confirming zero prototype drift since baseline for this run.
+- Relevant source: `TaskDashPreview`, `ADMIN_DASHBOARDS`, `WireDashPreview`, `DashPickerCard`, `AdminDashConfig`, `AdminTaskDashConfig`, `UserDashConfig` (`index.html:7011-7446`); the `tasks` dashboard's shared widget catalogue `window.TASK_DASH_WIDGETS` (`index.html:16909-16944`, outside the builder range).
+- Delta result: no baseline-to-current source drift. The phase card's cited source range (7016-7854) was re-verified against the live file and found off by a few lines and over-wide by roughly 400 lines at the tail end — the real Admin/User Configuration builder chain (`DashPickerCard` through `UserDashConfig`) ends at line 7446, immediately followed by unrelated dead code (see next finding). The corrected range (7011-7446) is recorded in `phases/M11.2.md`.
+- Finding made during source reading, beyond the preflight brief (dead-code exclusion, resolved without a material plan conflict): `DashboardLayoutView`/`DL_WIDGETS` (`index.html:7449-7853`), a second, wholly separate dashboard-layout builder, is defined and exported to `window.DashboardLayoutView`, but a grep across the entire ~22,600-line bundle for `DashboardLayoutView` finds only its own function definition (`L7479`) and its `Object.assign(window, {...})` export (`L7854`) — zero call sites render it anywhere. Confirmed dead/unreachable by the same static-analysis method used for the M11.1 `UserConfigScreen` admin-panel finding. Excluded entirely from migration per the standing dead-code rule; no `DL_WIDGETS`/`DashboardLayoutView`-equivalent code was written.
+- Human resolution: not required — no material plan/prototype conflict was found; the source-range correction and the `DashboardLayoutView` dead-code finding were both resolved by exclusion/correction without altering the approved M11.2 scope (Default/Role/Department/User scopes; ordering/hiding/locked widgets with `MAX = 15`; admin rules and user inheritance; JSON import/export; prototype-faithful local-state previews).
+
 ## M8.4 intake
 
 - Date: 2026-09-29.

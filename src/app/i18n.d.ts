@@ -17,6 +17,7 @@ import type snagLists from '@/shared/i18n/locales/en/snagLists.json';
 import type organization from '@/shared/i18n/locales/en/organization.json';
 import type purchasing from '@/shared/i18n/locales/en/purchasing.json';
 import type reports from '@/shared/i18n/locales/en/reports.json';
+import type settings from '@/shared/i18n/locales/en/settings.json';
 import type sla from '@/shared/i18n/locales/en/sla.json';
 import type taskCreate from '@/shared/i18n/locales/en/taskCreate.json';
 import type tasks from '@/shared/i18n/locales/en/tasks.json';
@@ -46,6 +47,7 @@ declare module 'i18next' {
       organization: typeof organization;
       purchasing: typeof purchasing;
       reports: typeof reports;
+      settings: typeof settings;
       sla: typeof sla;
       taskCreate: typeof taskCreate;
       tasks: typeof tasks;

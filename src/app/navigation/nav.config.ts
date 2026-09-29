@@ -180,12 +180,7 @@ const settings = node(
   'settings-configuration',
   paths.settings.configuration,
   [
-    node(
-      'settings-configuration/configuration',
-      paths.settings.configuration,
-      undefined,
-      pending,
-    ),
+    node('settings-configuration/configuration', paths.settings.configuration),
     ...[
       'work-centre',
       'finance-budgets',

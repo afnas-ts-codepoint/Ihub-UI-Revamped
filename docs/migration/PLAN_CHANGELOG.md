@@ -2,6 +2,21 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-09-29 - M11.1 dead-code exclusion and M11.2 implementation
+
+### Human authorization and decision
+
+The user resolved the M11.1 delta-intake finding with **ADOPT CURRENT PROTOTYPE for M11.1**: `UserConfigScreen`'s cited user-administration panel (`index.html:6949-7007`) sits behind a `tab` branch no code path can reach, confirmed by static analysis and by driving the live rendered app. M11.1 is a no-migration outcome — no user list/profile/permissions/MFA/delegate/status UI is built, and the actually-reachable Settings content (the two-tab dashboard-configuration builder) belongs to M11.2 instead. See the `DECISIONS.md` row for the full record.
+
+With M11.1 resolved, M11.2 (Dashboard configuration builders) was implemented against its already-narrowed first-release scope (Default/Role/Department/Individual-user scopes, ordering/hiding/locked widgets with `MAX = 15`, admin rules and user inheritance, JSON import/export, prototype-faithful local-state previews; no backend, no production authorization model, no dependency on the unfinished Task/Overview dashboard stores). Status is Review, awaiting explicit human approval before M11.3 (runtime integration) may be scheduled.
+
+### Consequences accepted
+
+- `/settings/configuration` becomes live, replacing its `PendingRoutePage` marker with the `SettingsConfigurationPage` two-tab shell (Admin Configuration / User Configuration).
+- No `DashboardLayoutView`/`DL_WIDGETS` (`index.html:7449-7853`) migration — confirmed dead/unreachable during the M11.2 delta intake, same exclusion rationale as M11.1's finding.
+- Runtime integration with `taskDashboardConfig.store` and the completed Task/Overview dashboards remains deferred to M11.3, which has not been started; M8.2 and M10.2 (M11.3's other dependencies) are also still pending.
+- No new npm dependency was added; `shared/file/json.ts` is the one new shared module, with M11.2 as its first real consumer.
+
 ## 2026-09-29 - M8.3 current-prototype adoption
 
 ### Human authorization and decision
