@@ -10,6 +10,83 @@
     "description": "No records are available for this view."
   },
   "allTab": "All",
+  "pettyCash": {
+    "tabs": { "request": "Request Petty Cash", "reimburse": "Reimburse Petty Cash", "settle": "Settle Petty Cash" },
+    "tableTabs": { "editable": "Editable", "pending": "Pending", "toSettle": "To settle" },
+    "request": {
+      "ariaLabel": "Petty cash request views",
+      "subs": { "create": "Petty Cash Request", "edit": "Edit Petty Cash", "history": "History" },
+      "edit": { "title": "Edit Petty Cash", "subtitle": "Select a petty cash request to edit." },
+      "history": { "subtitle": "Full activity trail across petty cash requests." }
+    },
+    "reimburse": {
+      "ariaLabel": "Petty cash reimbursement views",
+      "subs": { "request": "Reimburse Petty Cash Request", "listing": "Petty Cash Listing", "edit": "Edit", "history": "History" },
+      "listing": { "title": "Petty Cash Listing", "subtitle": "Reimbursements awaiting CEO sign-off." },
+      "edit": { "title": "Edit", "subtitle": "Select a reimbursement to edit." },
+      "history": { "subtitle": "Full activity trail across reimbursements." }
+    },
+    "settle": { "title": "Settle Petty Cash", "subtitle": "Reconcile advances against actual spend." },
+    "history": { "title": "History" },
+    "actions": { "edit": "Edit", "reimburseRequest": "Reimburse Request", "settleRequest": "Settle Request" },
+    "columns": {
+      "id": "PC #", "reimbursement": "Reimbursement", "employee": "Employee", "department": "Department",
+      "amount": "Amount (KWD)", "submitted": "Submitted", "status": "Status", "date": "Date",
+      "action": "Action", "by": "By", "note": "Note", "advance": "Advance (KWD)",
+      "spent": "Spent (KWD)", "balance": "Balance (KWD)"
+    },
+    "empty": {
+      "title": "No petty cash records",
+      "description": "No records are available for this view."
+    },
+    "form": {
+      "request": {
+        "title": "Petty Cash Request",
+        "subtitle": "Fill in the details to raise a request. Add more than one request if needed.",
+        "attachment": "Attachments",
+        "totalLabel": "Total amount",
+        "submit": "Submit request",
+        "submittedSingle": "Petty cash request submitted",
+        "submittedMultiple": "Petty cash requests submitted"
+      },
+      "reimburse": {
+        "title": "Reimburse Petty Cash Request",
+        "subtitle": "Claim reimbursement for money already spent. Add more than one request if needed.",
+        "attachment": "Attachment",
+        "totalLabel": "Total Petty Cash",
+        "submit": "Submit reimbursement",
+        "submittedSingle": "Reimbursement request submitted",
+        "submittedMultiple": "Reimbursement requests submitted"
+      },
+      "requestLabel": "Request",
+      "removeRequest": "Remove request {{number}}",
+      "removeAttachment": "Remove attachment",
+      "fields": {
+        "location": "Location", "zone": "Zone", "department": "Department", "year": "Year",
+        "supplier": "Supplier", "amount": "Amount", "activity": "Activity", "subActivity": "Sub Activity",
+        "budgeted": "Budgeted", "invoice": "Invoice #", "remarks": "Remarks"
+      },
+      "select": {
+        "location": "Select location…", "zone": "Select zone…", "department": "Select department…",
+        "year": "Select year…", "supplier": "Select supplier…", "activity": "Select activity…",
+        "subActivity": "Select sub activity…"
+      },
+      "budgeted": { "yes": "Yes", "no": "No" },
+      "invoicePlaceholder": "e.g. INV-00291",
+      "remarksPlaceholder": "Add any notes for approvers…",
+      "untitledFile": "Untitled file",
+      "captionPlaceholder": "Caption (required)…",
+      "uploadHint": "Click to upload or drag and drop",
+      "captionHint": "Each attachment requires a caption",
+      "captionError": "Every attachment needs a caption.",
+      "addAnother": "Add another request",
+      "summary": "Summary",
+      "requestSingular": "request",
+      "requestPlural": "requests",
+      "actions": "Actions",
+      "saveDraft": "Save as draft"
+    }
+  },
   "home": {
     "title": "Payment Settlement",
     "sections": {

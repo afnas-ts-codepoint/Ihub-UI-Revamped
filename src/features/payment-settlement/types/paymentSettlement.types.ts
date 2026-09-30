@@ -88,3 +88,67 @@ export type ActionSheetDraft = {
   year: string;
   zone: string;
 };
+
+export type PettyCashTone = 'bad' | 'ok' | 'warn';
+
+/** @prototype index.html:L9597-L9624 `rows` (Reimburse → Petty Cash Listing) */
+export type PettyCashListingRow = Readonly<{
+  dept: string;
+  employee: string;
+  id: string;
+  status: string;
+  submitted: string;
+  title: string;
+  tone: PettyCashTone;
+  value: string;
+}>;
+
+/** @prototype index.html:L9643-L9647 `pcEditRows` (shared by Request → Edit and Reimburse → Edit) */
+export type PettyCashEditRow = Readonly<{
+  amount: string;
+  dept: string;
+  employee: string;
+  id: string;
+  status: string;
+  submitted: string;
+  tone: PettyCashTone;
+}>;
+
+/** @prototype index.html:L9655-L9659 `pcHistRows` (shared by both History sub-tabs) */
+export type PettyCashHistoryRow = Readonly<{
+  action: string;
+  by: string;
+  date: string;
+  id: string;
+  note: string;
+  tone: PettyCashTone;
+}>;
+
+/** @prototype index.html:L9725-L9729 `settleRows` */
+export type PettyCashSettleRow = Readonly<{
+  advance: string;
+  balance: string;
+  employee: string;
+  id: string;
+  spent: string;
+  status: string;
+  tone: PettyCashTone;
+}>;
+
+/** @prototype index.html:L7752 / L7674 `mk()` (request / reimburse drafts) */
+export type PettyCashDraft = {
+  activity: string;
+  amount: string;
+  budgeted: 'no' | 'yes';
+  collapsed: boolean;
+  dept: string;
+  files: ActionSheetAttachment[];
+  invoice: string;
+  key: string;
+  location: string;
+  remarks: string;
+  subActivity: string;
+  supplier: string;
+  year: string;
+  zone: string;
+};

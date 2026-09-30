@@ -14,6 +14,13 @@ The scoped first release (Navbar/menus, Masters, Home + Work Centre including th
 - M6.6 was started and is recorded in Review in `docs/tasks/phases/M6.6.md` / `MASTER_TASK_LIST.md`.
 - No other M6.7+/M9/M10/M11.3/M12 work is authorized by this change; each remains a separate phase requiring its own start.
 
+## 2026-09-30 - M6.7 Payment settlement: petty cash started
+
+- M6.6 was user-approved on 2026-09-30 (`COMPLETED.md`); M6.7 (dependency M6.6 only) was started as the next phase; the user approved it on 2026-09-30 and it is recorded in `COMPLETED.md`.
+- Human decision (Option A): `PettyCashRequestForm` is create-mode only. The prototype's `review`/`resubmit`/`verify`/`onDecision` branches are never invoked by any caller and are excluded as dead source; the question is deferred to M10.1 (see `DECISIONS.md`).
+- The plan's source line numbers (`PettyCashScreen` 11667–11874 etc.) do not match the current prototype checkout; `ihub/index.html` is byte-identical between baseline `273abc8` and `3c391b4` so there is no R6 delta, and the regions were located by name (`PettyCashScreen` L9549–9755, `PettyCashRequestCreate` L7744–7828, `ReimbursePettyCashCreate` L7663–7741). `PCRequestCreate` is Purchasing's (M6.3) and excluded.
+- M6.8 (Add a Supplier) and M10.x (Home approvals queue) remain untouched; M9.1 (document-only) runs in parallel with no shared code.
+
 ## 2026-09-29 - M8.2 Task analytics dashboard approved
 
 - Replaced the M8.1 Dashboard `MigrationPending` body inside `/home/work-centre/tasks` with the reachable current-prototype Soft Tint dashboard.

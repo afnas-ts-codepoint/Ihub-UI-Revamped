@@ -6,6 +6,7 @@ import { MigrationPending } from '@/shared/ui/feedback/MigrationPending';
 
 import { HOME_PAYMENT_SETTLEMENT_MODULES, type HomePaymentSettlementModule } from '../types/paymentSettlement.types';
 import { ActionSheetSection } from '../components/ActionSheetSection';
+import { PettyCashSection } from '../components/PettyCashSection';
 
 const labelKeys = {
   'action-sheet': 'home.sections.action-sheet',
@@ -14,8 +15,8 @@ const labelKeys = {
 } as const satisfies Record<HomePaymentSettlementModule, string>;
 
 /**
- * Only `action-sheet` (M6.6) is live. `petty-cash` (M6.7) and `add-supplier`
- * (M6.8) remain `MigrationPending`, matching the M8.1/M8.2 dashboard-tab
+ * `action-sheet` (M6.6) and `petty-cash` (M6.7) are live. `add-supplier`
+ * (M6.8) remains `MigrationPending`, matching the M8.1/M8.2 dashboard-tab
  * precedent of shipping the shell before every tab has real content.
  * @prototype index.html:L12707-L12727 the Payment Settlement tab strip
  * (`FilterChips` options `action-sheet` / `payment-settlement` (labelled
@@ -41,7 +42,9 @@ export function HomePaymentSettlementPage({ module }: Readonly<{ module: HomePay
           </Link>
         ))}
       </nav>
-      {module === 'action-sheet' ? <ActionSheetSection /> : <MigrationPending area={t(labelKeys[module])} />}
+      {module === 'action-sheet' ? <ActionSheetSection /> : null}
+      {module === 'petty-cash' ? <PettyCashSection /> : null}
+      {module === 'add-supplier' ? <MigrationPending area={t(labelKeys[module])} /> : null}
     </section>
   );
 }

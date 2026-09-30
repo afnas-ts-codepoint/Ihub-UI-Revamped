@@ -44,7 +44,7 @@ Destinations outside this release flow continue to show the registered `Migratio
 | [M6.4](phases/M6.4.md)   | Purchasing: purchase orders                                        | Completed | Claude       | M6.3                    | Not opened | Approved |
 | [M6.5](phases/M6.5.md)   | Purchasing: supplier quotations                                    | Completed | Codex        | M6.4                    | Not opened | Approved |
 | [M6.6](phases/M6.6.md)   | Payment settlement: layout and action sheets                       | Completed | Claude       | M5.1, M6.4              | TBD        | Approved |
-| [M6.7](phases/M6.7.md)   | Payment settlement: petty cash                                     | Pending   | Not assigned | M6.6                    | TBD        | Required |
+| [M6.7](phases/M6.7.md)   | Payment settlement: petty cash                                     | Completed | Claude       | M6.6                    | TBD        | Approved |
 | [M6.8](phases/M6.8.md)   | Payment settlement: add a supplier                                 | Pending   | Not assigned | M6.6                    | TBD        | Required |
 | [M7.1](phases/M7.1.md)   | Work Centre hub                                                    | Completed | Codex        | M5.1                    | Not opened | Approved |
 | [M7.2](phases/M7.2.md)   | Enquiries                                                          | Completed | Codex        | M7.1, M6.4              | Not opened | Approved |
@@ -58,7 +58,7 @@ Destinations outside this release flow continue to show the registered `Migratio
 | [M8.4](phases/M8.4.md)   | Task View                                                          | Completed | Claude       | M8.3                    | Not opened | Approved |
 | [M8.5](phases/M8.5.md)   | Task Edit: cards, comments, notes, history                         | Completed | Codex        | M8.4                    | 2026-09-29 | Approved |
 | [M8.6](phases/M8.6.md)   | Task Edit: dialogs and action bar                                  | Completed | Claude       | M8.5                    | 2026-09-29 | Approved |
-| [M9.1](phases/M9.1.md)   | Analysis of the five legacy usages (document only)                 | Pending   | Not assigned | M8.3, M7.5              | TBD        | Required |
+| [M9.1](phases/M9.1.md)   | Analysis of the five legacy usages (document only)                 | Completed | Claude       | M8.3, M7.5              | Not opened | Approved |
 | [M9.2](phases/M9.2.md)   | Implement the approved task-form modes and incident "Raise a task" | Pending   | Not assigned | M9.1                    | TBD        | Required |
 | [M10.1](phases/M10.1.md) | Queues, workflow drawer, Approvals view                            | Pending   | Not assigned | M6.6, M6.7, M9.2        | TBD        | Required |
 | [M10.2](phases/M10.2.md) | Overview                                                           | Pending   | Not assigned | M10.1, M8.2, M3.8, M7.5 | TBD        | Required |

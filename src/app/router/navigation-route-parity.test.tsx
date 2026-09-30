@@ -196,7 +196,6 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.assigned('tasks'),
     paths.home.view('reports'),
     paths.home.workCentre('incidents'),
-    paths.home.paymentSettlement('petty-cash'),
     paths.home.paymentSettlement('add-supplier'),
   ])('routes the pending prototype screen at %s', async (path) => {
     const { router } = renderRoute(path);
@@ -224,6 +223,15 @@ describe('Phase 2 section 11 URL map', () => {
     const { router } = renderRoute(paths.home.paymentSettlement('action-sheet'));
     expect(
       await screen.findByRole('heading', { name: 'Payment Settlement' }),
+    ).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it('routes the M6.7 Petty Cash page (not the pending placeholder) at /home/payment-settlement/petty-cash', async () => {
+    const { router } = renderRoute(paths.home.paymentSettlement('petty-cash'));
+    expect(
+      await screen.findByRole('heading', { name: 'Petty Cash Request' }),
     ).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();

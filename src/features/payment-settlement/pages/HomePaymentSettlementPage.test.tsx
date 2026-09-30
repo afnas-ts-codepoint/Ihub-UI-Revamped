@@ -32,9 +32,10 @@ describe('HomePaymentSettlementPage', () => {
     expect(screen.getByRole('link', { name: 'Add a Supplier' })).not.toHaveAttribute('aria-current');
   });
 
-  it('keeps Petty Cash pending (M6.7 not started)', () => {
+  it('serves Petty Cash live (M6.7) with no pending placeholder', () => {
     renderModule('petty-cash');
-    expect(screen.getByRole('status')).toHaveAttribute('data-migration-pending', 'Petty Cash');
+    expect(screen.queryByRole('status')).toBeNull();
+    expect(screen.getByRole('heading', { name: 'Petty Cash Request' })).toBeVisible();
   });
 
   it('keeps Add a Supplier pending (M6.8 not started)', () => {

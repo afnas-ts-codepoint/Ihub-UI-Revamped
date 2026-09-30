@@ -10,6 +10,83 @@
     "description": "لا تتوفر سجلات لهذا العرض."
   },
   "allTab": "الكل",
+  "pettyCash": {
+    "tabs": { "request": "طلب نثرية", "reimburse": "استرداد النثرية", "settle": "تسوية النثرية" },
+    "tableTabs": { "editable": "قابل للتعديل", "pending": "معلّق", "toSettle": "بانتظار التسوية" },
+    "request": {
+      "ariaLabel": "عروض طلب النثرية",
+      "subs": { "create": "طلب نثرية", "edit": "تعديل النثرية", "history": "السجل" },
+      "edit": { "title": "تعديل النثرية", "subtitle": "اختر طلب نثرية لتعديله." },
+      "history": { "subtitle": "سجل النشاط الكامل عبر طلبات النثرية." }
+    },
+    "reimburse": {
+      "ariaLabel": "عروض استرداد النثرية",
+      "subs": { "request": "طلب استرداد النثرية", "listing": "قائمة النثرية", "edit": "تعديل", "history": "السجل" },
+      "listing": { "title": "قائمة النثرية", "subtitle": "الاستردادات بانتظار اعتماد الرئيس." },
+      "edit": { "title": "تعديل", "subtitle": "اختر استرداداً لتعديله." },
+      "history": { "subtitle": "سجل النشاط الكامل عبر الاستردادات." }
+    },
+    "settle": { "title": "تسوية النثرية", "subtitle": "سوِّ السلف مقابل الإنفاق الفعلي." },
+    "history": { "title": "السجل" },
+    "actions": { "edit": "تعديل", "reimburseRequest": "طلب استرداد", "settleRequest": "طلب تسوية" },
+    "columns": {
+      "id": "رقم النثرية", "reimbursement": "الاسترداد", "employee": "الموظف", "department": "الإدارة",
+      "amount": "المبلغ (د.ك)", "submitted": "تاريخ الإرسال", "status": "الحالة", "date": "التاريخ",
+      "action": "الإجراء", "by": "بواسطة", "note": "ملاحظة", "advance": "السلفة (د.ك)",
+      "spent": "المصروف (د.ك)", "balance": "الرصيد (د.ك)"
+    },
+    "empty": {
+      "title": "لا توجد سجلات نثرية",
+      "description": "لا تتوفر سجلات لهذا العرض."
+    },
+    "form": {
+      "request": {
+        "title": "طلب نثرية",
+        "subtitle": "املأ التفاصيل لإنشاء طلب. أضف أكثر من طلب عند الحاجة.",
+        "attachment": "المرفقات",
+        "totalLabel": "إجمالي المبلغ",
+        "submit": "إرسال الطلب",
+        "submittedSingle": "تم إرسال طلب النثرية",
+        "submittedMultiple": "تم إرسال طلبات النثرية"
+      },
+      "reimburse": {
+        "title": "طلب استرداد النثرية",
+        "subtitle": "اطلب استرداد مبلغ تم إنفاقه. أضف أكثر من طلب عند الحاجة.",
+        "attachment": "المرفق",
+        "totalLabel": "إجمالي النثرية",
+        "submit": "إرسال الاسترداد",
+        "submittedSingle": "تم إرسال طلب الاسترداد",
+        "submittedMultiple": "تم إرسال طلبات الاسترداد"
+      },
+      "requestLabel": "طلب",
+      "removeRequest": "إزالة الطلب {{number}}",
+      "removeAttachment": "إزالة المرفق",
+      "fields": {
+        "location": "الموقع", "zone": "الزون", "department": "الإدارة", "year": "السنة",
+        "supplier": "المورّد", "amount": "المبلغ", "activity": "النشاط", "subActivity": "النشاط الفرعي",
+        "budgeted": "مدرج بالميزانية", "invoice": "رقم الفاتورة", "remarks": "ملاحظات"
+      },
+      "select": {
+        "location": "اختر الموقع…", "zone": "اختر الزون…", "department": "اختر الإدارة…",
+        "year": "اختر السنة…", "supplier": "اختر المورّد…", "activity": "اختر النشاط…",
+        "subActivity": "اختر النشاط الفرعي…"
+      },
+      "budgeted": { "yes": "نعم", "no": "لا" },
+      "invoicePlaceholder": "مثال: INV-00291",
+      "remarksPlaceholder": "أضف ملاحظات للمعتمدين…",
+      "untitledFile": "ملف",
+      "captionPlaceholder": "وصف (مطلوب)…",
+      "uploadHint": "انقر للرفع أو اسحب وأفلت",
+      "captionHint": "كل مرفق يتطلب وصفاً",
+      "captionError": "كل مرفق يحتاج وصفاً.",
+      "addAnother": "إضافة طلب آخر",
+      "summary": "الملخص",
+      "requestSingular": "طلب",
+      "requestPlural": "طلبات",
+      "actions": "إجراءات",
+      "saveDraft": "حفظ كمسودة"
+    }
+  },
   "home": {
     "title": "تسوية المدفوعات",
     "sections": {
