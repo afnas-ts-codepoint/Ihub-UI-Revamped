@@ -28,6 +28,10 @@ import {
 } from '@/features/home';
 import { NotificationsPage } from '@/features/notifications';
 import { ObservationsPage } from '@/features/observations';
+import {
+  HomePaymentSettlementPage,
+  isHomePaymentSettlementModule,
+} from '@/features/payment-settlement';
 import { SnagListsPage } from '@/features/snag-lists';
 import {
   defaultHomePurchasingSection,
@@ -56,8 +60,6 @@ import { paths } from '@/shared/config/paths';
 
 const assignedQueues = ['approvals', 'verify', 'tasks'] as const;
 const incidentViews = ['reports', 'live'] as const;
-const paymentModules = ['action-sheet', 'petty-cash', 'add-supplier'] as const;
-
 function RootRoute() {
   return (
     <>
@@ -73,6 +75,15 @@ function HomeBudgetingRoute() {
     return <HomeBudgetingPage section={defaultHomeBudgetSection} />;
   return isHomeBudgetSection(section) ? (
     <HomeBudgetingPage section={section} />
+  ) : (
+    <NotFoundPage />
+  );
+}
+
+function HomePaymentSettlementRoute() {
+  const { module } = useParams<{ module?: string }>();
+  return isHomePaymentSettlementModule(module) ? (
+    <HomePaymentSettlementPage module={module} />
   ) : (
     <NotFoundPage />
   );
@@ -211,13 +222,7 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'payment-settlement/:module',
-            element: (
-              <ValidatedPendingRoute
-                allowed={paymentModules}
-                parameter="module"
-                titleKey="routes.paymentSettlement"
-              />
-            ),
+            element: <HomePaymentSettlementRoute />,
             handle: { homeTab: 'payment-settlement' },
           },
           { path: '*', element: <NotFoundPage /> },

@@ -1,0 +1,147 @@
+{
+  "pagination": {
+    "previous": "Previous page",
+    "next": "Next page",
+    "page": "Page",
+    "summary": "Showing {{shown}} of {{total}} records"
+  },
+  "empty": {
+    "title": "No action sheet records",
+    "description": "No records are available for this view."
+  },
+  "allTab": "All",
+  "home": {
+    "title": "Payment Settlement",
+    "sections": {
+      "ariaLabel": "Payment settlement sections",
+      "action-sheet": "Action Sheet",
+      "petty-cash": "Petty Cash",
+      "add-supplier": "Add a Supplier"
+    }
+  },
+  "actionSheet": {
+    "subs": {
+      "create": "Create an Action Sheet",
+      "edit": "Edit Action Sheet",
+      "missing": "Missing Documents",
+      "prepay": "Pre Payments Listing",
+      "cost": "Recording Cost",
+      "history": "History",
+      "report": "Report"
+    },
+    "create": {
+      "title": "Create an Action Sheet",
+      "subtitle": "Fill in the details to raise an action sheet. Add more than one action sheet if needed.",
+      "sheet": "Action Sheet",
+      "fields": {
+        "location": "Location", "zone": "Zone", "department": "Department", "year": "Year",
+        "activity": "Activity", "subActivity": "Sub Activity", "budgeted": "Budgeted",
+        "category": "Category", "purchaseValue": "Purchase value", "currency": "Currency",
+        "invoice": "Invoice Number", "supplier": "Supplier", "paymentType": "Payment type",
+        "sheetType": "Action sheet type", "grn": "GRN", "remarks": "Remarks"
+      },
+      "select": {
+        "location": "Select location…", "zone": "Select zone…", "department": "Select department…",
+        "year": "Select year…", "activity": "Select activity…", "subActivity": "Select sub activity…",
+        "category": "Select category…", "currency": "Select currency…", "supplier": "Select supplier…"
+      },
+      "budgeted": { "yes": "Yes", "no": "No" },
+      "paymentType": { "advance": "Advance", "final": "Final" },
+      "sheetType": { "regular": "Regular", "scheduled": "Scheduled" },
+      "grnReceived": "GRN received",
+      "invoicePlaceholder": "e.g. INV-00291",
+      "remarksPlaceholder": "Add any notes for approvers…",
+      "allocation": "Allocation",
+      "financials": "Financials",
+      "options": "Options",
+      "attachment": "Attachment",
+      "untitledFile": "Untitled file",
+      "captionPlaceholder": "Caption (required)…",
+      "uploadHint": "Click to upload or drag and drop",
+      "captionHint": "Each attachment requires a caption",
+      "combine": "Combine action sheet",
+      "summary": "Summary",
+      "sheetCount_one": "{{count}} action sheet",
+      "sheetCount_other": "{{count}} action sheets",
+      "totalPurchaseValue": "Total Purchase Value",
+      "totalAboveBudget": "Total Above Budget",
+      "actions": "Actions",
+      "submit_one": "Create action sheet",
+      "submit_other": "Create action sheets",
+      "captionError": "Every attachment needs a caption.",
+      "submittedSingle": "Action sheet created",
+      "submittedCombined": "Combined action sheet created",
+      "saveDraft": "Save as draft"
+    },
+    "decision": {
+      "title": "Decision",
+      "previewOnly": "Preview only. Click Edit to make changes.",
+      "approve": "Approve",
+      "verify": "Verify",
+      "edit": "Edit",
+      "done": "Done",
+      "sendBack": "Send back",
+      "reject": "Reject",
+      "sendBackReasonLabel": "Reason (optional)",
+      "sendBackPlaceholder": "Add details for the creator…",
+      "confirmSendBack": "Confirm send back",
+      "reasons": {
+        "missingDocument": "Missing document",
+        "needsJustification": "Needs more justification",
+        "ceoApproval": "Approval from CEO",
+        "invoiceMissing": "Invoice/price missing",
+        "other": "Other"
+      }
+    },
+    "resubmit": {
+      "title": "Resubmit",
+      "hint": "Address the reason it was returned, then resubmit for approval.",
+      "submit": "Submit"
+    },
+    "edit": {
+      "title": "Edit Action Sheet",
+      "subtitle": "Select an existing action sheet to edit.",
+      "action": "Edit"
+    },
+    "missing": {
+      "title": "Missing Documents",
+      "subtitle": "Action sheets awaiting required attachments."
+    },
+    "prepay": {
+      "title": "Pre Payments Listing",
+      "subtitle": "Advance payments issued against action sheets."
+    },
+    "cost": {
+      "title": "Recording Cost",
+      "subtitle": "Actual costs recorded against budget lines."
+    },
+    "history": {
+      "title": "History",
+      "subtitle": "Full activity trail across action sheets.",
+      "filters": { "all": "All", "purchase": "Purchase", "service": "Service / Contractual" }
+    },
+    "report": {
+      "title": "Report",
+      "subtitle": "Build and export an action sheet report.",
+      "filters": "Report filters",
+      "fields": {
+        "year": "Year", "department": "Department", "sheetType": "Action sheet type",
+        "status": "Status", "from": "From", "to": "To"
+      },
+      "select": {
+        "year": "Select year…", "department": "All departments", "sheetType": "All types",
+        "status": "All statuses"
+      },
+      "generate": "Generate report",
+      "export": "Export to Excel",
+      "placeholder": "Run the report to generate results. The table will render here."
+    },
+    "columns": {
+      "id": "AS #", "title": "Title", "department": "Department", "value": "Value (KWD)",
+      "type": "Type", "status": "Status", "missing": "Missing", "supplier": "Supplier",
+      "daysPending": "Days pending", "advance": "Advance (KWD)", "currency": "Currency",
+      "date": "Date", "budgetLine": "Budget line", "recorded": "Recorded (KWD)",
+      "variance": "Variance", "action": "Action", "by": "By", "note": "Note"
+    }
+  }
+}

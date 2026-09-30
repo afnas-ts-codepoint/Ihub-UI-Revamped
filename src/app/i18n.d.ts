@@ -15,6 +15,7 @@ import type notifications from '@/shared/i18n/locales/en/notifications.json';
 import type observations from '@/shared/i18n/locales/en/observations.json';
 import type snagLists from '@/shared/i18n/locales/en/snagLists.json';
 import type organization from '@/shared/i18n/locales/en/organization.json';
+import type paymentSettlement from '@/shared/i18n/locales/en/paymentSettlement.json';
 import type purchasing from '@/shared/i18n/locales/en/purchasing.json';
 import type reports from '@/shared/i18n/locales/en/reports.json';
 import type settings from '@/shared/i18n/locales/en/settings.json';
@@ -45,6 +46,7 @@ declare module 'i18next' {
       observations: typeof observations;
       snagLists: typeof snagLists;
       organization: typeof organization;
+      paymentSettlement: typeof paymentSettlement;
       purchasing: typeof purchasing;
       reports: typeof reports;
       settings: typeof settings;

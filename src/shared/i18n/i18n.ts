@@ -84,6 +84,7 @@ export async function initializeI18n(locale: Locale) {
       'observations',
       'snagLists',
       'organization',
+      'paymentSettlement',
       'purchasing',
       'reports',
       'settings',

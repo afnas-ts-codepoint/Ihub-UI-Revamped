@@ -13,6 +13,7 @@ import arMasters from '@/shared/i18n/locales/ar/masters.json';
 import arNav from '@/shared/i18n/locales/ar/nav.json';
 import arNotifications from '@/shared/i18n/locales/ar/notifications.json';
 import arOrganization from '@/shared/i18n/locales/ar/organization.json';
+import arPaymentSettlement from '@/shared/i18n/locales/ar/paymentSettlement.json';
 import arPurchasing from '@/shared/i18n/locales/ar/purchasing.json';
 import arReports from '@/shared/i18n/locales/ar/reports.json';
 import arSettings from '@/shared/i18n/locales/ar/settings.json';
@@ -32,6 +33,7 @@ import enMasters from '@/shared/i18n/locales/en/masters.json';
 import enNav from '@/shared/i18n/locales/en/nav.json';
 import enNotifications from '@/shared/i18n/locales/en/notifications.json';
 import enOrganization from '@/shared/i18n/locales/en/organization.json';
+import enPaymentSettlement from '@/shared/i18n/locales/en/paymentSettlement.json';
 import enPurchasing from '@/shared/i18n/locales/en/purchasing.json';
 import enReports from '@/shared/i18n/locales/en/reports.json';
 import enSettings from '@/shared/i18n/locales/en/settings.json';
@@ -84,6 +86,7 @@ describe('i18n resources', () => {
     ['nav', enNav, arNav],
     ['notifications', enNotifications, arNotifications],
     ['organization', enOrganization, arOrganization],
+    ['paymentSettlement', enPaymentSettlement, arPaymentSettlement],
     ['purchasing', enPurchasing, arPurchasing],
     ['reports', enReports, arReports],
     ['settings', enSettings, arSettings],

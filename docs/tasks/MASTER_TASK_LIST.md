@@ -43,7 +43,7 @@ Destinations outside this release flow continue to show the registered `Migratio
 | [M6.3](phases/M6.3.md)   | Purchasing: requests and review                                    | Completed | Codex        | M5.1, M3.8              | Not opened | Approved |
 | [M6.4](phases/M6.4.md)   | Purchasing: purchase orders                                        | Completed | Claude       | M6.3                    | Not opened | Approved |
 | [M6.5](phases/M6.5.md)   | Purchasing: supplier quotations                                    | Completed | Codex        | M6.4                    | Not opened | Approved |
-| [M6.6](phases/M6.6.md)   | Payment settlement: layout and action sheets                       | Pending   | Not assigned | M5.1, M6.4              | TBD        | Required |
+| [M6.6](phases/M6.6.md)   | Payment settlement: layout and action sheets                       | Completed | Claude       | M5.1, M6.4              | TBD        | Approved |
 | [M6.7](phases/M6.7.md)   | Payment settlement: petty cash                                     | Pending   | Not assigned | M6.6                    | TBD        | Required |
 | [M6.8](phases/M6.8.md)   | Payment settlement: add a supplier                                 | Pending   | Not assigned | M6.6                    | TBD        | Required |
 | [M7.1](phases/M7.1.md)   | Work Centre hub                                                    | Completed | Codex        | M5.1                    | Not opened | Approved |

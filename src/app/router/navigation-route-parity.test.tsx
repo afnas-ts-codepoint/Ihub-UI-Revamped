@@ -196,7 +196,6 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.assigned('tasks'),
     paths.home.view('reports'),
     paths.home.workCentre('incidents'),
-    paths.home.paymentSettlement('action-sheet'),
     paths.home.paymentSettlement('petty-cash'),
     paths.home.paymentSettlement('add-supplier'),
   ])('routes the pending prototype screen at %s', async (path) => {
@@ -217,6 +216,15 @@ describe('Phase 2 section 11 URL map', () => {
   it('routes the M8.5 Task Edit page (not the pending placeholder) at /tasks/:taskId/edit', async () => {
     const { router } = renderRoute(paths.tasks.edit('T-001'));
     expect(await screen.findByTestId('task-edit-page')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it('routes the M6.6 Action Sheet page (not the pending placeholder) at /home/payment-settlement/action-sheet', async () => {
+    const { router } = renderRoute(paths.home.paymentSettlement('action-sheet'));
+    expect(
+      await screen.findByRole('heading', { name: 'Payment Settlement' }),
+    ).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });

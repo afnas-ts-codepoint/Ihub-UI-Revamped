@@ -2,6 +2,18 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-09-30 - Full migration authorized beyond the first release; M6.6 started
+
+### Human authorization and decision
+
+The scoped first release (Navbar/menus, Masters, Home + Work Centre including the pulled-forward Task flows, and Settings configuration — M11.1/M11.2) is now fully approved and complete. The 2026-09-28 "First-release priority flow" decision explicitly scoped that release as partial ("not the final M12 migration release") and every subsequent changelog entry reiterated that no M6.6+/M9/M10/M11.3/M12 work was authorized. With the first-release scope exhausted, the user was asked whether to authorize the full migration to continue and explicitly chose to do so, starting with **M6.6 — Payment settlement: layout and action sheets** (dependencies M5.1, M6.4 both already approved).
+
+### Consequences accepted
+
+- The full migration (beyond the scoped first release) is now authorized to proceed, one phase at a time, under the existing one-phase-at-a-time review and human-approval gates.
+- M6.6 was started and is recorded in Review in `docs/tasks/phases/M6.6.md` / `MASTER_TASK_LIST.md`.
+- No other M6.7+/M9/M10/M11.3/M12 work is authorized by this change; each remains a separate phase requiring its own start.
+
 ## 2026-09-29 - M8.2 Task analytics dashboard approved
 
 - Replaced the M8.1 Dashboard `MigrationPending` body inside `/home/work-centre/tasks` with the reachable current-prototype Soft Tint dashboard.

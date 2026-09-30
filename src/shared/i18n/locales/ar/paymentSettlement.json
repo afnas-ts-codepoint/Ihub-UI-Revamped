@@ -1,0 +1,147 @@
+{
+  "pagination": {
+    "previous": "الصفحة السابقة",
+    "next": "الصفحة التالية",
+    "page": "صفحة",
+    "summary": "عرض {{shown}} من {{total}} سجل"
+  },
+  "empty": {
+    "title": "لا توجد سجلات لأوراق الإجراء",
+    "description": "لا تتوفر سجلات لهذا العرض."
+  },
+  "allTab": "الكل",
+  "home": {
+    "title": "تسوية المدفوعات",
+    "sections": {
+      "ariaLabel": "أقسام تسوية المدفوعات",
+      "action-sheet": "ورقة الإجراء",
+      "petty-cash": "النثرية",
+      "add-supplier": "إضافة مورّد"
+    }
+  },
+  "actionSheet": {
+    "subs": {
+      "create": "إنشاء ورقة إجراء",
+      "edit": "تعديل ورقة الإجراء",
+      "missing": "مستندات ناقصة",
+      "prepay": "قائمة الدفعات المقدمة",
+      "cost": "تسجيل التكلفة",
+      "history": "السجل",
+      "report": "تقرير"
+    },
+    "create": {
+      "title": "إنشاء ورقة إجراء",
+      "subtitle": "املأ التفاصيل لإنشاء ورقة إجراء. أضف أكثر من ورقة إجراء إذا لزم الأمر.",
+      "sheet": "ورقة إجراء",
+      "fields": {
+        "location": "الموقع", "zone": "الزون", "department": "الإدارة", "year": "السنة",
+        "activity": "النشاط", "subActivity": "النشاط الفرعي", "budgeted": "مدرج بالميزانية",
+        "category": "الفئة", "purchaseValue": "قيمة الشراء", "currency": "العملة",
+        "invoice": "رقم الفاتورة", "supplier": "المورّد", "paymentType": "نوع الدفع",
+        "sheetType": "نوع ورقة الإجراء", "grn": "إشعار استلام البضاعة", "remarks": "ملاحظات"
+      },
+      "select": {
+        "location": "اختر الموقع…", "zone": "اختر الزون…", "department": "اختر الإدارة…",
+        "year": "اختر السنة…", "activity": "اختر النشاط…", "subActivity": "اختر النشاط الفرعي…",
+        "category": "اختر الفئة…", "currency": "اختر العملة…", "supplier": "اختر المورّد…"
+      },
+      "budgeted": { "yes": "نعم", "no": "لا" },
+      "paymentType": { "advance": "دفعة مقدمة", "final": "دفعة نهائية" },
+      "sheetType": { "regular": "عادية", "scheduled": "مجدولة" },
+      "grnReceived": "تم استلام البضاعة",
+      "invoicePlaceholder": "مثال: INV-00291",
+      "remarksPlaceholder": "أضف ملاحظات للمعتمدين…",
+      "allocation": "التخصيص",
+      "financials": "البيانات المالية",
+      "options": "خيارات",
+      "attachment": "المرفق",
+      "untitledFile": "ملف",
+      "captionPlaceholder": "وصف (مطلوب)…",
+      "uploadHint": "انقر للرفع أو اسحب وأفلت",
+      "captionHint": "كل مرفق يتطلب وصفاً",
+      "combine": "دمج ورقة إجراء",
+      "summary": "الملخص",
+      "sheetCount_one": "ورقة إجراء واحدة",
+      "sheetCount_other": "{{count}} أوراق إجراء",
+      "totalPurchaseValue": "إجمالي قيمة الشراء",
+      "totalAboveBudget": "إجمالي تجاوز الميزانية",
+      "actions": "إجراءات",
+      "submit_one": "إنشاء ورقة الإجراء",
+      "submit_other": "إنشاء أوراق الإجراء",
+      "captionError": "كل مرفق يحتاج وصفاً.",
+      "submittedSingle": "تم إنشاء ورقة الإجراء",
+      "submittedCombined": "تم إنشاء ورقة الإجراء المجمّعة",
+      "saveDraft": "حفظ كمسودة"
+    },
+    "decision": {
+      "title": "القرار",
+      "previewOnly": "معاينة فقط. اضغط تعديل لإجراء تغييرات.",
+      "approve": "موافقة",
+      "verify": "تحقق",
+      "edit": "تعديل",
+      "done": "تم",
+      "sendBack": "إعادة",
+      "reject": "رفض",
+      "sendBackReasonLabel": "السبب (اختياري)",
+      "sendBackPlaceholder": "أضف تفاصيل للمنشئ…",
+      "confirmSendBack": "تأكيد الإعادة",
+      "reasons": {
+        "missingDocument": "مستند ناقص",
+        "needsJustification": "يحتاج مزيداً من التبرير",
+        "ceoApproval": "موافقة الرئيس التنفيذي",
+        "invoiceMissing": "فاتورة/سعر ناقص",
+        "other": "أخرى"
+      }
+    },
+    "resubmit": {
+      "title": "إعادة الإرسال",
+      "hint": "عالج سبب الإعادة ثم أعد الإرسال للموافقة.",
+      "submit": "إرسال"
+    },
+    "edit": {
+      "title": "تعديل ورقة الإجراء",
+      "subtitle": "اختر ورقة إجراء موجودة لتعديلها.",
+      "action": "تعديل"
+    },
+    "missing": {
+      "title": "مستندات ناقصة",
+      "subtitle": "أوراق إجراء تنتظر المرفقات المطلوبة."
+    },
+    "prepay": {
+      "title": "قائمة الدفعات المقدمة",
+      "subtitle": "الدفعات المقدمة الصادرة مقابل أوراق الإجراء."
+    },
+    "cost": {
+      "title": "تسجيل التكلفة",
+      "subtitle": "التكاليف الفعلية المسجّلة مقابل بنود الميزانية."
+    },
+    "history": {
+      "title": "السجل",
+      "subtitle": "سجل النشاط الكامل عبر أوراق الإجراء.",
+      "filters": { "all": "الكل", "purchase": "شراء", "service": "خدمة / تعاقدية" }
+    },
+    "report": {
+      "title": "تقرير",
+      "subtitle": "أنشئ وصدّر تقرير أوراق الإجراء.",
+      "filters": "مرشّحات التقرير",
+      "fields": {
+        "year": "السنة", "department": "الإدارة", "sheetType": "نوع ورقة الإجراء",
+        "status": "الحالة", "from": "من", "to": "إلى"
+      },
+      "select": {
+        "year": "اختر السنة…", "department": "كل الإدارات", "sheetType": "كل الأنواع",
+        "status": "كل الحالات"
+      },
+      "generate": "إنشاء التقرير",
+      "export": "تصدير إلى إكسل",
+      "placeholder": "شغّل التقرير لإنشاء النتائج. سيظهر الجدول هنا."
+    },
+    "columns": {
+      "id": "رقم الورقة", "title": "العنوان", "department": "الإدارة", "value": "القيمة",
+      "type": "النوع", "status": "الحالة", "missing": "الناقص", "supplier": "المورّد",
+      "daysPending": "أيام الانتظار", "advance": "الدفعة المقدمة", "currency": "العملة",
+      "date": "التاريخ", "budgetLine": "بند الميزانية", "recorded": "المسجّل",
+      "variance": "الفرق", "action": "الإجراء", "by": "بواسطة", "note": "ملاحظة"
+    }
+  }
+}
