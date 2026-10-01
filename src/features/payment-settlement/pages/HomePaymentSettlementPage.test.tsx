@@ -38,9 +38,11 @@ describe('HomePaymentSettlementPage', () => {
     expect(screen.getByRole('heading', { name: 'Petty Cash Request' })).toBeVisible();
   });
 
-  it('keeps Add a Supplier pending (M6.8 not started)', () => {
+  it('serves Add a Supplier live (M6.8) with no pending placeholder', () => {
     renderModule('add-supplier');
-    expect(screen.getByRole('status')).toHaveAttribute('data-migration-pending', 'Add a Supplier');
+    expect(screen.queryByRole('status')).toBeNull();
+    expect(screen.getByRole('link', { name: 'Add a Supplier' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('heading', { name: 'Supplier details' })).toBeVisible();
   });
 
   it('defaults the Action Sheet sub-tab to Create and renders the embedded form', () => {

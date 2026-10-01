@@ -38,6 +38,8 @@
     "visual:capture:m7.5": "playwright test m7.5.spec.ts",
     "visual:capture:m7.6": "playwright test m7.6.spec.ts",
     "visual:capture:m6.7": "playwright test m6.7.spec.ts",
+    "visual:capture:m6.8": "playwright test m6.8.spec.ts",
+    "visual:capture:m9.2": "playwright test m9.2.spec.ts",
     "visual:capture:m8.2": "playwright test m8.2.spec.ts",
     "visual:capture:m8.3": "playwright test m8.3.spec.ts",
     "visual:capture:m8.4": "playwright test m8.4.spec.ts",

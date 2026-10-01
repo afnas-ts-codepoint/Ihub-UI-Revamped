@@ -53,6 +53,7 @@ export type IncidentRow = Readonly<{
 export type IncidentRuntimeRow = IncidentRow &
   Readonly<{
     history: readonly IncidentHistoryEntry[];
+    taskRef?: string;
     tracked: boolean;
   }>;
 

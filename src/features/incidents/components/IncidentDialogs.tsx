@@ -8,7 +8,6 @@ import { Select } from '@/shared/form/controls/Select';
 import { TextArea } from '@/shared/form/controls/TextArea';
 import { TextInput } from '@/shared/form/controls/TextInput';
 import { Field } from '@/shared/form/field/Field';
-import { MigrationPending } from '@/shared/ui/feedback/MigrationPending';
 import { Chip } from '@/shared/ui/chip/Chip';
 import { DialogBody, DialogContent, DialogFooter, DialogHeader, DialogRoot, DialogTitle } from '@/shared/ui/overlay/Dialog';
 
@@ -36,7 +35,7 @@ export function IncidentDetailDialog({ onAction, onOpenChange, row }: Readonly<{
       <section className="mt-[18px]"><span className="eyebrow">{t('attachments.title')}</span><div className="mt-2.5 flex flex-col gap-2">{detail.documents.map((document) => <div className="flex items-center gap-2.5 rounded-lg border border-line bg-raised px-3 py-2.5" key={document}><Folder aria-hidden className="text-accent" size={15} /><strong className="flex-1 text-sm-plus">{document}</strong><span className="text-sm font-semibold text-accent">{t('actions.view')}</span></div>)}</div></section>
       <div className="mt-[18px]"><RecordHud entries={row.history} id={row.id} status={row.status} statusTone={row.statusTone} /></div>
     </DialogBody>
-    <DialogFooter>{(['track', 'compensate', 'task', 'investigate', 'feedback', 'callback', 'close'] as const).map((action) => <button className={`${button} ${action === 'close' ? 'bg-accent text-accent-ink' : 'border border-line-strong bg-surface'}`} key={action} onClick={() => { onAction(action, row); }} type="button">{t(`actions.${action}`)}</button>)}<button className={`${button} ms-auto text-fg-2`} onClick={() => { onOpenChange(false); }} type="button">{t('actions.closeDialog')}</button></DialogFooter>
+    <DialogFooter>{(['track', 'compensate', 'task', 'investigate', 'feedback', 'callback', 'close'] as const).map((action) => <button className={`${button} ${action === 'close' ? 'bg-accent text-accent-ink' : 'border border-line-strong bg-surface'} disabled:opacity-50`} disabled={action === 'task' && Boolean(row.taskRef)} key={action} onClick={() => { onAction(action, row); }} type="button">{t(`actions.${action}`)}</button>)}<button className={`${button} ms-auto text-fg-2`} onClick={() => { onOpenChange(false); }} type="button">{t('actions.closeDialog')}</button></DialogFooter>
   </DialogContent></DialogRoot>;
 }
 
@@ -51,9 +50,4 @@ export function CompensationDialog({ onCancel, onSave, row }: Readonly<{ onCance
 export function FeedbackDialog({ onCancel, onSave, row }: Readonly<{ onCancel: () => void; onSave: (feedback: string) => void; row: IncidentRuntimeRow | null }>) {
   const { t } = useTranslation('incidents'); const [feedback, setFeedback] = useState(''); if (!row) return null;
   return <DialogRoot onOpenChange={(open) => { if (!open) onCancel(); }} open><DialogContent className="w-[min(520px,calc(100%-48px))]"><DialogHeader><div><DialogTitle className="text-lg font-semibold">{t('feedback.title')}</DialogTitle><div className="mt-1 text-sm text-fg-3">{`${row.id} · ${row.title}`}</div></div></DialogHeader><DialogBody><Field label={t('feedback.field')}><TextArea aria-label={t('feedback.field')} onChange={(event) => { setFeedback(event.currentTarget.value); }} rows={6} value={feedback} /></Field></DialogBody><DialogFooter><span className="text-sm text-fg-3">{t('feedback.note')}</span><div className="ms-auto flex gap-2"><button className={`${button} text-fg-2`} onClick={onCancel} type="button">{t('actions.cancel')}</button><button className={`${button} bg-accent text-accent-ink disabled:opacity-50`} disabled={!feedback.trim()} onClick={() => { onSave(feedback.trim()); }} type="button">{t('feedback.save')}</button></div></DialogFooter></DialogContent></DialogRoot>;
-}
-
-export function RaiseTaskPendingDialog({ onCancel, row }: Readonly<{ onCancel: () => void; row: IncidentRuntimeRow | null }>) {
-  const { t } = useTranslation('incidents'); if (!row) return null;
-  return <DialogRoot onOpenChange={(open) => { if (!open) onCancel(); }} open><DialogContent className="w-[min(560px,calc(100%-48px))]"><DialogHeader><DialogTitle className="text-lg font-semibold">{t('actions.task')}</DialogTitle></DialogHeader><DialogBody><div className="text-sm text-fg-3">{`${t('task.fromIncident')} ${row.id}`}</div><MigrationPending area={t('actions.task')} /></DialogBody><DialogFooter><button className={`${button} ms-auto text-fg-2`} onClick={onCancel} type="button">{t('actions.closeDialog')}</button></DialogFooter></DialogContent></DialogRoot>;
 }

@@ -70,15 +70,6 @@ describe('HomePaymentSettlementPage — Petty Cash (M6.7)', () => {
     expect(screen.getByRole('button', { name: 'Submit request' })).toBeVisible();
   });
 
-  it('keeps Add a Supplier pending (M6.8 boundary)', () => {
-    render(
-      <MemoryRouter initialEntries={['/home/payment-settlement/add-supplier']}>
-        <HomePaymentSettlementPage module="add-supplier" />
-      </MemoryRouter>,
-    );
-    expect(screen.getByRole('status')).toHaveAttribute('data-migration-pending', 'Add a Supplier');
-  });
-
   it('renders Request → Edit with the editable fixture and an inert Edit action', async () => {
     const user = userEvent.setup();
     renderPettyCash();

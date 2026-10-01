@@ -18,10 +18,17 @@
     "title": "معلومات الأصل / الجهاز"
   },
   "attachments": {
+    "carried": "مُرحّلة من الحادث",
     "currentUser": "المستخدم الحالي",
     "title": "المرفقات",
     "upload": "انقر للرفع أو اسحب وأفلت",
     "uploadTypes": "الصيغ المسموحة — jpg، png، jpeg، pdf (الحد الأقصى 2 ميغابايت)"
+  },
+  "dialog": {
+    "close": "إغلاق",
+    "fromIncident": "من الحادث",
+    "note": "يبقى الحادث مفتوحاً ومرتبطاً بالمهمة الجديدة.",
+    "raise": "إنشاء مهمة"
   },
   "classification": {
     "category": "الفئة",

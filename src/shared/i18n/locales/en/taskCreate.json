@@ -18,10 +18,17 @@
     "title": "Asset / Machine Information"
   },
   "attachments": {
+    "carried": "Carried from the incident",
     "currentUser": "Current User",
     "title": "Attachments",
     "upload": "Click to upload or drag and drop",
     "uploadTypes": "Allowed file formats — jpg, png, jpeg, pdf (Max size 2MB)"
+  },
+  "dialog": {
+    "close": "Close",
+    "fromIncident": "from incident",
+    "note": "The incident stays open and links to the new task.",
+    "raise": "Raise a task"
   },
   "classification": {
     "category": "Category",

@@ -4,3 +4,5 @@ export { TaskViewPage } from './pages/TaskViewPage';
 export { TaskEditPage } from './pages/TaskEditPage';
 export { useTask, useTasks } from './store/tasks.store';
 export type { Task, TaskViewModel } from './types/task.types';
+export { TaskFormDialog } from './components/TaskFormDialog';
+export type { TaskFormPrefill } from './components/CreateTaskForm';

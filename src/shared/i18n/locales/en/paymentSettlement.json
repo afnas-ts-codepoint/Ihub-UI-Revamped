@@ -96,6 +96,46 @@
       "add-supplier": "Add a Supplier"
     }
   },
+  "addSupplier": {
+    "details": {
+      "title": "Supplier details",
+      "name": "Supplier name",
+      "namePlaceholder": "Full name",
+      "company": "Supplier Company",
+      "companyPlaceholder": "e.g. Gulf Facilities Services Co.",
+      "tel": "Supplier tel / fax",
+      "mobile": "Supplier mobile",
+      "email": "Supplier email",
+      "taxFrom": "Tax validity from",
+      "taxTo": "Tax validity to",
+      "address": "Supplier address",
+      "addressPlaceholder": "Building, street, city, country"
+    },
+    "banking": {
+      "title": "Banking",
+      "bankName": "Bank name",
+      "bankNamePlaceholder": "e.g. NBK",
+      "branch": "Branch",
+      "branchPlaceholder": "Branch name",
+      "accountNumber": "Account number",
+      "iban": "IBAN"
+    },
+    "attachments": {
+      "title": "Attachments",
+      "untitledFile": "Untitled file",
+      "captionPlaceholder": "Caption (required)…",
+      "removeAttachment": "Remove attachment",
+      "uploadHint": "Click to upload or drag and drop",
+      "fileHint": "PDF, Images, Documents (Max 10MB each)"
+    },
+    "actions": {
+      "title": "Actions",
+      "submit": "Add supplier",
+      "saveDraft": "Save as draft",
+      "captionError": "Every attachment needs a caption.",
+      "added": "Supplier added"
+    }
+  },
   "actionSheet": {
     "subs": {
       "create": "Create an Action Sheet",

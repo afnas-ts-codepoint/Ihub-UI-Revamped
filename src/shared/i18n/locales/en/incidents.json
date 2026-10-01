@@ -50,6 +50,7 @@
     "events_other": "{{count}} events",
     "feedback": "Feedback: {{value}}",
     "justNow": "just now",
+    "raisedAsTask": "Incident raised as task {{ref}} — routed to the assigned owner in Tasks.",
     "reported": "Reported",
     "severityConfirmed": "Severity confirmed",
     "title": "History & updates",
@@ -63,6 +64,7 @@
     "draftSaved": "Draft saved",
     "feedback": "{{id}} · feedback saved",
     "investigate": "Request investigation · {{id}}",
+    "raisedAsTask": "{{id}} raised as task · {{ref}}",
     "submitted": "Incident report submitted",
     "tracked": "{{id}} added to tracking · shows in Overview"
   },
@@ -80,5 +82,5 @@
     "title": "Create Incident Report"
   },
   "tabs": { "list": "Incident Listing", "report": "Create Incident Report" },
-  "task": { "fromIncident": "From incident" }
+  "task": { "actionTaken": "Action already taken", "followUp": "Follow-up" }
 }

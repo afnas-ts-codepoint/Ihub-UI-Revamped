@@ -196,7 +196,6 @@ describe('Phase 2 section 11 URL map', () => {
     paths.home.assigned('tasks'),
     paths.home.view('reports'),
     paths.home.workCentre('incidents'),
-    paths.home.paymentSettlement('add-supplier'),
   ])('routes the pending prototype screen at %s', async (path) => {
     const { router } = renderRoute(path);
     expect(await screen.findByRole('status')).toHaveAttribute(
@@ -232,6 +231,15 @@ describe('Phase 2 section 11 URL map', () => {
     const { router } = renderRoute(paths.home.paymentSettlement('petty-cash'));
     expect(
       await screen.findByRole('heading', { name: 'Petty Cash Request' }),
+    ).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    router.dispose();
+  });
+
+  it('routes the M6.8 Add a Supplier page (not the pending placeholder) at /home/payment-settlement/add-supplier', async () => {
+    const { router } = renderRoute(paths.home.paymentSettlement('add-supplier'));
+    expect(
+      await screen.findByRole('heading', { name: 'Supplier details' }),
     ).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();

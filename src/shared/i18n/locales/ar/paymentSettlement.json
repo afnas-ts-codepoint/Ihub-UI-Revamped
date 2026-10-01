@@ -96,6 +96,46 @@
       "add-supplier": "إضافة مورّد"
     }
   },
+  "addSupplier": {
+    "details": {
+      "title": "بيانات المورّد",
+      "name": "اسم المورّد",
+      "namePlaceholder": "الاسم الكامل",
+      "company": "شركة المورّد",
+      "companyPlaceholder": "مثال: شركة الخليج للخدمات",
+      "tel": "هاتف / فاكس المورّد",
+      "mobile": "جوال المورّد",
+      "email": "بريد المورّد الإلكتروني",
+      "taxFrom": "صلاحية الضريبة من",
+      "taxTo": "صلاحية الضريبة إلى",
+      "address": "عنوان المورّد",
+      "addressPlaceholder": "المبنى، الشارع، المدينة، الدولة"
+    },
+    "banking": {
+      "title": "البيانات البنكية",
+      "bankName": "اسم البنك",
+      "bankNamePlaceholder": "مثال: بنك الكويت الوطني",
+      "branch": "الفرع",
+      "branchPlaceholder": "اسم الفرع",
+      "accountNumber": "رقم الحساب",
+      "iban": "رقم الآيبان"
+    },
+    "attachments": {
+      "title": "المرفقات",
+      "untitledFile": "ملف",
+      "captionPlaceholder": "وصف (مطلوب)…",
+      "removeAttachment": "إزالة المرفق",
+      "uploadHint": "انقر للرفع أو اسحب وأفلت",
+      "fileHint": "PDF، صور، مستندات"
+    },
+    "actions": {
+      "title": "إجراءات",
+      "submit": "إضافة المورّد",
+      "saveDraft": "حفظ كمسودة",
+      "captionError": "كل مرفق يحتاج وصفاً.",
+      "added": "تمت إضافة المورّد"
+    }
+  },
   "actionSheet": {
     "subs": {
       "create": "إنشاء ورقة إجراء",
