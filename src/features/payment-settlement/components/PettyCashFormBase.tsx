@@ -8,6 +8,7 @@ import { activityNames, subActivitiesOrAll } from '../domain/activityMaster';
 import { formatPettyCashKwd, pettyCashAmount, pettyCashTotal } from '../domain/pettyCashFinancials';
 import type { PettyCashDraft } from '../types/paymentSettlement.types';
 import { paymentSettlementButtonStyles, segmentedOptionClass } from './actionSheetButtonStyles';
+import { ResubmitCard, ReviewDecisionCard, type ReviewDecisionHandler } from './ReviewDecisionCards';
 
 export type PettyCashFormVariant = 'reimburse' | 'request';
 
@@ -24,23 +25,34 @@ const kickerClass = 'text-xs font-semibold tracking-[0.06em] text-fg-3 uppercase
 
 type StringDraftKey = 'dept' | 'location' | 'supplier' | 'year' | 'zone';
 
+type PettyCashFormBaseProps = Readonly<{
+  onDecision?: ReviewDecisionHandler;
+  resubmit?: boolean;
+  review?: boolean;
+  variant: PettyCashFormVariant;
+  verify?: boolean;
+}>;
+
 /**
  * Shared body of the two prototype multi-request forms. `request` mirrors
- * `PettyCashRequestCreate` (create mode only — its `review`/`resubmit`/
- * `verify`/`onDecision` branches are source-only and never invoked by any
- * caller, so they are not ported; see M6.7 decision log); `reimburse`
- * mirrors `ReimbursePettyCashCreate`, which adds Activity, Sub Activity,
- * Budgeted and Invoice # fields.
+ * `PettyCashRequestCreate`, including its `review` / `resubmit` / `verify` /
+ * `onDecision` branches used by the Home Form Preview (the left column turns
+ * read-only until Edit, "Add another request" is hidden and the Decision or
+ * Resubmit card replaces the Actions card); `reimburse` mirrors
+ * `ReimbursePettyCashCreate`, which has no review mode and adds Activity,
+ * Sub Activity, Budgeted and Invoice # fields.
  * @prototype index.html:L7663-L7741 `ReimbursePettyCashCreate`; L7744-L7828 `PettyCashRequestCreate`
  */
-export function PettyCashFormBase({ variant }: Readonly<{ variant: PettyCashFormVariant }>) {
+export function PettyCashFormBase({ onDecision, resubmit, review, variant, verify }: PettyCashFormBaseProps) {
   const { t } = useTranslation('paymentSettlement');
   const [drafts, setDrafts] = useState<PettyCashDraft[]>([blankDraft()]);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [editable, setEditable] = useState(false);
   const reimburse = variant === 'reimburse';
 
   const total = pettyCashTotal(drafts);
+  const disabled = review && !editable && !resubmit;
 
   const patch = (index: number, next: Partial<PettyCashDraft>) => {
     setDrafts((current) => current.map((draft, itemIndex) => (itemIndex === index ? { ...draft, ...next } : draft)));
@@ -87,7 +99,7 @@ export function PettyCashFormBase({ variant }: Readonly<{ variant: PettyCashForm
         <p className="mt-0.5 mb-0 text-base text-fg-3">{t(`pettyCash.form.${variant}.subtitle`)}</p>
       </div>
       <div className="grid grid-cols-1 items-start gap-4 tablet:grid-cols-[1.7fr_1fr]">
-        <div className="flex min-w-0 flex-col gap-3">
+        <div className={`flex min-w-0 flex-col gap-3 ${disabled ? 'pointer-events-none opacity-[0.92]' : ''}`}>
           {drafts.map((draft, index) => (
             <div className="overflow-hidden rounded-xl border border-line bg-surface" key={draft.key}>
               <div className="flex w-full items-center justify-between gap-3 px-5 py-4">
@@ -194,10 +206,12 @@ export function PettyCashFormBase({ variant }: Readonly<{ variant: PettyCashForm
               )}
             </div>
           ))}
-          <button className={`${paymentSettlementButtonStyles.secondary} w-fit self-start border-dashed px-4 py-2.5 text-accent`} onClick={() => { setDrafts((current) => [...current, blankDraft()]); }} type="button">
-            <Plus aria-hidden="true" size={15} />
-            {t('pettyCash.form.addAnother')}
-          </button>
+          {review ? null : (
+            <button className={`${paymentSettlementButtonStyles.secondary} w-fit self-start border-dashed px-4 py-2.5 text-accent`} onClick={() => { setDrafts((current) => [...current, blankDraft()]); }} type="button">
+              <Plus aria-hidden="true" size={15} />
+              {t('pettyCash.form.addAnother')}
+            </button>
+          )}
         </div>
         <div className="flex min-w-0 flex-col gap-4 tablet:sticky tablet:top-[120px]">
           <div className="flex flex-col gap-4 rounded-xl border border-line bg-surface p-[22px]">
@@ -208,30 +222,44 @@ export function PettyCashFormBase({ variant }: Readonly<{ variant: PettyCashForm
               <span className="num text-xl font-semibold tracking-[-0.02em]">{formatPettyCashKwd(total)}</span>
             </div>
           </div>
-          <div className="flex flex-col gap-3.5 rounded-xl border border-line bg-surface p-[22px]">
-            <h3 className="m-0 text-sm-plus font-semibold tracking-[-0.01em]">{t('pettyCash.form.actions')}</h3>
-            <button className={`${paymentSettlementButtonStyles.primary} w-full`} onClick={submit} type="button">
-              <Check aria-hidden="true" size={15} />
-              {t(`pettyCash.form.${variant}.submit`)}
-            </button>
-            {error ? (
-              <div className="flex items-center gap-2 rounded-lg bg-bad/10 px-3 py-2.5 text-sm-plus font-semibold text-bad" role="alert">
-                <Zap aria-hidden="true" size={15} />
-                {error}
-              </div>
-            ) : null}
-            {message ? (
-              <div className="flex items-center gap-2 rounded-lg bg-ok/10 px-3 py-2.5 text-sm-plus font-semibold text-ok" role="status">
+          {review ? (
+            resubmit ? (
+              <ResubmitCard labelScope="pettyCash.form" onDecision={onDecision} />
+            ) : (
+              <ReviewDecisionCard
+                editable={editable}
+                labelScope="pettyCash.form"
+                onDecision={onDecision}
+                onToggleEditable={() => { setEditable((value) => !value); }}
+                verify={verify}
+              />
+            )
+          ) : (
+            <div className="flex flex-col gap-3.5 rounded-xl border border-line bg-surface p-[22px]">
+              <h3 className="m-0 text-sm-plus font-semibold tracking-[-0.01em]">{t('pettyCash.form.actions')}</h3>
+              <button className={`${paymentSettlementButtonStyles.primary} w-full`} onClick={submit} type="button">
                 <Check aria-hidden="true" size={15} />
-                {message}
-              </div>
-            ) : null}
-            {/* PROTOTYPE-NOOP(D2): "Save as draft" has no onClick handler at all (index.html:L7735 / L7812). */}
-            <button className={`${paymentSettlementButtonStyles.secondary} w-full`} type="button">
-              <Folder aria-hidden="true" size={16} />
-              {t('pettyCash.form.saveDraft')}
-            </button>
-          </div>
+                {t(`pettyCash.form.${variant}.submit`)}
+              </button>
+              {error ? (
+                <div className="flex items-center gap-2 rounded-lg bg-bad/10 px-3 py-2.5 text-sm-plus font-semibold text-bad" role="alert">
+                  <Zap aria-hidden="true" size={15} />
+                  {error}
+                </div>
+              ) : null}
+              {message ? (
+                <div className="flex items-center gap-2 rounded-lg bg-ok/10 px-3 py-2.5 text-sm-plus font-semibold text-ok" role="status">
+                  <Check aria-hidden="true" size={15} />
+                  {message}
+                </div>
+              ) : null}
+              {/* PROTOTYPE-NOOP(D2): "Save as draft" has no onClick handler at all (index.html:L7735 / L7812). */}
+              <button className={`${paymentSettlementButtonStyles.secondary} w-full`} type="button">
+                <Folder aria-hidden="true" size={16} />
+                {t('pettyCash.form.saveDraft')}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

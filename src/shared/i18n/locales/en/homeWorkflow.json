@@ -1,0 +1,64 @@
+{
+  "drawer": {
+    "close": "Close (Esc)",
+    "eyebrow": {
+      "action": "Approval workflow",
+      "incident": "Incident workflow",
+      "jobOrder": "Task workflow"
+    },
+    "blocks": {
+      "whyNeedsYou": "Why this needs you",
+      "whatHappened": "What happened",
+      "impact": "Financial & operational impact",
+      "history": "History & updates",
+      "attachments": "Attachments",
+      "nextSteps": "What to do next",
+      "liveUpdates": "Live updates",
+      "note": "Add a note",
+      "progress": "Resolution progress"
+    },
+    "meta": {
+      "requestOwner": "Request owner",
+      "department": "Department",
+      "amount": "Amount",
+      "status": "Status",
+      "owner": "Owner",
+      "location": "Location",
+      "opened": "Opened",
+      "sla": "SLA",
+      "requestorDept": "Requestor dept.",
+      "partner": "Matrix partner",
+      "type": "Type",
+      "internal": "Internal",
+      "external": "External"
+    },
+    "progressCaption": "{{pct}}% · updated {{when}}",
+    "currentStep": "Current step",
+    "notePlaceholder": "Add a comment or note…",
+    "history": {
+      "events": "{{n}} events"
+    },
+    "footer": {
+      "approve": "Approve",
+      "verify": "Verify",
+      "reject": "Reject",
+      "clarify": "Clarify",
+      "escalateTitle": "Escalate",
+      "pin": "Pin to feed",
+      "unpin": "Unpin",
+      "escalate": "Escalate",
+      "assign": "Assign",
+      "resolve": "Resolve",
+      "assignApprove": "Assign & approve",
+      "addComment": "Add comment",
+      "dismiss": "Dismiss"
+    }
+  },
+  "formPreview": {
+    "close": "Close",
+    "approve": "Approve",
+    "verify": "Verify",
+    "sendBack": "Send back",
+    "reject": "Reject"
+  }
+}

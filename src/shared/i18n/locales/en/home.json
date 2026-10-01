@@ -1,9 +1,40 @@
 {
+  "actionCard": {
+    "approve": "Approve",
+    "edit": "Edit",
+    "pinToTop": "Pin to top",
+    "recommended": "Recommended",
+    "reject": "Reject",
+    "sendBack": "Send back",
+    "verify": "Verify"
+  },
+  "actionList": {
+    "approve": "Approve",
+    "batchDecision": "Batch decision",
+    "emptyDescription": "No items match this filter.",
+    "emptyTitle": "Nothing here",
+    "rejectAll": "Reject all",
+    "selected": "selected",
+    "verify": "Verify"
+  },
   "actions": {
     "aiSubscription": "AI Subscription",
     "askIhub": "Ask ihub",
     "clockIn": "Clock in",
     "openInbox": "Open inbox"
+  },
+  "approvals": {
+    "clearSelection": "Clear selection",
+    "filters": {
+      "actionSheet": "Action sheets",
+      "all": "All",
+      "newBudget": "New budget request",
+      "purchaseCommittee": "Purchase committee request",
+      "transferFunds": "Transfer funds request"
+    },
+    "selectAll": "Select all",
+    "subtitle": "Ranked by priority × due date × financial impact. Cleared items leave the queue.",
+    "title": "Approvals"
   },
   "carousel": {
     "approvalsInQueue": "Approvals in queue",
@@ -35,7 +66,6 @@
     "reports": "Incident Reports"
   },
   "pending": {
-    "approvals": "Approvals",
     "assigned": "Assigned",
     "budgets": "Budgets",
     "company": "Company",
@@ -60,6 +90,48 @@
     "openIncidents": "Open incidents",
     "overdue": "Overdue"
   },
+  "queue": {
+    "toast": {
+      "approved": "Approved · {{recommended}} — removed from queue",
+      "batchApproved": "{{n}} approved in one decision",
+      "batchRejected": "{{n}} rejected in one decision",
+      "dismissedIncident": "Dismissed · {{id}}",
+      "dismissedJobOrder": "{{id}} dismissed",
+      "escalatedAction": "Escalated · {{name}}",
+      "escalatedIncident": "Escalated · {{id}}",
+      "jobOrderAssigned": "{{id}} assigned",
+      "pinnedTracking": "{{id}} pinned & tracking — updates in live feed",
+      "rejected": "Rejected · owner notified",
+      "resubmitted": "Resubmitted for approval",
+      "sentBack": "Sent back to creator",
+      "sentBackWithReason": "Sent back to creator · {{reason}}",
+      "trackAdded": "{{id}} added to live feed"
+    }
+  },
+  "sendBack": {
+    "cancel": "Cancel",
+    "noReason": "No reason given",
+    "placeholder": "Add details for the creator…",
+    "reason": "Reason",
+    "reasons": {
+      "ceoApproval": "Approval from CEO",
+      "invoiceMissing": "Invoice/price missing",
+      "missingDocument": "Missing document",
+      "needsJustification": "Needs more justification",
+      "other": "Other"
+    },
+    "submit": "Send back",
+    "title": "Send back to creator"
+  },
+  "sla": {
+    "days": "d",
+    "hours": "h",
+    "left": " left",
+    "minutes": "m",
+    "over": "Over by ",
+    "target": "Target ",
+    "waiting": "waiting "
+  },
   "tabs": {
     "assigned": "Assigned",
     "budgets": "Budgets",
@@ -72,5 +144,11 @@
     "sla": "SLA & Compliance",
     "sopChecklist": "SOP Checklist",
     "workCentre": "Work Centre"
+  },
+  "trackPrompt": {
+    "body": "Do you want to track this item? Tracked items stream their updates in your live feed.",
+    "notNow": "Not now",
+    "title": "Decision recorded",
+    "track": "Track"
   }
 }

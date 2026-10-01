@@ -2,6 +2,14 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-10-01 - M10.1 Queues, workflow drawer, Approvals view started
+
+- M10.1 (dependencies M6.6, M6.7, M9.2 — all approved) was started on the user's instruction, completed to Review, and user-approved the same day (2026-10-01). M11.3 is being worked in a parallel session; M10.1 touches no `settings/` or task-dashboard-config files. M10.2, M10.3 and M10.4 were not started.
+- Source file: the rendered prototype is the root `index.html` (the plan's M10.1 line ranges are valid for it); `ihub/index.html` is an older sibling build with identical queue/drawer logic (verified) but without the phone `ac-*` card rules. See the M10.1 intake in `PROTOTYPE_DELTAS.md`.
+- Decision (approved with M10.1): M6.7's Option A (dead-code exclusion of `PettyCashRequestCreate`'s `review`/`resubmit`/`verify`/`onDecision`) does not hold for the Home Form Preview, which passes them; M10.1 ported them (see `DECISIONS.md`).
+- Scope clarifications (no plan change): the Home queue store also owns the incident and job-order slices the workflow drawer mutates (pin/escalate/dismiss; assign/dismiss); their cards and the Assigned/Live Incidents views remain M10.3. `/home/approvals` has no Home tab and is entered from the Overview "On the clock" buttons (M10.2); the route is live now.
+- Deviations D28 and D29 and the M6.6 `ActionSheetForm` fidelity correction (always-on 40px bottom padding and sticky right column, matching `CreateActionSheetPanel`) are recorded in `DEVIATIONS.md` and the M10.1 phase card.
+
 ## 2026-09-30 - Full migration authorized beyond the first release; M6.6 started
 
 ### Human authorization and decision

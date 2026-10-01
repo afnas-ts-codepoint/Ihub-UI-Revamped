@@ -6,6 +6,17 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M10.1 intake
+
+- Date: 2026-10-01.
+- Baseline/current: `273abc8` → `3c391b4b5ccbc3fa0bb0ff56d5c8eda6bc6f80ff`; `git diff 273abc8 HEAD -- index.html ihub/index.html` is empty in the read-only prototype repository — zero prototype drift in both files.
+- Source file: the rendered prototype served by the visual-QA harness (port 4174) is the root `index.html`; the plan's citations (`ACTIONS` 12135, `FilterChips` 12577, `ActionCard` 12985, `ActionList` 13354, `DashboardOCC` 14213-14895, `WorkflowDrawer` 15316-15843) are valid for it. `ihub/index.html` is an older sibling build (different hero/banner, no `.tn-bar`) used for the first analysis pass; the queue fixtures, scoring/SLA code, `FilterChips`, `ActionList`, `DashboardOCC` and `WorkflowDrawer` were verified identical to the root file (normalized diff: 0 lines; golden fixtures/scores/SLA/ranking dumped from both files are identical). The only difference is `ActionCard`: the root file adds the `ac-*` class hooks driven by the `ihub-mobile-overview` stylesheet (≤760px: body full width, amount under the content, action rail as a bottom row). The `@prototype` comments in M10.1 code cite `ihub/index.html` line numbers; their root equivalents are the plan's ranges above.
+- Relevant source: queue datasets and scoring/SLA (root 12135-12456), `FilterChips`/`ActionCard`/`ActionList` (12577-13427), `DashboardOCC` queue state, handlers, form modal, send-back dialog and track prompt (14213-14895), `WorkflowDrawer` (15316-15843), `HUD_HISTORY`/`RecordHUD`, `CreateActionSheetPanel`, `PettyCashRequestCreate` review branches.
+- Delta result: no baseline-to-current drift. Dead source excluded: the in-drawer "Form preview" button and `showForm` modal, `headTone`, the `sheet` HUD kind, the `assignedTab` state, `RecommendedNextAction`'s `setView` prop and the unreachable `view === 'joborders'`.
+- Reachability finding: `/home/approvals` has no tab; the prototype reaches it only through the Overview "On the clock" queue buttons (M10.2) — the route is live now and highlights no Home tab, as in the prototype.
+- Plan/prototype reconciliation: the M6.7 "dead branches" decision does not hold for the Home Form Preview (see `DECISIONS.md`). Human confirmation is pending.
+- Human resolution: not required before implementation; one decision (above) is recorded for review confirmation.
+
 ## M8.6 intake
 
 - Date: 2026-09-29.

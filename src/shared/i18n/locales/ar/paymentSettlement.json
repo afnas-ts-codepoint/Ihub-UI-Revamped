@@ -84,7 +84,32 @@
       "requestSingular": "طلب",
       "requestPlural": "طلبات",
       "actions": "إجراءات",
-      "saveDraft": "حفظ كمسودة"
+      "saveDraft": "حفظ كمسودة",
+      "decision": {
+        "title": "القرار",
+        "previewOnly": "معاينة فقط. اضغط تعديل لإجراء تغييرات.",
+        "approve": "موافقة",
+        "verify": "تحقق",
+        "edit": "تعديل",
+        "done": "تم",
+        "sendBack": "إعادة",
+        "reject": "رفض",
+        "sendBackReasonLabel": "السبب (اختياري)",
+        "sendBackPlaceholder": "أضف تفاصيل للمنشئ…",
+        "confirmSendBack": "تأكيد الإعادة",
+        "reasons": {
+          "missingDocument": "مستند ناقص",
+          "needsJustification": "يحتاج مزيداً من التبرير",
+          "ceoApproval": "موافقة الرئيس التنفيذي",
+          "invoiceMissing": "فاتورة/سعر ناقص",
+          "other": "أخرى"
+        }
+      },
+      "resubmit": {
+        "title": "إعادة الإرسال",
+        "hint": "عالج سبب الإعادة ثم أعد الإرسال للموافقة.",
+        "submit": "إرسال"
+      }
     }
   },
   "home": {

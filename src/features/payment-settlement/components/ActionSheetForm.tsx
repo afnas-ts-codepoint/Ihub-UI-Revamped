@@ -1,4 +1,4 @@
-import { Check, ChevronRight, Folder, Plus, RefreshCw, X } from 'lucide-react';
+import { Check, ChevronRight, Folder, Plus, X } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +15,7 @@ import { activityNames, subActivitiesFor } from '../domain/activityMaster';
 import { ACTION_SHEET_CURRENCIES, actionSheetAboveBudget, actionSheetPurchaseValue, formatActionSheetKwd } from '../domain/actionSheetFinancials';
 import type { ActionSheetDraft } from '../types/paymentSettlement.types';
 import { paymentSettlementButtonStyles, segmentedOptionClass } from './actionSheetButtonStyles';
+import { ResubmitCard, ReviewDecisionCard, type ReviewDecisionHandler } from './ReviewDecisionCards';
 
 const blankDraft = (): ActionSheetDraft => ({
   activity: '', budgeted: 'yes', category: '', ccy: '', collapsed: false, dept: '', files: [], grn: false,
@@ -26,25 +27,18 @@ const inputClass = 'w-full rounded-lg border border-line-strong bg-canvas px-3 p
 
 type ActionSheetFormProps = Readonly<{
   embedded?: boolean;
-  onDecision?: (type: 'approve' | 'reject' | 'sendback' | 'submit', reason?: string) => void;
+  onDecision?: ReviewDecisionHandler;
   resubmit?: boolean;
   review?: boolean;
   verify?: boolean;
 }>;
 
-const SEND_BACK_REASON_KEYS = [
-  'missingDocument',
-  'needsJustification',
-  'ceoApproval',
-  'invoiceMissing',
-  'other',
-] as const;
-
 /**
- * Exported for reuse by the Home approvals queue (M10.1), which is not yet
- * built — the `review`/`resubmit`/`verify` code paths below therefore have
- * no live route calling them with those props in this phase; only the
- * default create mode is reachable today via `ActionSheetSection`.
+ * Create / review form for an action sheet. Create mode is the Payment
+ * Settlement "Create" sub-tab (`embedded`); `review` (+ `resubmit`, `verify`,
+ * `onDecision`) is the Home approvals Form Preview, where the left column is
+ * read-only until the approver presses Edit and the right column carries the
+ * Decision card (or the Resubmit card for the creator of a returned item).
  * @prototype index.html:L17034-L17151 `CreateActionSheetPanel`
  */
 export function ActionSheetForm({ embedded, onDecision, resubmit, review, verify }: ActionSheetFormProps) {
@@ -53,9 +47,6 @@ export function ActionSheetForm({ embedded, onDecision, resubmit, review, verify
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [editable, setEditable] = useState(false);
-  const [sbOpen, setSbOpen] = useState(false);
-  const [sbCat, setSbCat] = useState('');
-  const [sbReason, setSbReason] = useState('');
 
   const totalPurchase = sheets.reduce((sum, draft) => sum + actionSheetPurchaseValue(draft), 0);
   const aboveBudget = sheets.reduce((sum, draft) => sum + actionSheetAboveBudget(draft), 0);
@@ -110,7 +101,7 @@ export function ActionSheetForm({ embedded, onDecision, resubmit, review, verify
   const disabled = review && !editable && !resubmit;
 
   return (
-    <div className="flex flex-col gap-3.5" style={embedded ? undefined : { paddingBottom: 40 }}>
+    <div className="flex flex-col gap-3.5 pb-10">
       {embedded ? null : <h1 className="display m-0 text-[34px] leading-[1.1] font-medium tracking-[-0.025em]">{t('actionSheet.create.title')}</h1>}
       <div className="grid grid-cols-1 items-start gap-4 tablet:grid-cols-[1.7fr_1fr]">
         <div className={`flex min-w-0 flex-col gap-3 ${disabled ? 'pointer-events-none opacity-[0.92]' : ''}`}>
@@ -229,7 +220,7 @@ export function ActionSheetForm({ embedded, onDecision, resubmit, review, verify
             </button>
           )}
         </div>
-        <div className="flex min-w-0 flex-col gap-4">
+        <div className="flex min-w-0 flex-col gap-4 tablet:sticky tablet:top-[120px]">
           <div className="flex flex-col gap-4 rounded-xl border border-line bg-surface p-[22px]">
             <h3 className="m-0 text-sm-plus font-semibold tracking-[-0.01em]">{t('actionSheet.create.summary')}</h3>
             <span className="text-xs font-semibold tracking-[0.06em] text-fg-3 uppercase">{t('actionSheet.create.sheetCount', { count: sheets.length })}</span>
@@ -244,66 +235,15 @@ export function ActionSheetForm({ embedded, onDecision, resubmit, review, verify
           </div>
           {review ? (
             resubmit ? (
-              <div className="flex flex-col gap-3.5 rounded-xl border border-line bg-surface p-[22px]">
-                <h3 className="m-0 text-sm-plus font-semibold tracking-[-0.01em]">{t('actionSheet.resubmit.title')}</h3>
-                <span className="text-xs-plus text-fg-3">{t('actionSheet.resubmit.hint')}</span>
-                {message ? <div className="rounded-lg bg-ok/10 px-3 py-2.5 text-sm-plus font-semibold text-ok">{message}</div> : null}
-                <button className={`${paymentSettlementButtonStyles.primary} w-full`} onClick={() => { onDecision?.('submit'); }} type="button">
-                  <Check aria-hidden="true" size={15} />
-                  {t('actionSheet.resubmit.submit')}
-                </button>
-              </div>
+              <ResubmitCard labelScope="actionSheet" onDecision={onDecision} />
             ) : (
-              <div className="flex flex-col gap-3.5 rounded-xl border border-line bg-surface p-[22px]">
-                <h3 className="m-0 text-sm-plus font-semibold tracking-[-0.01em]">{t('actionSheet.decision.title')}</h3>
-                {!editable ? <span className="text-xs-plus text-fg-3">{t('actionSheet.decision.previewOnly')}</span> : null}
-                <button className={`${paymentSettlementButtonStyles.primary} w-full`} onClick={() => { onDecision?.('approve'); }} type="button">
-                  <Check aria-hidden="true" size={15} />
-                  {verify ? t('actionSheet.decision.verify') : t('actionSheet.decision.approve')}
-                </button>
-                <div className="grid grid-cols-3 gap-2">
-                  <button className={`${paymentSettlementButtonStyles.secondary} flex-col gap-1 py-2.5 text-xs ${editable ? 'text-accent' : ''}`} onClick={() => { setEditable((value) => !value); }} type="button">
-                    {editable ? t('actionSheet.decision.done') : t('actionSheet.decision.edit')}
-                  </button>
-                  <button className={`${paymentSettlementButtonStyles.ghost} flex-col gap-1 py-2.5 text-xs ${sbOpen ? 'text-accent' : ''}`} onClick={() => { setSbOpen((value) => !value); }} type="button">
-                    <RefreshCw aria-hidden="true" size={16} />
-                    {t('actionSheet.decision.sendBack')}
-                  </button>
-                  <button className={`${paymentSettlementButtonStyles.ghost} flex-col gap-1 py-2.5 text-xs text-bad`} onClick={() => { onDecision?.('reject'); }} type="button">
-                    <X aria-hidden="true" size={16} />
-                    {t('actionSheet.decision.reject')}
-                  </button>
-                </div>
-                {sbOpen ? (
-                  <div className="flex flex-col gap-2 rounded-lg border border-line bg-canvas p-3">
-                    <span className="text-xs font-semibold text-fg-2">{t('actionSheet.decision.sendBackReasonLabel')}</span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {SEND_BACK_REASON_KEYS.map((key) => {
-                        const label = t(`actionSheet.decision.reasons.${key}`);
-                        const active = sbCat === label;
-                        return (
-                          <button className={`chip ${active ? 'chip-tone-accent' : ''}`} key={key} onClick={() => { setSbCat(active ? '' : label); }} type="button">
-                            {label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                    <textarea className={`${inputClass} resize-y`} onChange={(event) => { setSbReason(event.currentTarget.value); }} placeholder={t('actionSheet.decision.sendBackPlaceholder')} value={sbReason} />
-                    <button
-                      className={`${paymentSettlementButtonStyles.primary} w-full`}
-                      disabled={sbCat === t('actionSheet.decision.reasons.other') && !sbReason.trim()}
-                      onClick={() => {
-                        if (sbCat === t('actionSheet.decision.reasons.other') && !sbReason.trim()) return;
-                        onDecision?.('sendback', [sbCat, sbReason].filter(Boolean).join(': '));
-                      }}
-                      type="button"
-                    >
-                      <RefreshCw aria-hidden="true" size={15} />
-                      {t('actionSheet.decision.confirmSendBack')}
-                    </button>
-                  </div>
-                ) : null}
-              </div>
+              <ReviewDecisionCard
+                editable={editable}
+                labelScope="actionSheet"
+                onDecision={onDecision}
+                onToggleEditable={() => { setEditable((value) => !value); }}
+                verify={verify}
+              />
             )
           ) : (
             <div className="flex flex-col gap-3.5 rounded-xl border border-line bg-surface p-[22px]">

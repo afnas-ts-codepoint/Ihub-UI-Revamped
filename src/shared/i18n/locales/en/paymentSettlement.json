@@ -84,7 +84,32 @@
       "requestSingular": "request",
       "requestPlural": "requests",
       "actions": "Actions",
-      "saveDraft": "Save as draft"
+      "saveDraft": "Save as draft",
+      "decision": {
+        "title": "Decision",
+        "previewOnly": "Preview only. Click Edit to make changes.",
+        "approve": "Approve",
+        "verify": "Verify",
+        "edit": "Edit",
+        "done": "Done",
+        "sendBack": "Send back",
+        "reject": "Reject",
+        "sendBackReasonLabel": "Reason (optional)",
+        "sendBackPlaceholder": "Add details for the creator…",
+        "confirmSendBack": "Confirm send back",
+        "reasons": {
+          "missingDocument": "Missing document",
+          "needsJustification": "Needs more justification",
+          "ceoApproval": "Approval from CEO",
+          "invoiceMissing": "Invoice/price missing",
+          "other": "Other"
+        }
+      },
+      "resubmit": {
+        "title": "Resubmit",
+        "hint": "Address the reason it was returned, then resubmit for approval.",
+        "submit": "Submit"
+      }
     }
   },
   "home": {

@@ -75,6 +75,7 @@ export async function initializeI18n(locale: Locale) {
       'common',
       'enquiries',
       'home',
+      'homeWorkflow',
       'incidents',
       'hr',
       'history',

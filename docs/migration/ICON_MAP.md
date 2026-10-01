@@ -43,3 +43,16 @@ Icons used by `MasterPage`/`MasterPendingPage`, `RowActions`, `ConfirmDialog`, `
 | `settings` | `Settings` | Lucide | Already mapped in M2.2 (eight teeth instead of the prototype's compact gear path). |
 
 No custom SVG was required for M4.1. Differences listed above are small path-shape differences, not substitutions of a different icon concept.
+
+## M10.1 Home queue icons
+
+Icons added to the shared `Icon` registry for the approvals queue and workflow drawer (all `lucide-react`; `edit` was already mapped in M4.1).
+
+| Prototype icon | Production implementation | Mapping | Known visual difference |
+| --- | --- | --- | --- |
+| `flag` | `Flag` | Lucide | None material. |
+| `pin` | `Pin` | Lucide | The prototype pin glyph is a compact plus-like pin; Lucide's is the conventional slanted pushpin. |
+| `mail` | `Mail` | Lucide | None material. |
+| `edit` | `Pencil` | Lucide | Already mapped in M4.1. |
+
+The Edit / Send back / Reject buttons of the review Decision card are text-only: in the prototype their stacked icons collapse to zero height inside a fixed 40px button, so no icon is rendered there.

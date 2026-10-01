@@ -1,15 +1,21 @@
 import { PettyCashFormBase } from './PettyCashFormBase';
+import type { ReviewDecisionHandler } from './ReviewDecisionCards';
+
+type PettyCashRequestFormProps = Readonly<{
+  onDecision?: ReviewDecisionHandler;
+  resubmit?: boolean;
+  review?: boolean;
+  verify?: boolean;
+}>;
 
 /**
- * Exported for Home (M10.1). Create mode only: the prototype's
- * `review`/`resubmit`/`verify`/`onDecision` branches (index.html:L7813-L7822,
- * L7826-L7827) are never passed by any caller — `PettyCashScreen` renders
- * `PettyCashRequestCreate` with `locale` alone and the Home drawer embeds the
- * whole `PettyCashScreen` — so they are dead source and not ported (human
- * decision, M6.7 Option A). Whether M10.1 needs them is an open question for
- * that phase.
+ * Petty cash request form. Create mode (no props) is the Payment Settlement
+ * "Request" tab; `review` (+ `resubmit`, `verify`, `onDecision`) is the Home
+ * Form Preview for a petty-cash approval, where the left column is read-only
+ * until Edit and the right column shows the Decision (or, for the creator of
+ * a returned item, the Resubmit) card instead of Actions.
  * @prototype index.html:L7744-L7828 `PettyCashRequestCreate`
  */
-export function PettyCashRequestForm() {
-  return <PettyCashFormBase variant="request" />;
+export function PettyCashRequestForm({ onDecision, resubmit, review, verify }: PettyCashRequestFormProps) {
+  return <PettyCashFormBase onDecision={onDecision} resubmit={resubmit} review={review} variant="request" verify={verify} />;
 }

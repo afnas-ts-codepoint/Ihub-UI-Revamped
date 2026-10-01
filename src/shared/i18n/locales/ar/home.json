@@ -1,9 +1,40 @@
 {
+  "actionCard": {
+    "approve": "موافقة",
+    "edit": "تعديل",
+    "pinToTop": "Pin to top",
+    "recommended": "موصى به",
+    "reject": "رفض",
+    "sendBack": "إعادة",
+    "verify": "تحقق"
+  },
+  "actionList": {
+    "approve": "موافقة",
+    "batchDecision": "قرار جماعي",
+    "emptyDescription": "لا عناصر مطابقة.",
+    "emptyTitle": "لا شيء هنا",
+    "rejectAll": "رفض الكل",
+    "selected": "محدد",
+    "verify": "تحقق"
+  },
   "actions": {
     "aiSubscription": "اشتراك الذكاء الاصطناعي",
     "askIhub": "اسأل ihub",
     "clockIn": "تسجيل الحضور",
     "openInbox": "افتح البريد"
+  },
+  "approvals": {
+    "clearSelection": "إلغاء",
+    "filters": {
+      "actionSheet": "أوراق الإجراءات",
+      "all": "الكل",
+      "newBudget": "طلب ميزانية",
+      "purchaseCommittee": "لجنة المشتريات",
+      "transferFunds": "تحويل أموال"
+    },
+    "selectAll": "تحديد الكل",
+    "subtitle": "مرتبة حسب الأولوية × الموعد × الأثر المالي.",
+    "title": "الموافقات"
   },
   "carousel": {
     "approvalsInQueue": "موافقات في قائمة الانتظار",
@@ -35,7 +66,6 @@
     "reports": "تقارير الحوادث"
   },
   "pending": {
-    "approvals": "الموافقات",
     "assigned": "المُسند",
     "budgets": "الميزانيات",
     "company": "الشركة",
@@ -60,6 +90,48 @@
     "openIncidents": "حوادث مفتوحة",
     "overdue": "متأخرة"
   },
+  "queue": {
+    "toast": {
+      "approved": "تمت الموافقة · {{recommended}} — أُزيل من القائمة",
+      "batchApproved": "{{n}} تمت الموافقة بقرار واحد",
+      "batchRejected": "{{n}} تم الرفض بقرار واحد",
+      "dismissedIncident": "تم الإغلاق · {{id}}",
+      "dismissedJobOrder": "{{id}} أُزيل",
+      "escalatedAction": "تم التصعيد · {{name}}",
+      "escalatedIncident": "تم التصعيد · {{id}}",
+      "jobOrderAssigned": "{{id}} تم التعيين",
+      "pinnedTracking": "{{id}} مثبّتة وقيد المتابعة — التحديثات في البث المباشر",
+      "rejected": "تم الرفض · تم إخطار المالك",
+      "resubmitted": "أُعيد الإرسال للموافقة",
+      "sentBack": "أُعيد إلى المنشئ",
+      "sentBackWithReason": "أُعيد إلى المنشئ · {{reason}}",
+      "trackAdded": "{{id}} أُضيفت إلى البث المباشر"
+    }
+  },
+  "sendBack": {
+    "cancel": "إلغاء",
+    "noReason": "بدون سبب",
+    "placeholder": "أضف تفاصيل للمنشئ…",
+    "reason": "السبب",
+    "reasons": {
+      "ceoApproval": "موافقة الرئيس التنفيذي",
+      "invoiceMissing": "فاتورة/سعر ناقص",
+      "missingDocument": "مستند ناقص",
+      "needsJustification": "يحتاج مزيداً من التبرير",
+      "other": "أخرى"
+    },
+    "submit": "إعادة",
+    "title": "الإعادة إلى المنشئ"
+  },
+  "sla": {
+    "days": "ي",
+    "hours": "س",
+    "left": " متبقٍ",
+    "minutes": "د",
+    "over": "متجاوز بـ ",
+    "target": "المدة المستهدفة ",
+    "waiting": "قيد الانتظار "
+  },
   "tabs": {
     "assigned": "المُسند",
     "budgets": "الميزانيات",
@@ -72,5 +144,11 @@
     "sla": "اتفاقية مستوى الخدمة",
     "sopChecklist": "قائمة إجراءات التشغيل",
     "workCentre": "مركز العمل"
+  },
+  "trackPrompt": {
+    "body": "هل تريد متابعة هذا العنصر؟ تظهر العناصر المتابَعة وتحديثاتها في البث المباشر.",
+    "notNow": "ليس الآن",
+    "title": "تم تسجيل القرار",
+    "track": "متابعة"
   }
 }

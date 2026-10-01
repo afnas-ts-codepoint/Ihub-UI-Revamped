@@ -1,0 +1,64 @@
+{
+  "drawer": {
+    "close": "Close (Esc)",
+    "eyebrow": {
+      "action": "سير الموافقة",
+      "incident": "سير الحادث",
+      "jobOrder": "سير أمر العمل"
+    },
+    "blocks": {
+      "whyNeedsYou": "لماذا يحتاجك",
+      "whatHappened": "ما الذي حدث",
+      "impact": "الأثر المالي والتشغيلي",
+      "history": "السجل والتحديثات",
+      "attachments": "المرفقات",
+      "nextSteps": "الخطوة التالية",
+      "liveUpdates": "التحديثات المباشرة",
+      "note": "أضف ملاحظة",
+      "progress": "تقدم الحل"
+    },
+    "meta": {
+      "requestOwner": "مالك الطلب",
+      "department": "القسم",
+      "amount": "المبلغ",
+      "status": "الحالة",
+      "owner": "المالك",
+      "location": "الموقع",
+      "opened": "فُتح",
+      "sla": "SLA",
+      "requestorDept": "القسم الطالب",
+      "partner": "الشريك",
+      "type": "النوع",
+      "internal": "داخلي",
+      "external": "خارجي"
+    },
+    "progressCaption": "{{pct}}% · حُدّث {{when}}",
+    "currentStep": "Current step",
+    "notePlaceholder": "أضف تعليقاً…",
+    "history": {
+      "events": "{{n}} حدث"
+    },
+    "footer": {
+      "approve": "موافقة",
+      "verify": "تحقق",
+      "reject": "رفض",
+      "clarify": "استيضاح",
+      "escalateTitle": "Escalate",
+      "pin": "تثبيت",
+      "unpin": "إلغاء التثبيت",
+      "escalate": "تصعيد",
+      "assign": "تعيين",
+      "resolve": "إغلاق",
+      "assignApprove": "تعيين وموافقة",
+      "addComment": "تعليق",
+      "dismiss": "إزالة"
+    }
+  },
+  "formPreview": {
+    "close": "Close",
+    "approve": "موافقة",
+    "verify": "تحقق",
+    "sendBack": "إعادة",
+    "reject": "رفض"
+  }
+}

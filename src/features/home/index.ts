@@ -1,3 +1,4 @@
+export { ApprovalsPage } from './pages/ApprovalsPage';
 export { HomeBannerLayout } from './layouts/HomeBannerLayout';
 export { HomeLayout } from './layouts/HomeLayout';
 export { HomeIncidentsPendingPage } from './pages/HomeIncidentsPendingPage';

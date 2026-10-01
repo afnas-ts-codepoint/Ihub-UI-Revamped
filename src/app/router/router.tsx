@@ -21,6 +21,7 @@ import { EnquiriesPage } from '@/features/enquiries';
 import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
 import { OvertimePage } from '@/features/hr';
 import {
+  ApprovalsPage,
   HomeBannerLayout,
   HomeIncidentsPendingPage,
   HomeLayout,
@@ -136,7 +137,7 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'approvals',
-            element: <HomePendingPage area="approvals" />,
+            element: <ApprovalsPage />,
             handle: { homeTab: 'approvals' },
           },
           {

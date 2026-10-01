@@ -68,12 +68,7 @@ const home = node(
   paths.home.overview,
   [
     node('dashboard/overview', paths.home.overview, undefined, pending),
-    node(
-      'dashboard/approvals',
-      paths.home.view('approvals'),
-      undefined,
-      pending,
-    ),
+    node('dashboard/approvals', paths.home.view('approvals')),
     node(
       'dashboard/assigned',
       paths.home.assigned('approvals'),

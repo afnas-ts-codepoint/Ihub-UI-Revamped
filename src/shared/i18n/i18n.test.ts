@@ -7,6 +7,7 @@ import arChecklists from '@/shared/i18n/locales/ar/checklists.json';
 import arCommon from '@/shared/i18n/locales/ar/common.json';
 import arEnquiries from '@/shared/i18n/locales/ar/enquiries.json';
 import arHome from '@/shared/i18n/locales/ar/home.json';
+import arHomeWorkflow from '@/shared/i18n/locales/ar/homeWorkflow.json';
 import arHr from '@/shared/i18n/locales/ar/hr.json';
 import arHistory from '@/shared/i18n/locales/ar/history.json';
 import arMasters from '@/shared/i18n/locales/ar/masters.json';
@@ -27,6 +28,7 @@ import enChecklists from '@/shared/i18n/locales/en/checklists.json';
 import enCommon from '@/shared/i18n/locales/en/common.json';
 import enEnquiries from '@/shared/i18n/locales/en/enquiries.json';
 import enHome from '@/shared/i18n/locales/en/home.json';
+import enHomeWorkflow from '@/shared/i18n/locales/en/homeWorkflow.json';
 import enHr from '@/shared/i18n/locales/en/hr.json';
 import enHistory from '@/shared/i18n/locales/en/history.json';
 import enMasters from '@/shared/i18n/locales/en/masters.json';
@@ -80,6 +82,7 @@ describe('i18n resources', () => {
     ['common', enCommon, arCommon],
     ['enquiries', enEnquiries, arEnquiries],
     ['home', enHome, arHome],
+    ['homeWorkflow', enHomeWorkflow, arHomeWorkflow],
     ['hr', enHr, arHr],
     ['history', enHistory, arHistory],
     ['masters', enMasters, arMasters],
