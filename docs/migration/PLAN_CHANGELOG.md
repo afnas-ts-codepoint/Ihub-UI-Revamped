@@ -2,6 +2,11 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-10-03 - M11.3 dashboard configuration runtime integration implemented and approved
+
+- M11.3 (dependencies M11.2, M8.2, M10.2 - all approved) was started on the user's instruction. After analysis the user chose "Tasks only, prototype-faithful": the Settings builder's Default and personal saves for the `tasks` dashboard now write to the M8.2 `taskDashboardConfig.store`, which the Tasks dashboard renders live; Overview stays fixed and Role/Department/User scopes stay authoring-only (D34). D24 resolved; D23, D25, D26 retained.
+- M12.1-M12.3 were not started; the read-only prototype was not modified; no packages were added; nothing was committed or pushed. User approved M11.3 on 2026-10-03.
+
 ## 2026-10-03 - M10.2 Overview implemented and approved
 
 - M10.2 (dependencies M10.1, M8.2, M3.8, M7.5 - all approved) was started on the user's instruction and taken through analysis, implementation, tests and visual QA to Review. M11.3 and M12.x were not started; the read-only prototype was not modified; no packages were added; nothing was committed or pushed.

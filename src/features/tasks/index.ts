@@ -8,3 +8,10 @@ export { TaskFormDialog } from './components/TaskFormDialog';
 export type { TaskFormPrefill } from './components/CreateTaskForm';
 export { WorkloadHeatmap } from './components/TaskDashboard';
 export { WORKLOAD_LEGEND } from './data/taskDashboard.mock';
+export {
+  DEFAULT_TASK_DASHBOARD_CONFIG,
+  effectiveTaskDashboardConfig,
+  sanitizeTaskDashboardConfig,
+  useTaskDashboardConfigStore,
+} from './store/taskDashboardConfig.store';
+export type { TaskDashboardConfig } from './store/taskDashboardConfig.store';

@@ -45,7 +45,8 @@
     "visual:capture:m8.4": "playwright test m8.4.spec.ts",
     "visual:capture:m8.5": "playwright test m8.5.spec.ts",
     "visual:capture:m8.6": "playwright test m8.6.spec.ts",
-    "visual:capture:m11.2": "playwright test m11.2.spec.ts"
+    "visual:capture:m11.2": "playwright test m11.2.spec.ts",
+    "visual:capture:m11.3": "playwright test m11.3.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

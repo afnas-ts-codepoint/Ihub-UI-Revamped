@@ -43,7 +43,7 @@ function isWidgetId(value: unknown): value is TaskDashboardWidgetId {
   return TASK_DASHBOARD_WIDGET_IDS.includes(value as TaskDashboardWidgetId);
 }
 
-function sanitizeConfig(value: unknown, fallback: TaskDashboardConfig): TaskDashboardConfig {
+export function sanitizeTaskDashboardConfig(value: unknown, fallback: TaskDashboardConfig): TaskDashboardConfig {
   if (typeof value !== 'object' || value === null || !Array.isArray((value as { ids?: unknown }).ids)) return fallback;
   const candidate = value as Partial<TaskDashboardConfig> & { ids: unknown[] };
   const ids = candidate.ids.filter(isWidgetId);
@@ -90,13 +90,13 @@ export const useTaskDashboardConfigStore = create<TaskDashboardConfigState>()(
       merge: (persisted, current) => {
         if (typeof persisted !== 'object' || persisted === null) return current;
         const value = persisted as Partial<TaskDashboardConfigState>;
-        const organizationConfig = sanitizeConfig(value.organizationConfig, DEFAULT_TASK_DASHBOARD_CONFIG);
+        const organizationConfig = sanitizeTaskDashboardConfig(value.organizationConfig, DEFAULT_TASK_DASHBOARD_CONFIG);
         return {
           ...current,
           organizationConfig,
           personalConfig: value.personalConfig === null || value.personalConfig === undefined
             ? null
-            : sanitizeConfig(value.personalConfig, organizationConfig),
+            : sanitizeTaskDashboardConfig(value.personalConfig, organizationConfig),
         };
       },
       name: taskDashboardConfigStorageKey,

@@ -43,6 +43,7 @@ import { useLocalizedText } from '@/shared/i18n/localized';
 import { downloadText } from '@/shared/file/download';
 import { readFile } from '@/shared/file/readFile';
 import { useReferenceFilters } from '@/features/organization';
+import { sanitizeTaskDashboardConfig, useTaskDashboardConfigStore } from '@/features/tasks';
 
 export type FlashMessage = Readonly<{
   key: string;
@@ -102,7 +103,17 @@ export function useDashboardBuilder({ dashboardId, mode }: UseDashboardBuilderOp
 
   const store = useDashboardConfigStore();
   const adminScoped = store.adminConfigsByDashboard[dashboardId];
-  const orgConfig: DashboardConfig = adminScoped?.default ?? standardDashboardConfig(widgets);
+
+  // M11.3: the live `tasks` dashboard's Default and personal layouts live in
+  // the Tasks runtime store (the single source the dashboard renders from),
+  // mirroring the prototype's separate `ihub.taskdash.default` / `.me` keys.
+  // Role/Department/User scopes and every other dashboard stay in this
+  // feature's store (authoring-only, PROTOTYPE-NOOP).
+  const isRuntimeDashboard = dashboardId === 'tasks';
+  const runtimeOrg = useTaskDashboardConfigStore((state) => state.organizationConfig);
+  const runtimePersonal = useTaskDashboardConfigStore((state) => state.personalConfig);
+  const orgConfig: DashboardConfig =
+    (isRuntimeDashboard ? runtimeOrg : adminScoped?.default) ?? standardDashboardConfig(widgets);
 
   // `!== false` (not a truthy check) deliberately matches the prototype's
   // own `ORG.dnd !== false` / `ORG.hide !== false`: the lenient JSON import
@@ -123,7 +134,9 @@ export function useDashboardBuilder({ dashboardId, mode }: UseDashboardBuilderOp
 
   function buildInitialWork(): Record<string, DashboardConfig> {
     if (isUser) {
-      const personal = store.personalConfigByDashboard[dashboardId] ?? null;
+      const personal = isRuntimeDashboard
+        ? runtimePersonal
+        : (store.personalConfigByDashboard[dashboardId] ?? null);
       const sanitized = sanitizeUserConfig(personal, orgConfig, mandatoryIds);
       return sanitized ? { default: orgConfig, me: sanitized } : { default: orgConfig };
     }
@@ -273,7 +286,13 @@ export function useDashboardBuilder({ dashboardId, mode }: UseDashboardBuilderOp
     if (isUser) {
       setSaved((state) => ({ ...state, me: currentConfig }));
       setWork((state) => ({ ...state, me: currentConfig }));
-      store.setPersonalConfig(dashboardId, currentConfig);
+      if (isRuntimeDashboard) {
+        useTaskDashboardConfigStore
+          .getState()
+          .setPersonalConfig(sanitizeTaskDashboardConfig(currentConfig, runtimeOrg));
+      } else {
+        store.setPersonalConfig(dashboardId, currentConfig);
+      }
       setLibrary((entries) => {
         const next = upsertLibraryEntryByScopeKey(entries, 'me', (existing) => ({
           applied: t('myDashboard.you'),
@@ -304,7 +323,13 @@ export function useDashboardBuilder({ dashboardId, mode }: UseDashboardBuilderOp
 
     setSaved((state) => ({ ...state, [key]: currentConfig }));
     setWork((state) => ({ ...state, [key]: currentConfig }));
-    store.setAdminScopedConfig(dashboardId, key, currentConfig);
+    if (isRuntimeDashboard && key === 'default') {
+      useTaskDashboardConfigStore
+        .getState()
+        .setOrganizationConfig(sanitizeTaskDashboardConfig(currentConfig, runtimeOrg));
+    } else {
+      store.setAdminScopedConfig(dashboardId, key, currentConfig);
+    }
 
     const entryName =
       scope === 'default'

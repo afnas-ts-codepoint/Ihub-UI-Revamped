@@ -66,7 +66,7 @@ Destinations outside this release flow continue to show the registered `Migratio
 | [M10.4](phases/M10.4.md) | Company, Home tasks, Home analytics & reports                      | Completed | Claude       | M10.1                   | TBD        | Approved |
 | [M11.1](phases/M11.1.md) | Configuration: user administration                                 | Completed | Claude       | M2.3                    | Not opened | Approved |
 | [M11.2](phases/M11.2.md) | Dashboard configuration builders (prototype UI/local state)        | Completed | Claude       | M11.1                   | Not opened | Approved |
-| [M11.3](phases/M11.3.md) | Dashboard configuration runtime integration                        | Pending   | Not assigned | M11.2, M8.2, M10.2      | TBD        | Required |
+| [M11.3](phases/M11.3.md) | Dashboard configuration runtime integration                        | Completed | Claude       | M11.2, M8.2, M10.2      | TBD        | Required |
 | [M12.1](phases/M12.1.md) | Full regression                                                    | Pending   | Not assigned | all                     | TBD        | Required |
 | [M12.2](phases/M12.2.md) | Production readiness                                               | Pending   | Not assigned | M12.1                   | TBD        | Required |
 | [M12.3](phases/M12.3.md) | Release sign-off                                                   | Pending   | Not assigned | M12.2                   | TBD        | Required |
