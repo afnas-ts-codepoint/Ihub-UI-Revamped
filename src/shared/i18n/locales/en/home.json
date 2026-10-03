@@ -36,6 +36,82 @@
     "subtitle": "Ranked by priority × due date × financial impact. Cleared items leave the queue.",
     "title": "Approvals"
   },
+  "assigned": {
+    "approvals": {
+      "subtitle": "Items awaiting your approval, by type.",
+      "title": "Approvals"
+    },
+    "empty": {
+      "clearDescription": "This queue is clear right now.",
+      "noMatches": "No matches",
+      "noTaskMatchDescription": "No task matches that code or subject.",
+      "noTasks": "No tasks",
+      "noTasksDescription": "Internal tasks don’t need approval or verification.",
+      "nothingToApprove": "Nothing to approve",
+      "nothingToVerify": "Nothing to verify",
+      "searchDescription": "Nothing matches that code or subject — try a shorter search."
+    },
+    "filters": {
+      "allOf": "All {{label}}",
+      "anyPriority": "Any priority",
+      "clearSearch": "Clear search",
+      "critical": "Critical",
+      "high": "High",
+      "low": "Low",
+      "match": "match",
+      "medium": "Medium",
+      "priority": "Priority",
+      "recordType": "Record type",
+      "reset": "Reset",
+      "searchPlaceholder": "Search code or subject…",
+      "subType": "Sub type"
+    },
+    "subTypes": {
+      "actionSheets": "Action Sheets",
+      "additionalBudget": "Additional Budget",
+      "advancePayment": "Advance payment",
+      "newBudget": "New Budget",
+      "pettyCash": "Petty Cash",
+      "transferFunds": "Transfer funds"
+    },
+    "tabs": {
+      "approvals": "Approvals",
+      "tasks": "Assigned Tasks",
+      "verify": "Verify"
+    },
+    "taskRow": {
+      "approve": "Approve",
+      "edit": "Edit",
+      "sendBack": "Send back",
+      "verify": "Verify"
+    },
+    "tasks": {
+      "emptyDescription": "No active tasks assigned to you.",
+      "emptyTitle": "Nothing assigned",
+      "subtitle": "Work you own and are progressing.",
+      "title": "Assigned Tasks"
+    },
+    "types": {
+      "all": "All",
+      "appraisal": "Appraisal",
+      "budgets": "Budgets",
+      "budgetsApprove": "Budget approvals",
+      "budgetsVerify": "Budget verifications",
+      "checklists": "Checklists",
+      "investigationRequest": "Investigation request",
+      "observation": "Observation",
+      "paymentSettlement": "Payment settlement",
+      "pcRequest": "PC Request",
+      "qaSubmissions": "QA Submissions",
+      "tasks": "Tasks",
+      "tasksApprove": "Approve tasks",
+      "tasksVerify": "Verify tasks"
+    },
+    "verify": {
+      "subtitle": "Items awaiting your verification, by type.",
+      "title": "Verify"
+    }
+  },
   "carousel": {
     "approvalsInQueue": "Approvals in queue",
     "dueToday": "Due today",
@@ -53,6 +129,27 @@
     "statusDistribution": "Status distribution",
     "thisWeek": "This week"
   },
+  "company": {
+    "analytics": {
+      "chartLabel": "Monthly revenue and operating trend",
+      "onTrack": "On track",
+      "stats": {
+        "headcount": "Headcount",
+        "nps": "NPS",
+        "revenue": "Revenue"
+      },
+      "subtitle": "Revenue & operating tracker",
+      "title": "This quarter"
+    },
+    "calendar": {
+      "title": "Calendar"
+    },
+    "news": {
+      "readMore": "Read more",
+      "subtitle": "News from across Tamdeen Entertainment",
+      "title": "Company"
+    }
+  },
   "greeting": {
     "afternoon": "Good afternoon",
     "evening": "Good evening",
@@ -61,18 +158,60 @@
     "quote": "The way to get started is to quit talking and begin doing.",
     "quoteBy": "Walt Disney"
   },
+  "incidentCard": {
+    "action": "Action",
+    "actions": "Actions",
+    "menu": {
+      "callback": "Callback request",
+      "close": "Close case",
+      "compensate": "Compensate",
+      "feedback": "Write feedback",
+      "investigate": "Request investigation",
+      "task": "Raise a task",
+      "track": "Track"
+    },
+    "pin": "Pin to feed",
+    "unpin": "Unpin",
+    "unread": "Unread"
+  },
+  "incidentCenter": {
+    "noMatches": "No incidents match your search.",
+    "noOpen": "No open incidents.",
+    "searchPlaceholder": "Search incidents…",
+    "sla": "SLA",
+    "title": "Incident center",
+    "unread": "unread"
+  },
   "incidents": {
     "live": "Live Incidents",
     "reports": "Incident Reports"
   },
+  "jobOrderCard": {
+    "assign": "Assign",
+    "assignedToYou": "Assigned to you",
+    "dismiss": "Dismiss",
+    "external": "External",
+    "internal": "Internal",
+    "new": "NEW",
+    "progress": "Progress",
+    "track": "Track"
+  },
+  "liveFeed": {
+    "dismiss": "Dismiss",
+    "empty": "Pin or track an incident to stream its live updates here.",
+    "justNow": "just now",
+    "rejected": "Rejected",
+    "rejectedLower": "rejected",
+    "title": "Live feed",
+    "titleEmpty": "Live feed",
+    "tracked": "tracked",
+    "unpin": "Unpin"
+  },
   "pending": {
-    "assigned": "Assigned",
     "budgets": "Budgets",
-    "company": "Company",
     "overview": "Overview",
     "paymentSettlement": "Payment Settlement",
     "purchasing": "Purchasing",
-    "reports": "Analytics & Reports",
     "tasks": "Tasks",
     "workCentre": "Work Centre"
   },
@@ -95,18 +234,31 @@
       "approved": "Approved · {{recommended}} — removed from queue",
       "batchApproved": "{{n}} approved in one decision",
       "batchRejected": "{{n}} rejected in one decision",
+      "callbackRequested": "{{id}} · Callback requested",
+      "caseClosed": "{{id}} · case closed",
+      "compensationLogged": "{{id}} · Compensation logged",
       "dismissedIncident": "Dismissed · {{id}}",
       "dismissedJobOrder": "{{id}} dismissed",
       "escalatedAction": "Escalated · {{name}}",
       "escalatedIncident": "Escalated · {{id}}",
+      "feedbackSaved": "{{id}} · Feedback saved",
+      "investigationRequested": "{{id}} · Investigation requested",
       "jobOrderAssigned": "{{id}} assigned",
       "pinnedTracking": "{{id}} pinned & tracking — updates in live feed",
       "rejected": "Rejected · owner notified",
       "resubmitted": "Resubmitted for approval",
       "sentBack": "Sent back to creator",
+      "sentBackToRequester": "{{id}} sent back to requester",
       "sentBackWithReason": "Sent back to creator · {{reason}}",
+      "taskDrafted": "Task drafted from {{id}}",
       "trackAdded": "{{id}} added to live feed"
     }
+  },
+  "reportsView": {
+    "categories": "Report categories",
+    "placeholder": "Run search to generate report. Result table will render here.",
+    "subtitle": "17 standard reports across HR, Workforce, Finance, Operations, Quality and System.",
+    "title": "Analytics & Reports"
   },
   "sendBack": {
     "cancel": "Cancel",
@@ -150,5 +302,11 @@
     "notNow": "Not now",
     "title": "Decision recorded",
     "track": "Track"
+  },
+  "tracking": {
+    "feed": "Added to tracking from the incident listing.",
+    "justNow": "just now",
+    "status": "Tracking",
+    "withinSla": "Within SLA"
   }
 }

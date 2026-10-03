@@ -73,7 +73,7 @@ function SlideHead({ eyebrow, ring, title }: Readonly<{ eyebrow: string; ring: R
   return (
     <div className="mb-[7px] flex items-start justify-between gap-3">
       <div className="min-w-0">
-        <div className="text-xs font-semibold tracking-[0.14em] text-fg-3 uppercase">{eyebrow}</div>
+        <div className="text-sm font-medium tracking-[0.16em] text-fg-3 uppercase">{eyebrow}</div>
         <div className="display mt-1.5 text-7xl leading-[1.1] font-medium">{title}</div>
       </div>
       {ring}
@@ -84,7 +84,8 @@ function SlideHead({ eyebrow, ring, title }: Readonly<{ eyebrow: string; ring: R
 function SlideBottom({ caption, value }: Readonly<{ caption: string; value: number | string }>) {
   return (
     <>
-      <hr className="my-2 mt-auto border-0 border-t border-line" />
+      <div className="flex-1" />
+      <hr className="my-2 border-0 border-t border-line" />
       <div className="display num text-12xl font-medium tracking-[-0.03em]">{value}</div>
       <div className="text-sm tracking-[0.14em] text-fg-3 uppercase">{caption}</div>
     </>

@@ -158,6 +158,49 @@ describe('M9.2 TaskFormDialog', () => {
   });
 });
 
+describe('M10.3 homeTask mode (Home Assigned and Live Incidents task form)', () => {
+  const homePrefill: TaskFormPrefill = { location: 'Riyadh Park', priority: 'high', scope: 'internal', subject: 'Repair escalator B2' };
+
+  function renderHomeTask(onCancel = vi.fn()) {
+    render(<TaskFormDialog mode="homeTask" onCancel={onCancel} prefill={homePrefill} presentation="modal" sourceId="JO-7779" title="Repair escalator B2" />);
+    return onCancel;
+  }
+
+  it('opens with the record id and title in the header and no footer', () => {
+    renderHomeTask();
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toHaveAttribute('data-mode', 'homeTask');
+    expect(dialog).toHaveAttribute('data-presentation', 'modal');
+    expect(within(dialog).getByText('JO-7779')).toBeVisible();
+    expect(within(dialog).getByRole('heading', { name: 'Repair escalator B2' })).toBeVisible();
+    expect(within(dialog).queryByRole('heading', { name: 'Raise a task' })).not.toBeInTheDocument();
+    expect(within(dialog).queryByText('from incident')).not.toBeInTheDocument();
+    expect(within(dialog).queryByText('The incident stays open and links to the new task.')).not.toBeInTheDocument();
+    expect(within(dialog).queryByRole('button', { name: 'Create' })).not.toBeInTheDocument();
+  });
+
+  it('seeds the canonical create form from the prefill', () => {
+    renderHomeTask();
+    expect(screen.getByLabelText('Task subject')).toHaveValue('Repair escalator B2');
+    expect(within(screen.getByRole('group', { name: 'Priority' })).getByRole('button', { name: 'High' })).toHaveAttribute('aria-pressed', 'true');
+  });
+
+  it('closes from the close button and discards the form', async () => {
+    const user = userEvent.setup();
+    const onCancel = renderHomeTask();
+    await user.click(screen.getByRole('button', { name: 'Close' }));
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    expect(useTasksStore.getState().createdTasks).toHaveLength(0);
+  });
+
+  it('closes on Escape', async () => {
+    const user = userEvent.setup();
+    const onCancel = renderHomeTask();
+    await user.keyboard('{Escape}');
+    expect(onCancel).toHaveBeenCalledTimes(1);
+  });
+});
+
 describe('M9.2 preserves M8.3 Create Task page behaviour', () => {
   it('still renders its own Create/Cancel bar, flash and page test id, with blank defaults', async () => {
     const user = userEvent.setup();

@@ -22,10 +22,14 @@ import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
 import { OvertimePage } from '@/features/hr';
 import {
   ApprovalsPage,
+  AssignedPage,
+  CompanyPage,
   HomeBannerLayout,
-  HomeIncidentsPendingPage,
+  HomeIncidentsPage,
   HomeLayout,
+  isAssignedQueue,
   HomePendingPage,
+  ReportsPage,
 } from '@/features/home';
 import { NotificationsPage } from '@/features/notifications';
 import { ObservationsPage } from '@/features/observations';
@@ -45,10 +49,7 @@ import { SlaPage } from '@/features/sla';
 import { CreateTaskPage, TaskEditPage, TasksPage, TaskViewPage } from '@/features/tasks';
 import { WorkflowsPage } from '@/features/workflows';
 import { WorkCentrePage } from '@/features/work-centre';
-import {
-  NavRoutePage,
-  ValidatedPendingRoute,
-} from '@/app/router/NavRoutePage';
+import { NavRoutePage } from '@/app/router/NavRoutePage';
 import { NotFoundPage } from '@/app/router/NotFoundPage';
 import {
   MasterCategoryRedirect,
@@ -59,7 +60,6 @@ import { RouteErrorPage } from '@/app/router/RouteErrorPage';
 import { env, type AppEnvironment } from '@/shared/config/env';
 import { paths } from '@/shared/config/paths';
 
-const assignedQueues = ['approvals', 'verify', 'tasks'] as const;
 const incidentViews = ['reports', 'live'] as const;
 function RootRoute() {
   return (
@@ -67,6 +67,15 @@ function RootRoute() {
       <AppShell />
       <ScrollRestoration />
     </>
+  );
+}
+
+function HomeAssignedRoute() {
+  const { queue } = useParams();
+  return queue && isAssignedQueue(queue) ? (
+    <AssignedPage queue={queue} />
+  ) : (
+    <NotFoundPage />
   );
 }
 
@@ -147,18 +156,12 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'company',
-            element: <HomePendingPage area="company" />,
+            element: <CompanyPage />,
             handle: { homeTab: 'company' },
           },
           {
             path: 'assigned/:queue',
-            element: (
-              <ValidatedPendingRoute
-                allowed={assignedQueues}
-                parameter="queue"
-                titleKey="navigation.dashboard_assigned"
-              />
-            ),
+            element: <HomeAssignedRoute />,
             handle: { homeTab: 'assigned' },
           },
           {
@@ -172,12 +175,12 @@ export const appRoutes: RouteObject[] = [
               },
               {
                 path: incidentViews[0],
-                element: <HomeIncidentsPendingPage activeTab="reports" />,
+                element: <HomeIncidentsPage activeTab="reports" />,
                 handle: { homeTab: 'incidents' },
               },
               {
                 path: incidentViews[1],
-                element: <HomeIncidentsPendingPage activeTab="live" />,
+                element: <HomeIncidentsPage activeTab="live" />,
                 handle: { homeTab: 'incidents' },
               },
             ],
@@ -204,7 +207,7 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'reports',
-            element: <HomePendingPage area="reports" />,
+            element: <ReportsPage />,
             handle: { homeTab: 'reports' },
           },
           {

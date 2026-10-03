@@ -51,8 +51,10 @@ Icons added to the shared `Icon` registry for the approvals queue and workflow d
 | Prototype icon | Production implementation | Mapping | Known visual difference |
 | --- | --- | --- | --- |
 | `flag` | `Flag` | Lucide | None material. |
-| `pin` | `Pin` | Lucide | The prototype pin glyph is a compact plus-like pin; Lucide's is the conventional slanted pushpin. |
+| `pin` | `PrototypePin` | Prototype path (`shared/ui/icon/custom/prototypeGlyphs.ts`) | None: drawn from the prototype's own path data (M10.3; it was Lucide's slanted `Pin`). |
 | `mail` | `Mail` | Lucide | None material. |
 | `edit` | `Pencil` | Lucide | Already mapped in M4.1. |
+| `phone` | `Phone` | Lucide | Added in M10.3 for the incident "Callback request" menu item; the glyph is the conventional handset. |
+| `bolt` | `PrototypeBolt` | Prototype path (`shared/ui/icon/custom/prototypeGlyphs.ts`) | None: the lightning bolt from the prototype's path data (M10.3; it was Lucide's hex-nut `Bolt`, visible on the Incidents tab and incident cards). |
 
 The Edit / Send back / Reject buttons of the review Decision card are text-only: in the prototype their stacked icons collapse to zero height inside a fixed 40px button, so no icon is rendered there.

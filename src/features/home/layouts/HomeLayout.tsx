@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { Outlet, useMatches } from 'react-router';
 
+import { useTrackingStore } from '@/store/tracking.store';
+
 import { HomeQueueHost } from '../components/HomeQueueHost';
 import { HomeTopBanner } from '../components/banner/HomeTopBanner';
 import { useHomeQueueStore } from '../store/homeQueue.store';
@@ -24,6 +26,7 @@ export function HomeLayout() {
   useEffect(
     () => () => {
       useHomeQueueStore.getState().reset();
+      useTrackingStore.getState().reset();
     },
     [],
   );

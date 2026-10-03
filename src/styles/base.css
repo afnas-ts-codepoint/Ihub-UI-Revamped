@@ -127,6 +127,22 @@ body {
   letter-spacing: -0.02em;
 }
 
+/* @prototype index.html:L350 `pulse-soft` — the live/tracking dot. */
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.pulse-soft {
+  animation: pulse-soft 1.6s infinite;
+}
+
 @keyframes budget-chart-grow {
   from {
     transform: scaleX(0);

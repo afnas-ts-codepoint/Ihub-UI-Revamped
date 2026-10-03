@@ -2,6 +2,23 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-10-03 - M10.3 implemented (parallel to M10.2; unblocks M10.4 `/home/tasks`)
+
+- M10.3 (Assigned, live incidents, tracker, legacy-form entry points) was implemented although its dependency M10.2 is still Pending, on the user's instruction. M10.2 files (Overview) were not touched.
+- The tracking store that replaces `window.__ihubTrack` is `store/tracking.store.ts` (the Phase 2 location), a hand-off queue: Incident Workspace "Track" queues a record and `HomeQueueHost` applies it to the Home queue store (tracker row, plus a pinned "Tracking" incident or a pin on the existing one). The tracker list itself stays in `homeQueue.store` (M10.1), so M10.2's tracker card reads `trackedTasks` from there.
+- `JobOrderCard` now exists (`features/home/components/job-orders/`); M10.4 can wire `/home/tasks` around it.
+- Decision recorded for approval: D31 (the Home task form embeds the canonical create form instead of navigating to `/tasks/:taskId`) and minor D32.
+- Correction to approved M10.1 styling: the shared home `secondary` button is now the prototype's blue-outlined `.btn.secondary` (it was neutral grey).
+- Prototype branch update (same day): the read-only prototype is now `final-change` @ `7ee0ed9` (live: https://designs.codepoints.in/new-ihub/). Delta intake found a uniform font-size remap (10.5/11.5/12.5/14.5 → 11/13/13.5/15) and a Task Status stepper redesign. Human decision: adopt for M10.3. The type-scale tokens in `styles/index.css` were remapped (affects every screen, as the prototype's did); the stepper is left for M8.4–M8.6 and recorded in `PROTOTYPE_DELTAS.md`.
+- Fidelity fixes found while re-comparing M10.3 pages with the new prototype (text size/weight and button geometry compared element by element): the Home banner buttons are the prototype `.btn` (40px, 14px) instead of 38px/13px custom buttons; banner eyebrow labels are 12px/500 with 0.16em tracking; chips are weight 500 with the 3px/9px padding; the `bolt` and `pin` glyphs are drawn from the prototype's own paths; the Incident Reports / Live Incidents strip uses the same strip as the Assigned queues.
+
+## 2026-10-02 - M10.4 started in parallel with M10.3 (Option A)
+
+- M10.3 (Assigned, live incidents, tracker, legacy-form entry points) is being implemented in a parallel session although its dependency M10.2 is still Pending; M10.2 remains the owner of its planned tracking-store work. M10.4 (dependency M10.1 only) was authorized by the user as the next safe parallel task.
+- Human decision (Option A): implement `/home/company` and `/home/reports` now; do not create or fork `JobOrderCard` (M10.3-owned); `/home/tasks` stays `MigrationPending` until M10.3's card is available, then M10.4 wires the All/Internal/External filter and grid around it. M10.4 does not move to Review until then.
+- Root `index.html` is the authoritative rendered prototype (M10.1 precedent); no R6 drift (see `PROTOTYPE_DELTAS.md`).
+- Deviation D30 and three PROTOTYPE-NOOP rows recorded. M10.2 and M10.3 files untouched.
+
 ## 2026-10-01 - M10.1 Queues, workflow drawer, Approvals view started
 
 - M10.1 (dependencies M6.6, M6.7, M9.2 — all approved) was started on the user's instruction, completed to Review, and user-approved the same day (2026-10-01). M11.3 is being worked in a parallel session; M10.1 touches no `settings/` or task-dashboard-config files. M10.2, M10.3 and M10.4 were not started.

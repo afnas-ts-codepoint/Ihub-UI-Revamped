@@ -42,7 +42,7 @@ describe('M5.1 Home routes', () => {
     router.dispose();
   });
 
-  it('renders Incident Reports and keeps only Live Incidents pending', async () => {
+  it('renders Incident Reports and the Live Incidents centre', async () => {
     const router = renderPath('/home/incidents/reports');
     const subTabs = await screen.findByTestId('incidents-sub-tabs');
     expect(withinTab(subTabs, 'Incident Reports')).toHaveAttribute('aria-current', 'page');
@@ -50,7 +50,9 @@ describe('M5.1 Home routes', () => {
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     fireEvent.click(withinTab(subTabs, 'Live Incidents'));
     expect(router.state.location.pathname).toBe('/home/incidents/live');
-    expect(screen.getByRole('status')).toHaveTextContent('Live Incidents');
+    expect(withinTab(subTabs, 'Live Incidents')).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('heading', { name: 'Incident center' })).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });
 

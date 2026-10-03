@@ -144,8 +144,37 @@ export type RejectedEntry = Readonly<{
 }>;
 
 export type QueueActionVerb = 'approve' | 'escalate' | 'pin' | 'reject' | 'sendback';
-export type QueueIncidentVerb = 'dismiss' | 'escalate' | 'pin';
-export type QueueJobOrderVerb = 'assign' | 'dismiss';
+export type QueueIncidentVerb =
+  | 'callback'
+  | 'close'
+  | 'compensate'
+  | 'dismiss'
+  | 'escalate'
+  | 'feedback'
+  | 'investigate'
+  | 'pin'
+  | 'read'
+  | 'task'
+  | 'track';
+export type QueueJobOrderVerb = 'approve' | 'assign' | 'dismiss';
+
+/** The `taskOpen` record: a Home job order, or the thin draft raised from a live incident. */
+export type HomeTaskDraft = Readonly<{
+  dept?: string;
+  id: string;
+  kind: JobOrderKind;
+  location?: string;
+  priority: HomePriority;
+  title: string;
+}>;
+
+/** Localised strings of the incident the tracking hand-off creates (the prototype builds them with `T`). */
+export type TrackingLabels = Readonly<{
+  feed: string;
+  justNow: string;
+  slaLabel: string;
+  status: string;
+}>;
 
 /** Toast descriptor returned by store mutations; the hook layer localises it. */
 export type QueueToast = Readonly<{
@@ -153,16 +182,23 @@ export type QueueToast = Readonly<{
     | 'approved'
     | 'batchApproved'
     | 'batchRejected'
+    | 'callbackRequested'
+    | 'caseClosed'
+    | 'compensationLogged'
     | 'dismissedIncident'
     | 'dismissedJobOrder'
     | 'escalatedAction'
     | 'escalatedIncident'
+    | 'feedbackSaved'
+    | 'investigationRequested'
     | 'jobOrderAssigned'
     | 'pinnedTracking'
     | 'rejected'
     | 'resubmitted'
     | 'sentBack'
+    | 'sentBackToRequester'
     | 'sentBackWithReason'
+    | 'taskDrafted'
     | 'trackAdded';
   values?: Readonly<Record<string, number | string>>;
 }>;

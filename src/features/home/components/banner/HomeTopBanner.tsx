@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router';
 import { useNow } from '@/shared/hooks/useNow';
 import { Icon } from '@/shared/ui/icon/Icon';
 
+import { actionButtonClass } from '../actions/actionButtonStyles';
+
 import { HOME_TABS } from '../../constants/homeTabs';
 import { useHomeBannerData } from '../../hooks/useHomeBannerData';
 import { useHomeCounts } from '../../hooks/useHomeCounts';
@@ -49,7 +51,7 @@ export function HomeTopBanner({ activeTab }: HomeTopBannerProps) {
     <div className="flex flex-col gap-6" data-testid="home-top-banner">
       <section className="grid grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-stretch gap-7 max-desktop:grid-cols-1">
         <div className="flex flex-col pt-6">
-          <div className="mb-3.5 text-xs font-semibold tracking-[0.14em] text-fg-3 uppercase">
+          <div className="mb-3.5 text-sm font-medium tracking-[0.16em] text-fg-3 uppercase">
             {`${longEnglishDate(now)} · ${t('greeting.headOffice')}`}
           </div>
           <h1 className="display m-0 text-[clamp(36px,5.2vw,64px)] leading-[1.02] font-normal tracking-[-0.035em]">
@@ -61,13 +63,13 @@ export function HomeTopBanner({ activeTab }: HomeTopBannerProps) {
             <p className="m-0 font-serif text-4xl leading-[1.4] font-medium text-fg italic rtl:font-sans rtl:font-semibold rtl:not-italic">
               {t('greeting.quote')}
             </p>
-            <footer className="mt-2.5 text-xs font-semibold tracking-[0.14em] text-fg-3 uppercase">
+            <footer className="mt-2.5 text-xs font-medium tracking-[0.16em] text-fg-3 uppercase">
               {`— ${t('greeting.quoteBy')}`}
             </footer>
           </blockquote>
           <div className="mt-auto flex flex-wrap gap-2.5 pt-7">
             <button
-              className="inline-flex items-center gap-2 rounded-lg bg-interactive px-3.5 py-2 text-base font-semibold text-accent-ink"
+              className={actionButtonClass('primary')}
               data-prototype-noop="home-quick-actions"
               type="button"
             >
@@ -75,7 +77,7 @@ export function HomeTopBanner({ activeTab }: HomeTopBannerProps) {
               {t('actions.openInbox')}
             </button>
             <button
-              className="inline-flex items-center gap-2 rounded-lg border border-line-strong bg-surface px-3.5 py-2 text-base font-semibold text-fg-2"
+              className={actionButtonClass('default')}
               data-prototype-noop="home-quick-actions"
               type="button"
             >
@@ -83,7 +85,7 @@ export function HomeTopBanner({ activeTab }: HomeTopBannerProps) {
               {t('actions.clockIn')}
             </button>
             <button
-              className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-base font-medium text-fg-2 hover:bg-raised"
+              className={actionButtonClass('ghost')}
               data-prototype-noop="home-quick-actions"
               type="button"
             >

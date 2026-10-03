@@ -62,8 +62,8 @@ Destinations outside this release flow continue to show the registered `Migratio
 | [M9.2](phases/M9.2.md)   | Implement the approved task-form modes and incident "Raise a task" | Completed | Claude       | M9.1                    | TBD        | Approved |
 | [M10.1](phases/M10.1.md) | Queues, workflow drawer, Approvals view                            | Completed | Claude       | M6.6, M6.7, M9.2        | 2026-10-01 | Approved |
 | [M10.2](phases/M10.2.md) | Overview                                                           | Pending   | Not assigned | M10.1, M8.2, M3.8, M7.5 | TBD        | Required |
-| [M10.3](phases/M10.3.md) | Assigned, live incidents, tracker, legacy-form entry points        | Pending   | Not assigned | M10.2                   | TBD        | Required |
-| [M10.4](phases/M10.4.md) | Company, Home tasks, Home analytics & reports                      | Pending   | Not assigned | M10.1                   | TBD        | Required |
+| [M10.3](phases/M10.3.md) | Assigned, live incidents, tracker, legacy-form entry points        | Completed | Claude       | M10.2                   | 2026-10-03 | Approved |
+| [M10.4](phases/M10.4.md) | Company, Home tasks, Home analytics & reports                      | Active    | Claude       | M10.1                   | TBD        | Required |
 | [M11.1](phases/M11.1.md) | Configuration: user administration                                 | Completed | Claude       | M2.3                    | Not opened | Approved |
 | [M11.2](phases/M11.2.md) | Dashboard configuration builders (prototype UI/local state)        | Completed | Claude       | M11.1                   | Not opened | Approved |
 | [M11.3](phases/M11.3.md) | Dashboard configuration runtime integration                        | Pending   | Not assigned | M11.2, M8.2, M10.2      | TBD        | Required |

@@ -4,6 +4,7 @@ Only human-approved work belongs here.
 
 | Task | Completed | Approval |
 |---|---|---|
+| [M10.3 — Assigned, live incidents, tracker, legacy-form entry points](phases/M10.3.md) | 2026-10-03 | User-approved (incl. D31) |
 | [M10.1 — Queues, workflow drawer, Approvals view](phases/M10.1.md) | 2026-10-01 | User-approved |
 | [M9.2 — Task-form modes + Incident "Raise a task"](phases/M9.2.md) | 2026-10-01 | User-approved |
 | [M6.8 — Payment settlement: add a supplier](phases/M6.8.md) | 2026-10-01 | User-approved |

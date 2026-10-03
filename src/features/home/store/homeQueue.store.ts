@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 
+import type { TrackRecord } from '@/store/tracking.store';
+
 import { ACTIONS } from '../data/actions.mock';
 import { INCIDENTS } from '../data/incidents.mock';
 import { JOB_ORDERS } from '../data/jobOrders.mock';
@@ -11,6 +13,7 @@ import {
 import type {
   DrawerState,
   FormModalState,
+  HomeTaskDraft,
   QueueAction,
   QueueActionVerb,
   QueueIncident,
@@ -20,6 +23,7 @@ import type {
   QueueToast,
   RejectedEntry,
   TrackedTask,
+  TrackingLabels,
   TrackPromptState,
 } from '../types/queue.types';
 
@@ -42,6 +46,7 @@ type HomeQueueState = {
   drawer: DrawerState | null;
   formModal: FormModalState | null;
   sendbackFor: QueueAction | null;
+  taskOpen: HomeTaskDraft | null;
   trackPrompt: TrackPromptState | null;
   trackedTasks: readonly TrackedTask[];
   rejectedFeed: readonly RejectedEntry[];
@@ -59,6 +64,8 @@ type HomeQueueState = {
   closeDrawer: () => void;
   closeFormModal: () => void;
   closeSendBack: () => void;
+  closeTask: () => void;
+  dismissRejected: (id: string) => void;
   dismissTrackPrompt: () => void;
   openDrawer: (
     type: DrawerState['type'],
@@ -70,12 +77,17 @@ type HomeQueueState = {
     options?: { creator?: boolean; verify?: boolean },
   ) => void;
   openSendBack: (item: QueueAction) => void;
+  openTask: (task: HomeTaskDraft) => void;
   reset: () => void;
   resubmit: (id: string) => QueueToast;
   selectAll: (ids: readonly string[]) => void;
   toggleSelected: (id: string) => void;
   trackItem: () => QueueToast | undefined;
+  trackRecord: (record: TrackRecord, labels: TrackingLabels) => void;
 };
+
+/** @prototype index.html:L14282 default tracker when a record names none */
+const DEFAULT_TRACKER = 'M. Faris';
 
 const initialState = () => ({
   actions: ACTIONS.map((action) => ({ ...action })),
@@ -86,9 +98,18 @@ const initialState = () => ({
   rejectedFeed: [],
   selected: [],
   sendbackFor: null,
+  taskOpen: null,
   trackedTasks: [],
   trackPrompt: null,
 });
+
+/** Toast of the incident menu actions that only note the request (and mark the incident read). */
+const INCIDENT_NOTE_TOAST = {
+  callback: 'callbackRequested',
+  compensate: 'compensationLogged',
+  feedback: 'feedbackSaved',
+  investigate: 'investigationRequested',
+} as const satisfies Partial<Record<QueueIncidentVerb, QueueToast['key']>>;
 
 const withoutId = <Item extends { id: string }>(
   list: readonly Item[],
@@ -181,6 +202,12 @@ export const useHomeQueueStore = create<HomeQueueState>()((set, get) => ({
   },
 
   actOnIncident: (type, item): QueueToast | undefined => {
+    const markRead = (state: HomeQueueState) =>
+      state.incidents.map((incident) =>
+        incident.id === item.id ? { ...incident, read: true } : incident,
+      );
+    const values = { id: item.id };
+
     if (type === 'pin') {
       // `willPin` comes from the (possibly stale) snapshot the drawer holds.
       const willPin = !item.pinned;
@@ -199,9 +226,7 @@ export const useHomeQueueStore = create<HomeQueueState>()((set, get) => ({
             ? [{ id: item.id, title: item.title }, ...state.trackedTasks]
             : state.trackedTasks,
       }));
-      return willPin
-        ? { key: 'pinnedTracking', values: { id: item.id } }
-        : undefined;
+      return willPin ? { key: 'pinnedTracking', values } : undefined;
     }
     if (type === 'escalate') {
       set((state) => ({
@@ -211,13 +236,50 @@ export const useHomeQueueStore = create<HomeQueueState>()((set, get) => ({
             : incident,
         ),
       }));
-      return { key: 'escalatedIncident', values: { id: item.id } };
+      return { key: 'escalatedIncident', values };
     }
-    set((state) => ({
-      drawer: state.drawer?.item.id === item.id ? null : state.drawer,
-      incidents: withoutId(state.incidents, item.id),
-    }));
-    return { key: 'dismissedIncident', values: { id: item.id } };
+    if (type === 'dismiss' || type === 'close') {
+      set((state) => ({
+        drawer: state.drawer?.item.id === item.id ? null : state.drawer,
+        incidents: withoutId(state.incidents, item.id),
+      }));
+      return {
+        key: type === 'close' ? 'caseClosed' : 'dismissedIncident',
+        values,
+      };
+    }
+    if (type === 'read') {
+      set((state) => ({ incidents: markRead(state) }));
+      return undefined;
+    }
+    if (type === 'track') {
+      set((state) => ({
+        incidents: markRead(state),
+        trackedTasks: state.trackedTasks.some((task) => task.id === item.id)
+          ? state.trackedTasks
+          : [{ id: item.id, title: item.title }, ...state.trackedTasks],
+      }));
+      return { key: 'trackAdded', values };
+    }
+    if (type === 'task') {
+      // The thin draft of a Home "Raise a task" (M9.1 Usage C2).
+      set((state) => ({
+        incidents: markRead(state),
+        taskOpen: {
+          dept: item.owner,
+          id: item.id,
+          kind: 'internal',
+          priority:
+            item.severity === 'critical' || item.severity === 'high'
+              ? 'high'
+              : 'medium',
+          title: item.title,
+        },
+      }));
+      return { key: 'taskDrafted', values };
+    }
+    set((state) => ({ incidents: markRead(state) }));
+    return { key: INCIDENT_NOTE_TOAST[type], values };
   },
 
   actOnJobOrder: (type, item): QueueToast => {
@@ -233,6 +295,11 @@ export const useHomeQueueStore = create<HomeQueueState>()((set, get) => ({
           ? { ...jobOrder, isNew: false, status: 'Assigned' }
           : jobOrder,
       ),
+      // Approving (not assigning) a job order also prompts for tracking.
+      trackPrompt:
+        type === 'approve'
+          ? { id: item.id, title: item.title }
+          : state.trackPrompt,
     }));
     return { key: 'jobOrderAssigned', values: { id: item.id } };
   },
@@ -273,6 +340,12 @@ export const useHomeQueueStore = create<HomeQueueState>()((set, get) => ({
   closeSendBack: () => {
     set({ sendbackFor: null });
   },
+  closeTask: () => {
+    set({ taskOpen: null });
+  },
+  dismissRejected: (id) => {
+    set((state) => ({ rejectedFeed: withoutId(state.rejectedFeed, id) }));
+  },
   dismissTrackPrompt: () => {
     set({ trackPrompt: null });
   },
@@ -302,6 +375,9 @@ export const useHomeQueueStore = create<HomeQueueState>()((set, get) => ({
   },
   openSendBack: (item) => {
     set({ sendbackFor: item });
+  },
+  openTask: (task) => {
+    set({ taskOpen: task });
   },
 
   reset: () => {
@@ -338,5 +414,59 @@ export const useHomeQueueStore = create<HomeQueueState>()((set, get) => ({
       trackPrompt: null,
     }));
     return { key: 'trackAdded', values: { id: trackPrompt.id } };
+  },
+
+  /**
+   * The tracking hand-off (`window.__ihubTrack`): list the record in the
+   * tracker, pin and read an incident that already exists, or open a new
+   * "Tracking" incident for it.
+   * @prototype index.html:L14274-L14289 `__ihubTrack` handler
+   */
+  trackRecord: (record, labels) => {
+    set((state) => {
+      const known = state.incidents.some(
+        (incident) => incident.id === record.id,
+      );
+      const owner = record.by ?? DEFAULT_TRACKER;
+      return {
+        incidents: known
+          ? state.incidents.map((incident) =>
+              incident.id === record.id
+                ? { ...incident, pinned: true, read: true }
+                : incident,
+            )
+          : [
+              {
+                detail: record.detail ?? record.title,
+                feed: [
+                  {
+                    t: labels.justNow,
+                    text: labels.feed,
+                    type: 'status',
+                    who: owner,
+                  },
+                ],
+                icon: 'bolt',
+                id: record.id,
+                lastUpdate: labels.justNow,
+                location: record.location ?? '—',
+                opened: labels.justNow,
+                owner,
+                pinned: true,
+                progress: 0.1,
+                read: true,
+                severity: record.severity ?? 'medium',
+                sla: 'ok',
+                slaLabel: labels.slaLabel,
+                status: labels.status,
+                title: record.title,
+              },
+              ...state.incidents,
+            ],
+        trackedTasks: state.trackedTasks.some((task) => task.id === record.id)
+          ? state.trackedTasks
+          : [{ id: record.id, title: record.title }, ...state.trackedTasks],
+      };
+    });
   },
 }));

@@ -56,20 +56,19 @@ const HEADING_OVERRIDES: Readonly<
   'budgeting/budgeting': { ar: arBudgeting.title, en: enBudgeting.title },
   'budgeting/dashboard': { ar: arBudgeting.title, en: enBudgeting.title },
   checklist: { ar: arChecklists.title, en: enChecklists.title },
+  'dashboard/assigned': {
+    ar: arHome.assigned.approvals.title,
+    en: enHome.assigned.approvals.title,
+  },
   'dashboard/incidents': {
     ar: arIncidents.report.title,
     en: enIncidents.report.title,
   },
-  overtime: { ar: arHr.title, en: enHr.title },
-};
-
-const PENDING_TITLE_OVERRIDES: Readonly<
-  Record<string, Readonly<Record<'ar' | 'en', string>>>
-> = {
-  [paths.home.incidents('live')]: {
-    ar: arHome.incidents.live,
-    en: enHome.incidents.live,
+  'dashboard/live-feed': {
+    ar: arHome.incidentCenter.title,
+    en: enHome.incidentCenter.title,
   },
+  overtime: { ar: arHr.title, en: enHr.title },
 };
 
 describe('G6 complete navigation and route parity', () => {
@@ -131,11 +130,9 @@ describe('G6 complete navigation and route parity', () => {
 
         const { router, unmount } = renderRoute(path);
         if (current?.routeBehavior === 'migration-pending') {
-          const pendingTitle =
-            PENDING_TITLE_OVERRIDES[path]?.[locale] ?? String(title);
           expect(await screen.findByRole('status')).toHaveAttribute(
             'data-migration-pending',
-            pendingTitle,
+            String(title),
           );
         } else if (current?.id === 'workflows') {
           expect(await screen.findByRole('tablist')).toBeInTheDocument();
@@ -191,12 +188,7 @@ describe('Phase 2 section 11 URL map', () => {
     router.dispose();
   });
 
-  it.each([
-    paths.home.assigned('verify'),
-    paths.home.assigned('tasks'),
-    paths.home.view('reports'),
-    paths.home.workCentre('incidents'),
-  ])('routes the pending prototype screen at %s', async (path) => {
+  it.each([paths.home.workCentre('incidents')])('routes the pending prototype screen at %s', async (path) => {
     const { router } = renderRoute(path);
     expect(await screen.findByRole('status')).toHaveAttribute(
       'data-migration-pending',

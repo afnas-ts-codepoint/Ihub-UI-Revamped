@@ -1,5 +1,9 @@
 export { ApprovalsPage } from './pages/ApprovalsPage';
+export { AssignedPage } from './pages/AssignedPage';
+export { CompanyPage } from './pages/CompanyPage';
 export { HomeBannerLayout } from './layouts/HomeBannerLayout';
 export { HomeLayout } from './layouts/HomeLayout';
-export { HomeIncidentsPendingPage } from './pages/HomeIncidentsPendingPage';
+export { HomeIncidentsPage } from './pages/HomeIncidentsPage';
 export { HomePendingPage } from './pages/HomePendingPage';
+export { isAssignedQueue } from './constants/assignedQueue';
+export { ReportsPage } from './pages/ReportsPage';

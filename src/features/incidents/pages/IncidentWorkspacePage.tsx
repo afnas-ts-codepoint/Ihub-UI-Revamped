@@ -8,6 +8,7 @@ import { INCIDENT_ROWS } from '../data/incidents.mock';
 import { convertToTask, FIRST_TASK_SEQUENCE, incidentTaskPrefill } from '../domain/convertToTask';
 import type { IncidentHistoryEntry, IncidentRuntimeRow } from '../types/incidents.types';
 import { TaskFormDialog } from '@/features/tasks';
+import { useTrackingStore } from '@/store/tracking.store';
 
 type WorkspaceTab = 'list' | 'report';
 
@@ -30,6 +31,7 @@ export function IncidentWorkspacePage() {
   const act = (action: IncidentAction, source: IncidentRuntimeRow) => {
     const row = currentRow(source);
     if (action === 'track') {
+      useTrackingStore.getState().track({ id: row.id, title: row.title });
       setRows((current) => current.map((candidate) => candidate.id === row.id ? { ...candidate, tracked: true, history: candidate.tracked ? candidate.history : [...candidate.history, { by: 'M. Faris', text: t('history.tracked'), tone: 'update', when: t('history.justNow') }] } : candidate));
       show(t('messages.tracked', { id: row.id }));
       setDetail((open) => open?.id === row.id ? { ...row, tracked: true, history: row.tracked ? row.history : [...row.history, { by: 'M. Faris', text: t('history.tracked'), tone: 'update', when: t('history.justNow') }] } : open);

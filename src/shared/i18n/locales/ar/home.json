@@ -36,6 +36,82 @@
     "subtitle": "مرتبة حسب الأولوية × الموعد × الأثر المالي.",
     "title": "الموافقات"
   },
+  "assigned": {
+    "approvals": {
+      "subtitle": "عناصر بانتظار موافقتك، حسب النوع.",
+      "title": "الموافقات"
+    },
+    "empty": {
+      "clearDescription": "هذه القائمة فارغة حالياً.",
+      "noMatches": "لا نتائج",
+      "noTaskMatchDescription": "لا توجد مهمة مطابقة للرمز أو الموضوع.",
+      "noTasks": "لا مهام",
+      "noTasksDescription": "المهام الداخلية لا تحتاج موافقة أو تحقق.",
+      "nothingToApprove": "لا شيء للموافقة",
+      "nothingToVerify": "لا شيء للتحقق",
+      "searchDescription": "لا يوجد مطابق للرمز أو الموضوع."
+    },
+    "filters": {
+      "allOf": "الكل",
+      "anyPriority": "أي أولوية",
+      "clearSearch": "مسح البحث",
+      "critical": "حرج",
+      "high": "عالي",
+      "low": "منخفض",
+      "match": "مطابق",
+      "medium": "متوسط",
+      "priority": "الأولوية",
+      "recordType": "نوع السجل",
+      "reset": "إعادة تعيين",
+      "searchPlaceholder": "ابحث بالرمز أو الموضوع…",
+      "subType": "النوع الفرعي"
+    },
+    "subTypes": {
+      "actionSheets": "أوراق الإجراءات",
+      "additionalBudget": "ميزانية إضافية",
+      "advancePayment": "دفعة مقدمة",
+      "newBudget": "ميزانية جديدة",
+      "pettyCash": "النثرية",
+      "transferFunds": "تحويل الأموال"
+    },
+    "tabs": {
+      "approvals": "الموافقات",
+      "tasks": "المهام المسندة",
+      "verify": "التحقق"
+    },
+    "taskRow": {
+      "approve": "اعتماد",
+      "edit": "تعديل",
+      "sendBack": "إعادة",
+      "verify": "تحقق"
+    },
+    "tasks": {
+      "emptyDescription": "لا أوامر عمل مسندة إليك.",
+      "emptyTitle": "لا مهام",
+      "subtitle": "الأعمال التي تملكها وتتقدم بها.",
+      "title": "المهام المسندة"
+    },
+    "types": {
+      "all": "الكل",
+      "appraisal": "التقييم",
+      "budgets": "الميزانيات",
+      "budgetsApprove": "موافقات الميزانية",
+      "budgetsVerify": "تحقق الميزانيات",
+      "checklists": "قوائم المراجعة",
+      "investigationRequest": "طلب تحقيق",
+      "observation": "ملاحظة",
+      "paymentSettlement": "تسوية المدفوعات",
+      "pcRequest": "طلب لجنة الشراء",
+      "qaSubmissions": "تقديمات الجودة",
+      "tasks": "المهام",
+      "tasksApprove": "مهام الموافقة",
+      "tasksVerify": "مهام التحقق"
+    },
+    "verify": {
+      "subtitle": "عناصر بانتظار تحققك، حسب النوع.",
+      "title": "التحقق"
+    }
+  },
   "carousel": {
     "approvalsInQueue": "موافقات في قائمة الانتظار",
     "dueToday": "مستحق اليوم",
@@ -53,6 +129,27 @@
     "statusDistribution": "توزيع الحالات",
     "thisWeek": "هذا الأسبوع"
   },
+  "company": {
+    "analytics": {
+      "chartLabel": "الاتجاه الشهري للإيرادات والتشغيل",
+      "onTrack": "على المسار",
+      "stats": {
+        "headcount": "عدد الموظفين",
+        "nps": "الرضا",
+        "revenue": "الإيرادات"
+      },
+      "subtitle": "متعقّب الإيرادات والتشغيل",
+      "title": "هذا الربع"
+    },
+    "calendar": {
+      "title": "التقويم"
+    },
+    "news": {
+      "readMore": "اقرأ المزيد",
+      "subtitle": "أخبار من تمدين الترفيهية",
+      "title": "الشركة"
+    }
+  },
   "greeting": {
     "afternoon": "مساء الخير",
     "evening": "مساء الخير",
@@ -61,18 +158,60 @@
     "quote": "الطريقة للبدء هي التوقف عن الكلام والبدء بالعمل.",
     "quoteBy": "والت ديزني"
   },
+  "incidentCard": {
+    "action": "إجراء",
+    "actions": "الإجراءات",
+    "menu": {
+      "callback": "طلب معاودة اتصال",
+      "close": "إغلاق الحالة",
+      "compensate": "تعويض",
+      "feedback": "كتابة ملاحظات",
+      "investigate": "طلب تحقيق",
+      "task": "إنشاء مهمة",
+      "track": "متابعة"
+    },
+    "pin": "Pin to feed",
+    "unpin": "Unpin",
+    "unread": "غير مقروء"
+  },
+  "incidentCenter": {
+    "noMatches": "لا حوادث مطابقة لبحثك.",
+    "noOpen": "لا حوادث مفتوحة.",
+    "searchPlaceholder": "ابحث في الحوادث…",
+    "sla": "تجاوز",
+    "title": "مركز الحوادث",
+    "unread": "غير مقروء"
+  },
   "incidents": {
     "live": "الحوادث الحالية",
     "reports": "تقارير الحوادث"
   },
+  "jobOrderCard": {
+    "assign": "تعيين",
+    "assignedToYou": "مُسندة إليك",
+    "dismiss": "Dismiss",
+    "external": "خارجي",
+    "internal": "داخلي",
+    "new": "جديد",
+    "progress": "التقدم",
+    "track": "تتبع"
+  },
+  "liveFeed": {
+    "dismiss": "إخفاء",
+    "empty": "ثبّت أو تابِع حادثاً لعرض تحديثاته هنا.",
+    "justNow": "الآن",
+    "rejected": "المرفوضة",
+    "rejectedLower": "مرفوضة",
+    "title": "بث مباشر",
+    "titleEmpty": "البث المباشر",
+    "tracked": "متابَعة",
+    "unpin": "إلغاء التثبيت"
+  },
   "pending": {
-    "assigned": "المُسند",
     "budgets": "الميزانيات",
-    "company": "الشركة",
     "overview": "نظرة عامة",
     "paymentSettlement": "تسوية المدفوعات",
     "purchasing": "المشتريات",
-    "reports": "التحليلات والتقارير",
     "tasks": "أوامر العمل",
     "workCentre": "مركز العمل"
   },
@@ -95,18 +234,31 @@
       "approved": "تمت الموافقة · {{recommended}} — أُزيل من القائمة",
       "batchApproved": "{{n}} تمت الموافقة بقرار واحد",
       "batchRejected": "{{n}} تم الرفض بقرار واحد",
+      "callbackRequested": "{{id}} · تم طلب معاودة الاتصال",
+      "caseClosed": "{{id}} · أُغلقت الحالة",
+      "compensationLogged": "{{id}} · تم تسجيل التعويض",
       "dismissedIncident": "تم الإغلاق · {{id}}",
       "dismissedJobOrder": "{{id}} أُزيل",
       "escalatedAction": "تم التصعيد · {{name}}",
       "escalatedIncident": "تم التصعيد · {{id}}",
+      "feedbackSaved": "{{id}} · تم حفظ الملاحظات",
+      "investigationRequested": "{{id}} · تم طلب التحقيق",
       "jobOrderAssigned": "{{id}} تم التعيين",
       "pinnedTracking": "{{id}} مثبّتة وقيد المتابعة — التحديثات في البث المباشر",
       "rejected": "تم الرفض · تم إخطار المالك",
       "resubmitted": "أُعيد الإرسال للموافقة",
       "sentBack": "أُعيد إلى المنشئ",
+      "sentBackToRequester": "{{id}} أُعيد إلى الطالب",
       "sentBackWithReason": "أُعيد إلى المنشئ · {{reason}}",
+      "taskDrafted": "مهمة من {{id}}",
       "trackAdded": "{{id}} أُضيفت إلى البث المباشر"
     }
+  },
+  "reportsView": {
+    "categories": "فئات التقارير",
+    "placeholder": "شغّل البحث لإنشاء التقرير. سيظهر جدول النتائج هنا.",
+    "subtitle": "١٧ تقريراً معيارياً عبر الموارد البشرية والمالية والعمليات والجودة والنظام.",
+    "title": "التحليلات والتقارير"
   },
   "sendBack": {
     "cancel": "إلغاء",
@@ -150,5 +302,11 @@
     "notNow": "ليس الآن",
     "title": "تم تسجيل القرار",
     "track": "متابعة"
+  },
+  "tracking": {
+    "feed": "أُضيف إلى المتابعة من قائمة الحوادث.",
+    "justNow": "الآن",
+    "status": "قيد المتابعة",
+    "withinSla": "داخل الاتفاقية"
   }
 }

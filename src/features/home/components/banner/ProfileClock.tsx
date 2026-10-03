@@ -21,7 +21,7 @@ export function ProfileClock({ name, now, profile }: ProfileClockProps) {
     <div className="flex h-full flex-col">
       <div className="mb-[7px] flex items-start justify-between">
         <div className="min-w-0">
-          <div className="text-xs font-semibold tracking-[0.14em] text-fg-3 uppercase">
+          <div className="text-sm font-medium tracking-[0.16em] text-fg-3 uppercase">
             {t('profile.label')}
           </div>
           <div className="display mt-1.5 text-7xl leading-[1.1] font-medium">
@@ -57,7 +57,8 @@ export function ProfileClock({ name, now, profile }: ProfileClockProps) {
           </div>
         </div>
       </div>
-      <hr className="my-2 mt-auto border-0 border-t border-line" />
+      <div className="flex-1" />
+      <hr className="my-2 border-0 border-t border-line" />
       <time
         className="display num text-12xl font-medium tracking-[-0.03em]"
         dateTime={now.toISOString()}

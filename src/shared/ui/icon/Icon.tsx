@@ -4,7 +4,6 @@ import {
   ArrowUpRight,
   ArrowRight,
   Bell,
-  Bolt,
   Building2,
   CalendarDays,
   ChartNoAxesColumn,
@@ -34,7 +33,7 @@ import {
   MoreHorizontal,
   Pencil,
   PieChart,
-  Pin,
+  Phone,
   Receipt,
   RefreshCw,
   Search,
@@ -56,13 +55,15 @@ import {
   type LucideProps,
 } from 'lucide-react';
 
+import { PrototypeBolt, PrototypePin } from './custom/prototypeGlyphs';
+
 const icons = {
   activity: Activity,
   'alert-triangle': AlertTriangle,
   'arrow-right': ArrowRight,
   'arrow-up-right': ArrowUpRight,
   bell: Bell,
-  bolt: Bolt,
+  bolt: PrototypeBolt,
   building: Building2,
   calendar: CalendarDays,
   cart: ShoppingCart,
@@ -94,7 +95,8 @@ const icons = {
   menu: Menu,
   moon: Moon,
   pie: PieChart,
-  pin: Pin,
+  phone: Phone,
+  pin: PrototypePin,
   receipt: Receipt,
   refresh: RefreshCw,
   search: Search,

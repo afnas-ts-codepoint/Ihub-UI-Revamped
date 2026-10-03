@@ -47,7 +47,7 @@ const DUE_TONE = {
   today: 'warn',
 } as const satisfies Record<HomeDueState, 'bad' | 'info' | 'neutral' | 'warn'>;
 
-const CHIP_SIZE = 'gap-1.5 px-[9px] py-[3px] text-2xs font-semibold';
+const CHIP_SIZE = 'gap-1.5 px-[9px] py-[3px] text-2xs font-medium';
 
 type RailButtonProps = Readonly<{
   active?: boolean;

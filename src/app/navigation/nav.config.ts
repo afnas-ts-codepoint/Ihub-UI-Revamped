@@ -69,24 +69,14 @@ const home = node(
   [
     node('dashboard/overview', paths.home.overview, undefined, pending),
     node('dashboard/approvals', paths.home.view('approvals')),
-    node(
-      'dashboard/assigned',
-      paths.home.assigned('approvals'),
-      undefined,
-      pending,
-    ),
+    node('dashboard/assigned', paths.home.assigned('approvals')),
     node(
       'dashboard/incidents',
       paths.home.incidents('reports'),
     ),
     node('dashboard/tasks', paths.home.view('tasks'), undefined, pending),
-    node(
-      'dashboard/live-feed',
-      paths.home.incidents('live'),
-      undefined,
-      pending,
-    ),
-    node('dashboard/company', paths.home.view('company'), undefined, pending),
+    node('dashboard/live-feed', paths.home.incidents('live')),
+    node('dashboard/company', paths.home.view('company')),
     reports,
   ],
   { ...pending, icon: 'dashboard' },

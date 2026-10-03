@@ -3,12 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { MigrationPending } from '@/shared/ui/feedback/MigrationPending';
 
 export type HomePendingArea =
-  | 'assigned'
-  | 'company'
   | 'overview'
   | 'paymentSettlement'
   | 'purchasing'
-  | 'reports'
   | 'tasks'
   | 'workCentre';
 

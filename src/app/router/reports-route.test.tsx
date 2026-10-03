@@ -28,12 +28,14 @@ describe('M3.9 Reports Library routes', () => {
     router.dispose();
   });
 
-  it('preserves the separate future /home/reports view as MigrationPending under D12', async () => {
+  it('keeps the separate /home/reports view (M10.4) distinct from the standalone library under D12', async () => {
     const router = renderRoute('/home/reports');
-    expect(await screen.findByRole('status')).toHaveAttribute(
-      'data-migration-pending',
-      'Analytics & Reports',
-    );
+    expect(
+      await screen.findByRole('heading', { name: 'Analytics & Reports' }),
+    ).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Attendance Summary' })).toBeVisible();
+    expect(screen.queryByRole('form', { name: 'Report filters' })).toBeNull();
     router.dispose();
   });
 

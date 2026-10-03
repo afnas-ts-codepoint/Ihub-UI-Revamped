@@ -6,6 +6,24 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M10.3 intake
+
+- Date: 2026-10-03 (re-run the same day against the updated prototype branch).
+- Baseline/current: `273abc8` → `7ee0ed9` ("Review changes", branch `final-change`, the code served at https://designs.codepoints.in/new-ihub/ — the live page and the local checkout render identical font sizes). The earlier intake against `3c391b4` showed no drift in `index.html`; this one does: `git diff 273abc8 HEAD -- index.html` is 484 insertions / 496 deletions across 391 hunks. Authoritative source: root `index.html`; every line number below the first changed hunk shifts by −22.
+- Content of the drift, classified hunk by hunk: (1) a uniform inline type-scale change — every `fontSize` of 10.5, 11.5, 12.5 and 14.5 became 11, 13, 13.5 and 15 (counts match one for one; 12, 13, 14 and 15 are otherwise untouched); (2) the Task Status pipeline CSS and its two JSX stage lists were redesigned into a circular stepper (Task View/Edit, M8.4–M8.6). Nothing else changed, including no Home view logic.
+- Human decision: **adopt** for M10.3 ("implement exactly like the new code", 2026-10-03). The type scale is adopted app-wide by remapping the four theme tokens (`--text-2xs-plus`, `--text-xs-plus`, `--text-sm-plus`, `--text-md-plus`), because the React scale mirrors the prototype's sizes one for one; this also moves every previously approved screen to the new sizes (they changed identically in the prototype).
+- **Not adopted — needs a decision for M8.4–M8.6:** the circular Task Status stepper (`tstage-*` CSS and the `TASK_STAGES` renderers, old L465-563 and two JSX blocks).
+- Reachability/ownership notes from the first intake still hold: `SheetRow` (13921-14032) is dead source; the prototype's searchable select inputs are not ported (D32); Usage C1 cannot navigate to `/tasks/:taskId` (D31).
+
+## M10.4 intake
+
+- Date: 2026-10-02.
+- Baseline/current: `273abc8` → `3c391b4`; `git diff 273abc8 HEAD -- index.html ihub/index.html` is empty — zero prototype drift in both files. Authoritative source (user, following the M10.1 precedent): the root `index.html`; the plan's M10.4 line ranges are valid for it (`BusinessView` 14049-14062, joborders view 14778-14802, `REP_CATS` 14461-14493, reports view 14811-14865).
+- Reachability finding: the prototype Home tab strip has no Company or Tasks tab. The Company view is reachable only through `window.__ihubGoToView('company')` from a non-Home page (Home ignores it: `initialView` seeds state once), and the nav "Company"/"Tasks" children carry no view. The migrated nav keeps the Phase 3 D13 mapping (`/home/company`, `/home/tasks`); the QA harness drives the prototype through the hook from another page.
+- Shared pieces: `CalendarCard`/`AnalyticsCard` also appear on the Overview (M10.2, root L14657), so they are feature-local under `features/home/components/company/` for reuse; `FilterChips` `segmented` has no other consumer, so it is a feature-local `ReportItemChips` (the shared `FilterChips.tsx` is untouched to avoid colliding with M10.3's `underline` variant).
+- `/home/tasks` renders `JobOrderCard` (root 13430-13560), whose ownership is M10.3; held until that card lands.
+- Human resolution: Option A approved 2026-10-02.
+
 ## M10.1 intake
 
 - Date: 2026-10-01.

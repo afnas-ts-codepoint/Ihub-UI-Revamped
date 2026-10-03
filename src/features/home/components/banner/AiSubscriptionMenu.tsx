@@ -8,6 +8,8 @@ import {
   DropdownMenuTrigger,
 } from '@/shared/ui/overlay/DropdownMenu';
 
+import { actionButtonClass } from '../actions/actionButtonStyles';
+
 const providers = [
   { label: 'Claude', url: 'https://claude.ai' },
   { label: 'ChatGPT', url: 'https://chatgpt.com' },
@@ -22,7 +24,7 @@ export function AiSubscriptionMenu() {
     <DropdownMenuRoot>
       <DropdownMenuTrigger asChild>
         <button
-          className="group inline-flex items-center gap-2 rounded-lg px-3 py-2 text-base font-medium text-fg-2 hover:bg-raised"
+          className={`group ${actionButtonClass('ghost')}`}
           type="button"
         >
           {t('actions.aiSubscription')}

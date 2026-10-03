@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useLocation, useParams } from 'react-router';
+import { useLocation } from 'react-router';
 
 import { navTrailForPath } from '@/app/navigation/model';
 import { NAV_TREE } from '@/app/navigation/nav.config';
@@ -28,33 +28,5 @@ export function NavRoutePage() {
     <PendingPage title={title} />
   ) : (
     <PlaceholderPage title={title} />
-  );
-}
-
-export function PendingRoutePage({ titleKey }: { titleKey: string }) {
-  const { t } = useTranslation('nav');
-  return <PendingPage title={t(titleKey, { defaultValue: titleKey })} />;
-}
-
-type ValidatedPendingRouteProps = {
-  allowed: readonly string[];
-  parameter: string;
-  titleKey: string;
-  titleKeys?: Readonly<Record<string, string>>;
-};
-
-export function ValidatedPendingRoute({
-  allowed,
-  parameter,
-  titleKey,
-  titleKeys,
-}: ValidatedPendingRouteProps) {
-  const params = useParams();
-  const value = params[parameter];
-
-  return value && allowed.includes(value) ? (
-    <PendingRoutePage titleKey={titleKeys?.[value] ?? titleKey} />
-  ) : (
-    <NotFoundPage />
   );
 }
