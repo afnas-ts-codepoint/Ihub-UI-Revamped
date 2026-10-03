@@ -60,6 +60,10 @@ const HEADING_OVERRIDES: Readonly<
     ar: arHome.assigned.approvals.title,
     en: enHome.assigned.approvals.title,
   },
+  'dashboard/overview': {
+    ar: arHome.overview.needs.title,
+    en: enHome.overview.needs.title,
+  },
   'dashboard/incidents': {
     ar: arIncidents.report.title,
     en: enIncidents.report.title,

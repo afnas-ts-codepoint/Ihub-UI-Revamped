@@ -37,13 +37,11 @@ export function workloadGanttFor(label: string): readonly WorkloadGanttItem[] {
   return Array.from({ length: count }, () => {
     const start = Math.floor(random() * 4);
     const span = 1 + Math.floor(random() * (7 - start));
-    return {
-      id: `JO-${String(1000 + Math.floor(random() * 900))}`,
-      span,
-      start,
-      status: statuses[Math.floor(random() * statuses.length)] ?? 'Open',
-      title: titles[Math.floor(random() * titles.length)] ?? titles[0],
-      tone: tones[Math.floor(random() * tones.length)] ?? 'info',
-    };
+    // Draw order is id, title, tone, status — the prototype's object-literal order.
+    const id = `JO-${String(1000 + Math.floor(random() * 900))}`;
+    const title = titles[Math.floor(random() * titles.length)] ?? titles[0];
+    const tone = tones[Math.floor(random() * tones.length)] ?? 'info';
+    const status = statuses[Math.floor(random() * statuses.length)] ?? 'Open';
+    return { id, span, start, status, title, tone };
   });
 }

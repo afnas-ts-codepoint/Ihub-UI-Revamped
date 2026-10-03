@@ -128,7 +128,8 @@ describe('Incident action menu', () => {
     renderPage();
     await chooseAction('INC-2039', 'Track');
     expect(await screen.findByText('INC-2039 added to live feed')).toBeVisible();
-    expect(store().trackedTasks.map((task) => task.id)).toEqual(['INC-2039']);
+    // The host also lists the assigned job orders behind it; the new entry goes first.
+    expect(store().trackedTasks[0]?.id).toBe('INC-2039');
     expect(incident('INC-2039').read).toBe(true);
   });
 

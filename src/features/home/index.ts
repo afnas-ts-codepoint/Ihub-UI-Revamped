@@ -4,7 +4,7 @@ export { CompanyPage } from './pages/CompanyPage';
 export { HomeBannerLayout } from './layouts/HomeBannerLayout';
 export { HomeLayout } from './layouts/HomeLayout';
 export { HomeIncidentsPage } from './pages/HomeIncidentsPage';
-export { HomePendingPage } from './pages/HomePendingPage';
 export { isAssignedQueue } from './constants/assignedQueue';
+export { OverviewPage } from './pages/OverviewPage';
 export { ReportsPage } from './pages/ReportsPage';
 export { HomeTasksPage } from './pages/HomeTasksPage';

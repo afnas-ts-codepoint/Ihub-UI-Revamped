@@ -18,4 +18,13 @@ describe('M8.2 task dashboard domain', () => {
       expect(item.start + item.span).toBeLessThanOrEqual(7);
     }
   });
+
+  it('draws each Gantt row in the prototype order (id, title, tone, status)', () => {
+    // Golden: the rendered prototype's expanded "IT" row.
+    expect(workloadGanttFor('IT')).toEqual([
+      { id: 'JO-1754', span: 5, start: 1, status: 'In progress', title: 'Fire panel diagnostics', tone: 'warn' },
+      { id: 'JO-1441', span: 4, start: 3, status: 'Done', title: 'Access-control repair', tone: 'info' },
+      { id: 'JO-1891', span: 4, start: 3, status: 'Review', title: 'Access-control repair', tone: 'ok' },
+    ]);
+  });
 });

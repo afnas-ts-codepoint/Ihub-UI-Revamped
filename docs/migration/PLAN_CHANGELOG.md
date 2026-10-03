@@ -2,6 +2,13 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-10-03 - M10.2 Overview implemented and approved
+
+- M10.2 (dependencies M10.1, M8.2, M3.8, M7.5 - all approved) was started on the user's instruction and taken through analysis, implementation, tests and visual QA to Review. M11.3 and M12.x were not started; the read-only prototype was not modified; no packages were added; nothing was committed or pushed.
+- Reuse, no new shared infrastructure: the Overview composes the M10.1 queue store, `ActionCard`, drawer and Form Preview; the M10.3 `IncidentCenter`, `LiveFeed` and tracking hand-off; the M10.4 `CalendarCard`; the M8.2 `WorkloadHeatmap` (exported through the tasks public API, plain variant added, phone layout added); and the M3.8 levels and performance. The two SLA models stay separate (D4).
+- Scope notes: the tracker (`trackedTasks`) already lived in the Home queue store, so M10.2 added only `untrack` and the assigned-job-order sync. `HomePendingPage` and the `pending.*` strings were removed (no remaining user). The M8.2 `workloadGanttFor` draw-order defect was fixed (golden test from the rendered prototype).
+- Deviation D33 and five PROTOTYPE-NOOP rows recorded.
+
 ## 2026-10-03 - M10.4 `/home/tasks` implemented (Review)
 
 - Started after the user approved M10.3. Only `/home/tasks` was added; the Task Status stepper stays out of scope pending a separate decision. No new deviation: the page reuses the approved `JobOrderCard`, `FilterChips` and the Home queue store, and one PROTOTYPE-NOOP row (Board view) was recorded.

@@ -28,7 +28,7 @@ import {
   HomeIncidentsPage,
   HomeLayout,
   isAssignedQueue,
-  HomePendingPage,
+  OverviewPage,
   HomeTasksPage,
   ReportsPage,
 } from '@/features/home';
@@ -142,7 +142,7 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'overview',
-            element: <HomePendingPage area="overview" />,
+            element: <OverviewPage />,
             handle: { homeTab: 'overview' },
           },
           {

@@ -6,3 +6,5 @@ export { useTask, useTasks } from './store/tasks.store';
 export type { Task, TaskViewModel } from './types/task.types';
 export { TaskFormDialog } from './components/TaskFormDialog';
 export type { TaskFormPrefill } from './components/CreateTaskForm';
+export { WorkloadHeatmap } from './components/TaskDashboard';
+export { WORKLOAD_LEGEND } from './data/taskDashboard.mock';

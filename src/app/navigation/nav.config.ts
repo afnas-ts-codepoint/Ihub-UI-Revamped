@@ -67,7 +67,7 @@ const home = node(
   'dashboard',
   paths.home.overview,
   [
-    node('dashboard/overview', paths.home.overview, undefined, pending),
+    node('dashboard/overview', paths.home.overview),
     node('dashboard/approvals', paths.home.view('approvals')),
     node('dashboard/assigned', paths.home.assigned('approvals')),
     node(

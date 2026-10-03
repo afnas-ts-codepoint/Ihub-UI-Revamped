@@ -37,6 +37,13 @@ export function HomeQueueHost() {
     return useTrackingStore.subscribe(takeRequests);
   }, [t]);
 
+  // The tracker lists assigned job orders from the moment Home mounts, on every
+  // Home view (the prototype's effect lives in `DashboardOCC`, not the Overview).
+  const jobOrders = useHomeQueueStore((state) => state.jobOrders);
+  useEffect(() => {
+    useHomeQueueStore.getState().syncAssignedTracking();
+  }, [jobOrders]);
+
   return (
     <>
       <WorkflowDrawer />

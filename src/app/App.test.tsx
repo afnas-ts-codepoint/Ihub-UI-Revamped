@@ -18,10 +18,8 @@ describe('App', () => {
     await waitFor(() => {
       expect(router.state.location.pathname).toBe('/home/overview');
     });
-    expect(await screen.findByRole('status')).toHaveAttribute(
-      'data-migration-pending',
-      'Overview',
-    );
+    expect(await screen.findByTestId('home-overview')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });
 });

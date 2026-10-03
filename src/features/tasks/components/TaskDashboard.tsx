@@ -183,10 +183,71 @@ function GanttRows({ label, locale, status }: Readonly<{ label: string; locale: 
   return <div className="my-1 rounded-xl border border-line-strong bg-raised p-4" data-testid="workload-gantt"><h4 className="m-0 mb-3 flex items-center gap-2 text-base font-semibold text-accent"><Gauge size={15} />{`${tr(locale, 'Tasks', 'أوامر العمل')} — ${label}`}</h4><div className="ms-53 grid grid-cols-7 text-center text-xs text-fg-3">{WORKLOAD_DAYS.map(([date]) => <span className="num" key={date}>{date}</span>)}</div>{rows.length ? <div className="mt-2 space-y-2">{rows.map((item) => <div className="grid grid-cols-[200px_1fr] items-center gap-3" key={`${item.id}-${String(item.start)}-${String(item.span)}`}><div className="min-w-0"><div><strong className="num text-xs text-accent">{item.id}</strong>{' '}<span className="text-[10px] text-fg-3">{item.status}</span></div><div className="truncate text-sm text-fg-2">{item.title}</div></div><div className="relative h-6.5 rounded-md bg-inset"><span className="absolute inset-y-0 flex items-center overflow-hidden rounded-md px-2 text-xs font-semibold text-white" style={{ background: toneColor[item.tone], insetInlineStart: `${String(item.start / 7 * 100)}%`, width: `${String(item.span / 7 * 100)}%` }}>{`${String(item.span)}d`}</span></div></div>)}</div> : <p className="py-3 text-center text-sm text-fg-4">{tr(locale, 'No tasks with this status', 'لا توجد أوامر عمل بهذه الحالة')}</p>}</div>;
 }
 
-function WorkloadHeatmap({ locale }: Readonly<{ locale: Locale }>) {
+export function WorkloadHeatmap({ locale, soft = true }: Readonly<{ locale: Locale; soft?: boolean }>) {
   const [view, setView] = useState<'dept' | 'emp'>('dept'); const [selected, setSelected] = useState('all'); const [status, setStatus] = useState('all'); const [open, setOpen] = useState<string | null>(null);
   const allRows = view === 'dept' ? DEPARTMENT_WORKLOAD : EMPLOYEE_WORKLOAD; const rows = selected === 'all' ? allRows : allRows.filter((row) => row.dept === selected);
-  return <div className="flex flex-col gap-4" data-testid="workload-heatmap"><div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-line bg-raised p-3.5"><div className="flex flex-wrap items-center gap-4"><Filter className="text-accent" size={16} /><label className="flex items-center gap-2 text-xs font-semibold tracking-wider text-fg-3 uppercase">{view === 'dept' ? tr(locale, 'Dept', 'القسم') : tr(locale, 'Employee', 'الموظف')}<select aria-label={view === 'dept' ? tr(locale, 'Dept', 'القسم') : tr(locale, 'Employee', 'الموظف')} className="h-9.5 min-w-45 rounded-lg border border-line-strong bg-surface px-3 text-sm font-medium text-fg" onChange={(event) => { setSelected(event.target.value); setOpen(null); }} value={selected}><option value="all">{view === 'dept' ? tr(locale, 'All departments', 'كل الإدارات') : tr(locale, 'All employees', 'كل الموظفين')}</option>{allRows.map((row) => <option key={row.dept} value={row.dept}>{row.dept}</option>)}</select></label><label className="flex items-center gap-2 text-xs font-semibold tracking-wider text-fg-3 uppercase">{tr(locale, 'Status', 'الحالة')}<select aria-label={tr(locale, 'Status', 'الحالة')} className="h-9.5 min-w-40 rounded-lg border border-line-strong bg-surface px-3 text-sm font-medium text-fg" onChange={(event) => { setStatus(event.target.value); }} value={status}><option value="all">{tr(locale, 'All statuses', 'كل الحالات')}</option>{WORKLOAD_STATUSES.map((item) => <option key={item}>{item}</option>)}</select></label></div><div className="flex items-center gap-2"><span className="text-xs font-semibold tracking-wider text-fg-3 uppercase">{tr(locale, 'View by', 'العرض حسب')}</span><div className="inline-flex rounded-lg border border-line-strong bg-canvas p-0.5">{([['dept', Grid3X3, tr(locale, 'Department', 'الإدارة')], ['emp', Users, tr(locale, 'Employee', 'الموظف')]] as const).map(([id, Icon, label]) => <button aria-pressed={view === id} className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium text-fg-3 aria-pressed:bg-surface aria-pressed:font-semibold aria-pressed:text-accent aria-pressed:shadow-sm" key={id} onClick={() => { if (view !== id) { setView(id); setOpen(null); setSelected('all'); } }} type="button"><Icon size={14} />{label}</button>)}</div></div></div><div className="overflow-x-auto"><div className="min-w-160 space-y-1.5"><div className="grid grid-cols-[150px_repeat(7,1fr)] items-end gap-1.5 pb-1"><span />{WORKLOAD_DAYS.map(([date, day]) => <div className="text-center" key={date}><div className="num text-sm font-semibold text-fg-2">{date}</div><div className="text-xs text-fg-3">{day}</div></div>)}</div>{rows.map((row) => <div key={row.dept}><button aria-label={`${tr(locale, 'Open workload details for', 'فتح تفاصيل عبء العمل لـ')} ${row.dept}`} aria-expanded={open === row.dept} className="grid w-full grid-cols-[150px_repeat(7,1fr)] items-center gap-1.5 rounded-lg bg-transparent p-0 text-start" onClick={() => { setOpen(open === row.dept ? null : row.dept); }} type="button"><span className={`flex items-center gap-1.5 pe-3 text-sm ${open === row.dept ? 'font-semibold text-fg' : 'font-medium text-fg-2'}`}><ChevronRight className={`shrink-0 text-fg-4 transition-transform ${open === row.dept ? 'rotate-90 rtl:-rotate-90' : 'rtl:rotate-180'}`} size={14} />{row.dept}</span>{row.loads.map((value, index) => { const color = workloadColor(value); return <span className="num grid h-9.5 place-items-center rounded-lg border text-sm font-semibold" key={index} style={{ background: `color-mix(in srgb, ${color} 22%, var(--paper))`, borderColor: `color-mix(in srgb, ${color} 35%, transparent)`, color }} >{value}</span>; })}</button>{open === row.dept ? <GanttRows label={row.dept} locale={locale} status={status} /> : null}</div>)}</div></div><div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-3">{[[view === 'dept' ? tr(locale, 'Total departments', 'إجمالي الإدارات') : tr(locale, 'Total employees', 'إجمالي الموظفين'), String(allRows.length), Users], [tr(locale, 'Time range', 'النطاق الزمني'), '7/13 – 7/19', CalendarDays], [tr(locale, 'Avg load / day', 'متوسط الحمل / يوم'), '19', Activity]].map(([label, value, Icon]) => { const IconComponent = Icon as typeof Users; return <div className="flex items-center gap-3 rounded-xl border border-line bg-raised p-3.5" key={String(label)}><span className="grid size-11 place-items-center rounded-xl bg-accent-dim text-accent"><IconComponent size={18} /></span><div><div className="num text-2xl font-semibold text-accent">{value as string}</div><div className="mt-1 text-xs tracking-wider text-fg-3 uppercase">{label as string}</div></div></div>; })}</div></div>;
+  const labelClass = soft ? 'text-xs' : 'text-base';
+  const selectClass = soft ? 'h-9.5 rounded-lg border border-line-strong bg-surface px-3 text-sm font-medium text-fg' : 'rounded-menu border border-line-strong bg-raised px-2.5 py-[7px] text-base font-medium text-fg';
+  const deptLabel = view === 'dept' ? tr(locale, 'Dept', 'القسم') : tr(locale, 'Employee', 'الموظف');
+  const totalLabel = view === 'dept' ? tr(locale, 'Total departments', 'إجمالي الإدارات') : tr(locale, 'Total employees', 'إجمالي الموظفين');
+  return (
+    <div className={`flex flex-col ${soft ? 'gap-4' : 'gap-5'}`} data-testid="workload-heatmap">
+      <div className={`flex flex-wrap items-center justify-between gap-3 ${soft ? 'rounded-xl border border-line bg-raised p-3.5' : ''}`}>
+        <div className="flex flex-wrap items-center gap-4">
+          {soft ? <Filter className="text-accent" size={16} /> : null}
+          <label className={`flex items-center gap-2 ${labelClass} font-semibold tracking-wider text-fg-3 uppercase max-tablet:flex max-tablet:w-full`}>
+            <span className="max-tablet:w-16 max-tablet:shrink-0">{deptLabel}</span>
+            <select aria-label={deptLabel} className={`${selectClass} ${soft ? 'min-w-45' : ''} max-tablet:min-w-0 max-tablet:flex-1`} onChange={(event) => { setSelected(event.target.value); setOpen(null); }} value={selected}>
+              <option value="all">{view === 'dept' ? tr(locale, 'All departments', 'كل الإدارات') : tr(locale, 'All employees', 'كل الموظفين')}</option>
+              {allRows.map((row) => <option key={row.dept} value={row.dept}>{row.dept}</option>)}
+            </select>
+          </label>
+          <label className={`flex items-center gap-2 ${labelClass} font-semibold tracking-wider text-fg-3 uppercase max-tablet:flex max-tablet:w-full`}>
+            <span className="max-tablet:w-16 max-tablet:shrink-0">{tr(locale, 'Status', 'الحالة')}</span>
+            <select aria-label={tr(locale, 'Status', 'الحالة')} className={`${selectClass} ${soft ? 'min-w-40' : ''} max-tablet:min-w-0 max-tablet:flex-1`} onChange={(event) => { setStatus(event.target.value); }} value={status}>
+              <option value="all">{tr(locale, 'All statuses', 'كل الحالات')}</option>
+              {WORKLOAD_STATUSES.map((item) => <option key={item}>{item}</option>)}
+            </select>
+          </label>
+        </div>
+        <div className="flex items-center gap-2 max-tablet:w-full">
+          <span className={`${labelClass} font-semibold tracking-wider text-fg-3 uppercase max-tablet:w-16 max-tablet:shrink-0`}>{soft ? tr(locale, 'View by', 'العرض حسب') : tr(locale, 'View', 'العرض')}</span>
+          <div className={`inline-flex border border-line-strong ${soft ? 'rounded-lg bg-canvas p-0.5' : 'rounded-[10px] bg-raised p-1'}`}>
+            {([['dept', Grid3X3, tr(locale, 'Department', 'الإدارة')], ['emp', Users, tr(locale, 'Employee', 'الموظف')]] as const).map(([id, Icon, label]) => (
+              <button aria-pressed={view === id} className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium text-fg-3 aria-pressed:bg-surface aria-pressed:font-semibold ${soft ? 'aria-pressed:text-accent aria-pressed:shadow-sm' : 'aria-pressed:text-fg aria-pressed:shadow-[0_1px_3px_rgba(20,20,30,0.10)]'}`} key={id} onClick={() => { if (view !== id) { setView(id); setOpen(null); setSelected('all'); } }} type="button"><Icon size={14} />{label}</button>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="overflow-x-auto">
+        <div className="min-w-160 space-y-1.5 max-tablet:w-max max-tablet:min-w-0">
+          <div className={`grid grid-cols-[150px_repeat(7,1fr)] items-end pb-1 max-tablet:grid-cols-[112px_repeat(7,62px)] ${soft ? 'gap-1.5' : 'gap-0'}`}><span />{WORKLOAD_DAYS.map(([date, day]) => <div className="text-center" key={date}><div className="num text-sm font-semibold text-fg-2">{date}</div><div className="text-xs text-fg-3">{day}</div></div>)}</div>
+          {rows.map((row) => (
+            <div key={row.dept}>
+              <button aria-label={`${tr(locale, 'Open workload details for', 'فتح تفاصيل عبء العمل لـ')} ${row.dept}`} aria-expanded={open === row.dept} className={`grid w-full grid-cols-[150px_repeat(7,1fr)] items-center p-0 text-start max-tablet:grid-cols-[112px_repeat(7,62px)] ${soft ? 'gap-1.5 rounded-lg bg-transparent' : `gap-0 overflow-hidden rounded-[4px] transition-colors ${open === row.dept ? 'bg-raised' : 'bg-transparent'}`}`} onClick={() => { setOpen(open === row.dept ? null : row.dept); }} type="button">
+                <span className={`flex items-center gap-1.5 pe-3 text-sm max-tablet:sticky max-tablet:start-0 max-tablet:z-[1] max-tablet:self-stretch max-tablet:overflow-hidden max-tablet:bg-surface max-tablet:text-ellipsis max-tablet:whitespace-nowrap ${open === row.dept ? 'font-semibold text-fg' : 'font-medium text-fg-2'}`}><ChevronRight className={`shrink-0 text-fg-4 transition-transform ${open === row.dept ? 'rotate-90 rtl:-rotate-90' : 'rtl:rotate-180'}`} size={14} />{row.dept}</span>
+                {row.loads.map((value, index) => {
+                  const color = workloadColor(value);
+                  return soft
+                    ? <span className="num grid h-9.5 place-items-center rounded-lg border text-sm font-semibold" key={index} style={{ background: `color-mix(in srgb, ${color} 22%, var(--paper))`, borderColor: `color-mix(in srgb, ${color} 35%, transparent)`, color }} >{value}</span>
+                    : <span className="num flex h-10 items-center justify-center text-sm font-semibold text-white" key={index} style={{ background: color, boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.10)' }}>{value}</span>;
+                })}
+              </button>
+              {open === row.dept ? <GanttRows label={row.dept} locale={locale} status={status} /> : null}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className={`grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] ${soft ? 'gap-3' : 'gap-2.5'}`}>
+        {[[totalLabel, String(allRows.length), Users], [tr(locale, 'Time range', 'النطاق الزمني'), '7/13 – 7/19', CalendarDays], [tr(locale, 'Avg load / day', 'متوسط الحمل / يوم'), '19', Activity]].map(([label, value, Icon], index) => {
+          const IconComponent = Icon as typeof Users;
+          return soft
+            ? <div className="flex items-center gap-3 rounded-xl border border-line bg-raised p-3.5" key={String(label)}><span className="grid size-11 place-items-center rounded-xl bg-accent-dim text-accent"><IconComponent size={18} /></span><div><div className="num text-2xl font-semibold text-accent">{value as string}</div><div className="mt-1 text-xs tracking-wider text-fg-3 uppercase">{label as string}</div></div></div>
+            : <div className="flex flex-col gap-1 rounded-xl border border-line bg-raised px-4 py-3.5" key={String(label)}><span className={`display num text-6xl leading-none font-medium ${index === 2 ? 'text-accent' : 'text-fg'}`}>{value as string}</span><span className="text-xs font-semibold tracking-[0.08em] text-fg-3 uppercase">{label as string}</span></div>;
+        })}
+      </div>
+    </div>
+  );
 }
 
 function WorkloadWidget({ locale }: Readonly<{ locale: Locale }>) {

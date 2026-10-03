@@ -6,6 +6,15 @@ Track prototype changes made after the approved migration baseline.
 
 `273abc8`
 
+## M10.2 intake
+
+- Date: 2026-10-03.
+- Scope: Home Overview (`view === 'overview'` L14542-14636, `RecommendedNextAction` L12764-12942, `IncidentCenter` L13697-13766, `SLASection` L13238-13329, `AnalyticsOverview`/`ANLY_*` L14078-14189, `LiveFeed` L13846-13896, `Workload` L16275-16345, mobile rules L16-41 of the root `index.html`).
+- Result: baseline `273abc8` -> `7ee0ed9` (`final-change`). The only change that reaches the Overview is the uniform font-size remap, already adopted app-wide in M10.3. The phase card's line numbers are stale; the figures above are the rendered file's.
+- Consistency (verified against the rendered prototype, text diff of the whole page): the Overview text and counts match the app apart from the volatile hero carousel slide.
+- Findings: (1) the Overview mounts the heatmap in its plain (non-`soft`) variant, unlike the Tasks dashboard (soft); (2) the Overview's `LiveFeed` gets no rejected-approvals feed (Live Incidents does); (3) `.eyebrow` is 12px / uppercase / 0.16em; (4) the tracker's assigned-job-order effect re-adds an untracked assigned order whenever the job orders change.
+- Decision: no material plan/prototype conflict; no adopt/defer decision needed. Dead code: none found in the Overview tree.
+
 ## M10.3 intake
 
 - Date: 2026-10-03 (re-run the same day against the updated prototype branch).

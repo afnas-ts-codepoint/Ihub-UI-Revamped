@@ -217,12 +217,113 @@
     "tracked": "tracked",
     "unpin": "Unpin"
   },
-  "pending": {
-    "budgets": "Budgets",
-    "overview": "Overview",
-    "paymentSettlement": "Payment Settlement",
-    "purchasing": "Purchasing",
-    "workCentre": "Work Centre"
+  "overview": {
+    "next": {
+      "eyebrow": "Recommended next action",
+      "overdue": "overdue",
+      "dueToday": "due today",
+      "criticalPriority": "critical priority",
+      "highPriority": "high priority",
+      "highImpact": "high financial impact",
+      "surfaced": "Surfaced first because it is {{reasons}}.",
+      "review": "Review",
+      "criticalIncident": "Critical incident"
+    },
+    "needs": {
+      "title": "Needs you now",
+      "subtitle": "Top items from your queue, ranked by urgency.",
+      "seeAll": "See all",
+      "returned": "Returned — needs action",
+      "reason": "Reason",
+      "sentBackToYou": "Sent back to you"
+    },
+    "clock": {
+      "title": "On the clock",
+      "subtitle": "How long each item has been waiting against the time it is meant to be closed in.",
+      "pastDue": "past due time",
+      "runningOut": "running out of time",
+      "allOnTime": "Everything on time",
+      "of": "of",
+      "stillInside": "items still inside their target time",
+      "onTime": "on time",
+      "running": "running out",
+      "needsAttention": "Needs attention",
+      "onTimeTab": "On time",
+      "nothing": "Nothing here — every item has time left.",
+      "queues": {
+        "approvals": "Approvals",
+        "sheets": "Action sheets",
+        "tasks": "Tasks",
+        "incidents": "Incidents"
+      }
+    },
+    "compliance": {
+      "title": "SLA compliance this month",
+      "open": "SLA & Compliance",
+      "description": "Share of work orders closed inside their agreed time, by priority. The mark on each bar shows the target to beat this month.",
+      "onTarget": "On target",
+      "below": "Below",
+      "ofTarget": "of a {{target}}% target",
+      "closedInTime": "closed in time",
+      "meeting": "meeting target",
+      "shortBy": "short by {{gap}} points"
+    },
+    "workload": {
+      "title": "Department resource availability & workload",
+      "subtitle": "Daily load by department or team member — switch with the toggle, click a row for its tasks.",
+      "load": "Load"
+    },
+    "analytics": {
+      "title": "Analytics & Insights",
+      "subtitle": "A snapshot of status, SLA, priority and departmental performance across your queue.",
+      "donutUnit": "tasks",
+      "status": {
+        "title": "Status Distribution",
+        "sub": "Percentage of items by status"
+      },
+      "priority": {
+        "title": "Priority Distribution",
+        "sub": "Percentage of items by priority"
+      },
+      "sla": {
+        "title": "SLA Compliance",
+        "sub": "SLA achievement against target",
+        "met": "Met target",
+        "atRisk": "At risk",
+        "breached": "Breached"
+      },
+      "problems": {
+        "title": "Top Problem Areas",
+        "sub": "Top 5 departments with the highest issues"
+      },
+      "trend": {
+        "title": "Issue Trend",
+        "sub": "Issues raised vs. resolved over time",
+        "raised": "Issues raised",
+        "resolved": "Issues resolved"
+      },
+      "aging": {
+        "title": "Issue Aging",
+        "sub": "Open issues grouped by aging period"
+      },
+      "performance": {
+        "title": "Department Performance",
+        "sub": "Issue volume and resolution performance by department",
+        "volume": "Issue volume",
+        "resolution": "Resolution performance"
+      },
+      "breach": {
+        "title": "SLA Breach Analysis",
+        "sub": "SLA breaches by department"
+      }
+    },
+    "tracker": {
+      "title": "Tracker",
+      "assignedToYou": "Assigned to you",
+      "assigned": "assigned",
+      "justNow": "just now",
+      "untrack": "Untrack"
+    }
   },
   "profile": {
     "delegatedUsers": "Delegated Users",

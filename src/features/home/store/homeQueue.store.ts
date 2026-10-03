@@ -82,6 +82,8 @@ type HomeQueueState = {
   resubmit: (id: string) => QueueToast;
   selectAll: (ids: readonly string[]) => void;
   toggleSelected: (id: string) => void;
+  syncAssignedTracking: () => void;
+  untrack: (id: string) => void;
   trackItem: () => QueueToast | undefined;
   trackRecord: (record: TrackRecord, labels: TrackingLabels) => void;
 };
@@ -404,6 +406,28 @@ export const useHomeQueueStore = create<HomeQueueState>()((set, get) => ({
     }));
   },
 
+  /**
+   * Lists every assigned (non-New) job order in the tracker, newest first.
+   * Runs whenever the job orders change, so an entry the user untracked
+   * returns on the next change, as in the prototype.
+   * @prototype index.html:L14270-L14276 assignedJOs → trackedTasks effect
+   */
+  syncAssignedTracking: () => {
+    set((state) => {
+      const have = new Set(state.trackedTasks.map((task) => task.id));
+      const added = state.jobOrders
+        .filter((jobOrder) => jobOrder.status !== 'New' && !have.has(jobOrder.id))
+        .map((jobOrder) => ({
+          assigned: true,
+          id: jobOrder.id,
+          title: jobOrder.title,
+        }));
+      return added.length
+        ? { trackedTasks: [...added, ...state.trackedTasks] }
+        : state;
+    });
+  },
+
   trackItem: (): QueueToast | undefined => {
     const { trackPrompt } = get();
     if (!trackPrompt) return undefined;
@@ -422,6 +446,10 @@ export const useHomeQueueStore = create<HomeQueueState>()((set, get) => ({
    * "Tracking" incident for it.
    * @prototype index.html:L14274-L14289 `__ihubTrack` handler
    */
+  untrack: (id) => {
+    set((state) => ({ trackedTasks: withoutId(state.trackedTasks, id) }));
+  },
+
   trackRecord: (record, labels) => {
     set((state) => {
       const known = state.incidents.some(

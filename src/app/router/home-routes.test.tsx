@@ -18,10 +18,11 @@ function renderPath(path: string) {
 }
 
 describe('M5.1 Home routes', () => {
-  it('mounts the Home frame and keeps later Overview content pending', async () => {
+  it('mounts the Home frame with the live Overview', async () => {
     const router = renderPath('/home/overview');
     expect(await screen.findByTestId('home-top-banner')).toBeVisible();
-    expect(screen.getByRole('status')).toHaveTextContent('Overview');
+    expect(await screen.findByTestId('home-overview')).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Overview/ })).toHaveAttribute('aria-current', 'page');
     router.dispose();
   });

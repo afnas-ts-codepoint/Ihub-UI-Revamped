@@ -126,8 +126,12 @@ export type FormModalState = Readonly<{
 
 export type TrackPromptState = Readonly<{ id: string; title: string }>;
 
-/** `trackedTasks` entry. `when` is undefined for "just now" (rendered by the consumer). */
+/**
+ * `trackedTasks` entry. `when` is undefined for "just now" (rendered by the
+ * consumer); `assigned` marks a job order the tracker listed on assignment.
+ */
 export type TrackedTask = Readonly<{
+  assigned?: boolean;
   id: string;
   kind?: ActionKind;
   reason?: string;
@@ -162,9 +166,9 @@ export type QueueJobOrderVerb = 'approve' | 'assign' | 'dismiss';
 export type HomeTaskDraft = Readonly<{
   dept?: string;
   id: string;
-  kind: JobOrderKind;
+  kind?: JobOrderKind;
   location?: string;
-  priority: HomePriority;
+  priority?: HomePriority;
   title: string;
 }>;
 
