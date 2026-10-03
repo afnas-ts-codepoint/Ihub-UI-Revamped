@@ -2,6 +2,10 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-10-03 - M10.4 `/home/tasks` implemented (Review)
+
+- Started after the user approved M10.3. Only `/home/tasks` was added; the Task Status stepper stays out of scope pending a separate decision. No new deviation: the page reuses the approved `JobOrderCard`, `FilterChips` and the Home queue store, and one PROTOTYPE-NOOP row (Board view) was recorded.
+
 ## 2026-10-03 - M10.3 implemented (parallel to M10.2; unblocks M10.4 `/home/tasks`)
 
 - M10.3 (Assigned, live incidents, tracker, legacy-form entry points) was implemented although its dependency M10.2 is still Pending, on the user's instruction. M10.2 files (Overview) were not touched.

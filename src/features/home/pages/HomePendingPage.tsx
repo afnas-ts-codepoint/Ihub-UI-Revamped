@@ -6,7 +6,6 @@ export type HomePendingArea =
   | 'overview'
   | 'paymentSettlement'
   | 'purchasing'
-  | 'tasks'
   | 'workCentre';
 
 export function HomePendingPage({ area }: Readonly<{ area: HomePendingArea }>) {

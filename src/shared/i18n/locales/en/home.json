@@ -158,6 +158,16 @@
     "quote": "The way to get started is to quit talking and begin doing.",
     "quoteBy": "Walt Disney"
   },
+  "homeTasks": {
+    "boardView": "Board view",
+    "filters": {
+      "all": "All",
+      "external": "External",
+      "internal": "Internal"
+    },
+    "subtitle": "{{n}} new since yesterday · internal & external",
+    "title": "Tasks"
+  },
   "incidentCard": {
     "action": "Action",
     "actions": "Actions",
@@ -212,7 +222,6 @@
     "overview": "Overview",
     "paymentSettlement": "Payment Settlement",
     "purchasing": "Purchasing",
-    "tasks": "Tasks",
     "workCentre": "Work Centre"
   },
   "profile": {

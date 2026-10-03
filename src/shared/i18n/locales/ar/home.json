@@ -158,6 +158,16 @@
     "quote": "الطريقة للبدء هي التوقف عن الكلام والبدء بالعمل.",
     "quoteBy": "والت ديزني"
   },
+  "homeTasks": {
+    "boardView": "عرض اللوحة",
+    "filters": {
+      "all": "الكل",
+      "external": "خارجي",
+      "internal": "داخلي"
+    },
+    "subtitle": "{{n}} جديدة منذ الأمس · داخلية وخارجية",
+    "title": "أوامر العمل"
+  },
   "incidentCard": {
     "action": "إجراء",
     "actions": "الإجراءات",
@@ -212,7 +222,6 @@
     "overview": "نظرة عامة",
     "paymentSettlement": "تسوية المدفوعات",
     "purchasing": "المشتريات",
-    "tasks": "أوامر العمل",
     "workCentre": "مركز العمل"
   },
   "profile": {

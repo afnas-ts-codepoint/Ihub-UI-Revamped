@@ -74,7 +74,7 @@ const home = node(
       'dashboard/incidents',
       paths.home.incidents('reports'),
     ),
-    node('dashboard/tasks', paths.home.view('tasks'), undefined, pending),
+    node('dashboard/tasks', paths.home.view('tasks')),
     node('dashboard/live-feed', paths.home.incidents('live')),
     node('dashboard/company', paths.home.view('company')),
     reports,

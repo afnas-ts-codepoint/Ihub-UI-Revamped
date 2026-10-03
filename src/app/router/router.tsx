@@ -29,6 +29,7 @@ import {
   HomeLayout,
   isAssignedQueue,
   HomePendingPage,
+  HomeTasksPage,
   ReportsPage,
 } from '@/features/home';
 import { NotificationsPage } from '@/features/notifications';
@@ -151,7 +152,7 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'tasks',
-            element: <HomePendingPage area="tasks" />,
+            element: <HomeTasksPage />,
             handle: { homeTab: 'tasks' },
           },
           {

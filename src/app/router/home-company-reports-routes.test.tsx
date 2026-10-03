@@ -57,12 +57,11 @@ describe('M10.4 Home Company and Reports routes', () => {
     router.dispose();
   });
 
-  it('leaves /home/tasks as MigrationPending until the M10.3 JobOrderCard is available', async () => {
+  it('mounts the Home Tasks view at /home/tasks (no pending marker)', async () => {
     const router = renderRoute('/home/tasks');
-    expect(await screen.findByRole('status')).toHaveAttribute(
-      'data-migration-pending',
-      'Tasks',
-    );
+    expect(await screen.findByRole('heading', { name: 'Tasks' })).toBeVisible();
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    expect(screen.getByTestId('job-order-card-JO-7782')).toBeVisible();
     router.dispose();
   });
 });

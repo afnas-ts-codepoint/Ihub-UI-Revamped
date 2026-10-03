@@ -11,7 +11,7 @@ import {
   type QaTheme,
 } from './helpers';
 
-type State = 'company' | 'export-menu' | 'reports' | 'reports-operations';
+type State = 'company' | 'export-menu' | 'reports' | 'reports-operations' | 'tasks' | 'tasks-internal';
 
 type Variant = Readonly<{
   locale: QaLocale;
@@ -25,19 +25,23 @@ const allStates: readonly State[] = [
   'reports',
   'reports-operations',
   'export-menu',
+  'tasks',
+  'tasks-internal',
 ];
 
 // Reduced matrix (Phase 3 §3.3): 1440 Paper EN, 1440 Ink EN, 1440 Paper AR, 760 Paper EN, 390 Paper EN.
 const variants: readonly Variant[] = [
   { locale: 'en', states: allStates, theme: 'paper', width: 1440 },
-  { locale: 'en', states: ['company', 'reports'], theme: 'ink', width: 1440 },
+  { locale: 'en', states: ['company', 'reports', 'tasks'], theme: 'ink', width: 1440 },
   { locale: 'ar', states: allStates, theme: 'paper', width: 1440 },
-  { locale: 'en', states: ['company', 'reports', 'reports-operations'], theme: 'paper', width: 760 },
-  { locale: 'en', states: ['company', 'reports'], theme: 'paper', width: 390 },
+  { locale: 'en', states: ['company', 'reports', 'reports-operations', 'tasks'], theme: 'paper', width: 760 },
+  { locale: 'en', states: ['company', 'reports', 'tasks'], theme: 'paper', width: 390 },
 ];
 
 const text = {
   company: { ar: 'هذا الربع', en: 'This quarter' },
+  internal: { ar: /داخلي/, en: /^Internal/ },
+  tasks: { ar: 'أوامر العمل', en: 'Tasks' },
   export: { ar: /تصدير/, en: /Export/ },
   operations: { ar: 'العمليات', en: 'Operations' },
   placeholder: {
@@ -48,12 +52,15 @@ const text = {
   violations: { ar: 'سجل المخالفات', en: 'Violations Register' },
 } as const;
 
-type Surface = 'company' | 'reports';
-const surfaceOf = (state: State): Surface => (state === 'company' ? 'company' : 'reports');
+type Surface = 'company' | 'reports' | 'tasks';
+const surfaceOf = (state: State): Surface =>
+  state === 'company' ? 'company' : state.startsWith('tasks') ? 'tasks' : 'reports';
 
 async function waitForSurface(page: Page, surface: Surface, locale: QaLocale) {
   if (surface === 'company') {
     await page.getByText(text.company[locale], { exact: true }).first().waitFor();
+  } else if (surface === 'tasks') {
+    await page.getByRole('heading', { name: text.tasks[locale], exact: true }).first().waitFor();
   } else {
     await page.getByText(text.placeholder[locale]).first().waitFor();
   }
@@ -62,11 +69,12 @@ async function waitForSurface(page: Page, surface: Surface, locale: QaLocale) {
 async function openPrototype(page: Page, surface: Surface, locale: QaLocale, theme: QaTheme) {
   // The prototype has no Home tab for Company: its only entry is the shared banner's view hook,
   // which switches Home to a view when called from another page (Home itself ignores it).
-  await preparePrototype(page, surface === 'company' ? 'history' : 'dashboard', theme, locale);
-  if (surface === 'company') {
-    await page.evaluate(() => {
-      (window as unknown as { __ihubGoToView: (view: string) => void }).__ihubGoToView('company');
-    });
+  await preparePrototype(page, surface === 'reports' ? 'dashboard' : 'history', theme, locale);
+  if (surface !== 'reports') {
+    const view = surface === 'company' ? 'company' : 'joborders';
+    await page.evaluate((target) => {
+      (window as unknown as { __ihubGoToView: (view: string) => void }).__ihubGoToView(target);
+    }, view);
   } else {
     await page
       .locator('button')
@@ -87,6 +95,9 @@ async function drive(page: Page, locale: QaLocale, state: State) {
     case 'reports-operations':
       await page.getByRole('button', { name: text.operations[locale], exact: true }).click();
       await page.getByRole('button', { name: text.violations[locale], exact: true }).click();
+      break;
+    case 'tasks-internal':
+      await page.getByRole('button', { name: text.internal[locale] }).first().click();
       break;
     case 'export-menu':
       await page.getByRole('button', { name: text.export[locale] }).click();

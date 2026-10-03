@@ -7,3 +7,4 @@ export { HomeIncidentsPage } from './pages/HomeIncidentsPage';
 export { HomePendingPage } from './pages/HomePendingPage';
 export { isAssignedQueue } from './constants/assignedQueue';
 export { ReportsPage } from './pages/ReportsPage';
+export { HomeTasksPage } from './pages/HomeTasksPage';
