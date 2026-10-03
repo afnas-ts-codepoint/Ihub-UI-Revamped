@@ -5,7 +5,6 @@ export type WorkCentreSection =
   | 'tasks'
   | 'enquiry'
   | 'observations'
-  | 'incidents'
   | 'checklists'
   | 'snag-lists'
   | 'price-change'
@@ -17,15 +16,13 @@ export type WorkCentreRenderer =
   | 'fallback'
   | 'observations'
   | 'snag-lists'
-  | 'tasks'
-  | 'pending';
+  | 'tasks';
 
 export type WorkCentreLabelKey =
   | 'sections.createTask'
   | 'sections.tasks'
   | 'sections.enquiry'
   | 'sections.observations'
-  | 'sections.incidents'
   | 'sections.checklists'
   | 'sections.snagLists'
   | 'sections.priceChange'

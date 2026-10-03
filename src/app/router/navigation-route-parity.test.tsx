@@ -133,12 +133,7 @@ describe('G6 complete navigation and route parity', () => {
         expect(title).toEqual(expect.any(String));
 
         const { router, unmount } = renderRoute(path);
-        if (current?.routeBehavior === 'migration-pending') {
-          expect(await screen.findByRole('status')).toHaveAttribute(
-            'data-migration-pending',
-            String(title),
-          );
-        } else if (current?.id === 'workflows') {
+        if (current?.id === 'workflows') {
           expect(await screen.findByRole('tablist')).toBeInTheDocument();
           expect(screen.queryByRole('status')).not.toBeInTheDocument();
         } else {
@@ -192,11 +187,14 @@ describe('Phase 2 section 11 URL map', () => {
     router.dispose();
   });
 
-  it.each([paths.home.workCentre('incidents')])('routes the pending prototype screen at %s', async (path) => {
+  it.each([
+    paths.home.workCentre('incidents'),
+    '/home/work-centre/incidents/anything',
+    '/home/work-centre/create-task/legacy-create',
+  ])('resolves the hidden legacy Work Centre path %s to not-found, never a pending marker', async (path) => {
     const { router } = renderRoute(path);
-    expect(await screen.findByRole('status')).toHaveAttribute(
-      'data-migration-pending',
-    );
+    expect(await screen.findByRole('heading', { name: /not found/i })).toBeVisible();
+    expect(document.querySelector('[data-migration-pending]')).toBeNull();
     router.dispose();
   });
 

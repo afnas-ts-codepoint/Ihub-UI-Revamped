@@ -22,7 +22,6 @@ import type {
   Task,
   TaskKind,
   TaskRisk,
-  TaskSeverity,
 } from '../types/task.types';
 import { DateField } from '@/shared/form/controls/DateField';
 import { Select, type SelectOption } from '@/shared/form/controls/Select';
@@ -377,7 +376,7 @@ export function CreateTaskForm({
       kind: scope,
       location: firstLocation?.location ?? location,
       risk: riskValue(priority),
-      severity: riskValue(severity) as TaskSeverity,
+      severity: riskValue(severity),
       sla: '',
       stage: 'Open',
       subject: subject || 'Untitled task',
@@ -451,9 +450,12 @@ export function CreateTaskForm({
               className={`cursor-pointer rounded-xl border border-dashed p-5 text-center ${dragOver ? 'border-accent bg-accent-dim' : 'border-line-strong bg-canvas'}`}
               data-testid="attachment-drop-zone"
               onClick={() => { inputRef.current?.click(); }}
+              onKeyDown={(event) => { if (event.target === event.currentTarget && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); inputRef.current?.click(); } }}
               onDragLeave={() => { setDragOver(false); }}
               onDragOver={(event: DragEvent<HTMLDivElement>) => { event.preventDefault(); setDragOver(true); }}
               onDrop={(event: DragEvent<HTMLDivElement>) => { event.preventDefault(); setDragOver(false); addFiles(event.dataTransfer.files); }}
+              role="button"
+              tabIndex={0}
             >
               <input
                 accept=".jpg,.jpeg,.png,.pdf"

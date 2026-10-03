@@ -1,0 +1,2952 @@
+[
+ {
+  "path": "/home/overview",
+  "pending": null,
+  "h1": null,
+  "main": 0,
+  "url": "/home/overview",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/approvals",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 2581,
+  "url": "/home/approvals",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/assigned/approvals",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 2684,
+  "url": "/home/assigned/approvals",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/incidents/reports",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1928,
+  "url": "/home/incidents/reports",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/tasks",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1831,
+  "url": "/home/tasks",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/incidents/live",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1730,
+  "url": "/home/incidents/live",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/company",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1580,
+  "url": "/home/company",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports",
+  "pending": null,
+  "h1": "Analytics & Reports",
+  "main": 307,
+  "url": "/reports",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/hr",
+  "pending": null,
+  "h1": "HR",
+  "main": 115,
+  "url": "/reports/hr",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/hr/attendance-summary",
+  "pending": null,
+  "h1": "Attendance Summary",
+  "main": 147,
+  "url": "/reports/hr/attendance-summary",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/hr/attendance-detailed",
+  "pending": null,
+  "h1": "Attendance Detailed",
+  "main": 149,
+  "url": "/reports/hr/attendance-detailed",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/hr/leave-balance",
+  "pending": null,
+  "h1": "Leave Balance",
+  "main": 137,
+  "url": "/reports/hr/leave-balance",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/workforce",
+  "pending": null,
+  "h1": "Workforce",
+  "main": 129,
+  "url": "/reports/workforce",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/workforce/overtime-summary",
+  "pending": null,
+  "h1": "Overtime Summary",
+  "main": 143,
+  "url": "/reports/workforce/overtime-summary",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/workforce/overtime-detailed",
+  "pending": null,
+  "h1": "Overtime Detailed",
+  "main": 145,
+  "url": "/reports/workforce/overtime-detailed",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/performance",
+  "pending": null,
+  "h1": "Performance",
+  "main": 133,
+  "url": "/reports/performance",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/performance/appraisal-summary",
+  "pending": null,
+  "h1": "Appraisal Summary",
+  "main": 145,
+  "url": "/reports/performance/appraisal-summary",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/finance-budgets",
+  "pending": null,
+  "h1": "Finance & Budgets",
+  "main": 145,
+  "url": "/reports/finance-budgets",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/finance-budgets/budget-vs-actual",
+  "pending": null,
+  "h1": "Budget vs Actual",
+  "main": 143,
+  "url": "/reports/finance-budgets/budget-vs-actual",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/finance-budgets/budget-utilisation",
+  "pending": null,
+  "h1": "Budget Utilisation",
+  "main": 147,
+  "url": "/reports/finance-budgets/budget-utilisation",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/finance-budgets/purchasing-pending",
+  "pending": null,
+  "h1": "Purchasing Pending",
+  "main": 147,
+  "url": "/reports/finance-budgets/purchasing-pending",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/finance-budgets/petty-cash-movement",
+  "pending": null,
+  "h1": "Petty Cash Movement",
+  "main": 149,
+  "url": "/reports/finance-budgets/petty-cash-movement",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/work-centre",
+  "pending": null,
+  "h1": "Work Centre",
+  "main": 133,
+  "url": "/reports/work-centre",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/work-centre/job-orders",
+  "pending": null,
+  "h1": "Job Orders",
+  "main": 131,
+  "url": "/reports/work-centre/job-orders",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/work-centre/violations-register",
+  "pending": null,
+  "h1": "Violations Register",
+  "main": 149,
+  "url": "/reports/work-centre/violations-register",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/work-centre/incident-log",
+  "pending": null,
+  "h1": "Incident Log",
+  "main": 135,
+  "url": "/reports/work-centre/incident-log",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/work-centre/enquiries-register",
+  "pending": null,
+  "h1": "Enquiries Register",
+  "main": 147,
+  "url": "/reports/work-centre/enquiries-register",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/work-centre/observations-register",
+  "pending": null,
+  "h1": "Observations Register",
+  "main": 153,
+  "url": "/reports/work-centre/observations-register",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/quality-compliance",
+  "pending": null,
+  "h1": "Quality & Compliance",
+  "main": 151,
+  "url": "/reports/quality-compliance",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/quality-compliance/checklist-compliance",
+  "pending": null,
+  "h1": "Checklist Compliance",
+  "main": 151,
+  "url": "/reports/quality-compliance/checklist-compliance",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/system",
+  "pending": null,
+  "h1": "System",
+  "main": 123,
+  "url": "/reports/system",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/reports/system/audit-trail",
+  "pending": null,
+  "h1": "Audit Trail",
+  "main": 133,
+  "url": "/reports/system/audit-trail",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/finance",
+  "pending": null,
+  "h1": "Finance & Budgets",
+  "main": 160,
+  "url": "/finance",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/finance/dashboard",
+  "pending": null,
+  "h1": "Finance & Budgets",
+  "main": 160,
+  "url": "/finance/dashboard",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/finance/budgeting",
+  "pending": null,
+  "h1": "Finance & Budgets",
+  "main": 635,
+  "url": "/finance/budgeting",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr",
+  "pending": null,
+  "h1": "Workforce",
+  "main": 618,
+  "url": "/hr",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/dashboard",
+  "pending": null,
+  "h1": "Dashboard",
+  "main": 142,
+  "url": "/hr/dashboard",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/workforce-statistics",
+  "pending": null,
+  "h1": "Workforce Statistics",
+  "main": 164,
+  "url": "/hr/workforce-statistics",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/overtime",
+  "pending": null,
+  "h1": "Overtime",
+  "main": 140,
+  "url": "/hr/overtime",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/overtime/to-do",
+  "pending": null,
+  "h1": "To Do",
+  "main": 134,
+  "url": "/hr/overtime/to-do",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/overtime/verify",
+  "pending": null,
+  "h1": "Verify",
+  "main": 136,
+  "url": "/hr/overtime/verify",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/overtime/edit",
+  "pending": null,
+  "h1": "Edit",
+  "main": 132,
+  "url": "/hr/overtime/edit",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/overtime/correction",
+  "pending": null,
+  "h1": "Correction",
+  "main": 144,
+  "url": "/hr/overtime/correction",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/overtime/above-no-budget",
+  "pending": null,
+  "h1": "Above No Budget",
+  "main": 154,
+  "url": "/hr/overtime/above-no-budget",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/overtime/justification",
+  "pending": null,
+  "h1": "Justification",
+  "main": 150,
+  "url": "/hr/overtime/justification",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/overtime/record-listing",
+  "pending": null,
+  "h1": "Record Listing",
+  "main": 152,
+  "url": "/hr/overtime/record-listing",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/investigations",
+  "pending": null,
+  "h1": "Investigations",
+  "main": 152,
+  "url": "/hr/investigations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/violations",
+  "pending": null,
+  "h1": "Violations",
+  "main": 144,
+  "url": "/hr/violations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/loan",
+  "pending": null,
+  "h1": "Loan",
+  "main": 132,
+  "url": "/hr/loan",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/end-of-probation",
+  "pending": null,
+  "h1": "End of Probation",
+  "main": 156,
+  "url": "/hr/end-of-probation",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/hr/exit-interview",
+  "pending": null,
+  "h1": "Exit Interview",
+  "main": 152,
+  "url": "/hr/exit-interview",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/appraisal",
+  "pending": null,
+  "h1": "Appraisal",
+  "main": 437,
+  "url": "/appraisal",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality",
+  "pending": null,
+  "h1": "SOP Checklist",
+  "main": 465,
+  "url": "/quality",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/dashboard",
+  "pending": null,
+  "h1": "Dashboard",
+  "main": 142,
+  "url": "/quality/dashboard",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/sla",
+  "pending": null,
+  "h1": "SLA & Compliance",
+  "main": 2598,
+  "url": "/quality/sla",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/observations",
+  "pending": null,
+  "h1": "Observations",
+  "main": 148,
+  "url": "/quality/observations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/quality-assurance-checklists",
+  "pending": null,
+  "h1": "Quality Assurance Checklists",
+  "main": 180,
+  "url": "/quality/quality-assurance-checklists",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/quality-assurance-checklists/risk-levels",
+  "pending": null,
+  "h1": "Risk Levels",
+  "main": 146,
+  "url": "/quality/quality-assurance-checklists/risk-levels",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/quality-assurance-checklists/standard-parameters",
+  "pending": null,
+  "h1": "Standard Parameters",
+  "main": 162,
+  "url": "/quality/quality-assurance-checklists/standard-parameters",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/quality-assurance-checklists/zone-accountability",
+  "pending": null,
+  "h1": "Zone Accountability",
+  "main": 162,
+  "url": "/quality/quality-assurance-checklists/zone-accountability",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/quality-assurance-checklists/standards",
+  "pending": null,
+  "h1": "Standards",
+  "main": 142,
+  "url": "/quality/quality-assurance-checklists/standards",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/quality-assurance-checklists/create-checklist",
+  "pending": null,
+  "h1": "Create Checklist",
+  "main": 156,
+  "url": "/quality/quality-assurance-checklists/create-checklist",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/quality-assurance-checklists/fill-checklist",
+  "pending": null,
+  "h1": "Fill Checklist",
+  "main": 152,
+  "url": "/quality/quality-assurance-checklists/fill-checklist",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/quality-assurance-checklists/edit-filled-checklist",
+  "pending": null,
+  "h1": "Edit Filled Checklist",
+  "main": 166,
+  "url": "/quality/quality-assurance-checklists/edit-filled-checklist",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/quality/quality-assurance-checklists/report",
+  "pending": null,
+  "h1": "Report",
+  "main": 136,
+  "url": "/quality/quality-assurance-checklists/report",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/settings/configuration",
+  "pending": null,
+  "h1": "Configuration",
+  "main": 2649,
+  "url": "/settings/configuration",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/settings/work-centre",
+  "pending": null,
+  "h1": "Work Centre",
+  "main": 146,
+  "url": "/settings/work-centre",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/settings/finance-budgets",
+  "pending": null,
+  "h1": "Finance & Budgets",
+  "main": 158,
+  "url": "/settings/finance-budgets",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/settings/workforce",
+  "pending": null,
+  "h1": "Workforce",
+  "main": 142,
+  "url": "/settings/workforce",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/settings/quality-compliance",
+  "pending": null,
+  "h1": "Quality & Compliance",
+  "main": 164,
+  "url": "/settings/quality-compliance",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history",
+  "pending": null,
+  "h1": "History",
+  "main": 671,
+  "url": "/history",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/work-centre",
+  "pending": null,
+  "h1": "Work Centre",
+  "main": 708,
+  "url": "/history/work-centre",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/work-centre/tasks",
+  "pending": null,
+  "h1": "Tasks",
+  "main": 647,
+  "url": "/history/work-centre/tasks",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/work-centre/enquiry",
+  "pending": null,
+  "h1": "Enquiry",
+  "main": 671,
+  "url": "/history/work-centre/enquiry",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/work-centre/observations",
+  "pending": null,
+  "h1": "Observations",
+  "main": 722,
+  "url": "/history/work-centre/observations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/work-centre/incidents",
+  "pending": null,
+  "h1": "Incidents",
+  "main": 691,
+  "url": "/history/work-centre/incidents",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/work-centre/checklists",
+  "pending": null,
+  "h1": "Checklists",
+  "main": 699,
+  "url": "/history/work-centre/checklists",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/work-centre/price-change",
+  "pending": null,
+  "h1": "Price Change",
+  "main": 722,
+  "url": "/history/work-centre/price-change",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/work-centre/promotions",
+  "pending": null,
+  "h1": "Promotions",
+  "main": 699,
+  "url": "/history/work-centre/promotions",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/finance-budgets",
+  "pending": null,
+  "h1": "Finance & Budgets",
+  "main": 778,
+  "url": "/history/finance-budgets",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/finance-budgets/new-budget",
+  "pending": null,
+  "h1": "New Budget",
+  "main": 699,
+  "url": "/history/finance-budgets/new-budget",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/finance-budgets/additional-budget",
+  "pending": null,
+  "h1": "Additional Budget",
+  "main": 778,
+  "url": "/history/finance-budgets/additional-budget",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/finance-budgets/transfer-fund",
+  "pending": null,
+  "h1": "Transfer Fund",
+  "main": 740,
+  "url": "/history/finance-budgets/transfer-fund",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/finance-budgets/payment-settlement",
+  "pending": null,
+  "h1": "Payment Settlement",
+  "main": 789,
+  "url": "/history/finance-budgets/payment-settlement",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/finance-budgets/petty-cash",
+  "pending": null,
+  "h1": "Petty Cash",
+  "main": 699,
+  "url": "/history/finance-budgets/petty-cash",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/hr",
+  "pending": null,
+  "h1": "HR",
+  "main": 602,
+  "url": "/history/hr",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/hr/overtime",
+  "pending": null,
+  "h1": "Overtime",
+  "main": 680,
+  "url": "/history/hr/overtime",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/hr/investigations",
+  "pending": null,
+  "h1": "Investigations",
+  "main": 750,
+  "url": "/history/hr/investigations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/hr/violations",
+  "pending": null,
+  "h1": "Violations",
+  "main": 699,
+  "url": "/history/hr/violations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/hr/loan",
+  "pending": null,
+  "h1": "Loan",
+  "main": 631,
+  "url": "/history/hr/loan",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/hr/end-of-probation",
+  "pending": null,
+  "h1": "End of Probation",
+  "main": 764,
+  "url": "/history/hr/end-of-probation",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/hr/exit-interview",
+  "pending": null,
+  "h1": "Exit Interview",
+  "main": 750,
+  "url": "/history/hr/exit-interview",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/appraisal",
+  "pending": null,
+  "h1": "Appraisal",
+  "main": 691,
+  "url": "/history/appraisal",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/quality-compliance",
+  "pending": null,
+  "h1": "Quality & Compliance",
+  "main": 815,
+  "url": "/history/quality-compliance",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/quality-compliance/observations",
+  "pending": null,
+  "h1": "Observations",
+  "main": 722,
+  "url": "/history/quality-compliance/observations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/quality-compliance/quality-assurance-checklists",
+  "pending": null,
+  "h1": "Quality Assurance Checklists",
+  "main": 902,
+  "url": "/history/quality-compliance/quality-assurance-checklists",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/purchasing",
+  "pending": null,
+  "h1": "Purchasing",
+  "main": 699,
+  "url": "/history/purchasing",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/history/sop-checklist",
+  "pending": null,
+  "h1": "SOP Checklist",
+  "main": 740,
+  "url": "/history/sop-checklist",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/workflows",
+  "pending": null,
+  "h1": null,
+  "main": 909,
+  "url": "/workflows",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters",
+  "pending": null,
+  "h1": "Project Category Master",
+  "main": 488,
+  "url": "/masters/admin/project-category-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin",
+  "pending": null,
+  "h1": "Project Category Master",
+  "main": 488,
+  "url": "/masters/admin/project-category-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/project-category-master",
+  "pending": null,
+  "h1": "Project Category Master",
+  "main": 488,
+  "url": "/masters/admin/project-category-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/action-sheet-approval-workflow",
+  "pending": null,
+  "h1": "Action Sheet Approval Workflow",
+  "main": 137,
+  "url": "/masters/admin/action-sheet-approval-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/brand",
+  "pending": null,
+  "h1": "Brand",
+  "main": 112,
+  "url": "/masters/admin/brand",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/budget-approval-workflow",
+  "pending": null,
+  "h1": "Budget Approval Workflow",
+  "main": 131,
+  "url": "/masters/admin/budget-approval-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/budgeting-entry-template",
+  "pending": null,
+  "h1": "Budgeting Entry Template",
+  "main": 131,
+  "url": "/masters/admin/budgeting-entry-template",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/case-category",
+  "pending": null,
+  "h1": "Case Category",
+  "main": 120,
+  "url": "/masters/admin/case-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/checklist-comments",
+  "pending": null,
+  "h1": "Checklist Comments",
+  "main": 125,
+  "url": "/masters/admin/checklist-comments",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/common-verify-approve-workflow",
+  "pending": null,
+  "h1": "Common Verify/Approve Workflow",
+  "main": 137,
+  "url": "/masters/admin/common-verify-approve-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/configuration",
+  "pending": null,
+  "h1": "Configuration",
+  "main": 120,
+  "url": "/masters/admin/configuration",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/cron-job-settings",
+  "pending": null,
+  "h1": "Cron Job Settings",
+  "main": 124,
+  "url": "/masters/admin/cron-job-settings",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/holiday-master",
+  "pending": null,
+  "h1": "Holiday Master",
+  "main": 121,
+  "url": "/masters/admin/holiday-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/loan-approval-workflow",
+  "pending": null,
+  "h1": "Loan Approval Workflow",
+  "main": 129,
+  "url": "/masters/admin/loan-approval-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/observations",
+  "pending": null,
+  "h1": "Observations",
+  "main": 119,
+  "url": "/masters/admin/observations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/payment-method",
+  "pending": null,
+  "h1": "Payment Method",
+  "main": 121,
+  "url": "/masters/admin/payment-method",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/payment-mode",
+  "pending": null,
+  "h1": "Payment Mode",
+  "main": 119,
+  "url": "/masters/admin/payment-mode",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/pc-request-workflow",
+  "pending": null,
+  "h1": "PC Request Workflow",
+  "main": 126,
+  "url": "/masters/admin/pc-request-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/petty-cash-stage",
+  "pending": null,
+  "h1": "Petty Cash Stage",
+  "main": 123,
+  "url": "/masters/admin/petty-cash-stage",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/petty-cash-stage-workflow",
+  "pending": null,
+  "h1": "Petty Cash Stage Workflow",
+  "main": 132,
+  "url": "/masters/admin/petty-cash-stage-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/projected-revenue-modify",
+  "pending": null,
+  "h1": "Projected Revenue Modify",
+  "main": 131,
+  "url": "/masters/admin/projected-revenue-modify",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/projecting-budget-modify",
+  "pending": null,
+  "h1": "Projecting Budget Modify",
+  "main": 131,
+  "url": "/masters/admin/projecting-budget-modify",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/quality-assurance-fill-workflow",
+  "pending": null,
+  "h1": "Quality Assurance Fill Workflow",
+  "main": 138,
+  "url": "/masters/admin/quality-assurance-fill-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/question-category",
+  "pending": null,
+  "h1": "Question Category",
+  "main": 124,
+  "url": "/masters/admin/question-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/ride-category",
+  "pending": null,
+  "h1": "Ride Category",
+  "main": 120,
+  "url": "/masters/admin/ride-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/role-privileges",
+  "pending": null,
+  "h1": "Role Privileges",
+  "main": 122,
+  "url": "/masters/admin/role-privileges",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/user-privileges",
+  "pending": null,
+  "h1": "User Privileges",
+  "main": 122,
+  "url": "/masters/admin/user-privileges",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/users",
+  "pending": null,
+  "h1": "Users",
+  "main": 112,
+  "url": "/masters/admin/users",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/view-permitted-users",
+  "pending": null,
+  "h1": "View Permitted Users",
+  "main": 127,
+  "url": "/masters/admin/view-permitted-users",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general",
+  "pending": null,
+  "h1": "Machine Master",
+  "main": 689,
+  "url": "/masters/general/machine-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/machine-master",
+  "pending": null,
+  "h1": "Machine Master",
+  "main": 689,
+  "url": "/masters/general/machine-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/asset-category",
+  "pending": null,
+  "h1": "Asset Category",
+  "main": 121,
+  "url": "/masters/general/asset-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/budget-activities",
+  "pending": null,
+  "h1": "Budget Activities",
+  "main": 124,
+  "url": "/masters/general/budget-activities",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/currency-exchange",
+  "pending": null,
+  "h1": "Currency Exchange",
+  "main": 124,
+  "url": "/masters/general/currency-exchange",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/departments",
+  "pending": null,
+  "h1": "Departments",
+  "main": 118,
+  "url": "/masters/general/departments",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/dependency-category-master",
+  "pending": null,
+  "h1": "Dependency Category Master",
+  "main": 133,
+  "url": "/masters/general/dependency-category-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/dependency-type-master",
+  "pending": null,
+  "h1": "Dependency Type Master",
+  "main": 129,
+  "url": "/masters/general/dependency-type-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/designations",
+  "pending": null,
+  "h1": "Designations",
+  "main": 119,
+  "url": "/masters/general/designations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/escalation-master",
+  "pending": null,
+  "h1": "Escalation Master",
+  "main": 124,
+  "url": "/masters/general/escalation-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/guest-satisfaction-master",
+  "pending": null,
+  "h1": "Guest Satisfaction Master",
+  "main": 132,
+  "url": "/masters/general/guest-satisfaction-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/impacted-area-master",
+  "pending": null,
+  "h1": "Impacted Area Master",
+  "main": 127,
+  "url": "/masters/general/impacted-area-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/locations",
+  "pending": null,
+  "h1": "Locations",
+  "main": 116,
+  "url": "/masters/general/locations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/project-category",
+  "pending": null,
+  "h1": "Project Category",
+  "main": 123,
+  "url": "/masters/general/project-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/project-master",
+  "pending": null,
+  "h1": "Project Master",
+  "main": 121,
+  "url": "/masters/general/project-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/revenue-stream",
+  "pending": null,
+  "h1": "Revenue Stream",
+  "main": 121,
+  "url": "/masters/general/revenue-stream",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/risk-impacted-category-master",
+  "pending": null,
+  "h1": "Risk / Impacted Category Master",
+  "main": 138,
+  "url": "/masters/general/risk-impacted-category-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/roles",
+  "pending": null,
+  "h1": "Roles",
+  "main": 112,
+  "url": "/masters/general/roles",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/suppliers",
+  "pending": null,
+  "h1": "Suppliers",
+  "main": 116,
+  "url": "/masters/general/suppliers",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/task-category",
+  "pending": null,
+  "h1": "Task Category",
+  "main": 120,
+  "url": "/masters/general/task-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/task-type",
+  "pending": null,
+  "h1": "Task Type",
+  "main": 116,
+  "url": "/masters/general/task-type",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/touch-point",
+  "pending": null,
+  "h1": "Touch Point",
+  "main": 118,
+  "url": "/masters/general/touch-point",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/general/zones",
+  "pending": null,
+  "h1": "Zones",
+  "main": 112,
+  "url": "/masters/general/zones",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr",
+  "pending": null,
+  "h1": "Appraisal Deduction",
+  "main": 126,
+  "url": "/masters/hr/appraisal-deduction",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/appraisal-deduction",
+  "pending": null,
+  "h1": "Appraisal Deduction",
+  "main": 126,
+  "url": "/masters/hr/appraisal-deduction",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/appraisal-frequency",
+  "pending": null,
+  "h1": "Appraisal Frequency",
+  "main": 126,
+  "url": "/masters/hr/appraisal-frequency",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/appraiser-questions",
+  "pending": null,
+  "h1": "Appraiser Questions",
+  "main": 126,
+  "url": "/masters/hr/appraiser-questions",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/appraisal-section-name",
+  "pending": null,
+  "h1": "Appraisal Section Name",
+  "main": 129,
+  "url": "/masters/hr/appraisal-section-name",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/appraiser-mapping",
+  "pending": null,
+  "h1": "Appraiser Mapping",
+  "main": 124,
+  "url": "/masters/hr/appraiser-mapping",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/average-day-sales",
+  "pending": null,
+  "h1": "Average Day Sales",
+  "main": 124,
+  "url": "/masters/hr/average-day-sales",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/crises-level",
+  "pending": null,
+  "h1": "Crises Level",
+  "main": 119,
+  "url": "/masters/hr/crises-level",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/employees",
+  "pending": null,
+  "h1": "Employees",
+  "main": 116,
+  "url": "/masters/hr/employees",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/employees-category-type",
+  "pending": null,
+  "h1": "Employees Category Type",
+  "main": 130,
+  "url": "/masters/hr/employees-category-type",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/employees-jobs",
+  "pending": null,
+  "h1": "Employees Jobs",
+  "main": 121,
+  "url": "/masters/hr/employees-jobs",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/employees-ops-category",
+  "pending": null,
+  "h1": "Employees OPS Category",
+  "main": 129,
+  "url": "/masters/hr/employees-ops-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/employees-overall-category",
+  "pending": null,
+  "h1": "Employees Overall Category",
+  "main": 133,
+  "url": "/masters/hr/employees-overall-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/overtime-calculation",
+  "pending": null,
+  "h1": "Overtime Calculation",
+  "main": 127,
+  "url": "/masters/hr/overtime-calculation",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/quality-assurance-type",
+  "pending": null,
+  "h1": "Quality Assurance Type",
+  "main": 129,
+  "url": "/masters/hr/quality-assurance-type",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/standard-headcount",
+  "pending": null,
+  "h1": "Standard Headcount",
+  "main": 125,
+  "url": "/masters/hr/standard-headcount",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/hr/violation-policy",
+  "pending": null,
+  "h1": "Violation Policy",
+  "main": 123,
+  "url": "/masters/hr/violation-policy",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation",
+  "pending": null,
+  "h1": "Assignment Areas",
+  "main": 699,
+  "url": "/masters/operation/assignment-areas",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/assignment-areas",
+  "pending": null,
+  "h1": "Assignment Areas",
+  "main": 699,
+  "url": "/masters/operation/assignment-areas",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/task-mapping",
+  "pending": null,
+  "h1": "Task Mapping",
+  "main": 1109,
+  "url": "/masters/operation/task-mapping",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/sub-area",
+  "pending": null,
+  "h1": "Sub Area",
+  "main": 830,
+  "url": "/masters/operation/sub-area",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/area",
+  "pending": null,
+  "h1": "Area",
+  "main": 111,
+  "url": "/masters/operation/area",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/area-mapping",
+  "pending": null,
+  "h1": "Area Mapping",
+  "main": 119,
+  "url": "/masters/operation/area-mapping",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/area-settings",
+  "pending": null,
+  "h1": "Area Settings",
+  "main": 120,
+  "url": "/masters/operation/area-settings",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/item-concept-name",
+  "pending": null,
+  "h1": "Item Concept Name",
+  "main": 124,
+  "url": "/masters/operation/item-concept-name",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/item-main-group",
+  "pending": null,
+  "h1": "Item Main Group",
+  "main": 122,
+  "url": "/masters/operation/item-main-group",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/item-master",
+  "pending": null,
+  "h1": "Item Master",
+  "main": 118,
+  "url": "/masters/operation/item-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/item-pos-system",
+  "pending": null,
+  "h1": "Item Pos System",
+  "main": 122,
+  "url": "/masters/operation/item-pos-system",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/item-reporting-category",
+  "pending": null,
+  "h1": "Item Reporting Category",
+  "main": 130,
+  "url": "/masters/operation/item-reporting-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/item-sub-group-one",
+  "pending": null,
+  "h1": "Item Sub Group One",
+  "main": 125,
+  "url": "/masters/operation/item-sub-group-one",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/item-sub-group-two",
+  "pending": null,
+  "h1": "Item Sub Group Two",
+  "main": 125,
+  "url": "/masters/operation/item-sub-group-two",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/item-type-name",
+  "pending": null,
+  "h1": "Item Type Name",
+  "main": 121,
+  "url": "/masters/operation/item-type-name",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/operation/item-unit",
+  "pending": null,
+  "h1": "Item Unit",
+  "main": 116,
+  "url": "/masters/operation/item-unit",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list",
+  "pending": null,
+  "h1": "Project Category Master",
+  "main": 488,
+  "url": "/masters-list/admin/project-category-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin",
+  "pending": null,
+  "h1": "Project Category Master",
+  "main": 488,
+  "url": "/masters-list/admin/project-category-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/project-category-master",
+  "pending": null,
+  "h1": "Project Category Master",
+  "main": 488,
+  "url": "/masters-list/admin/project-category-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/action-sheet-approval-workflow",
+  "pending": null,
+  "h1": "Action Sheet Approval Workflow",
+  "main": 137,
+  "url": "/masters-list/admin/action-sheet-approval-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/brand",
+  "pending": null,
+  "h1": "Brand",
+  "main": 112,
+  "url": "/masters-list/admin/brand",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/budget-approval-workflow",
+  "pending": null,
+  "h1": "Budget Approval Workflow",
+  "main": 131,
+  "url": "/masters-list/admin/budget-approval-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/budgeting-entry-template",
+  "pending": null,
+  "h1": "Budgeting Entry Template",
+  "main": 131,
+  "url": "/masters-list/admin/budgeting-entry-template",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/case-category",
+  "pending": null,
+  "h1": "Case Category",
+  "main": 120,
+  "url": "/masters-list/admin/case-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/checklist-comments",
+  "pending": null,
+  "h1": "Checklist Comments",
+  "main": 125,
+  "url": "/masters-list/admin/checklist-comments",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/common-verify-approve-workflow",
+  "pending": null,
+  "h1": "Common Verify/Approve Workflow",
+  "main": 137,
+  "url": "/masters-list/admin/common-verify-approve-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/configuration",
+  "pending": null,
+  "h1": "Configuration",
+  "main": 120,
+  "url": "/masters-list/admin/configuration",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/cron-job-settings",
+  "pending": null,
+  "h1": "Cron Job Settings",
+  "main": 124,
+  "url": "/masters-list/admin/cron-job-settings",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/holiday-master",
+  "pending": null,
+  "h1": "Holiday Master",
+  "main": 121,
+  "url": "/masters-list/admin/holiday-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/loan-approval-workflow",
+  "pending": null,
+  "h1": "Loan Approval Workflow",
+  "main": 129,
+  "url": "/masters-list/admin/loan-approval-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/observations",
+  "pending": null,
+  "h1": "Observations",
+  "main": 119,
+  "url": "/masters-list/admin/observations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/payment-method",
+  "pending": null,
+  "h1": "Payment Method",
+  "main": 121,
+  "url": "/masters-list/admin/payment-method",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/payment-mode",
+  "pending": null,
+  "h1": "Payment Mode",
+  "main": 119,
+  "url": "/masters-list/admin/payment-mode",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/pc-request-workflow",
+  "pending": null,
+  "h1": "PC Request Workflow",
+  "main": 126,
+  "url": "/masters-list/admin/pc-request-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/petty-cash-stage",
+  "pending": null,
+  "h1": "Petty Cash Stage",
+  "main": 123,
+  "url": "/masters-list/admin/petty-cash-stage",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/petty-cash-stage-workflow",
+  "pending": null,
+  "h1": "Petty Cash Stage Workflow",
+  "main": 132,
+  "url": "/masters-list/admin/petty-cash-stage-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/projected-revenue-modify",
+  "pending": null,
+  "h1": "Projected Revenue Modify",
+  "main": 131,
+  "url": "/masters-list/admin/projected-revenue-modify",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/projecting-budget-modify",
+  "pending": null,
+  "h1": "Projecting Budget Modify",
+  "main": 131,
+  "url": "/masters-list/admin/projecting-budget-modify",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/quality-assurance-fill-workflow",
+  "pending": null,
+  "h1": "Quality Assurance Fill Workflow",
+  "main": 138,
+  "url": "/masters-list/admin/quality-assurance-fill-workflow",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/question-category",
+  "pending": null,
+  "h1": "Question Category",
+  "main": 124,
+  "url": "/masters-list/admin/question-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/ride-category",
+  "pending": null,
+  "h1": "Ride Category",
+  "main": 120,
+  "url": "/masters-list/admin/ride-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/role-privileges",
+  "pending": null,
+  "h1": "Role Privileges",
+  "main": 122,
+  "url": "/masters-list/admin/role-privileges",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/user-privileges",
+  "pending": null,
+  "h1": "User Privileges",
+  "main": 122,
+  "url": "/masters-list/admin/user-privileges",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/users",
+  "pending": null,
+  "h1": "Users",
+  "main": 112,
+  "url": "/masters-list/admin/users",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/admin/view-permitted-users",
+  "pending": null,
+  "h1": "View Permitted Users",
+  "main": 127,
+  "url": "/masters-list/admin/view-permitted-users",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general",
+  "pending": null,
+  "h1": "Machine Master",
+  "main": 689,
+  "url": "/masters-list/general/machine-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/machine-master",
+  "pending": null,
+  "h1": "Machine Master",
+  "main": 689,
+  "url": "/masters-list/general/machine-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/asset-category",
+  "pending": null,
+  "h1": "Asset Category",
+  "main": 121,
+  "url": "/masters-list/general/asset-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/budget-activities",
+  "pending": null,
+  "h1": "Budget Activities",
+  "main": 124,
+  "url": "/masters-list/general/budget-activities",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/currency-exchange",
+  "pending": null,
+  "h1": "Currency Exchange",
+  "main": 124,
+  "url": "/masters-list/general/currency-exchange",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/departments",
+  "pending": null,
+  "h1": "Departments",
+  "main": 118,
+  "url": "/masters-list/general/departments",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/dependency-category-master",
+  "pending": null,
+  "h1": "Dependency Category Master",
+  "main": 133,
+  "url": "/masters-list/general/dependency-category-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/dependency-type-master",
+  "pending": null,
+  "h1": "Dependency Type Master",
+  "main": 129,
+  "url": "/masters-list/general/dependency-type-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/designations",
+  "pending": null,
+  "h1": "Designations",
+  "main": 119,
+  "url": "/masters-list/general/designations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/escalation-master",
+  "pending": null,
+  "h1": "Escalation Master",
+  "main": 124,
+  "url": "/masters-list/general/escalation-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/guest-satisfaction-master",
+  "pending": null,
+  "h1": "Guest Satisfaction Master",
+  "main": 132,
+  "url": "/masters-list/general/guest-satisfaction-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/impacted-area-master",
+  "pending": null,
+  "h1": "Impacted Area Master",
+  "main": 127,
+  "url": "/masters-list/general/impacted-area-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/locations",
+  "pending": null,
+  "h1": "Locations",
+  "main": 116,
+  "url": "/masters-list/general/locations",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/project-category",
+  "pending": null,
+  "h1": "Project Category",
+  "main": 123,
+  "url": "/masters-list/general/project-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/project-master",
+  "pending": null,
+  "h1": "Project Master",
+  "main": 121,
+  "url": "/masters-list/general/project-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/revenue-stream",
+  "pending": null,
+  "h1": "Revenue Stream",
+  "main": 121,
+  "url": "/masters-list/general/revenue-stream",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/risk-impacted-category-master",
+  "pending": null,
+  "h1": "Risk / Impacted Category Master",
+  "main": 138,
+  "url": "/masters-list/general/risk-impacted-category-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/roles",
+  "pending": null,
+  "h1": "Roles",
+  "main": 112,
+  "url": "/masters-list/general/roles",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/suppliers",
+  "pending": null,
+  "h1": "Suppliers",
+  "main": 116,
+  "url": "/masters-list/general/suppliers",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/task-category",
+  "pending": null,
+  "h1": "Task Category",
+  "main": 120,
+  "url": "/masters-list/general/task-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/task-type",
+  "pending": null,
+  "h1": "Task Type",
+  "main": 116,
+  "url": "/masters-list/general/task-type",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/touch-point",
+  "pending": null,
+  "h1": "Touch Point",
+  "main": 118,
+  "url": "/masters-list/general/touch-point",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/general/zones",
+  "pending": null,
+  "h1": "Zones",
+  "main": 112,
+  "url": "/masters-list/general/zones",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr",
+  "pending": null,
+  "h1": "Appraisal Deduction",
+  "main": 126,
+  "url": "/masters-list/hr/appraisal-deduction",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/appraisal-deduction",
+  "pending": null,
+  "h1": "Appraisal Deduction",
+  "main": 126,
+  "url": "/masters-list/hr/appraisal-deduction",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/appraisal-frequency",
+  "pending": null,
+  "h1": "Appraisal Frequency",
+  "main": 126,
+  "url": "/masters-list/hr/appraisal-frequency",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/appraiser-questions",
+  "pending": null,
+  "h1": "Appraiser Questions",
+  "main": 126,
+  "url": "/masters-list/hr/appraiser-questions",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/appraisal-section-name",
+  "pending": null,
+  "h1": "Appraisal Section Name",
+  "main": 129,
+  "url": "/masters-list/hr/appraisal-section-name",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/appraiser-mapping",
+  "pending": null,
+  "h1": "Appraiser Mapping",
+  "main": 124,
+  "url": "/masters-list/hr/appraiser-mapping",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/average-day-sales",
+  "pending": null,
+  "h1": "Average Day Sales",
+  "main": 124,
+  "url": "/masters-list/hr/average-day-sales",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/crises-level",
+  "pending": null,
+  "h1": "Crises Level",
+  "main": 119,
+  "url": "/masters-list/hr/crises-level",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/employees",
+  "pending": null,
+  "h1": "Employees",
+  "main": 116,
+  "url": "/masters-list/hr/employees",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/employees-category-type",
+  "pending": null,
+  "h1": "Employees Category Type",
+  "main": 130,
+  "url": "/masters-list/hr/employees-category-type",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/employees-jobs",
+  "pending": null,
+  "h1": "Employees Jobs",
+  "main": 121,
+  "url": "/masters-list/hr/employees-jobs",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/employees-ops-category",
+  "pending": null,
+  "h1": "Employees OPS Category",
+  "main": 129,
+  "url": "/masters-list/hr/employees-ops-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/employees-overall-category",
+  "pending": null,
+  "h1": "Employees Overall Category",
+  "main": 133,
+  "url": "/masters-list/hr/employees-overall-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/overtime-calculation",
+  "pending": null,
+  "h1": "Overtime Calculation",
+  "main": 127,
+  "url": "/masters-list/hr/overtime-calculation",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/quality-assurance-type",
+  "pending": null,
+  "h1": "Quality Assurance Type",
+  "main": 129,
+  "url": "/masters-list/hr/quality-assurance-type",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/standard-headcount",
+  "pending": null,
+  "h1": "Standard Headcount",
+  "main": 125,
+  "url": "/masters-list/hr/standard-headcount",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/hr/violation-policy",
+  "pending": null,
+  "h1": "Violation Policy",
+  "main": 123,
+  "url": "/masters-list/hr/violation-policy",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation",
+  "pending": null,
+  "h1": "Assignment Areas",
+  "main": 699,
+  "url": "/masters-list/operation/assignment-areas",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/assignment-areas",
+  "pending": null,
+  "h1": "Assignment Areas",
+  "main": 699,
+  "url": "/masters-list/operation/assignment-areas",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/task-mapping",
+  "pending": null,
+  "h1": "Task Mapping",
+  "main": 1109,
+  "url": "/masters-list/operation/task-mapping",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/sub-area",
+  "pending": null,
+  "h1": "Sub Area",
+  "main": 830,
+  "url": "/masters-list/operation/sub-area",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/area",
+  "pending": null,
+  "h1": "Area",
+  "main": 111,
+  "url": "/masters-list/operation/area",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/area-mapping",
+  "pending": null,
+  "h1": "Area Mapping",
+  "main": 119,
+  "url": "/masters-list/operation/area-mapping",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/area-settings",
+  "pending": null,
+  "h1": "Area Settings",
+  "main": 120,
+  "url": "/masters-list/operation/area-settings",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/item-concept-name",
+  "pending": null,
+  "h1": "Item Concept Name",
+  "main": 124,
+  "url": "/masters-list/operation/item-concept-name",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/item-main-group",
+  "pending": null,
+  "h1": "Item Main Group",
+  "main": 122,
+  "url": "/masters-list/operation/item-main-group",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/item-master",
+  "pending": null,
+  "h1": "Item Master",
+  "main": 118,
+  "url": "/masters-list/operation/item-master",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/item-pos-system",
+  "pending": null,
+  "h1": "Item Pos System",
+  "main": 122,
+  "url": "/masters-list/operation/item-pos-system",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/item-reporting-category",
+  "pending": null,
+  "h1": "Item Reporting Category",
+  "main": 130,
+  "url": "/masters-list/operation/item-reporting-category",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/item-sub-group-one",
+  "pending": null,
+  "h1": "Item Sub Group One",
+  "main": 125,
+  "url": "/masters-list/operation/item-sub-group-one",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/item-sub-group-two",
+  "pending": null,
+  "h1": "Item Sub Group Two",
+  "main": 125,
+  "url": "/masters-list/operation/item-sub-group-two",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/item-type-name",
+  "pending": null,
+  "h1": "Item Type Name",
+  "main": 121,
+  "url": "/masters-list/operation/item-type-name",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters-list/operation/item-unit",
+  "pending": null,
+  "h1": "Item Unit",
+  "main": 116,
+  "url": "/masters-list/operation/item-unit",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 895,
+  "url": "/home/overview",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 6207,
+  "url": "/home/overview",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1881,
+  "url": "/home/work-centre",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre/incidents",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 946,
+  "url": "/home/work-centre/incidents",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre/tasks",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1944,
+  "url": "/home/work-centre/tasks",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre/create-task",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1881,
+  "url": "/home/work-centre/create-task",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre/enquiry/add",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1709,
+  "url": "/home/work-centre/enquiry/add",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre/enquiry/history",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1416,
+  "url": "/home/work-centre/enquiry/history",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre/observations/add",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 3191,
+  "url": "/home/work-centre/observations/add",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre/snag-lists/add",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 3017,
+  "url": "/home/work-centre/snag-lists/add",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre/checklists/create",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1441,
+  "url": "/home/work-centre/checklists/create",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre/price-change",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1340,
+  "url": "/home/work-centre/price-change",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/work-centre/promotions",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1338,
+  "url": "/home/work-centre/promotions",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/assigned/verify",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 2688,
+  "url": "/home/assigned/verify",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/reports",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1185,
+  "url": "/home/reports",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/purchasing",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 2031,
+  "url": "/home/purchasing",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/budgets",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 3373,
+  "url": "/home/budgets",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/payment-settlement",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 946,
+  "url": "/home/payment-settlement",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/payment-settlement/petty-cash",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1908,
+  "url": "/home/payment-settlement/petty-cash",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/home/payment-settlement/add-supplier",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 1258,
+  "url": "/home/payment-settlement/add-supplier",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/tasks/TSK-2026-001",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 971,
+  "url": "/tasks/TSK-2026-001",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/tasks/TSK-2026-001/edit",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 971,
+  "url": "/tasks/TSK-2026-001/edit",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/tasks/does-not-exist",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 971,
+  "url": "/tasks/does-not-exist",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/tasks/does-not-exist/edit",
+  "pending": null,
+  "h1": "Good evening, Ahmad.",
+  "main": 971,
+  "url": "/tasks/does-not-exist/edit",
+  "notFound": false,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/definitely/not/a/route",
+  "pending": null,
+  "h1": "Page not found",
+  "main": 51,
+  "url": "/definitely/not/a/route",
+  "notFound": true,
+  "overflowX": false,
+  "issues": []
+ },
+ {
+  "path": "/masters/admin/not-a-master",
+  "pending": null,
+  "h1": "Page not found",
+  "main": 51,
+  "url": "/masters/admin/not-a-master",
+  "notFound": true,
+  "overflowX": false,
+  "issues": []
+ }
+]

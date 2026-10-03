@@ -2,6 +2,9 @@ import '@testing-library/jest-dom/vitest';
 
 window.scrollTo = () => undefined;
 Element.prototype.scrollIntoView = () => undefined;
+// jsdom lacks pointer capture, which Vaul calls on every pointerdown inside a drawer.
+Element.prototype.setPointerCapture = () => undefined;
+Element.prototype.releasePointerCapture = () => undefined;
 
 class TestResizeObserver implements ResizeObserver {
   disconnect() {}

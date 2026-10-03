@@ -287,4 +287,40 @@ describe('M7.1 Work Centre hub', () => {
     expect(screen.getByRole('columnheader', { name: 'Ref #' })).toBeVisible();
     expect(screen.getByRole('tab', { name: 'Open 12' })).toBeVisible();
   });
+
+  it('treats the hidden legacy incidents section like the rejected legacy-create child', () => {
+    for (const path of [
+      '/home/work-centre/incidents',
+      '/home/work-centre/incidents/add',
+      '/home/work-centre/create-task/legacy-create',
+    ]) {
+      renderPath(path);
+      expect(screen.getByTestId('not-found')).toBeVisible();
+      expect(document.querySelector('[data-migration-pending]')).toBeNull();
+      cleanup();
+    }
+  });
+
+  it.each([
+    ['/home/work-centre/create-task', 'create-task-view'],
+    ['/home/work-centre/tasks', 'tasks-view'],
+    ['/home/work-centre/enquiry/history', 'enquiries-view'],
+    ['/home/work-centre/observations/report', 'observations-view'],
+    ['/home/work-centre/snag-lists/listing', 'snag-lists-view'],
+  ])('still mounts the approved renderer for %s with no pending marker', (path, testId) => {
+    renderPath(path);
+    expect(screen.getByTestId(testId)).toBeVisible();
+    expect(document.querySelector('[data-migration-pending]')).toBeNull();
+  });
+
+  it.each([
+    '/home/work-centre/checklists',
+    '/home/work-centre/price-change',
+    '/home/work-centre/promotions',
+  ])('still renders the approved fallback listing for %s', (path) => {
+    renderPath(path);
+    expect(screen.queryByTestId('not-found')).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toBeVisible();
+    expect(document.querySelector('[data-migration-pending]')).toBeNull();
+  });
 });

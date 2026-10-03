@@ -5,15 +5,6 @@ import { navTrailForPath } from '@/app/navigation/model';
 import { NAV_TREE } from '@/app/navigation/nav.config';
 import { NotFoundPage } from '@/app/router/NotFoundPage';
 import { PlaceholderPage } from '@/app/router/PlaceholderPage';
-import { MigrationPending } from '@/shared/ui/feedback/MigrationPending';
-
-function PendingPage({ title }: { title: string }) {
-  return (
-    <main className="bg-canvas p-7">
-      <MigrationPending area={title} />
-    </main>
-  );
-}
 
 export function NavRoutePage() {
   const { pathname } = useLocation();
@@ -24,9 +15,5 @@ export function NavRoutePage() {
   if (!current) return <NotFoundPage />;
 
   const title = t(current.labelKey, { defaultValue: current.id });
-  return current.routeBehavior === 'migration-pending' ? (
-    <PendingPage title={title} />
-  ) : (
-    <PlaceholderPage title={title} />
-  );
+  return <PlaceholderPage title={title} />;
 }

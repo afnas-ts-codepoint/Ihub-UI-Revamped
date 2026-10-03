@@ -18,6 +18,5 @@ export type NavNode = Readonly<{
   topbar?: boolean;
   firstLeafRoute?: boolean;
   hideInTopNav?: boolean;
-  routeBehavior?: 'migration-pending' | 'placeholder';
   children?: readonly NavNode[];
 }>;

@@ -33,13 +33,6 @@ export const WORK_CENTRE_SECTIONS: readonly WorkCentreSectionConfig[] = [
     renderer: 'enquiries',
   },
   {
-    group: 'general',
-    id: 'incidents',
-    labelKey: 'sections.incidents',
-    renderer: 'pending',
-    visible: false,
-  },
-  {
     children: [
       { id: 'add', labelKey: 'children.observations.add' },
       { id: 'assignment', labelKey: 'children.observations.assignment' },

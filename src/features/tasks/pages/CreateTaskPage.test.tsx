@@ -90,7 +90,7 @@ describe('M8.3 Create Task page', () => {
     expect(rows[1]).toHaveTextContent('TASK-345678');
     expect(rows[1]).toHaveTextContent('Untitled task');
     expect(rows).toHaveLength(7);
-    await user.click(screen.getByRole('button', { exact: true, name: 'Board' }));
+    await user.click(screen.getByRole('button', { name: 'Board' }));
     expect(screen.getByTestId('task-board')).toHaveTextContent('Untitled task');
   });
 

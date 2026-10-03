@@ -25,8 +25,6 @@ function node(
   return { id, labelKey: labelKey(id), path, ...metadata, children };
 }
 
-const pending = { routeBehavior: 'migration-pending' } as const;
-
 function reportGroup(id: string, children: readonly string[]): NavNode {
   const groupId = `reports/${id}`;
   return node(
@@ -79,7 +77,7 @@ const home = node(
     node('dashboard/company', paths.home.view('company')),
     reports,
   ],
-  { ...pending, icon: 'dashboard' },
+  { icon: 'dashboard' },
 );
 
 const finance = node(

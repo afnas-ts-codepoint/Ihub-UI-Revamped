@@ -12,7 +12,6 @@ import {
   WORK_CENTRE_SECTIONS,
 } from '../constants/work-centre.config';
 import { paths } from '@/shared/config/paths';
-import { MigrationPending } from '@/shared/ui/feedback/MigrationPending';
 
 function renderTitle(title: string) {
   if (/[\u0600-\u06ff]/.test(title)) return title;
@@ -29,13 +28,13 @@ function renderTitle(title: string) {
 
 type WorkCentrePageProps = Readonly<{
   notFound?: ReactNode;
-  renderCreateTask?: () => ReactNode;
-  renderEnquiries?: (view: 'add' | 'history') => ReactNode;
-  renderObservations?: (
+  renderCreateTask: () => ReactNode;
+  renderEnquiries: (view: 'add' | 'history') => ReactNode;
+  renderObservations: (
     view: 'add' | 'assignment' | 'history' | 'report',
   ) => ReactNode;
-  renderSnagLists?: (view: 'add' | 'listing' | 'report') => ReactNode;
-  renderTasks?: () => ReactNode;
+  renderSnagLists: (view: 'add' | 'listing' | 'report') => ReactNode;
+  renderTasks: () => ReactNode;
 }>;
 
 export function WorkCentrePage({
@@ -71,12 +70,6 @@ export function WorkCentrePage({
       : activeChild === 'fill'
         ? 'Fill a Checklist'
         : 'Create a New Checklist';
-  const destinationLabel = activeChild
-    ? t(
-        activeSection.children?.find((item) => item.id === activeChild)
-          ?.labelKey ?? activeSection.labelKey,
-      )
-    : t(activeSection.labelKey);
 
   return (
     <section className="rise">
@@ -170,33 +163,29 @@ export function WorkCentrePage({
       ) : null}
 
       {activeSection.renderer === 'create-task' ? (
-        (renderCreateTask?.() ?? <MigrationPending area={destinationLabel} />)
+        renderCreateTask()
       ) : activeSection.renderer === 'fallback' ? (
         <WorkCentreFallback
           kind={activeSection.id === 'checklists' ? 'sheet' : 'enquiry'}
         />
       ) : activeSection.renderer === 'enquiries' ? (
-        (renderEnquiries?.(activeChild === 'history' ? 'history' : 'add') ?? (
-          <MigrationPending area={destinationLabel} />
-        ))
+        renderEnquiries(activeChild === 'history' ? 'history' : 'add')
       ) : activeSection.renderer === 'observations' ? (
-        (renderObservations?.(
+        renderObservations(
           activeChild === 'assignment' ||
             activeChild === 'history' ||
             activeChild === 'report'
             ? activeChild
             : 'add',
-        ) ?? <MigrationPending area={destinationLabel} />)
+        )
       ) : activeSection.renderer === 'snag-lists' ? (
-        (renderSnagLists?.(
+        renderSnagLists(
           activeChild === 'listing' || activeChild === 'report'
             ? activeChild
             : 'add',
-        ) ?? <MigrationPending area={destinationLabel} />)
-      ) : activeSection.renderer === 'tasks' ? (
-        (renderTasks?.() ?? <MigrationPending area={destinationLabel} />)
+        )
       ) : (
-        <MigrationPending area={destinationLabel} />
+        renderTasks()
       )}
     </section>
   );
