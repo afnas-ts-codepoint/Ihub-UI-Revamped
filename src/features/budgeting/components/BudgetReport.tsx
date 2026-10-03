@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { projectedRevenueChart, projectedRevenueRows } from '../data/home-budgeting.mock';
-import { BarChart } from '@/shared/ui/charts/BarChart';
+import { LazyBarChart } from '@/shared/ui/charts/LazyBarChart';
 import { Chip } from '@/shared/ui/chip/Chip';
 import { TabbedTable, type TableColumn } from '@/shared/table';
 
@@ -42,7 +42,7 @@ export function BudgetReport() {
       ]} />
       <div className="mb-4 rounded-xl border border-line bg-surface p-[26px]">
         <BudgetSectionHeading subtitle={t('home.report.chart.subtitle')} title={t('home.report.chart.title')} />
-        <BarChart ariaLabel={t('home.report.chart.ariaLabel')} data={projectedRevenueChart} height={140} />
+        <LazyBarChart ariaLabel={t('home.report.chart.ariaLabel')} data={projectedRevenueChart} height={140} />
       </div>
       <TabbedTable
         columns={columns}

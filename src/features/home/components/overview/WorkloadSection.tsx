@@ -1,8 +1,13 @@
+import { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { WORKLOAD_LEGEND, WorkloadHeatmap } from '@/features/tasks';
+import { loadWorkloadHeatmap, WORKLOAD_LEGEND } from '@/features/tasks';
 
 import { HomeSectionHead } from '../sections/HomeSectionHead';
+
+const WorkloadHeatmap = lazy(async () => ({
+  default: await loadWorkloadHeatmap(),
+}));
 
 /**
  * Department / employee workload heatmap. It is the Tasks dashboard's
@@ -42,7 +47,13 @@ export function WorkloadSection() {
         sub={t('overview.workload.subtitle')}
         title={t('overview.workload.title')}
       />
-      <WorkloadHeatmap locale={locale} soft={false} />
+      <Suspense
+        fallback={
+          <div aria-hidden="true" className="h-64 animate-pulse rounded-lg bg-inset" />
+        }
+      >
+        <WorkloadHeatmap locale={locale} soft={false} />
+      </Suspense>
     </section>
   );
 }

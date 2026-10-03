@@ -5,7 +5,7 @@ export type BarChartDatum = Readonly<{
   value: number;
 }>;
 
-type BarChartProps = Readonly<{
+export type BarChartProps = Readonly<{
   ariaLabel: string;
   data: readonly BarChartDatum[];
   height?: number;

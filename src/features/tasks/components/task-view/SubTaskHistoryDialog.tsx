@@ -1,6 +1,6 @@
 import { Check, ChevronDown, Clock, Edit as EditIcon, Filter, Folder, Plus, Search } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { lazy, Suspense, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -12,7 +12,6 @@ import {
   type SubtaskTimelineEntryType,
 } from '../../data/taskView.mock';
 import { Chip } from '@/shared/ui/chip/Chip';
-import { GanttChart } from '@/shared/ui/charts/GanttChart';
 import { DialogBody, DialogContent, DialogHeader, DialogRoot, DialogTitle } from '@/shared/ui/overlay/Dialog';
 
 const TIMELINE_META: Readonly<Record<SubtaskTimelineEntryType, Readonly<{ icon: LucideIcon; tone: string }>>> = {
@@ -23,6 +22,11 @@ const TIMELINE_META: Readonly<Record<SubtaskTimelineEntryType, Readonly<{ icon: 
 };
 
 const GANTT_VIEWS: readonly GanttViewOption[] = ['Day', 'Week', 'Month'];
+
+const GanttChart = lazy(async () => {
+  const module = await import('@/shared/ui/charts/GanttChart');
+  return { default: module.GanttChart };
+});
 
 /**
  * Sub Task History dialog — Timeline Log and Gantt Chart tabs over the
@@ -307,7 +311,13 @@ export function SubTaskHistoryDialog({
                 </div>
               </div>
               {filtered.length ? (
-                <GanttChart columns={ganttColumns} rowHeaderLabel={t('subtaskHistory.subTask')} rows={ganttRows} />
+                <Suspense
+                  fallback={
+                    <div aria-hidden="true" className="h-64 animate-pulse rounded-xl bg-inset" />
+                  }
+                >
+                  <GanttChart columns={ganttColumns} rowHeaderLabel={t('subtaskHistory.subTask')} rows={ganttRows} />
+                </Suspense>
               ) : (
                 <p className="m-0 rounded-lg border border-dashed border-line-strong py-8 text-center text-sm-plus text-fg-3">
                   {t('subtaskHistory.noResults')}

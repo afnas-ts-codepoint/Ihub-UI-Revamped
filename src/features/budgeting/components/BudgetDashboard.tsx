@@ -2,7 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import { BudgetSectionHeading } from './BudgetSectionHeading';
 import { BudgetStatRow } from './BudgetStatRow';
-import { BarChart, type BarChartDatum } from '@/shared/ui/charts/BarChart';
+import type { BarChartDatum } from '@/shared/ui/charts/BarChart';
+import { LazyBarChart } from '@/shared/ui/charts/LazyBarChart';
 
 export function BudgetDashboard({
   chart,
@@ -28,7 +29,7 @@ export function BudgetDashboard({
           subtitle={t('dashboard.chart.subtitle')}
           title={t('dashboard.chart.title')}
         />
-        <BarChart ariaLabel={t('dashboard.chart.ariaLabel')} data={chart} />
+        <LazyBarChart ariaLabel={t('dashboard.chart.ariaLabel')} data={chart} />
       </div>
     </>
   );

@@ -13,7 +13,8 @@ Do not place prototype source code in this repository.
 
 ## Current status
 
-Planning is complete, and M1.1 scaffold and quality-gate implementation is approved and completed.
+Migration implementation and full regression are complete. M12.2 production
+readiness is in review; release sign-off (M12.3) has not started.
 
 ## Documentation
 
@@ -44,6 +45,30 @@ npm ci
 npm run dev
 ```
 
+## Production build
+
+```sh
+cp .env.example .env.production
+npm ci
+npm run build
+npm run check:bundle
+npm run preview
+```
+
+The build has two public, build-time configuration values:
+
+- `VITE_BASE_PATH`: deployment mount path, `/` by default. For example,
+  `/ihub` emits `/ihub/assets/...` URLs and configures the router basename.
+- `VITE_ROUTER_MODE`: `browser` by default; use `hash` only when the host cannot
+  provide the required SPA rewrite.
+
+These values are embedded in the browser bundle. Do not put secrets in any
+`VITE_*` value. Browser mode requires the host to serve `index.html` for
+unknown application paths under `VITE_BASE_PATH`.
+
+See the [production runbook](docs/operations/PRODUCTION_RUNBOOK.md) for build,
+deployment, verification, and recovery details.
+
 ## Quality gates
 
 ```sh
@@ -52,9 +77,18 @@ npm run lint
 npm run test
 npm run build
 npm run check:bundle
+npm run report:pending -- --release
 ```
 
-## Implementation status
+Run the complete release-oriented suite with `npm run verify:release`.
+
+## Current implementation status
+
+The authoritative current state is in
+[`MASTER_TASK_LIST.md`](docs/tasks/MASTER_TASK_LIST.md). Do not infer release
+approval from a successful build; M12.3 is the separate human sign-off gate.
+
+## Historical scaffold notes
 
 `M1.1 — Scaffold & Quality Gates: COMPLETED`
 
@@ -64,4 +98,4 @@ npm run check:bundle
 
 `M1.4 — Router Skeleton, Error Handling & Migration Markers: COMPLETED`
 
-M2.1 has not started.
+This scaffold snapshot is retained for historical context.

@@ -64,4 +64,16 @@ describe('M8.2 task dashboard config store', () => {
       ids: [],
     }).ids).toEqual([]);
   });
+
+  it('keeps the default dashboard when persisted JSON is malformed', async () => {
+    localStorage.setItem(taskDashboardConfigStorageKey, '{not-json');
+
+    await expect(
+      useTaskDashboardConfigStore.persist.rehydrate(),
+    ).resolves.toBeUndefined();
+    expect(
+      useTaskDashboardConfigStore.getState().organizationConfig,
+    ).toEqual(DEFAULT_TASK_DASHBOARD_CONFIG);
+    expect(useTaskDashboardConfigStore.getState().personalConfig).toBeNull();
+  });
 });

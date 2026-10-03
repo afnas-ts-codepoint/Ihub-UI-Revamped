@@ -4,7 +4,8 @@ import { BudgetSectionHeading } from './BudgetSectionHeading';
 import { BudgetStatRow } from './BudgetStatRow';
 import type { DepartmentBalance } from '../types/budgeting.types';
 import { Chip } from '@/shared/ui/chip/Chip';
-import { BarChart, type BarChartDatum } from '@/shared/ui/charts/BarChart';
+import type { BarChartDatum } from '@/shared/ui/charts/BarChart';
+import { LazyBarChart } from '@/shared/ui/charts/LazyBarChart';
 import { TabbedTable, type TableColumn } from '@/shared/table';
 
 const toneByBalanceStatus: Record<
@@ -92,7 +93,7 @@ export function BalanceReport({ chart, rows }: BalanceReportProps) {
           subtitle={t('balance.chart.subtitle')}
           title={t('balance.chart.title')}
         />
-        <BarChart ariaLabel={t('balance.chart.ariaLabel')} data={chart} />
+        <LazyBarChart ariaLabel={t('balance.chart.ariaLabel')} data={chart} />
       </div>
       <div className="mt-4">
         <TabbedTable

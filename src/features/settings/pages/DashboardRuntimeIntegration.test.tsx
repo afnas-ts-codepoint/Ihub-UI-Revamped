@@ -51,6 +51,7 @@ async function renderBoth() {
     </>,
   );
   await user.click(screen.getByRole('button', { name: 'Dashboard' }));
+  await screen.findByTestId('task-dashboard', undefined, { timeout: 5_000 });
   return user;
 }
 

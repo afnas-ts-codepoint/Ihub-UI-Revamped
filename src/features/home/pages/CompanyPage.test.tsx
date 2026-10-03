@@ -13,7 +13,7 @@ afterEach(async () => {
 });
 
 describe('CompanyPage', () => {
-  it('renders the quarter analytics card with its fixed figures', () => {
+  it('renders the quarter analytics card with its fixed figures', async () => {
     render(<CompanyPage />);
     expect(screen.getByRole('heading', { name: 'This quarter' })).toBeVisible();
     expect(screen.getByText('Revenue & operating tracker')).toBeVisible();
@@ -21,7 +21,7 @@ describe('CompanyPage', () => {
     for (const text of ['KWD 6.9M', '+12.4% YoY', '1,248', '+48 this Q', '62', '↑ 4 pts']) {
       expect(screen.getByText(text)).toBeVisible();
     }
-    const chart = screen.getByRole('img', { name: 'Monthly revenue and operating trend' });
+    const chart = await screen.findByRole('img', { name: 'Monthly revenue and operating trend' });
     expect(chart.querySelectorAll('[data-value]')).toHaveLength(12);
   });
 

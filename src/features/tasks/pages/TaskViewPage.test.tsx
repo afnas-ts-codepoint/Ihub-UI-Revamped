@@ -168,7 +168,7 @@ describe('M8.4 Task View page', () => {
     expect(screen.getByText('Initial Assessment')).toBeVisible();
 
     await user.click(screen.getByRole('button', { name: 'Gantt Chart' }));
-    expect(screen.getByTestId('gantt-chart')).toBeVisible();
+    expect(await screen.findByTestId('gantt-chart')).toBeVisible();
     expect(screen.getByText('Total Tasks')).toBeVisible();
   });
 

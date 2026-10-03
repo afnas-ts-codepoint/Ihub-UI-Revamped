@@ -50,9 +50,13 @@ describe('M5.1 Home routes', () => {
     expect(screen.getByRole('heading', { name: 'Create Incident Report' })).toBeVisible();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     fireEvent.click(withinTab(subTabs, 'Live Incidents'));
+    expect(
+      await screen.findByRole('heading', { name: 'Incident center' }),
+    ).toBeVisible();
     expect(router.state.location.pathname).toBe('/home/incidents/live');
-    expect(withinTab(subTabs, 'Live Incidents')).toHaveAttribute('aria-current', 'page');
-    expect(screen.getByRole('heading', { name: 'Incident center' })).toBeVisible();
+    expect(
+      withinTab(await screen.findByTestId('incidents-sub-tabs'), 'Live Incidents'),
+    ).toHaveAttribute('aria-current', 'page');
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();
   });

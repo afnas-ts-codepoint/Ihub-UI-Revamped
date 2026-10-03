@@ -89,6 +89,9 @@ describe('M10.3 /home/incidents/live', () => {
     expect(screen.queryByTestId('incident-card-INC-2034')).not.toBeInTheDocument();
 
     fireEvent.click(within(subTabs).getByRole('button', { name: 'Incident Reports' }));
+    expect(
+      await screen.findByRole('heading', { name: 'Create Incident Report' }),
+    ).toBeVisible();
     expect(router.state.location.pathname).toBe('/home/incidents/reports');
     fireEvent.click(within(await screen.findByTestId('incidents-sub-tabs')).getByRole('button', { name: 'Live Incidents' }));
     expect(await screen.findByTestId('incident-center')).toBeVisible();

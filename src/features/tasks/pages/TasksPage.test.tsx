@@ -96,7 +96,7 @@ describe('M8.1 Tasks page', () => {
     const user = userEvent.setup();
     render(<TasksPage />);
     await user.click(screen.getByRole('button', { name: 'Dashboard' }));
-    const dashboard = screen.getByTestId('task-dashboard');
+    const dashboard = await screen.findByTestId('task-dashboard');
     expect(dashboard.querySelectorAll('[data-widget-id]')).toHaveLength(11);
     expect(screen.getByText('Task metrics')).toBeVisible();
     expect(screen.getByText('SLA performance')).toBeVisible();

@@ -1,9 +1,9 @@
+import { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
 import { CommandSearch } from '@/app/layouts/app-shell/command-search/CommandSearch';
 import { ThemeToggle } from '@/app/layouts/app-shell/ThemeToggle';
-import { NotificationsMenu } from '@/features/notifications';
 import { useCurrentUser } from '@/features/organization';
 import { paths } from '@/shared/config/paths';
 import { normalizeLocale } from '@/shared/i18n/i18n';
@@ -14,6 +14,11 @@ import { usePreferencesStore } from '@/store/preferences.store';
 
 const actionClassName =
   'flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-fg-2 hover:bg-inset hover:text-fg';
+
+const NotificationsMenu = lazy(async () => {
+  const module = await import('@/features/notifications');
+  return { default: module.NotificationsMenu };
+});
 
 function LanguageSwitch() {
   const { i18n, t } = useTranslation('common');
@@ -62,7 +67,11 @@ export function TopBarActions() {
       >
         <Icon name="settings" size={18} />
       </button>
-      <NotificationsMenu onViewAll={() => void navigate(paths.notifications)} />
+      <Suspense fallback={<span aria-hidden className="h-8 w-8" />}>
+        <NotificationsMenu
+          onViewAll={() => void navigate(paths.notifications)}
+        />
+      </Suspense>
       <Avatar
         accessibleName={getLocalizedText(currentUser.data.name, locale)}
         name={currentUser.data.name.en}

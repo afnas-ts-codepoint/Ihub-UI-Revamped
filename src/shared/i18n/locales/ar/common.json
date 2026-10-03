@@ -1,4 +1,8 @@
 {
+  "routeLoading": {
+    "label": "جارٍ تحميل الصفحة",
+    "message": "جارٍ التحميل…"
+  },
   "calendar": {
     "months": [
       "يناير",

@@ -1,4 +1,8 @@
 {
+  "routeLoading": {
+    "label": "Loading page",
+    "message": "Loading…"
+  },
   "calendar": {
     "months": [
       "January",

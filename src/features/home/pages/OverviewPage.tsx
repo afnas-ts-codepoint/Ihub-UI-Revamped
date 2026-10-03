@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 
 import { paths } from '@/shared/config/paths';
@@ -6,18 +6,26 @@ import { paths } from '@/shared/config/paths';
 import { CalendarCard } from '../components/company/CalendarCard';
 import { IncidentCenter } from '../components/incidents/IncidentCenter';
 import { LiveFeed } from '../components/incidents/LiveFeed';
-import { AnalyticsOverview } from '../components/overview/AnalyticsOverview';
 import { NeedsYouNow } from '../components/overview/NeedsYouNow';
 import { OnTheClock, type ClockJump } from '../components/overview/OnTheClock';
 import { RecommendedNextAction } from '../components/overview/RecommendedNextAction';
 import { TrackerCard } from '../components/overview/TrackerCard';
-import { WorkloadSection } from '../components/overview/WorkloadSection';
 import { jobOrderTaskDraft } from '../domain/taskDraft';
 import { rankIncidents, rankQueue } from '../domain/prioritization';
 import { returnedFormItem } from '../domain/returnedItem';
 import { useHomeQueueActions } from '../hooks/useHomeQueueActions';
 import { useHomeQueueStore } from '../store/homeQueue.store';
 import type { QueueIncident, TrackedTask } from '../types/queue.types';
+
+const AnalyticsOverview = lazy(async () => {
+  const module = await import('../components/overview/AnalyticsOverview');
+  return { default: module.AnalyticsOverview };
+});
+
+const WorkloadSection = lazy(async () => {
+  const module = await import('../components/overview/WorkloadSection');
+  return { default: module.WorkloadSection };
+});
 
 const JUMP_PATH: Readonly<Record<ClockJump, string>> = {
   approvals: paths.home.view('approvals'),
@@ -138,8 +146,14 @@ export function OverviewPage() {
           }
         }}
       />
-      <WorkloadSection />
-      <AnalyticsOverview />
+      <Suspense
+        fallback={
+          <div aria-hidden="true" className="mt-6 h-64 animate-pulse rounded-lg bg-inset" />
+        }
+      >
+        <WorkloadSection />
+        <AnalyticsOverview />
+      </Suspense>
       <div className="mt-6 grid grid-cols-[minmax(0,1.62fr)_minmax(0,1fr)] items-start gap-6 max-desktop:grid-cols-[minmax(0,1fr)]">
         <div className="flex min-w-0 flex-col gap-4">
           <TrackerCard

@@ -43,4 +43,14 @@ describe('preferences store', () => {
 
     setItem.mockRestore();
   });
+
+  it('keeps safe defaults when persisted JSON is malformed', async () => {
+    localStorage.setItem(preferencesStorageKey, '{not-json');
+
+    await expect(usePreferencesStore.persist.rehydrate()).resolves.toBeUndefined();
+    expect(usePreferencesStore.getState()).toMatchObject({
+      locale: 'en',
+      theme: 'paper',
+    });
+  });
 });

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { BarChart } from '@/shared/ui/charts/BarChart';
+import { LazyBarChart } from '@/shared/ui/charts/LazyBarChart';
 import { Chip } from '@/shared/ui/chip/Chip';
 
 import {
@@ -41,7 +41,7 @@ export function AnalyticsCard() {
           </div>
         ))}
       </div>
-      <BarChart
+      <LazyBarChart
         ariaLabel={t('company.analytics.chartLabel')}
         data={ANALYTICS_MONTHLY_SERIES}
         height={110}

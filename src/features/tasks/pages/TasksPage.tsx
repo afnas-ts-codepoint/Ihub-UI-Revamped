@@ -1,9 +1,8 @@
 import { Columns3, Download, LayoutDashboard, List, Plus, RefreshCw, Settings } from 'lucide-react';
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { TaskBoard } from '../components/TaskBoard';
-import { TaskDashboard } from '../components/TaskDashboard';
 import { TaskDetailDialog } from '../components/TaskDetailDialog';
 import { TaskTable } from '../components/TaskTable';
 import {
@@ -19,6 +18,11 @@ import {
   RecordFilter,
   type RecordFilterValue,
 } from '@/features/organization';
+
+const TaskDashboard = lazy(async () => {
+  const module = await import('../components/TaskDashboard');
+  return { default: module.TaskDashboard };
+});
 
 type TaskView = 'board' | 'dashboard' | 'list';
 type ListStatus = 'all' | 'completed' | 'critical' | 'new' | 'progress';
@@ -245,7 +249,13 @@ export function TasksPage() {
       ) : view === 'board' ? (
         <TaskBoardView kind={kind} onOpen={setActiveId} />
       ) : (
-        <TaskDashboard kind={kind} onOpen={setActiveId} tasks={tasks} />
+        <Suspense
+          fallback={
+            <div aria-hidden="true" className="h-64 animate-pulse rounded-lg bg-inset" />
+          }
+        >
+          <TaskDashboard kind={kind} onOpen={setActiveId} tasks={tasks} />
+        </Suspense>
       )}
 
       <TaskDetailDialog

@@ -2,6 +2,16 @@
 
 This file records approved changes to migration sequencing, release flow, task scope, or dependencies. Implementation completion continues to be tracked in `docs/tasks/`.
 
+## 2026-10-03 - M12.2 production-readiness remediation (Review)
+
+- Activated M12.2 after confirming the clean, approved M12.1 baseline and an empty active-task register; M12.3 remains untouched.
+- Resolved D17 with the approved BrowserRouter + SPA rewrite default and the existing hash-router fallback. `VITE_BASE_PATH` now configures both emitted asset paths and the runtime basename.
+- Added production route/chart chunks, safe vendor/shared chunk groups, an accessible cold-route fallback, explicit source-map policy, and bundle enforcement for prototype tooling, 500 KiB JavaScript limits, eager SheetJS, and eager chart code.
+- Added malformed-storage regression coverage for preferences and both dashboard configuration stores.
+- Added `.env.example`, updated README production commands, added the production runbook, `verify:release`, and the CI release-pending audit.
+- Final evidence: 153 files / 1,503 tests passed; final router follow-up 96/96; root and `/portal/ihub` builds and production-browser smoke passed; release-marker report remained 0.
+- M12.2 stopped at Review. No dependency change, commit, push, release tag, or M12.3 sign-off was performed.
+
 ## 2026-10-03 - M11.3 dashboard configuration runtime integration implemented and approved
 
 - M11.3 (dependencies M11.2, M8.2, M10.2 - all approved) was started on the user's instruction. After analysis the user chose "Tasks only, prototype-faithful": the Settings builder's Default and personal saves for the `tasks` dashboard now write to the M8.2 `taskDashboardConfig.store`, which the Tasks dashboard renders live; Overview stays fixed and Role/Department/User scopes stay authoring-only (D34). D24 resolved; D23, D25, D26 retained.

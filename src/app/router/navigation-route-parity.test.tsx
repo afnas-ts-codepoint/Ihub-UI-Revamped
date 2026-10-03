@@ -140,7 +140,11 @@ describe('G6 complete navigation and route parity', () => {
           const heading =
             HEADING_OVERRIDES[current?.id ?? '']?.[locale] ?? String(title);
           expect(
-            await screen.findByRole('heading', { name: heading }),
+            await screen.findByRole(
+              'heading',
+              { name: heading },
+              { timeout: 5_000 },
+            ),
           ).toBeInTheDocument();
         }
         unmount();
@@ -347,7 +351,13 @@ describe('Phase 2 section 11 URL map', () => {
     [paths.home.view('sla'), 'SLA & Compliance'],
   ])('routes the migrated Home screen at %s', async (path, heading) => {
     const { router } = renderRoute(path);
-    expect(await screen.findByTestId('home-top-banner')).toBeInTheDocument();
+    expect(
+      await screen.findByTestId(
+        'home-top-banner',
+        undefined,
+        { timeout: 5_000 },
+      ),
+    ).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: heading })).toBeInTheDocument();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     router.dispose();

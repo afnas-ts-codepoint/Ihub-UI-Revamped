@@ -36,3 +36,6 @@ jobs:
 
       - name: Check bundle
         run: npm run check:bundle
+
+      - name: Check release migration markers
+        run: npm run report:pending -- --release

@@ -1,11 +1,16 @@
+import { lazy, Suspense } from 'react';
 import { Outlet, useLocation, useMatches } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
 import { navTrailForPath } from '@/app/navigation/model';
 import { NAV_TREE } from '@/app/navigation/nav.config';
 import { reportHandleFromMatches } from '@/app/router/handles';
-import { SectionReport } from '@/features/reports';
 import { useSearchParamState } from '@/shared/hooks/useSearchParamState';
+
+const SectionReport = lazy(async () => {
+  const module = await import('@/features/reports');
+  return { default: module.SectionReport };
+});
 
 const sectionViews = ['section', 'report'] as const;
 
@@ -50,7 +55,9 @@ export function SectionLayout() {
         </div>
       </div>
       {view === 'report' ? (
-        <SectionReport reportKey={handle?.reportKey} title={title} />
+        <Suspense fallback={null}>
+          <SectionReport reportKey={handle?.reportKey} title={title} />
+        </Suspense>
       ) : (
         <div className="[&>main]:bg-transparent [&>main]:p-0 [&>main>header]:mb-7 [&>main>header>h1]:mt-0 [&>main>header>h1]:text-[34px] [&>main>header>h1]:font-medium [&>main>header>h1]:leading-[1.1] [&>main>header>h1]:tracking-[-0.025em] [&>main>header>p]:hidden [&>main>div]:mt-0">
           <Outlet />

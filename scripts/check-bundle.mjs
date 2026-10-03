@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { basename, extname, join } from 'node:path';
 
 const outputDirectory = 'dist';
@@ -28,6 +28,11 @@ const files = readdirSync(outputDirectory, {
 const bundleFiles = files.filter((file) =>
   ['.css', '.html', '.js'].includes(extname(file)),
 );
+const sourceMaps = files.filter((file) => extname(file) === '.map');
+
+if (sourceMaps.length > 0) {
+  throw new Error(`Production source maps found: ${sourceMaps.join(', ')}`);
+}
 
 if (!bundleFiles.some((file) => extname(file) === '.js')) {
   throw new Error('Build output contains no JavaScript bundle');
@@ -49,6 +54,16 @@ for (const file of bundleFiles) {
   }
 }
 
+const oversizedScripts = bundleFiles.filter(
+  (file) => extname(file) === '.js' && statSync(file).size > 500 * 1024,
+);
+
+if (oversizedScripts.length > 0) {
+  throw new Error(
+    `JavaScript chunks exceed 500 KiB: ${oversizedScripts.map((file) => basename(file)).join(', ')}`,
+  );
+}
+
 const xlsxChunks = bundleFiles.filter(
   (file) => extname(file) === '.js' && basename(file).startsWith('xlsx-'),
 );
@@ -66,9 +81,28 @@ if (initialScripts.some((source) => source?.includes('/xlsx-'))) {
   throw new Error('SheetJS is eagerly referenced by dist/index.html');
 }
 
+const initialScriptContents = initialScripts
+  .map((source) => source?.split('/').at(-1))
+  .filter(Boolean)
+  .map((file) => readFileSync(join(outputDirectory, 'assets', file), 'utf8'))
+  .join('\n');
+
+for (const marker of [
+  'analytics-overview',
+  'budget-chart-bars',
+  'gantt-chart',
+  'task-dashboard',
+]) {
+  if (initialScriptContents.includes(marker)) {
+    throw new Error(`Chart marker found in initial scripts: ${marker}`);
+  }
+}
+
 const xlsxContents = readFileSync(xlsxChunks[0], 'utf8');
 if (!xlsxContents.includes('SheetJS')) {
   throw new Error('The lazy xlsx chunk does not contain the expected SheetJS code');
 }
 
-console.log(`Bundle check passed (${bundleFiles.length} files inspected; SheetJS isolated in ${basename(xlsxChunks[0])}).`);
+console.log(
+  `Bundle check passed (${bundleFiles.length} files inspected; no source maps or >500 KiB scripts; SheetJS and charts are lazy).`,
+);

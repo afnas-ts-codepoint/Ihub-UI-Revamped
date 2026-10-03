@@ -4,59 +4,19 @@ import {
   Navigate,
   ScrollRestoration,
   type RouteObject,
-  useParams,
 } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 import { AppShell } from '@/app/layouts/app-shell/AppShell';
 import { SectionLayout } from '@/app/layouts/section/SectionLayout';
-import { AppraisalPage } from '@/features/appraisal';
-import {
-  BudgetingPage,
-  defaultHomeBudgetSection,
-  HomeBudgetingPage,
-  isHomeBudgetSection,
-} from '@/features/budgeting';
-import { ChecklistPage } from '@/features/checklists';
-import { EnquiriesPage } from '@/features/enquiries';
-import { HISTORY_ROUTE_PATHS, HistoryPage } from '@/features/history';
-import { OvertimePage } from '@/features/hr';
-import {
-  ApprovalsPage,
-  AssignedPage,
-  CompanyPage,
-  HomeBannerLayout,
-  HomeIncidentsPage,
-  HomeLayout,
-  isAssignedQueue,
-  OverviewPage,
-  HomeTasksPage,
-  ReportsPage,
-} from '@/features/home';
-import { NotificationsPage } from '@/features/notifications';
-import { ObservationsPage } from '@/features/observations';
-import {
-  HomePaymentSettlementPage,
-  isHomePaymentSettlementModule,
-} from '@/features/payment-settlement';
-import { SnagListsPage } from '@/features/snag-lists';
-import {
-  defaultHomePurchasingSection,
-  HomePurchasingPage,
-  isHomePurchasingSection,
-} from '@/features/purchasing';
-import { ReportsLibraryPage } from '@/features/reports';
-import { SettingsConfigurationPage } from '@/features/settings';
-import { SlaPage } from '@/features/sla';
-import { CreateTaskPage, TaskEditPage, TasksPage, TaskViewPage } from '@/features/tasks';
-import { WorkflowsPage } from '@/features/workflows';
-import { WorkCentrePage } from '@/features/work-centre';
+import { HISTORY_ROUTE_PATHS } from '@/features/history';
 import { NavRoutePage } from '@/app/router/NavRoutePage';
 import { NotFoundPage } from '@/app/router/NotFoundPage';
 import {
   MasterCategoryRedirect,
-  MasterRoutePage,
   MastersRootRedirect,
-} from '@/app/router/MasterRoutePage';
+  type MasterRouteMode,
+} from '@/app/router/MasterRedirects';
 import { RouteErrorPage } from '@/app/router/RouteErrorPage';
 import { env, type AppEnvironment } from '@/shared/config/env';
 import { paths } from '@/shared/config/paths';
@@ -71,47 +31,20 @@ function RootRoute() {
   );
 }
 
-function HomeAssignedRoute() {
-  const { queue } = useParams();
-  return queue && isAssignedQueue(queue) ? (
-    <AssignedPage queue={queue} />
-  ) : (
-    <NotFoundPage />
+function RouteLoadingFallback() {
+  const { t } = useTranslation('common');
+
+  return (
+    <main
+      aria-label={t('routeLoading.label')}
+      className="grid min-h-screen place-items-center bg-canvas text-sm text-fg-3"
+    >
+      {t('routeLoading.message')}
+    </main>
   );
 }
 
-function HomeBudgetingRoute() {
-  const { section } = useParams<{ section?: string }>();
-  if (section == null)
-    return <HomeBudgetingPage section={defaultHomeBudgetSection} />;
-  return isHomeBudgetSection(section) ? (
-    <HomeBudgetingPage section={section} />
-  ) : (
-    <NotFoundPage />
-  );
-}
-
-function HomePaymentSettlementRoute() {
-  const { module } = useParams<{ module?: string }>();
-  return isHomePaymentSettlementModule(module) ? (
-    <HomePaymentSettlementPage module={module} />
-  ) : (
-    <NotFoundPage />
-  );
-}
-
-function HomePurchasingRoute() {
-  const { section } = useParams<{ section?: string }>();
-  if (section == null)
-    return <HomePurchasingPage section={defaultHomePurchasingSection} />;
-  return isHomePurchasingSection(section) ? (
-    <HomePurchasingPage section={section} />
-  ) : (
-    <NotFoundPage />
-  );
-}
-
-const mastersRoute = (mode: 'masters' | 'masters-list'): RouteObject => ({
+const mastersRoute = (mode: MasterRouteMode): RouteObject => ({
   path: mode,
   children: [
     { index: true, element: <MastersRootRedirect mode={mode} /> },
@@ -119,7 +52,15 @@ const mastersRoute = (mode: 'masters' | 'masters-list'): RouteObject => ({
       path: ':category',
       children: [
         { index: true, element: <MasterCategoryRedirect mode={mode} /> },
-        { path: ':item', element: <MasterRoutePage /> },
+        {
+          path: ':item',
+          lazy: async () => {
+            const { MasterRoutePage } = await import(
+              '@/app/router/MasterRoutePage'
+            );
+            return { Component: MasterRoutePage };
+          },
+        },
       ],
     },
   ],
@@ -130,11 +71,15 @@ export const appRoutes: RouteObject[] = [
     path: '/',
     element: <RootRoute />,
     errorElement: <RouteErrorPage />,
+    hydrateFallbackElement: <RouteLoadingFallback />,
     children: [
       { index: true, element: <Navigate replace to={paths.home.root} /> },
       {
         path: 'home',
-        element: <HomeLayout />,
+        lazy: async () => {
+          const { HomeLayout } = await import('@/features/home');
+          return { Component: HomeLayout };
+        },
         children: [
           {
             index: true,
@@ -142,27 +87,52 @@ export const appRoutes: RouteObject[] = [
           },
           {
             path: 'overview',
-            element: <OverviewPage />,
+            lazy: async () => {
+              const { OverviewRoute } = await import(
+                '@/app/router/lazy/home-chart.routes'
+              );
+              return { Component: OverviewRoute };
+            },
             handle: { homeTab: 'overview' },
           },
           {
             path: 'approvals',
-            element: <ApprovalsPage />,
+            lazy: async () => {
+              const { ApprovalsRoute } = await import(
+                '@/app/router/lazy/home.routes'
+              );
+              return { Component: ApprovalsRoute };
+            },
             handle: { homeTab: 'approvals' },
           },
           {
             path: 'tasks',
-            element: <HomeTasksPage />,
+            lazy: async () => {
+              const { HomeTasksRoute } = await import(
+                '@/app/router/lazy/home.routes'
+              );
+              return { Component: HomeTasksRoute };
+            },
             handle: { homeTab: 'tasks' },
           },
           {
             path: 'company',
-            element: <CompanyPage />,
+            lazy: async () => {
+              const { CompanyRoute } = await import(
+                '@/app/router/lazy/home-chart.routes'
+              );
+              return { Component: CompanyRoute };
+            },
             handle: { homeTab: 'company' },
           },
           {
             path: 'assigned/:queue',
-            element: <HomeAssignedRoute />,
+            lazy: async () => {
+              const { AssignedRoute } = await import(
+                '@/app/router/lazy/home.routes'
+              );
+              return { Component: AssignedRoute };
+            },
             handle: { homeTab: 'assigned' },
           },
           {
@@ -176,73 +146,122 @@ export const appRoutes: RouteObject[] = [
               },
               {
                 path: incidentViews[0],
-                element: <HomeIncidentsPage activeTab="reports" />,
+                lazy: async () => {
+                  const { IncidentReportsRoute } = await import(
+                    '@/app/router/lazy/home.routes'
+                  );
+                  return { Component: IncidentReportsRoute };
+                },
                 handle: { homeTab: 'incidents' },
               },
               {
                 path: incidentViews[1],
-                element: <HomeIncidentsPage activeTab="live" />,
+                lazy: async () => {
+                  const { IncidentLiveRoute } = await import(
+                    '@/app/router/lazy/home.routes'
+                  );
+                  return { Component: IncidentLiveRoute };
+                },
                 handle: { homeTab: 'incidents' },
               },
             ],
           },
           {
             path: 'budgets/:section?',
-            element: <HomeBudgetingRoute />,
+            lazy: async () => {
+              const { HomeBudgetingRoute } = await import(
+                '@/app/router/lazy/home-chart.routes'
+              );
+              return { Component: HomeBudgetingRoute };
+            },
             handle: { homeTab: 'budgets' },
           },
           {
             path: 'purchasing/:section?',
-            element: <HomePurchasingRoute />,
+            lazy: async () => {
+              const { PurchasingRoute } = await import(
+                '@/app/router/lazy/commerce.routes'
+              );
+              return { Component: PurchasingRoute };
+            },
             handle: { homeTab: 'purchasing' },
           },
           {
             path: 'sop-checklist',
-            element: <ChecklistPage />,
+            lazy: async () => {
+              const { ChecklistRoute } = await import(
+                '@/app/router/lazy/portal.routes'
+              );
+              return { Component: ChecklistRoute };
+            },
             handle: { homeTab: 'sop-checklist' },
           },
           {
             path: 'sla',
-            element: <SlaPage />,
+            lazy: async () => {
+              const { SlaRoute } = await import(
+                '@/app/router/lazy/portal.routes'
+              );
+              return { Component: SlaRoute };
+            },
             handle: { homeTab: 'sla' },
           },
           {
             path: 'reports',
-            element: <ReportsPage />,
+            lazy: async () => {
+              const { HomeReportsRoute } = await import(
+                '@/app/router/lazy/home.routes'
+              );
+              return { Component: HomeReportsRoute };
+            },
             handle: { homeTab: 'reports' },
           },
           {
             path: 'work-centre/:section?/:child?',
-            element: (
-              <WorkCentrePage
-                notFound={<NotFoundPage />}
-                renderCreateTask={() => <CreateTaskPage />}
-                renderEnquiries={(view) => <EnquiriesPage view={view} />}
-                renderObservations={(view) => <ObservationsPage view={view} />}
-                renderSnagLists={(view) => <SnagListsPage view={view} />}
-                renderTasks={() => <TasksPage />}
-              />
-            ),
+            lazy: async () => {
+              const { WorkCentreRoute } = await import(
+                '@/app/router/lazy/task.routes'
+              );
+              return { Component: WorkCentreRoute };
+            },
             handle: { homeTab: 'work-centre' },
           },
           {
             path: 'payment-settlement/:module',
-            element: <HomePaymentSettlementRoute />,
+            lazy: async () => {
+              const { PaymentSettlementRoute } = await import(
+                '@/app/router/lazy/commerce.routes'
+              );
+              return { Component: PaymentSettlementRoute };
+            },
             handle: { homeTab: 'payment-settlement' },
           },
           { path: '*', element: <NotFoundPage /> },
         ],
       },
       {
-        element: <HomeBannerLayout />,
+        lazy: async () => {
+          const { HomeBannerLayout } = await import('@/features/home');
+          return { Component: HomeBannerLayout };
+        },
         children: [
           {
             path: 'tasks/:taskId',
-            element: <TaskViewPage />,
+            lazy: async () => {
+              const { TaskViewRoute } = await import(
+                '@/app/router/lazy/task.routes'
+              );
+              return { Component: TaskViewRoute };
+            },
           },
           {
             path: 'tasks/:taskId/edit',
-            element: <TaskEditPage />,
+            lazy: async () => {
+              const { TaskEditRoute } = await import(
+                '@/app/router/lazy/task.routes'
+              );
+              return { Component: TaskEditRoute };
+            },
           },
         ],
       },
@@ -252,17 +271,32 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <BudgetingPage section="dashboard" />,
+            lazy: async () => {
+              const { BudgetingDashboardRoute } = await import(
+                '@/app/router/lazy/budgeting.routes'
+              );
+              return { Component: BudgetingDashboardRoute };
+            },
             handle: { reportKey: 'budgeting' },
           },
           {
             path: 'dashboard',
-            element: <BudgetingPage section="dashboard" />,
+            lazy: async () => {
+              const { BudgetingDashboardRoute } = await import(
+                '@/app/router/lazy/budgeting.routes'
+              );
+              return { Component: BudgetingDashboardRoute };
+            },
             handle: { reportKey: 'budgeting' },
           },
           {
             path: 'budgeting',
-            element: <BudgetingPage section="budgeting" />,
+            lazy: async () => {
+              const { BudgetingSectionRoute } = await import(
+                '@/app/router/lazy/budgeting.routes'
+              );
+              return { Component: BudgetingSectionRoute };
+            },
             handle: { reportKey: 'budgeting' },
           },
           { path: '*', element: <NotFoundPage /> },
@@ -274,7 +308,12 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <OvertimePage />,
+            lazy: async () => {
+              const { OvertimeRoute } = await import(
+                '@/app/router/lazy/portal.routes'
+              );
+              return { Component: OvertimeRoute };
+            },
             handle: { reportKey: 'overtime' },
           },
           { path: '*', element: <NavRoutePage /> },
@@ -286,7 +325,12 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <AppraisalPage />,
+            lazy: async () => {
+              const { AppraisalRoute } = await import(
+                '@/app/router/lazy/portal.routes'
+              );
+              return { Component: AppraisalRoute };
+            },
             handle: { reportKey: 'appraisal' },
           },
         ],
@@ -297,12 +341,22 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <ChecklistPage />,
+            lazy: async () => {
+              const { ChecklistRoute } = await import(
+                '@/app/router/lazy/portal.routes'
+              );
+              return { Component: ChecklistRoute };
+            },
             handle: { reportKey: 'checklist' },
           },
           {
             path: 'sla',
-            element: <SlaPage />,
+            lazy: async () => {
+              const { SlaRoute } = await import(
+                '@/app/router/lazy/portal.routes'
+              );
+              return { Component: SlaRoute };
+            },
             handle: { reportKey: 'sla' },
           },
           { path: '*', element: <NavRoutePage /> },
@@ -313,10 +367,23 @@ export const appRoutes: RouteObject[] = [
         element: <SectionLayout />,
         handle: { reportKey: 'history' },
         children: [
-          { index: true, element: <HistoryPage /> },
+          {
+            index: true,
+            lazy: async () => {
+              const { HistoryRoute } = await import(
+                '@/app/router/lazy/portal.routes'
+              );
+              return { Component: HistoryRoute };
+            },
+          },
           ...HISTORY_ROUTE_PATHS.slice(1).map((path) => ({
             path: path.slice('/history/'.length),
-            element: <HistoryPage />,
+            lazy: async () => {
+              const { HistoryRoute } = await import(
+                '@/app/router/lazy/portal.routes'
+              );
+              return { Component: HistoryRoute };
+            },
           })),
           { path: '*', element: <NotFoundPage /> },
         ],
@@ -327,7 +394,12 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <WorkflowsPage />,
+            lazy: async () => {
+              const { WorkflowsRoute } = await import(
+                '@/app/router/lazy/portal.routes'
+              );
+              return { Component: WorkflowsRoute };
+            },
             handle: { reportKey: 'workflows' },
           },
         ],
@@ -338,7 +410,12 @@ export const appRoutes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <NotificationsPage />,
+            lazy: async () => {
+              const { NotificationsRoute } = await import(
+                '@/app/router/lazy/portal.routes'
+              );
+              return { Component: NotificationsRoute };
+            },
             handle: {
               reportKey: 'notifications',
               reportTitleKey: 'routes.notifications',
@@ -348,14 +425,27 @@ export const appRoutes: RouteObject[] = [
       },
       {
         path: 'settings/configuration',
-        element: <SettingsConfigurationPage />,
+        lazy: async () => {
+          const { SettingsConfigurationRoute } = await import(
+            '@/app/router/lazy/portal.routes'
+          );
+          return { Component: SettingsConfigurationRoute };
+        },
       },
       {
         path: 'settings',
         element: <SectionLayout />,
         children: [{ path: '*', element: <NavRoutePage /> }],
       },
-      { path: 'reports', element: <ReportsLibraryPage /> },
+      {
+        path: 'reports',
+        lazy: async () => {
+          const { ReportsLibraryRoute } = await import(
+            '@/app/router/lazy/portal.routes'
+          );
+          return { Component: ReportsLibraryRoute };
+        },
+      },
       { path: 'reports/*', element: <NavRoutePage /> },
       mastersRoute('masters'),
       mastersRoute('masters-list'),

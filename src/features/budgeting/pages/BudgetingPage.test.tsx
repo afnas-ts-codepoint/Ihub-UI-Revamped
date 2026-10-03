@@ -14,7 +14,7 @@ afterEach(async () => {
 });
 
 describe('BudgetingPage', () => {
-  it('renders the dashboard fixture and reachable monthly utilisation chart', () => {
+  it('renders the dashboard fixture and reachable monthly utilisation chart', async () => {
     render(<BudgetingPage section="dashboard" />);
 
     expect(
@@ -25,7 +25,7 @@ describe('BudgetingPage', () => {
     expect(screen.getByText('KWD 1.9M')).toBeVisible();
     expect(screen.getByText('12')).toBeVisible();
     expect(
-      screen.getByRole('img', {
+      await screen.findByRole('img', {
         name: 'Budget utilisation by month, KWD thousands',
       }),
     ).toBeVisible();
